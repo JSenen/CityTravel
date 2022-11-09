@@ -4,9 +4,12 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LineServiceImpl implements LineService {
@@ -22,22 +25,36 @@ public class LineServiceImpl implements LineService {
 
     //Buscar por id
     @Override
-    public Line findById(long id) throws LineNoFoundException{
-
+    public Line findById(long id) throws LineNoFoundException {
         return lineRepository.findById(id)
-                .orElseThrow(new LineNoFoundException::new);
+                .orElseThrow(LineNoFoundException::new);
     }
+
     //Añadir uno nuevo
-
     @Override
-    public Line add(Line line) {
-        return lineRepository.save(line);
+    public Line add(Line line) throws LineNoFoundException{
+        Line newLine = lineRepository.save(line);
+        return newLine;
     }
 
     @Override
-    public void deleteLine(long id) throws LineNoFoundException{
+    public void deleteLine(long id) throws LineNoFoundException {
         Line delLine = lineRepository.findById(id)
-                        .orElseThrow(new LineNoFoundException::new);
-        lineRepository.delete(delLine);
+                .orElseThrow(LineNoFoundException::new);
+        lineRepository.deleteById(id);
+    }
+
+    @Override
+    public Line modyLine(long id, Line line) throws LineNoFoundException{
+        Line modyfLine = lineRepository.findById(id)
+                .orElseThrow(LineNoFoundException::new);
+        modyfLine.setCode(line.getCode());
+        modyfLine.setPeriod(line.getPeriod());
+        modyfLine.setStartloc(line.getStartloc());
+        modyfLine.setStoploc(line.getStoploc());
+
+        return lineRepository.save(modyfLine);
+
+
     }
 }

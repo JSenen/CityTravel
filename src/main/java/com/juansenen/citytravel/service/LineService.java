@@ -15,10 +15,12 @@ public interface LineService {
     Line findById(long id) throws LineNoFoundException;
 
     //Añadir uno
-    Line add(Line line);
+    Line add(Line line) throws LineNoFoundException;
 
     //Borrar uno
-    void deleteLine(long id) throws LineNoFoundException;
+    void deleteLine (long id) throws LineNoFoundException;
+    //Modificar uno
+    Line modyLine(long id, Line line) throws LineNoFoundException;
 
 
 }

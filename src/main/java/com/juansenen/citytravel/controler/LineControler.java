@@ -21,7 +21,7 @@ public class LineControler {
     //Listar todos
     @GetMapping("/line")
     public ResponseEntity<List<Line>> getLines(){
-        return new ResponseEntity<>(lineService.findAll(), HttpStatus.CREATED);
+        return new ResponseEntity<>(lineService.findAll(), HttpStatus.OK);
     }
 
     //Buscar por id
@@ -30,27 +30,31 @@ public class LineControler {
         Line line = lineService.findById(id);
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
-
-
     //Grabar linea
     @PostMapping("/line")
-    public Line addLine(@RequestBody Line line){
+    public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
         Line newline = lineService.add(line);
-        return newline;
+        return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
 
     //Borrar uno
 
     @DeleteMapping("/line/{id}")
-    public ResponseEntity<?> delLine(@PathVariable long id) throws LineNoFoundException{
+    public void delLine(@PathVariable long id) throws LineNoFoundException{
          lineService.deleteLine(id);
-         return ResponseEntity.notContent().build();
+    }
+    //Modificar 1 por id
+    @PutMapping("/line/{id}")
+    public  ResponseEntity<Line> modLine (@PathVariable long id,@RequestBody Line line) throws LineNoFoundException {
+        Line lineModif = lineService.modyLine(id, line);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(lineModif);
     }
     @ExceptionHandler(LineNoFoundException.class)
     public ResponseEntity<ErrorMessage> lineNoFoundException(LineNoFoundException lnfe){
         ErrorMessage errorMessage = new ErrorMessage(404, lnfe.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
     }
+
 
 
 }
