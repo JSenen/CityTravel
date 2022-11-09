@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,10 @@ public class LineServiceImpl implements LineService {
 
     //Buscar por id
     @Override
-    public Line findById(long id) {
-        return lineRepository.findById(id);
+    public Line findById(long id) throws LineNoFoundException{
+
+        return lineRepository.findById(id)
+                .orElseThrow(new LineNoFoundException::new);
     }
     //Añadir uno nuevo
 
@@ -32,8 +35,9 @@ public class LineServiceImpl implements LineService {
     }
 
     @Override
-    public void deleteLine(long id) {
-        Line delLine = lineRepository.findById(id);
+    public void deleteLine(long id) throws LineNoFoundException{
+        Line delLine = lineRepository.findById(id)
+                        .orElseThrow(new LineNoFoundException::new);
         lineRepository.delete(delLine);
     }
 }
