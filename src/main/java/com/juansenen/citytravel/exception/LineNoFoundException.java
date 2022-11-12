@@ -9,3 +9,5 @@ public class LineNoFoundException extends Exception{
         super(message);
     }
  }
+
+ //TODO Crear resto de excepciones

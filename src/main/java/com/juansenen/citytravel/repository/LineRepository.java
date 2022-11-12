@@ -14,11 +14,5 @@ public interface LineRepository extends CrudRepository<Line, Long> {
     //Listar todos
     List<Line> findAll();
 
-    //Listar por id
-
-
-
-
-    //Borrar por id
 
 }
