@@ -4,12 +4,9 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class LineServiceImpl implements LineService {
@@ -53,12 +50,14 @@ public class LineServiceImpl implements LineService {
         modyfLine.setStartloc(line.getStartloc());
         modyfLine.setStoploc(line.getStoploc());
         modyfLine.setNight(line.isNight());
-        modyfLine.setWifi(line.isWifi());
+        modyfLine.setHasWifi(line.isHasWifi());
 
         return lineRepository.save(modyfLine);
 
-
     }
 
-
+    @Override
+    public List<Line> findByHasWifi(boolean hasWifi) {
+        return lineRepository.findByHasWifi(hasWifi);
+    }
 }

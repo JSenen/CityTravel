@@ -4,6 +4,7 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
+import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,13 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getLines(){
-        return new ResponseEntity<>(lineService.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<Line>> getLines(@RequestParam(name="wifi", defaultValue = "") String wifi){
+        if (wifi.equals("")){
+            return new ResponseEntity<>(lineService.findAll(), HttpStatus.OK);
+        }else {
+            boolean hasWifi = Boolean.parseBoolean(wifi);
+            return ResponseEntity.ok(lineService.findByHasWifi(hasWifi));
+        }
     }
 
     //Buscar por id

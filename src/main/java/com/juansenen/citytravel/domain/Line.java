@@ -2,11 +2,8 @@ package com.juansenen.citytravel.domain;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
-import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -29,7 +26,7 @@ public class Line {
     @Column
     private boolean night;
     @Column
-    private boolean wifi;
+    private boolean hasWifi;
     @Column
     private String startloc;
     @Column

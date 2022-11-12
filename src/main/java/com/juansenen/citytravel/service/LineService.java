@@ -4,7 +4,6 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface LineService {
 
@@ -21,6 +20,8 @@ public interface LineService {
     void deleteLine (long id) throws LineNoFoundException;
     //Modificar uno
     Line modyLine(long id, Line line) throws LineNoFoundException;
+
+    List<Line> findByHasWifi(boolean hasWifi);
 
 
 

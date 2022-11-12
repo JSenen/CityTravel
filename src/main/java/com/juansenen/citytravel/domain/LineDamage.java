@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
@@ -17,8 +20,12 @@ public class LineDamage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
+    @NotNull(message = "Campo no puede estar vacio")
+    @NotBlank(message = "Campo debe rellenarse")
     private Date datestart;
     @Column
+    @NotNull(message = "Campo no puede estar vacio")
+    @NotBlank(message = "Campo debe rellenarse")
     private Date datefinish;
 
     //TODO Relacionar averias con lineas
