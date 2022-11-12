@@ -26,7 +26,7 @@ public class Line {
     @Column
     private boolean night;
     @Column
-    private boolean hasWifi;
+    private boolean wifi;
     @Column
     private String startloc;
     @Column

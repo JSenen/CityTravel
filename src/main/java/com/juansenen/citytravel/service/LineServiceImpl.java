@@ -50,14 +50,14 @@ public class LineServiceImpl implements LineService {
         modyfLine.setStartloc(line.getStartloc());
         modyfLine.setStoploc(line.getStoploc());
         modyfLine.setNight(line.isNight());
-        modyfLine.setHasWifi(line.isHasWifi());
+        modyfLine.setWifi(line.isWifi());
 
         return lineRepository.save(modyfLine);
 
     }
 
     @Override
-    public List<Line> findByHasWifi(boolean hasWifi) {
-        return lineRepository.findByHasWifi(hasWifi);
+    public List<Line> findByWifi(boolean hasWifi) throws LineNoFoundException {
+        return lineRepository.findByWifi(hasWifi);
     }
 }

@@ -21,7 +21,7 @@ public interface LineService {
     //Modificar uno
     Line modyLine(long id, Line line) throws LineNoFoundException;
 
-    List<Line> findByHasWifi(boolean hasWifi);
+    List<Line> findByWifi(boolean hasWifi) throws LineNoFoundException;
 
 
 

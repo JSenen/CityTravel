@@ -4,7 +4,6 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,6 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 public class LineControler {
@@ -26,14 +24,17 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getLines(@RequestParam(name="wifi", defaultValue = "") String wifi){
+    public ResponseEntity<List<Line>> getAll(@RequestParam (name="wifi", defaultValue = "", required = false) String wifi) throws LineNoFoundException {
         if (wifi.equals("")){
             return new ResponseEntity<>(lineService.findAll(), HttpStatus.OK);
-        }else {
-            boolean hasWifi = Boolean.parseBoolean(wifi);
-            return ResponseEntity.ok(lineService.findByHasWifi(hasWifi));
+        }else{
+            boolean haswifi = Boolean.parseBoolean(wifi);
+            return ResponseEntity.ok(lineService.findByWifi(haswifi));
         }
+
+
     }
+
 
     //Buscar por id
     @GetMapping("/line/{id}")
@@ -79,11 +80,11 @@ public class LineControler {
         return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorMessage> handleException (Exception exc){
+    //@ExceptionHandler(Exception.class)
+    //public ResponseEntity<ErrorMessage> handleException (Exception exc){
 
-        ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
-        return new ResponseEntity<>(errorMessage,HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    //    ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
+    //    return new ResponseEntity<>(errorMessage,HttpStatus.INTERNAL_SERVER_ERROR);
+    //}
 
 }
