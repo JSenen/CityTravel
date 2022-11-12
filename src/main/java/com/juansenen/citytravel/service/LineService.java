@@ -18,5 +18,7 @@ public interface LineService {
     //Borrar uno
     void deleteLine(long id);
 
+    //Modificar una linea
+    void modiLine(long id, Line line);
 
 }

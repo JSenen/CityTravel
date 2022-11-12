@@ -41,5 +41,11 @@ public class LineControler {
          lineService.deleteLine(id);
     }
 
+    //Modificar uno
+    @PatchMapping("/line/{id}")
+    public void modLine(@PathVariable long id, @RequestBody Line line){
+        lineService.modiLine(id, line);
+    }
+
 
 }

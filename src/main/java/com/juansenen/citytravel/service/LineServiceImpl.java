@@ -36,4 +36,17 @@ public class LineServiceImpl implements LineService {
         Line delLine = lineRepository.findById(id);
         lineRepository.delete(delLine);
     }
+
+    @Override
+    public void modiLine(long id, Line line) {
+        Line modline = findById(id);
+        modline.setCode(line.getCode());
+        modline.setNight(line.isNight());
+        modline.setPeriod(line.getPeriod());
+        modline.setStartloc(line.getStartloc());
+        modline.setStoploc(line.getCode());
+        modline.setWifi(line.isWifi());
+        lineRepository.save(modline);
+
+    }
 }
