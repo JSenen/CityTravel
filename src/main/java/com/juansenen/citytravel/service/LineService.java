@@ -22,7 +22,6 @@ public interface LineService {
     //Modificar uno
     Line modyLine(long id, Line line) throws LineNoFoundException;
 
-    //Modificar una linea
-    void modiLine(long id, Line line);
+
 
 }

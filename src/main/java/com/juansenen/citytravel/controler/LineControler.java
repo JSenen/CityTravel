@@ -44,7 +44,7 @@ public class LineControler {
          lineService.deleteLine(id);
     }
     //Modificar 1 por id
-    @PutMapping("/line/{id}")
+    @PatchMapping("/line/{id}")
     public  ResponseEntity<Line> modLine (@PathVariable long id,@RequestBody Line line) throws LineNoFoundException {
         Line lineModif = lineService.modyLine(id, line);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(lineModif);
@@ -55,12 +55,6 @@ public class LineControler {
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
     }
 
-
-    //Modificar uno
-    @PatchMapping("/line/{id}")
-    public void modLine(@PathVariable long id, @RequestBody Line line){
-        lineService.modiLine(id, line);
-    }
 
 
 }

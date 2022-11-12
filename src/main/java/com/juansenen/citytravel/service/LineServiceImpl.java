@@ -52,22 +52,13 @@ public class LineServiceImpl implements LineService {
         modyfLine.setPeriod(line.getPeriod());
         modyfLine.setStartloc(line.getStartloc());
         modyfLine.setStoploc(line.getStoploc());
+        modyfLine.setNight(line.isNight());
+        modyfLine.setWifi(line.isWifi());
 
         return lineRepository.save(modyfLine);
 
 
     }
 
-    @Override
-    public void modiLine(long id, Line line) {
-        Line modline = findById(id);
-        modline.setCode(line.getCode());
-        modline.setNight(line.isNight());
-        modline.setPeriod(line.getPeriod());
-        modline.setStartloc(line.getStartloc());
-        modline.setStoploc(line.getCode());
-        modline.setWifi(line.isWifi());
-        lineRepository.save(modline);
 
-    }
 }
