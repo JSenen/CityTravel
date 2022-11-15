@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.sql.Time;
 
 @Data
 @AllArgsConstructor
@@ -22,17 +23,15 @@ public class Line {
     @Column
     @NotNull(message = "El campo no puede estar vacio")
     @NotBlank(message = "El campo es necesario")
-    private String code;
+    private String codeLine;
     @Column
-    private boolean night;
+    private String color;
     @Column
-    private boolean wifi;
+    private Time firstTime;
     @Column
-    private String startloc;
+    private Time lastTime;
     @Column
-    private String stoploc;
-    @Column
-    private int period;
+    private int stopTime;
 
     //TODO Estudiar posibles validaciones
 }

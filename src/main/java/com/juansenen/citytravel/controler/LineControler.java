@@ -24,17 +24,10 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getAll(@RequestParam (name="wifi", defaultValue = "", required = false) String wifi) throws LineNoFoundException {
-        if (wifi.equals("")){
-            return new ResponseEntity<>(lineService.findAll(), HttpStatus.OK);
-        }else{
-            boolean haswifi = Boolean.parseBoolean(wifi);
-            return ResponseEntity.ok(lineService.findByWifi(haswifi));
-        }
+    public ResponseEntity<List<Line>> getAll() throws LineNoFoundException {
 
-
+            return ResponseEntity.ok(lineService.findAll());
     }
-
 
     //Buscar por id
     @GetMapping("/line/{id}")

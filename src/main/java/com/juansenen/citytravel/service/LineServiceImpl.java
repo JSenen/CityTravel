@@ -45,19 +45,14 @@ public class LineServiceImpl implements LineService {
     public Line modyLine(long id, Line line) throws LineNoFoundException{
         Line modyfLine = lineRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
-        modyfLine.setCode(line.getCode());
-        modyfLine.setPeriod(line.getPeriod());
-        modyfLine.setStartloc(line.getStartloc());
-        modyfLine.setStoploc(line.getStoploc());
-        modyfLine.setNight(line.isNight());
-        modyfLine.setWifi(line.isWifi());
+        modyfLine.setCodeLine(line.getCodeLine());
+        modyfLine.setColor(line.getCodeLine());
+        modyfLine.setStopTime(line.getStopTime());
+        modyfLine.setFirstTime(line.getFirstTime());
+        modyfLine.setLastTime(line.getLastTime());
 
         return lineRepository.save(modyfLine);
 
     }
 
-    @Override
-    public List<Line> findByWifi(boolean hasWifi) throws LineNoFoundException {
-        return lineRepository.findByWifi(hasWifi);
-    }
 }
