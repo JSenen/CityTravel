@@ -7,7 +7,8 @@
 ![Github](https://img.shields.io/badge/github-black?style=for-the-badge&logo=github&logoColor=white)
 
 ### Requisitos (1 pto cada uno, obligatorios) 
-1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación. :white-check-mark:
+1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación.
+   (https://raw.githubusercontent.com/JSenen/CityTravel/develop/img/ER_DB.PNG)
 2. Se tendrá que poder realizar, el menos, las operaciones CRUD sobre cada una de las clases. Se controlarán, al menos, los errores 400, 404 y 500
 3. Añade opciones de filtrado para al menos una operación en cada clase en donde se puedan indicar hasta 3 campos diferentes (solo aplicable para operaciones GET)
 4. Prepara una colección Postman que permita probar todas las operaciones desarrolladas
