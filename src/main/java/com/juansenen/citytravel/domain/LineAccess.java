@@ -26,10 +26,9 @@ public class LineAccess {
     @Column
     private boolean elevator;//
 
-    //@ManyToOne
-    //@JoinColumn(name="id_access")
-    //private LineStation lineStation;
-
+    @ManyToOne
+    @JoinColumn(name = "line_station_id")
+    private LineStation lineStation;
 
 
 }

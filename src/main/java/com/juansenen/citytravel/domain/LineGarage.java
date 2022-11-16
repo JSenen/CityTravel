@@ -29,13 +29,13 @@ public class LineGarage {
     @Column(name="paint_service")
     private boolean paintService;
 
-    //@OneToMany(mappedBy = "garage")
-    //@JsonBackReference(value="garage_trains")
-    //private List<LineTrain> lineTrains;
+    @ManyToOne
+    @JoinColumn(name = "line_station_id")
+    private LineStation lineStation;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_station")
-    //private LineStation lineStation;
+    @OneToMany
+    @JoinColumn(name="linetrain")
+    private List<LineTrain> lineTrainList;
 
 
 }

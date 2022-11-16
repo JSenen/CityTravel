@@ -34,19 +34,17 @@ public class LineStation {
     @Column(name="taxi_station")
     private boolean taxiStation;
 
-    //@OneToMany(mappedBy = "line_access")
-    //@JsonBackReference(value = "linesation_access")
-    //private List<LineStation> lineStationList;
+    @OneToMany(mappedBy = "lineStation")
+    private List<LineAccess> lineAccessList;
 
-    //@OneToMany(mappedBy = "line_garage")
-    //@JsonBackReference(value = "linesation_garage")
-    //private List<LineGarage> lineGarageList;
+    @OneToMany(mappedBy = "lineStation")
+    private List<LineGarage> lineGarageList;
 
-    //@ManyToMany(mappedBy = "line")
-    //private List<Line> lineList;
-
-
-
+    @ManyToMany
+    @JoinTable(name = "stops",
+            joinColumns = @JoinColumn(name = "station_id"),
+            inverseJoinColumns = @JoinColumn(name = "line_id"))
+    private List<Line> lineList;
 
 
 }

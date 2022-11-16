@@ -36,18 +36,18 @@ public class Line {
     @Column(name="stop_line")
     private int stopTime;
 
-    //TODO revisar relaciones todas las clases
+    @ManyToMany
+    @JoinTable(name = "service",
+            joinColumns = @JoinColumn(name="line_id"),
+            inverseJoinColumns = @JoinColumn(name="train_id"))
+    private List<LineTrain> lineTrainList;
 
-    //@ManyToMany
-    //@JoinTable(name = "services",
-    //        joinColumns = @JoinColumn(name = "id_line"),
-    //        inverseJoinColumns = @JoinColumn(name="id_train"))
-    //private List<LineTrain> lineTrainList;
+    @ManyToMany
+    @JoinTable(name="stops",
+            joinColumns = @JoinColumn(name="line_id"),
+            inverseJoinColumns = @JoinColumn(name="station_id"))
+    private List<LineStation> lineStationList;
 
-    //@ManyToMany
-    //@JoinTable(name="stops",
-    //        joinColumns = @JoinColumn(name = "id_line"),
-    //        inverseJoinColumns = @JoinColumn(name="id_station"))
-    //private List<LineStation> lineStationList;
+
 
 }

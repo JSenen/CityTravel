@@ -28,12 +28,15 @@ public class LineTrain {
     @Column
     private int year;
 
-    //@ManyToOne
-    //@JoinColumn(name="id_garage")
-    //private LineGarage lineGarage;
+    @ManyToOne
+    @JoinColumn(name = "line_garage_id")
+    private LineTrain lineTrain;
 
-    //@ManyToMany(mappedBy = "line")
-    //private List<Line> lineList;
+    @ManyToMany
+    @JoinTable(name="service",
+            joinColumns = @JoinColumn(name = "train_id"),
+            inverseJoinColumns = @JoinColumn(name = "line_id"))
+    private List<Line> lineList;
 
 
 }
