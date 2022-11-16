@@ -1,14 +1,14 @@
 package com.juansenen.citytravel.domain;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 
 import java.time.LocalTime;
 import java.util.List;
@@ -24,8 +24,6 @@ public class Line {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name="code_line")
-    @NotNull(message = "El campo no puede estar vacio")
-    @NotBlank(message = "El campo es necesario")
     private String codeLine;
     @Column
     private String color;

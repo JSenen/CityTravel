@@ -10,4 +10,5 @@ import java.util.List;
 public interface LineTrainRepository extends CrudRepository<LineTrain,Long> {
 
     List<LineTrain> findAll();
+
 }

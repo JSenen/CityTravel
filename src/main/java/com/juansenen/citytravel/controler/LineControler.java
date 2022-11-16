@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.dto.LineDTO;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
@@ -37,8 +38,8 @@ public class LineControler {
     }
     //Grabar linea
     @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@Valid @RequestBody Line line) throws LineNoFoundException{
-        Line newline = lineService.add(line);
+    public ResponseEntity<Line> addLine(@Valid @RequestBody LineDTO lineDTO) throws LineNoFoundException{
+        Line newline = lineService.add(lineDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
 
