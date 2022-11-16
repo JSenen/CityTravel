@@ -32,7 +32,7 @@ public class LineTrain {
     @JoinColumn(name = "line_garage_id")
     private LineTrain lineTrain;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(name="service",
             joinColumns = @JoinColumn(name = "train_id"),
             inverseJoinColumns = @JoinColumn(name = "line_id"))

@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.LineTrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import java.util.List;

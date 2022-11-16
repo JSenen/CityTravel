@@ -1,11 +1,8 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.LineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
-import com.juansenen.citytravel.repository.LineTrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +14,7 @@ public class LineServiceImpl implements LineService {
     @Autowired
     private LineRepository lineRepository;
 
-    @Autowired
-    private LineTrainRepository lineTrainRepository;
+
 
     //Listar todos
     @Override
@@ -35,20 +31,8 @@ public class LineServiceImpl implements LineService {
 
     //Añadir uno nuevo
     @Override
-    public Line add(LineDTO lineDTO) throws LineNoFoundException{
-        Line newLine = new Line();
-        newLine.setCodeLine(lineDTO.getCodeLine());
-        newLine.setColor(lineDTO.getColor());
-        newLine.setFirstTime(lineDTO.getFirsTime());
-        newLine.setLastTime(lineDTO.getLastTime());
-        newLine.setStopTime(lineDTO.getStopTime());
-
-        LineTrain train = lineTrainRepository.findById(lineDTO.getLineId())
-                .orElseThrow(LineNoFoundException::new);
-
-
-        //TODO TERMINAR DTO
-
+    public Line add(Line line) throws LineNoFoundException{
+        Line newLine = lineRepository.save(line);
         return newLine;
     }
 

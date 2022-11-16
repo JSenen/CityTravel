@@ -1,7 +1,10 @@
 package com.juansenen.citytravel.service;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.LineTrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ public class LineTrainServiceImpl implements LineTrainService {
 
     @Autowired
     LineTrainRepository lineTrainRepository;
+
 
     @Override
     public List<LineTrain> findAll() {
@@ -34,8 +38,9 @@ public class LineTrainServiceImpl implements LineTrainService {
     }
 
     @Override
-    public LineTrain addTrain(LineTrain lineTrain) {
-        return lineTrainRepository.save(lineTrain);
+    public LineTrain addTrain(LineTrain lineTRain) {
+
+        return lineTrainRepository.save(lineTRain);
     }
 
     @Override

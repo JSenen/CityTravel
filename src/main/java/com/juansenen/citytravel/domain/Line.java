@@ -34,7 +34,7 @@ public class Line {
     @Column(name="stop_line")
     private int stopTime;
 
-    @ManyToMany
+    @ManyToOne
     @JoinTable(name = "service",
             joinColumns = @JoinColumn(name="line_id"),
             inverseJoinColumns = @JoinColumn(name="train_id"))

@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.LineTrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineTrainService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.dto.LineDTO;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
@@ -12,7 +11,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,8 +36,8 @@ public class LineControler {
     }
     //Grabar linea
     @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@Valid @RequestBody LineDTO lineDTO) throws LineNoFoundException{
-        Line newline = lineService.add(lineDTO);
+    public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
+        Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
 

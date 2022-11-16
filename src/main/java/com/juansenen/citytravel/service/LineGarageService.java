@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.dto.LineGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import java.util.List;
@@ -12,5 +13,5 @@ public interface LineGarageService {
     Optional<LineGarage> findById(long id);
     LineGarage delGarage (long id) throws LineNoFoundException;
     LineGarage modGarage (long id, LineGarage lineGarage) throws LineNoFoundException;
-    LineGarage addGarage (LineGarage lineGarage);
+    LineGarage addGarage (LineGarageDTO lineGarageDTO) throws LineNoFoundException;
 }

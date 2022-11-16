@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.dto.LineGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineGarageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,8 @@ public class LineGarageControler {
     }
 
     @PostMapping("/linegarage")
-    public ResponseEntity<LineGarage> newAccess(@RequestBody LineGarage lineGarage){
-        LineGarage newLineGarage = lineGarageService.addGarage(lineGarage);
+    public ResponseEntity<LineGarage> newAccess(@RequestBody LineGarageDTO lineGarageDTO){
+        LineGarage newLineGarage = lineGarageService.addGarage(lineGarageDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newLineGarage);
     }
     @PutMapping("/linegarage/{id}")
