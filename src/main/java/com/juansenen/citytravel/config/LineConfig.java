@@ -1,15 +1,17 @@
-package com.juansenen.citytravel;
+package com.juansenen.citytravel.config;
 
+
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.ui.ModelMap;
+
 
 @Configuration
 public class LineConfig {
 
     //TODO ModelMapper
-   // @Bean
-   // public ModelMap modelMap(){
-   //     return new modelmap();
-   //}
+   @Bean
+   public ModelMapper modelMapper(){
+       return new ModelMapper();
+   }
 }
