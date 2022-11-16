@@ -3,6 +3,7 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,11 @@ public class LineControler {
     @ExceptionHandler(LineNoFoundException.class)
     public ResponseEntity<ErrorMessage> lineNoFoundException(LineNoFoundException lnfe){
         ErrorMessage errorMessage = new ErrorMessage(404, lnfe.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(StationNoFoundException.class)
+    public ResponseEntity<ErrorMessage> stationNoFound(StationNoFoundException snfe){
+        ErrorMessage errorMessage = new ErrorMessage(404, snfe.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
     }
 

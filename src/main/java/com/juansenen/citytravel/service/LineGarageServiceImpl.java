@@ -4,6 +4,7 @@ import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.LineGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineGarageRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,8 @@ public class LineGarageServiceImpl implements LineGarageService{
         return delGarage;
     }
 
-    @Override //TODO Cambiar excepcion a StationNoFound (Crearla)
-    public LineGarage addGarage(LineGarageDTO lineGarageDTO) throws LineNoFoundException {
+    @Override
+    public LineGarage addGarage(LineGarageDTO lineGarageDTO) throws StationNoFoundException {
         LineGarage newGarage = new LineGarage();
         newGarage.setCodeGarage(lineGarageDTO.getCodeGarage());
         newGarage.setRrhh(lineGarageDTO.isRrhh());
@@ -47,7 +48,7 @@ public class LineGarageServiceImpl implements LineGarageService{
         newGarage.setTaller(lineGarageDTO.isTaller());
 
         LineStation station = lineStationRepository.findById(lineGarageDTO.getStationId())
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(StationNoFoundException::new);
         return lineGarageRepository.save(newGarage);
 
     }
