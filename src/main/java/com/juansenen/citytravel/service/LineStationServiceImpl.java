@@ -26,10 +26,17 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public void delStation(long id) throws LineNoFoundException {
+    public LineStation delStation(long id) throws LineNoFoundException {
         LineStation delStation = lineStationRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         lineStationRepository.deleteById(id);
+        return delStation;
+    }
+
+    @Override
+    public LineStation addStation(LineStation lineStation) {
+        LineStation newStation = lineStationRepository.save(lineStation);
+        return newStation;
     }
 
     @Override

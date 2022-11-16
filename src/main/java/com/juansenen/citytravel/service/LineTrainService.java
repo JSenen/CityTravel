@@ -10,7 +10,7 @@ public interface LineTrainService {
 
     List<LineTrain> findAll();
     Optional<LineTrain> findById(long id) throws LineNoFoundException;
-    void delTrain(long id) throws LineNoFoundException;
+    LineTrain delTrain(long id) throws LineNoFoundException;
     LineTrain addTrain(LineTrain lineTrain);
     LineTrain modTrain(long id, LineTrain lineTrain) throws LineNoFoundException;
 }

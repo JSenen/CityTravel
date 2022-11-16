@@ -26,10 +26,11 @@ public class LineTrainServiceImpl implements LineTrainService {
     }
 
     @Override
-    public void delTrain(long id) throws LineNoFoundException {
+    public LineTrain delTrain(long id) throws LineNoFoundException {
         LineTrain delTrain = lineTrainRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         lineTrainRepository.deleteById(id);
+        return delTrain;
     }
 
     @Override

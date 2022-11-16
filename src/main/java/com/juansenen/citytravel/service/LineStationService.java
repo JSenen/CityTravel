@@ -10,6 +10,7 @@ public interface LineStationService {
 
     List<LineStation> findAll();
     Optional<LineStation> findById(long id);
-    void delStation (long id) throws LineNoFoundException;
+    LineStation delStation (long id) throws LineNoFoundException;
     LineStation modStation (long id, LineStation lineStation) throws LineNoFoundException;
+    LineStation addStation (LineStation lineStation);
 }

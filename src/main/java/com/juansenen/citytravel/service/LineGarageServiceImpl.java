@@ -25,10 +25,17 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public void delGarage(long id) throws LineNoFoundException {
+    public LineGarage delGarage(long id) throws LineNoFoundException {
         LineGarage delGarage = lineGarageRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         lineGarageRepository.deleteById(id);
+        return delGarage;
+    }
+
+    @Override
+    public LineGarage addGarage(LineGarage lineGarage) {
+        LineGarage newGarage = lineGarageRepository.save(lineGarage);
+        return newGarage;
     }
 
     @Override

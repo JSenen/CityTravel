@@ -10,6 +10,7 @@ public interface LineGarageService {
 
     List<LineGarage> findAll();
     Optional<LineGarage> findById(long id);
-    void delGarage (long id) throws LineNoFoundException;
+    LineGarage delGarage (long id) throws LineNoFoundException;
     LineGarage modGarage (long id, LineGarage lineGarage) throws LineNoFoundException;
+    LineGarage addGarage (LineGarage lineGarage);
 }
