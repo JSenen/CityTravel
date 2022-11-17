@@ -24,7 +24,7 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getAll() throws LineNoFoundException {
+    public ResponseEntity<List<Line>> getAll(){
 
             return ResponseEntity.ok(lineService.findAll());
     }

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LineConfig {
 
-    //TODO ModelMapper
    @Bean
    public ModelMapper modelMapper(){
        return new ModelMapper();

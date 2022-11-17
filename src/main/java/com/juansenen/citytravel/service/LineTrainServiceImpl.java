@@ -8,6 +8,7 @@ import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +22,13 @@ public class LineTrainServiceImpl implements LineTrainService {
     private LineTrainRepository lineTrainRepository;
     @Autowired
     private LineRepository lineRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
 
     @Override
     public List<LineTrain> findAll() {
+
         return lineTrainRepository.findAll();
     }
 
@@ -42,15 +46,15 @@ public class LineTrainServiceImpl implements LineTrainService {
     }
     //TODO terminar DTO
     @Override
-    public LineTrain addTrain(TrainDTO trainDTO) throws LineNoFoundException {
+    public LineTrain addNewTrain(TrainDTO trainDTO) throws LineNoFoundException {
         LineTrain newTrain = new LineTrain();
 
-        newTrain.setModel(trainDTO.getModel());
+        modelMapper.map(trainDTO, newTrain);
 
         Line line = lineRepository.findById(trainDTO.getLineId())
                 .orElseThrow(LineNoFoundException::new);
         newTrain.setLine(line);
-        return newTrain;
+        return lineTrainRepository.save(newTrain);
     }
 
     @Override

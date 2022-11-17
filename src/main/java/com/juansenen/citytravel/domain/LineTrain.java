@@ -17,7 +17,7 @@ public class LineTrain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(name = "code_train")
     private String code;
     @Column
     private String model;
@@ -37,6 +37,8 @@ public class LineTrain {
     @ManyToOne
     @JoinColumn(name = "line_id")
     private Line line;
+
+
 
 
 }

@@ -44,11 +44,6 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage findByCode(String code) {
-        return lineGarageRepository.findByCode(code);
-    }
-
-    @Override
     public LineGarage modGarage(long id, LineGarage lineGarage) throws LineNoFoundException {
         LineGarage modGarage = lineGarageRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);

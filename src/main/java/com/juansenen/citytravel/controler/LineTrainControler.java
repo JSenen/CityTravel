@@ -18,29 +18,29 @@ public class LineTrainControler {
     @Autowired
     LineTrainService lineTrainService;
 
-    @GetMapping("/linetrain")
+    @GetMapping("/train")
     public ResponseEntity<List<LineTrain>> getAll(){
         return ResponseEntity.ok(lineTrainService.findAll());
     }
 
-    @GetMapping("/linetrain/{id}")
+    @GetMapping("/train/{id}")
     public ResponseEntity<Optional<LineTrain>> getById(@PathVariable long id) throws LineNoFoundException {
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
 
-    @PostMapping("/linetrain")
-    public ResponseEntity<LineTrain> addOneTrain(@RequestBody TrainDTO trainDTO){
-        LineTrain newTrain = lineTrainService.addTrain(trainDTO);
+    @PostMapping("/train")
+    public ResponseEntity<LineTrain> addOneTrain(@RequestBody TrainDTO trainDTO) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(trainDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
-    @PutMapping("/linetrain/{id}")
+    @PutMapping("/train/{id}")
     public ResponseEntity<LineTrain> modTrain(@PathVariable long id, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
         LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
     }
 
-    @DeleteMapping("/linetrain/{id}")
+    @DeleteMapping("/train/{id}")
     public ResponseEntity<Void> delOneTrain(@PathVariable long id) throws LineNoFoundException {
         LineTrain delTrain = lineTrainService.delTrain(id);
         return ResponseEntity.noContent().build();

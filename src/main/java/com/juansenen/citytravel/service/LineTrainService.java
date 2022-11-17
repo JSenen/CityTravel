@@ -12,6 +12,6 @@ public interface LineTrainService {
     List<LineTrain> findAll();
     Optional<LineTrain> findById(long id) throws LineNoFoundException;
     LineTrain delTrain(long id) throws LineNoFoundException;
-    LineTrain addTrain(TrainDTO trainDTO) throws LineNoFoundException;
+    LineTrain addNewTrain(TrainDTO trainDTO) throws LineNoFoundException;
     LineTrain modTrain(long id, LineTrain lineTrain) throws LineNoFoundException;
 }

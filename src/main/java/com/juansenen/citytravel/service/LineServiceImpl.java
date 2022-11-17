@@ -48,7 +48,7 @@ public class LineServiceImpl implements LineService {
         Line modyfLine = lineRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         modyfLine.setCodeLine(line.getCodeLine());
-        modyfLine.setColor(line.getCodeLine());
+        modyfLine.setColor(line.getColor());
         modyfLine.setStopTime(line.getStopTime());
         modyfLine.setFirstTime(line.getFirstTime());
         modyfLine.setLastTime(line.getLastTime());

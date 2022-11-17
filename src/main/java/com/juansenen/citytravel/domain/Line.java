@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,6 +36,7 @@ public class Line {
     private int stopTime;
 
     @OneToMany(mappedBy = "line")
+    @JsonBackReference(value="train_list")
     private List<LineTrain> lineTrainList;
 
     @ManyToMany
