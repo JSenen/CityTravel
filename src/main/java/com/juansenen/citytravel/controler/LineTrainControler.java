@@ -1,7 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.LineTrainDTO;
+import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineTrainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,8 @@ public class LineTrainControler {
     }
 
     @PostMapping("/linetrain")
-    public ResponseEntity<LineTrain> addOneTrain(@RequestBody LineTrain lineTrain){
-        LineTrain newTrain = lineTrainService.addTrain(lineTrain);
+    public ResponseEntity<LineTrain> addOneTrain(@RequestBody TrainDTO trainDTO){
+        LineTrain newTrain = lineTrainService.addTrain(trainDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
     @PutMapping("/linetrain/{id}")

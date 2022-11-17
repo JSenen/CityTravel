@@ -18,6 +18,8 @@ public class LineTrain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
+    private String code;
+    @Column
     private String model;
     @Column(name="num_wagons")
     private int numWagons;

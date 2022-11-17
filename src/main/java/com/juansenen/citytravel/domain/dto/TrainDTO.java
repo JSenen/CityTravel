@@ -7,15 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LineTrainDTO {
+public class TrainDTO {
 
     private String model;
-    private int numWagons;
-    private int numSeats;
-    private int numStandU;
-    private int year;
-
-    private long lineId;
-
-
+    private Long lineId;
 }

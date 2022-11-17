@@ -1,8 +1,6 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.LineGarage;
-import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.dto.LineGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineGarageRepository;
@@ -39,18 +37,15 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage addGarage(LineGarageDTO lineGarageDTO) throws StationNoFoundException {
-        LineGarage newGarage = new LineGarage();
-        newGarage.setCodeGarage(lineGarageDTO.getCodeGarage());
-        newGarage.setRrhh(lineGarageDTO.isRrhh());
-        newGarage.setPaintService(lineGarageDTO.isPaintService());
-        newGarage.setSurface(lineGarageDTO.getSurface());
-        newGarage.setTaller(lineGarageDTO.isTaller());
+    public LineGarage addGarage(LineGarage lineGarage) throws StationNoFoundException {
+        LineGarage newGarage = lineGarageRepository.save(lineGarage);
+        return newGarage;
 
-        LineStation station = lineStationRepository.findById(lineGarageDTO.getStationId())
-                .orElseThrow(StationNoFoundException::new);
-        return lineGarageRepository.save(newGarage);
+    }
 
+    @Override
+    public LineGarage findByCode(String code) {
+        return lineGarageRepository.findByCode(code);
     }
 
     @Override
