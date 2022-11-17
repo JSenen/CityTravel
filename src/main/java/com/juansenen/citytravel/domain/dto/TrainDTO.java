@@ -18,6 +18,8 @@ public class TrainDTO {
     private int numStandUp;
     private int year;
 
-    private Long lineId;
+
+
+
 
 }

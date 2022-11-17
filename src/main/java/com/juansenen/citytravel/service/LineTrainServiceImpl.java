@@ -17,7 +17,6 @@ import java.util.Optional;
 
 @Service
 public class LineTrainServiceImpl implements LineTrainService {
-
     @Autowired
     private LineTrainRepository lineTrainRepository;
     @Autowired
@@ -44,14 +43,13 @@ public class LineTrainServiceImpl implements LineTrainService {
         lineTrainRepository.deleteById(id);
         return delTrain;
     }
-    //TODO terminar DTO
     @Override
-    public LineTrain addNewTrain(TrainDTO trainDTO) throws LineNoFoundException {
+    public LineTrain addNewTrain(TrainDTO trainDTO, long lineId) throws LineNoFoundException {
         LineTrain newTrain = new LineTrain();
 
         modelMapper.map(trainDTO, newTrain);
 
-        Line line = lineRepository.findById(trainDTO.getLineId())
+        Line line = lineRepository.findById(lineId)
                 .orElseThrow(LineNoFoundException::new);
         newTrain.setLine(line);
         return lineTrainRepository.save(newTrain);
@@ -71,4 +69,9 @@ public class LineTrainServiceImpl implements LineTrainService {
 
         return lineTrainRepository.save(modtrain);
     }
+    @Override
+    public List<LineTrain> findByLine(Line line) {
+        return lineTrainRepository.findByLineId(line);
+    }
+
 }
