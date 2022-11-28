@@ -32,11 +32,10 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public LineAccess delAccess(long id) throws LineNoFoundException {
+    public void  delAccess(long id) throws LineNoFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
-
-        return delAccess;
+        lineAccessRepository.deleteById(id);
     }
 
     @Override

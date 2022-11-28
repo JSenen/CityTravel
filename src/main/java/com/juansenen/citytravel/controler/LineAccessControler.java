@@ -17,31 +17,31 @@ public class LineAccessControler {
     @Autowired
     LineAccessService lineAccessService;
 
-    @GetMapping("/lineaccess")
+    @GetMapping("/access")
     public ResponseEntity<List<LineAccess>> getAll(){
         return ResponseEntity.ok(lineAccessService.findAll());
     }
 
-    @GetMapping("/lineaccess/{id}")
+    @GetMapping("/access/{id}")
     public ResponseEntity<Optional<LineAccess>> getById(@PathVariable long id){
         Optional<LineAccess> accessId = lineAccessService.findById(id);
         return new ResponseEntity<>(accessId, HttpStatus.OK);
     }
 
-    @PostMapping("/lineaccess")
+    @PostMapping("/access")
     public ResponseEntity<LineAccess> newAccess(@RequestBody LineAccess lineAccess){
         LineAccess newlinaccess = lineAccessService.addAccess(lineAccess);
         return ResponseEntity.status(HttpStatus.CREATED).body(newlinaccess);
     }
-    @PutMapping("/lineaccess/{id}")
+    @PutMapping("/access/{id}")
     public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws LineNoFoundException {
         LineAccess changeAccess = lineAccessService.modyAccess(id, lineAccess);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeAccess);
     }
 
-    @DeleteMapping("/lineaccess/{id}")
+    @DeleteMapping("/access/{id}")
     public ResponseEntity<Void> delOneAccess(@PathVariable long id) throws LineNoFoundException {
-        LineAccess accesdel = lineAccessService.delAccess(id);
+        lineAccessService.delAccess(id);
         return ResponseEntity.noContent().build();
     }
 }
