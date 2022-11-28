@@ -18,29 +18,29 @@ public class LineStationControler {
     @Autowired
     LineStationService lineStationService;
 
-    @GetMapping("/linestation")
+    @GetMapping("/station")
     public ResponseEntity<List<LineStation>> getAll(){
         return ResponseEntity.ok(lineStationService.findAll());
     }
 
-    @GetMapping("/linestation/{id}")
+    @GetMapping("/station/{id}")
     public ResponseEntity<Optional<LineStation>> getById(@PathVariable long id) throws LineNoFoundException {
         Optional<LineStation> stationId = lineStationService.findById(id);
         return new ResponseEntity<>(stationId, HttpStatus.OK);
     }
 
-    @PostMapping("/linestation")
+    @PostMapping("/station")
     public ResponseEntity<LineStation> addOneStation(@RequestBody LineStation lineStation){
         LineStation newStation = lineStationService.addStation(lineStation);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
-    @PutMapping("/linestation/{id}")
+    @PutMapping("/station/{id}")
     public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws LineNoFoundException {
         LineStation changeStation = lineStationService.modStation(id, lineStation);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeStation);
     }
 
-    @DeleteMapping("/linestation/{id}")
+    @DeleteMapping("/station/{id}")
     public ResponseEntity<Void> delOneStation(@PathVariable long id) throws LineNoFoundException {
         LineStation stationDel = lineStationService.delStation(id);
         return ResponseEntity.noContent().build();

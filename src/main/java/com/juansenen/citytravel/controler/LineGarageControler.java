@@ -18,29 +18,29 @@ public class LineGarageControler {
     @Autowired
     LineGarageService lineGarageService;
 
-    @GetMapping("/linegarage")
+    @GetMapping("/garage")
     public ResponseEntity<List<LineGarage>> getAll(){
         return ResponseEntity.ok(lineGarageService.findAll());
     }
 
-    @GetMapping("/linegarage/{id}")
+    @GetMapping("/garage/{id}")
     public ResponseEntity<Optional<LineGarage>> getById(@PathVariable long id){
         Optional<LineGarage> garageId = lineGarageService.findById(id);
         return new ResponseEntity<>(garageId, HttpStatus.OK);
     }
 
-    @PostMapping("/linegarage")
+    @PostMapping("/garage")
     public ResponseEntity<LineGarage> addGarage(@RequestBody LineGarage lineGarage) throws StationNoFoundException {
         LineGarage newLineGarage = lineGarageService.addGarage(lineGarage);
         return ResponseEntity.status(HttpStatus.CREATED).body(newLineGarage);
     }
-    @PutMapping("/linegarage/{id}")
+    @PutMapping("/garage/{id}")
     public ResponseEntity<LineGarage> modyGarage(@PathVariable long id, @RequestBody LineGarage lineGarage) throws LineNoFoundException {
         LineGarage changeGarage = lineGarageService.modGarage(id, lineGarage);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeGarage);
     }
 
-    @DeleteMapping("/linegarage/{id}")
+    @DeleteMapping("/garage/{id}")
     public ResponseEntity<Void> delOneGarage(@PathVariable long id) throws LineNoFoundException {
         LineGarage delOneGarage = lineGarageService.delGarage(id);
         return ResponseEntity.noContent().build();

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -22,9 +23,9 @@ public class LineStation {
     @Column
     private String name;
     @Column
-    private LocalTime hopen;
+    private LocalDateTime hopen;
     @Column
-    private LocalTime hclose;
+    private LocalDateTime hclose; //TODO Revisar trabajo con horas. SQl y Java
     @Column(name="pto_info")
     private boolean ptoInfo;
     @Column
