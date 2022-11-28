@@ -1,8 +1,14 @@
 package com.juansenen.citytravel.service;
 
+
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+
+import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +17,17 @@ import java.util.Optional;
 
 @Service
 public class LineTrainServiceImpl implements LineTrainService {
-
     @Autowired
-    LineTrainRepository lineTrainRepository;
+    private LineTrainRepository lineTrainRepository;
+    @Autowired
+    private LineRepository lineRepository;
+    @Autowired
+    private ModelMapper modelMapper;
+
 
     @Override
     public List<LineTrain> findAll() {
+
         return lineTrainRepository.findAll();
     }
 
@@ -32,22 +43,35 @@ public class LineTrainServiceImpl implements LineTrainService {
         lineTrainRepository.deleteById(id);
         return delTrain;
     }
-
     @Override
-    public LineTrain addTrain(LineTrain lineTrain) {
-        return lineTrainRepository.save(lineTrain);
+    public LineTrain addNewTrain(TrainDTO trainDTO, long lineId) throws LineNoFoundException {
+        LineTrain newTrain = new LineTrain();
+
+        modelMapper.map(trainDTO, newTrain);
+
+        Line line = lineRepository.findById(lineId)
+                .orElseThrow(LineNoFoundException::new);
+        newTrain.setLine(line);
+        return lineTrainRepository.save(newTrain);
     }
 
     @Override
     public LineTrain modTrain(long id, LineTrain lineTrain) throws LineNoFoundException {
-        LineTrain modTrain = lineTrainRepository.findById(id).
-                orElseThrow(LineNoFoundException::new);
-        modTrain.setModel(lineTrain.getModel());
-        modTrain.setNumSeats(lineTrain.getNumSeats());
-        modTrain.setNumStandUp(lineTrain.getNumStandUp());
-        modTrain.setNumWagons(lineTrain.getNumWagons());
-        modTrain.setYear(lineTrain.getYear());
 
-        return lineTrainRepository.save(modTrain);
+        LineTrain modtrain = lineTrainRepository.findById(id)
+                .orElseThrow(LineNoFoundException::new);
+        modtrain.setCode(lineTrain.getCode());
+        modtrain.setModel(lineTrain.getModel());
+        modtrain.setNumSeats(lineTrain.getNumSeats());
+        modtrain.setNumStandUp(lineTrain.getNumStandUp());
+        modtrain.setNumWagons(lineTrain.getNumWagons());
+        modtrain.setYear(lineTrain.getYear());
+
+        return lineTrainRepository.save(modtrain);
     }
+    @Override
+    public List<LineTrain> findByLine(Line line) {
+        return lineTrainRepository.findByLineId(line);
+    }
+
 }

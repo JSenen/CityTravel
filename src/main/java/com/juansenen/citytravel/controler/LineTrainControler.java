@@ -1,7 +1,10 @@
 package com.juansenen.citytravel.controler;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineTrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,31 +18,39 @@ import java.util.Optional;
 public class LineTrainControler {
 
     @Autowired
-    LineTrainService lineTrainService;
+    private LineTrainService lineTrainService;
+    @Autowired
+    private LineService lineService;
 
-    @GetMapping("/linetrain")
+    @GetMapping("/train")
     public ResponseEntity<List<LineTrain>> getAll(){
         return ResponseEntity.ok(lineTrainService.findAll());
     }
 
-    @GetMapping("/linetrain/{id}")
+    @GetMapping("/train/{id}")
     public ResponseEntity<Optional<LineTrain>> getById(@PathVariable long id) throws LineNoFoundException {
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
+    @GetMapping("/line/{id}/train") //TODO Areglar
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long id) throws LineNoFoundException {
+        Line line = lineService.findById(id);
+        List<LineTrain> trains = lineTrainService.findByLine(line);
+        return ResponseEntity.ok(trains);
+    }
 
-    @PostMapping("/linetrain")
-    public ResponseEntity<LineTrain> addOneTrain(@RequestBody LineTrain lineTrain){
-        LineTrain newTrain = lineTrainService.addTrain(lineTrain);
+    @PostMapping("/train/{lineId}/train")
+    public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody TrainDTO trainDTO) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(trainDTO, lineId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
-    @PutMapping("/linetrain/{id}")
+    @PutMapping("/train/{id}")
     public ResponseEntity<LineTrain> modTrain(@PathVariable long id, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
         LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
     }
 
-    @DeleteMapping("/linetrain/{id}")
+    @DeleteMapping("/train/{id}")
     public ResponseEntity<Void> delOneTrain(@PathVariable long id) throws LineNoFoundException {
         LineTrain delTrain = lineTrainService.delTrain(id);
         return ResponseEntity.noContent().build();

@@ -17,6 +17,8 @@ public class LineTrain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "code_train")
+    private String code;
     @Column
     private String model;
     @Column(name="num_wagons")
@@ -32,11 +34,11 @@ public class LineTrain {
     @JoinColumn(name = "line_garage_id")
     private LineTrain lineTrain;
 
-    @ManyToMany
-    @JoinTable(name="service",
-            joinColumns = @JoinColumn(name = "train_id"),
-            inverseJoinColumns = @JoinColumn(name = "line_id"))
-    private List<Line> lineList;
+    @ManyToOne
+    @JoinColumn(name = "line_id")
+    private Line line;
+
+
 
 
 }

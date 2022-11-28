@@ -10,4 +10,5 @@ import java.util.List;
 public interface LineGarageRepository extends CrudRepository<LineGarage,Long> {
 
     List<LineGarage> findAll();
+
 }

@@ -1,9 +1,12 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
+import com.juansenen.citytravel.service.LineTrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +14,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,15 +22,17 @@ import java.util.Map;
 public class LineControler {
 
     @Autowired
-    LineService lineService;
+    private LineService lineService;
+    @Autowired
+    private LineTrainService lineTrainService;
+
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getAll() throws LineNoFoundException {
+    public ResponseEntity<List<Line>> getAll(){
 
             return ResponseEntity.ok(lineService.findAll());
     }
-
     //Buscar por id
     @GetMapping("/line/{id}")
     public ResponseEntity<Line> getLine(@PathVariable long id) throws LineNoFoundException {
@@ -37,7 +41,7 @@ public class LineControler {
     }
     //Grabar linea
     @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@Valid @RequestBody Line line) throws LineNoFoundException{
+    public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
@@ -58,6 +62,11 @@ public class LineControler {
     @ExceptionHandler(LineNoFoundException.class)
     public ResponseEntity<ErrorMessage> lineNoFoundException(LineNoFoundException lnfe){
         ErrorMessage errorMessage = new ErrorMessage(404, lnfe.getMessage());
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(StationNoFoundException.class)
+    public ResponseEntity<ErrorMessage> stationNoFound(StationNoFoundException snfe){
+        ErrorMessage errorMessage = new ErrorMessage(404, snfe.getMessage());
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
     }
 
