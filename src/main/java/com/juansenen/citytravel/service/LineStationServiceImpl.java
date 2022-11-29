@@ -2,6 +2,7 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public Optional<LineStation> findById(long id) {
+    public Optional<LineStation> findById(long id) throws StationNoFoundException {
         return lineStationRepository.findById(id);
     }
 

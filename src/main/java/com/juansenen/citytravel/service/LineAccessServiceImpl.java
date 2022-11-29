@@ -1,8 +1,14 @@
 package com.juansenen.citytravel.service;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineAccess;
+import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineAccessRepository;
+import com.juansenen.citytravel.repository.LineStationRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +20,10 @@ public class LineAccessServiceImpl implements LineAccessService{
 
     @Autowired
     LineAccessRepository lineAccessRepository;
+    @Autowired
+    LineStationRepository lineStationRepository;
+    @Autowired
+    ModelMapper modelMapper;
 
     @Override
     public List<LineAccess> findAll() {
@@ -26,9 +36,14 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public LineAccess addAccess(LineAccess lineAccess) {
-        LineAccess newAccess = lineAccessRepository.save(lineAccess);
-        return newAccess;
+    public LineAccess addAccess(LineAccess lineAccess, long stationId) throws StationNoFoundException {
+        LineAccess newAccess = new LineAccess();
+
+        modelMapper.map(lineAccess, newAccess);
+        LineStation lineStation = lineStationRepository.findById(stationId)
+                .orElseThrow(StationNoFoundException::new);
+        newAccess.setLineStation(lineStation);
+        return lineAccessRepository.save(newAccess);
     }
 
     @Override

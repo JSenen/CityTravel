@@ -29,8 +29,12 @@ public class LineGarage {
     @Column(name="paint_service")
     private boolean paintService;
 
-    //Relacion garages - trenes 1:M
-    @OneToMany(mappedBy = "garages")
+    @ManyToOne
+    @JoinColumn(name = "line_station_id")
+    private LineStation lineStation;
+
+    @OneToMany
+    @JoinColumn(name="linetrain")
     private List<LineTrain> lineTrainList;
 
 

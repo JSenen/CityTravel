@@ -1,8 +1,8 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +24,8 @@ public class LineStationControler {
     }
 
     @GetMapping("/station/{id}")
-    public ResponseEntity<Optional<LineStation>> getById(@PathVariable long id) throws LineNoFoundException {
-        Optional<LineStation> stationId = lineStationService.findById(id);
+    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id) throws StationNoFoundException {
+       Optional<LineStation> stationId = lineStationService.findById(id);
         return new ResponseEntity<>(stationId, HttpStatus.OK);
     }
 

@@ -34,8 +34,7 @@ public class LineStation {
     @Column(name="taxi_station")
     private boolean taxiStation;
 
-    //Relacion estaciones - accesos 1:M
-    @OneToMany(mappedBy = "stations")
+    @OneToMany(mappedBy = "lineStation")
     private List<LineAccess> lineAccessList;
 
     @OneToMany(mappedBy = "lineStation")

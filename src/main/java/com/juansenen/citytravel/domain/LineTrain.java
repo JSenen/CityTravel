@@ -36,10 +36,10 @@ public class LineTrain {
     private Date datebuy;
 
     //Relacion trenes- garage M:1
-    @ManyToOne
-    @JoinColumn(name = "line_garage_id")
-    @JsonIgnore
-    private LineGarage garages;
+    //@ManyToOne
+    //@JoinColumn(name = "line_garage_id")
+    //@JsonIgnore
+    //private LineGarage garages;
 
     //Relación trenes - lineas M:1
     @ManyToOne

@@ -1,8 +1,12 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineAccess;
+import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineAccessService;
+import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +20,8 @@ public class LineAccessControler {
 
     @Autowired
     LineAccessService lineAccessService;
+    @Autowired
+    LineStationService lineStationService;
 
     @GetMapping("/access")
     public ResponseEntity<List<LineAccess>> getAll(){
@@ -28,10 +34,11 @@ public class LineAccessControler {
         return new ResponseEntity<>(accessId, HttpStatus.OK);
     }
 
-    @PostMapping("/access")
-    public ResponseEntity<LineAccess> newAccess(@RequestBody LineAccess lineAccess){
-        LineAccess newlinaccess = lineAccessService.addAccess(lineAccess);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newlinaccess);
+    //TODO Terminar post Accesos
+    @PostMapping("/access/{stationid}/access")
+    public ResponseEntity<LineAccess> newAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws StationNoFoundException {
+        LineAccess newOneAccess = lineAccessService.addAccess(lineAccess, stationid);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
     @PutMapping("/access/{id}")
     public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws LineNoFoundException {
