@@ -1,14 +1,10 @@
 package com.juansenen.citytravel.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.mapping.Set;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -38,7 +34,8 @@ public class LineStation {
     @Column(name="taxi_station")
     private boolean taxiStation;
 
-    @OneToMany(mappedBy = "lineStation")
+    //Relacion estaciones - accesos 1:M
+    @OneToMany(mappedBy = "stations")
     private List<LineAccess> lineAccessList;
 
     @OneToMany(mappedBy = "lineStation")

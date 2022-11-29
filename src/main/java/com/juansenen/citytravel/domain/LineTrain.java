@@ -35,15 +35,20 @@ public class LineTrain {
     @JsonFormat(pattern = "MM/dd/yyyy")
     private Date datebuy;
 
+    //Relacion trenes- garage M:1
     @ManyToOne
     @JoinColumn(name = "line_garage_id")
-    private LineGarage lineGarage;
+    @JsonIgnore
+    private LineGarage garages;
 
+    //Relación trenes - lineas M:1
     @ManyToOne
     @JoinColumn(name = "line_id")
     //@JsonBackReference
     @JsonIgnore
     private Line line;
+
+
 
 
 

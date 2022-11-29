@@ -3,9 +3,10 @@ package com.juansenen.citytravel.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+
 
 @Data
 @AllArgsConstructor
@@ -26,9 +27,11 @@ public class LineAccess {
     @Column
     private boolean elevator;//
 
+    //Relación Accesos - Estaciones M:1
     @ManyToOne
     @JoinColumn(name = "line_station_id")
-    private LineStation lineStation;
+    @JsonIgnore
+    private LineStation stations;
 
 
 }
