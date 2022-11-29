@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +17,7 @@ public class TrainDTO {
     private int numWagons;
     private int numSeats;
     private int numStandUp;
-    private int year;
+    private Date datebuy;
 
 
 

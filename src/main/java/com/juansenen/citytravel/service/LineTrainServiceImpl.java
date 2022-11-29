@@ -44,10 +44,10 @@ public class LineTrainServiceImpl implements LineTrainService {
         return delTrain;
     }
     @Override
-    public LineTrain addNewTrain(TrainDTO trainDTO, long lineId) throws LineNoFoundException {
+    public LineTrain addNewTrain(LineTrain lineTrain, long lineId) throws LineNoFoundException {
         LineTrain newTrain = new LineTrain();
 
-        modelMapper.map(trainDTO, newTrain);
+        modelMapper.map(lineTrain, newTrain);
 
         Line line = lineRepository.findById(lineId)
                 .orElseThrow(LineNoFoundException::new);
@@ -65,13 +65,13 @@ public class LineTrainServiceImpl implements LineTrainService {
         modtrain.setNumSeats(lineTrain.getNumSeats());
         modtrain.setNumStandUp(lineTrain.getNumStandUp());
         modtrain.setNumWagons(lineTrain.getNumWagons());
-        modtrain.setYear(lineTrain.getYear());
+        modtrain.setDatebuy(lineTrain.getDatebuy());
 
         return lineTrainRepository.save(modtrain);
     }
-    @Override
-    public List<LineTrain> findByLine(Line line) {
-        return lineTrainRepository.findByLineId(line);
-    }
 
+    @Override
+    public List<LineTrain> findByLineId(Line line) {
+        return lineTrainRepository.findTrainsByLineId(line);
+    }
 }

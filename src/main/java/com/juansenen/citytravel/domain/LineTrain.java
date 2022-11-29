@@ -1,12 +1,15 @@
 package com.juansenen.citytravel.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -28,14 +31,16 @@ public class LineTrain {
     @Column(name = "num_stadup")
     private int numStandUp;
     @Column
-    private int year;
+    @JsonFormat(pattern = "MM/dd/yyyy")
+    private Date datebuy;
 
     @ManyToOne
     @JoinColumn(name = "line_garage_id")
-    private LineTrain lineTrain;
+    private LineGarage lineGarage;
 
     @ManyToOne
     @JoinColumn(name = "line_id")
+    @JsonBackReference
     private Line line;
 
 

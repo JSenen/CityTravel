@@ -32,16 +32,10 @@ public class LineTrainControler {
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
-    @GetMapping("/line/{id}/train") //TODO Areglar
-    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long id) throws LineNoFoundException {
-        Line line = lineService.findById(id);
-        List<LineTrain> trains = lineTrainService.findByLine(line);
-        return ResponseEntity.ok(trains);
-    }
 
     @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody TrainDTO trainDTO) throws LineNoFoundException {
-        LineTrain newTrain = lineTrainService.addNewTrain(trainDTO, lineId);
+    public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
     @PutMapping("/train/{id}")

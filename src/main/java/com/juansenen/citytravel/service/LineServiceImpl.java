@@ -44,7 +44,7 @@ public class LineServiceImpl implements LineService {
     public void deleteLine(long id) throws LineNoFoundException {
         Line delLine = lineRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
-        lineRepository.deleteById(id);
+        lineRepository.delete(delLine);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class LineServiceImpl implements LineService {
         modyfLine.setStopTime(line.getStopTime());
         modyfLine.setFirstTime(line.getFirstTime());
         modyfLine.setLastTime(line.getLastTime());
+
 
         return lineRepository.save(modyfLine);
 

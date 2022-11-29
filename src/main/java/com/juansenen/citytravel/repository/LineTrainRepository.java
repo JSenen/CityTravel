@@ -11,6 +11,6 @@ import java.util.List;
 public interface LineTrainRepository extends CrudRepository<LineTrain,Long> {
 
     List<LineTrain> findAll();
-    List<LineTrain> findByLineId(Line line);
 
+    List<LineTrain> findTrainsByLineId(Line line);
 }

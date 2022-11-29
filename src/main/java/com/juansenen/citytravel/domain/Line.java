@@ -2,7 +2,8 @@ package com.juansenen.citytravel.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,15 +30,17 @@ public class Line {
     @Column
     private String color;
     @Column(name = "first_time")
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime firstTime;
     @Column(name = "last_time")
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime lastTime;
     @Column(name="stop_line")
     private int stopTime;
 
-    @OneToMany(mappedBy = "line")
-    @JsonBackReference(value="train_list")
-    private List<LineTrain> lineTrainList;
+    @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true) //Para borrar en cascada
+    @JsonManagedReference
+    private List<LineTrain> trains;
 
     @ManyToMany
     @JoinTable(name="stops",
