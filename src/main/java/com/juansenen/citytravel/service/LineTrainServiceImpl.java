@@ -72,6 +72,6 @@ public class LineTrainServiceImpl implements LineTrainService {
 
     @Override
     public List<LineTrain> findByLineId(Line line) {
-        return lineTrainRepository.findTrainsByLineId(line);
+        return lineTrainRepository.findAllTrainsByLineId(line);
     }
 }

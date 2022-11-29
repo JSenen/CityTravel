@@ -2,6 +2,7 @@ package com.juansenen.citytravel.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +41,8 @@ public class LineTrain {
 
     @ManyToOne
     @JoinColumn(name = "line_id")
-    @JsonBackReference
+    //@JsonBackReference
+    @JsonIgnore
     private Line line;
 
 

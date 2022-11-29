@@ -39,7 +39,7 @@ public class Line {
     private int stopTime;
 
     @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true) //Para borrar en cascada
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<LineTrain> trains;
 
     @ManyToMany

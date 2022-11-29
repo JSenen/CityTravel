@@ -39,7 +39,13 @@ public class LineControler {
         Line line = lineService.findById(id);
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
-
+    @GetMapping("/line/{lineId}/trains")
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws LineNoFoundException {
+        Line line = lineService.findById(lineId);
+        List<LineTrain> trains = null;
+        trains = lineTrainService.findByLineId(line);
+        return ResponseEntity.ok(trains);
+    }
     //Grabar linea
     @PostMapping("/line")
     public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{

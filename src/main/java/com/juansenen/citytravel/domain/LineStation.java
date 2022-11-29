@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +24,11 @@ public class LineStation {
     @Column
     private String name;
     @Column
-    private LocalDateTime hopen;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime hopen;
     @Column
-    private LocalDateTime hclose; //TODO Revisar trabajo con horas. SQl y Java
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime hclose;
     @Column(name="pto_info")
     private boolean ptoInfo;
     @Column
