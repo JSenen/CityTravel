@@ -1,12 +1,18 @@
 package com.juansenen.citytravel.service;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
+import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +21,10 @@ public class LineStationServiceImpl implements LineStationService{
 
     @Autowired
     LineStationRepository lineStationRepository;
+    @Autowired
+    LineRepository lineRepository;
+    @Autowired
+    ModelMapper modelMapper;
 
     @Override
     public List<LineStation> findAll() {
@@ -36,10 +46,21 @@ public class LineStationServiceImpl implements LineStationService{
 
     @Override
     public LineStation addStation(LineStation lineStation) {
-        LineStation newStation = lineStationRepository.save(lineStation);
-        return newStation;
+        LineStation newStation = new LineStation();
+
+        modelMapper.map(lineStation, newStation);
+
+        return lineStationRepository.save(newStation);
     }
 
+    @Override
+    public LineStation addNewStationByLine(LineStation lineStation, long lineId) throws LineNoFoundException {
+        LineStation newStation = new LineStation();
+        modelMapper.map(lineStation,newStation);
+        Line line = lineRepository.findById(lineId).orElseThrow(LineNoFoundException::new);
+        newStation.setLinestation(line);
+        return lineStationRepository.save(newStation);
+    }
     @Override
     public LineStation modStation(long id, LineStation lineStation) throws LineNoFoundException {
         LineStation modStation = lineStationRepository.findById(id)
@@ -54,4 +75,6 @@ public class LineStationServiceImpl implements LineStationService{
 
         return lineStationRepository.save(modStation);
     }
+
+
 }

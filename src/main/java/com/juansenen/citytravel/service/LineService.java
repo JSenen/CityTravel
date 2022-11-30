@@ -1,10 +1,11 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import java.util.List;
+import java.util.Set;
 
 public interface LineService {
 

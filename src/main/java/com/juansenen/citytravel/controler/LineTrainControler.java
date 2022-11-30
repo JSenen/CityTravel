@@ -32,6 +32,11 @@ public class LineTrainControler {
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
+    @GetMapping("/train/{lineId}/trains")
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId (@PathVariable long lineId){
+        List<LineTrain> trainList = lineTrainService.findByLineId(lineId);
+        return new ResponseEntity<>(trainList, HttpStatus.OK);
+    }
 
     @PostMapping("/train/{lineId}/train")
     public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {

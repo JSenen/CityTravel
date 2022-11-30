@@ -1,12 +1,12 @@
 package com.juansenen.citytravel.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+
 
 @Data
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public class LineAccess {
     @Column
     private String street;
     @Column
-    private String num;
+    private int num;
     @Column
     private float latitude;
     @Column
@@ -28,9 +28,9 @@ public class LineAccess {
     private boolean elevator;//
 
     @ManyToOne
-    @JoinColumn(name = "line_station_id")
-    @JsonIgnore
-    private LineStation lineStation;
+    @JoinColumn(name = "station_id")
+    @JsonBackReference
+    private LineStation lineStationAccess;
 
 
 }

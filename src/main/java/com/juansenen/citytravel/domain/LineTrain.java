@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -47,6 +48,10 @@ public class LineTrain {
     //@JsonBackReference
     @JsonIgnore
     private Line line;
+
+
+
+
 
 
 

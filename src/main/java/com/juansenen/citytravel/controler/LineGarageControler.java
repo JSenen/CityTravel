@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineGarageService;
@@ -33,6 +34,11 @@ public class LineGarageControler {
     public ResponseEntity<LineGarage> addGarage(@RequestBody LineGarage lineGarage) throws StationNoFoundException {
         LineGarage newLineGarage = lineGarageService.addGarage(lineGarage);
         return ResponseEntity.status(HttpStatus.CREATED).body(newLineGarage);
+    }
+    @PostMapping("/garage/{stationId}/garage")
+    public ResponseEntity<LineGarage> addOneTrain(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws StationNoFoundException {
+        LineGarage newGarage = lineGarageService.addNewGarByLine(lineGarage, stationId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }
     @PutMapping("/garage/{id}")
     public ResponseEntity<LineGarage> modyGarage(@PathVariable long id, @RequestBody LineGarage lineGarage) throws LineNoFoundException {
