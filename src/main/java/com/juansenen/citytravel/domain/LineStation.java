@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,9 @@ import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -42,11 +45,10 @@ public class LineStation {
     @OneToMany(mappedBy = "lineStationGarage")
     private List<LineGarage> lineGarageList;
 
-    @ManyToMany
-    @JoinTable(name = "rel_station_lines",
-            joinColumns = @JoinColumn(name = "station_id"),
-            inverseJoinColumns = @JoinColumn(name = "line_id"))
-    private List<Line> StationlineList;
+    @ManyToOne
+    @JoinColumn(name = "station_id")
+    @JsonIgnore
+    private Line linestation;
 
 
 }

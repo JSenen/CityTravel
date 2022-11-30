@@ -13,7 +13,9 @@ import javax.persistence.*;
 
 
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -42,11 +44,9 @@ public class Line {
     //@JsonManagedReference
     private List<LineTrain> trains;
 
-    @ManyToMany
-    @JoinTable(name="rel_station_lines",
-            joinColumns = @JoinColumn(name="line_id"),
-            inverseJoinColumns = @JoinColumn(name="station_id"))
-    private List<LineStation> lineStationList;
+    @OneToMany(mappedBy = "linestation")
+    private List<LineStation> stations;
+
 
 
 

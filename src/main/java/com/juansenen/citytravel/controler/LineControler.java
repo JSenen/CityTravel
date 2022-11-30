@@ -1,11 +1,14 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
+import com.juansenen.citytravel.service.LineStationService;
 import com.juansenen.citytravel.service.LineTrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @RestController
 public class LineControler {
@@ -25,6 +29,8 @@ public class LineControler {
     private LineService lineService;
     @Autowired
     private LineTrainService lineTrainService;
+    @Autowired
+    private LineStationService lineStationService;
 
 
     //Listar todos
@@ -52,7 +58,11 @@ public class LineControler {
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
-
+    @PostMapping("/station/{lineId}/station")
+    public ResponseEntity<LineStation> addOneLine(@PathVariable long lineId, @RequestBody LineStation lineStation) throws LineNoFoundException {
+        LineStation newStation = lineStationService.addNewStationByLine(lineStation, lineId);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
+    }
     //Borrar uno
 
     @DeleteMapping("/line/{id}")

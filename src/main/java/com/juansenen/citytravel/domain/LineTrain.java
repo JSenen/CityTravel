@@ -49,9 +49,7 @@ public class LineTrain {
     @JsonIgnore
     private Line line;
 
-    //Relacion liineas-estaciones M:M
-    @ManyToMany(mappedBy = "StationlineList")
-    private List<LineStation> linesStationList;
+
 
 
 

@@ -1,10 +1,12 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,7 @@ public class LineStationControler {
         LineStation newStation = lineStationService.addStation(lineStation);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
+
 
     @PutMapping("/station/{id}")
     public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws LineNoFoundException {
