@@ -1,8 +1,6 @@
 package com.juansenen.citytravel.controler;
 
-import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineTrainService;

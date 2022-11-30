@@ -3,7 +3,6 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
 import com.juansenen.citytravel.repository.LineRepository;

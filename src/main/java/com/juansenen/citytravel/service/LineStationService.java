@@ -1,8 +1,6 @@
 package com.juansenen.citytravel.service;
 
-import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 
@@ -19,4 +17,9 @@ public interface LineStationService {
 
 
     LineStation addNewStationByLine(LineStation lineStation, long lineId) throws LineNoFoundException;
+
+    List<LineStation> findAllWifi(boolean hasWifi);
+
+    List<LineStation> findAllHasBusStation(boolean busStation);
+
 }

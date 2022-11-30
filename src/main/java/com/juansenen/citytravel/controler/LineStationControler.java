@@ -1,12 +1,10 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +19,13 @@ public class LineStationControler {
     LineStationService lineStationService;
 
     @GetMapping("/station")
-    public ResponseEntity<List<LineStation>> getAll(){
-        return ResponseEntity.ok(lineStationService.findAll());
+    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi) {
+        if (wifi.equals("")) {
+            return ResponseEntity.ok(lineStationService.findAll());
+        } else {
+            boolean haswifi = Boolean.parseBoolean(wifi);
+            return ResponseEntity.ok(lineStationService.findAllWifi(haswifi));
+        }
     }
 
     @GetMapping("/station/{id}")

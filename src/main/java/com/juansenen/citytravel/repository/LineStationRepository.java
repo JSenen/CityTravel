@@ -10,5 +10,7 @@ import java.util.List;
 public interface LineStationRepository extends CrudRepository<LineStation,Long> {
 
     List<LineStation> findAll();
+    List<LineStation> wifi(boolean wifi);
+    List<LineStation> busStation(boolean busStation);
 
 }
