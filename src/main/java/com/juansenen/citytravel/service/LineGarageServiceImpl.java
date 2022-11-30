@@ -1,10 +1,14 @@
 package com.juansenen.citytravel.service;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineGarageRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,8 @@ public class LineGarageServiceImpl implements LineGarageService{
     LineGarageRepository lineGarageRepository;
     @Autowired
     LineStationRepository lineStationRepository;
+    @Autowired
+    ModelMapper modelMapper;
     @Override
     public List<LineGarage> findAll() {
         return lineGarageRepository.findAll();
@@ -44,6 +50,20 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
+    public LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException {
+
+        LineGarage newGarage = new LineGarage();
+
+        modelMapper.map(lineGarage, newGarage);
+
+        LineStation lineStation = lineStationRepository.findById(stationId)
+                .orElseThrow(StationNoFoundException::new);
+
+        newGarage.setLineStationGarage(lineStation);
+        return lineGarageRepository.save(newGarage);
+    }
+
+    @Override
     public LineGarage modGarage(long id, LineGarage lineGarage) throws LineNoFoundException {
         LineGarage modGarage = lineGarageRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
@@ -52,7 +72,6 @@ public class LineGarageServiceImpl implements LineGarageService{
         modGarage.setRrhh(lineGarage.isRrhh());
         modGarage.setSurface(lineGarage.getSurface());
         modGarage.setTaller(lineGarage.isTaller());
-        modGarage.setLineStation(lineGarage.getLineStation());
         modGarage.setLineTrainList(lineGarage.getLineTrainList());
 
         return lineGarageRepository.save(modGarage);

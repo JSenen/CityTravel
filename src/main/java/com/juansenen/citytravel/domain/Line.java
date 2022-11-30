@@ -43,7 +43,7 @@ public class Line {
     private List<LineTrain> trains;
 
     @ManyToMany
-    @JoinTable(name="stops",
+    @JoinTable(name="rel_station_lines",
             joinColumns = @JoinColumn(name="line_id"),
             inverseJoinColumns = @JoinColumn(name="station_id"))
     private List<LineStation> lineStationList;

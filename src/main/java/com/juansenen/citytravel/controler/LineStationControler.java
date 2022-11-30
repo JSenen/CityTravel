@@ -34,6 +34,7 @@ public class LineStationControler {
         LineStation newStation = lineStationService.addStation(lineStation);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
+
     @PutMapping("/station/{id}")
     public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws LineNoFoundException {
         LineStation changeStation = lineStationService.modStation(id, lineStation);

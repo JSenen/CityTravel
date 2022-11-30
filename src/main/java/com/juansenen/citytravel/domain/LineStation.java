@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Columns;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.List;
@@ -34,17 +36,17 @@ public class LineStation {
     @Column(name="taxi_station")
     private boolean taxiStation;
 
-    @OneToMany(mappedBy = "lineStation")
+    @OneToMany(mappedBy = "lineStationAccess")
     private List<LineAccess> lineAccessList;
 
-    @OneToMany(mappedBy = "lineStation")
+    @OneToMany(mappedBy = "lineStationGarage")
     private List<LineGarage> lineGarageList;
 
     @ManyToMany
-    @JoinTable(name = "stops",
+    @JoinTable(name = "rel_station_lines",
             joinColumns = @JoinColumn(name = "station_id"),
             inverseJoinColumns = @JoinColumn(name = "line_id"))
-    private List<Line> lineList;
+    private List<Line> StationlineList;
 
 
 }

@@ -1,5 +1,6 @@
 package com.juansenen.citytravel.service;
 
+import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -14,4 +15,6 @@ public interface LineStationService {
     LineStation delStation (long id) throws LineNoFoundException;
     LineStation modStation (long id, LineStation lineStation) throws LineNoFoundException;
     LineStation addStation (LineStation lineStation);
+
+
 }

@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineAccess;
+import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
@@ -34,12 +35,12 @@ public class LineAccessControler {
         return new ResponseEntity<>(accessId, HttpStatus.OK);
     }
 
-    //TODO Terminar post Accesos
     @PostMapping("/access/{stationid}/access")
-    public ResponseEntity<LineAccess> newAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws StationNoFoundException {
-        LineAccess newOneAccess = lineAccessService.addAccess(lineAccess, stationid);
+    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws StationNoFoundException {
+        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(lineAccess, stationid);
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
+
     @PutMapping("/access/{id}")
     public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws LineNoFoundException {
         LineAccess changeAccess = lineAccessService.modyAccess(id, lineAccess);

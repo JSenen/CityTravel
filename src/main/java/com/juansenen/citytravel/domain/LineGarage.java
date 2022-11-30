@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,8 +31,9 @@ public class LineGarage {
     private boolean paintService;
 
     @ManyToOne
-    @JoinColumn(name = "line_station_id")
-    private LineStation lineStation;
+    @JoinColumn(name = "station_id")
+    @JsonIgnore
+    private LineStation lineStationGarage;
 
     @OneToMany
     @JoinColumn(name="linetrain")

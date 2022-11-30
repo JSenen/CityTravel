@@ -15,4 +15,6 @@ public interface LineGarageService {
     LineGarage delGarage (long id) throws LineNoFoundException;
     LineGarage modGarage (long id, LineGarage lineGarage) throws LineNoFoundException;
     LineGarage addGarage (LineGarage lineGarage) throws StationNoFoundException;
+
+    LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException;
 }
