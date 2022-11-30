@@ -49,7 +49,7 @@ public class LineControler {
     public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws LineNoFoundException {
         Line line = lineService.findById(lineId);
         List<LineTrain> trains = null;
-        trains = lineTrainService.findByLineId(line);
+        trains = lineTrainService.findByLineId(lineId);
         return ResponseEntity.ok(trains);
     }
     //Grabar linea
