@@ -25,8 +25,12 @@ public class LineAccessControler {
     LineStationService lineStationService;
 
     @GetMapping("/access")
-    public ResponseEntity<List<LineAccess>> getAll(){
-        return ResponseEntity.ok(lineAccessService.findAll());
+    public ResponseEntity<List<LineAccess>> getAll(@RequestParam(name = "elevator",defaultValue = "",required = false) String elev){
+        if (elev.equals("")){
+            return ResponseEntity.ok(lineAccessService.findAll());
+        }
+        boolean elevator = Boolean.parseBoolean(elev);
+        return ResponseEntity.ok(lineAccessService.searchAccessWithElevator(elevator));
     }
 
     @GetMapping("/access/{id}")
