@@ -12,8 +12,6 @@ public interface LineStationRepository extends CrudRepository<LineStation,Long> 
 
     @Query( value = "SELECT * FROM \"line_station\" WHERE wifi=? and bus_station=? and taxi_station=?", nativeQuery = true)
     List<LineStation> findByWifiOrBusStationOrTaxiStation(boolean wifi, boolean busStation, boolean taxiStation);
-
     List<LineStation> findAll();
-    List<LineStation> wifi(boolean wifi);
-    List<LineStation> busStation(boolean hasBus);
+
 }

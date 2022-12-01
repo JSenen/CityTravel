@@ -21,8 +21,21 @@ public class LineTrainControler {
     private LineService lineService;
 
     @GetMapping("/train")
-    public ResponseEntity<List<LineTrain>> getAll(){
-        return ResponseEntity.ok(lineTrainService.findAll());
+    public ResponseEntity<List<LineTrain>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
+                                                  @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
+                                                  @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
+        //Para que H2 reconozca el parametro, debe introducirse como defecto H2 No reconoce NUll en el Query
+        if (wagons.equals("0") && seats.equals("0") && standup.equals("0")){
+            //Si no se realiza ningun @Query, se listan todos
+            return ResponseEntity.ok(lineTrainService.findAll());
+        }
+        //Pasamos el parametro al tipo del atributo para que lo reconzca H2
+        int numWagons = Integer.valueOf(wagons);
+        int numSeats = Integer.valueOf(seats);
+        int numStandUp = Integer.valueOf(standup);
+        System.out.println("NUMERO VAGONES "+wagons+" NUMERO ASIENTOS "+seats+" NUMERO DE PIE"+standup);
+
+        return ResponseEntity.ok(lineTrainService.searchByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp));
     }
 
     @GetMapping("/train/{id}")

@@ -38,7 +38,6 @@ public class LineAccessServiceImpl implements LineAccessService{
         modelMapper.map(lineAccess,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
                 .orElseThrow(StationNoFoundException::new);
-        //newAccess.setLineStationAccess(lineStation); //TODO revisar relación
         return lineAccessRepository.save(newAccess);
     }
     public void  delAccess(long id) throws LineNoFoundException {

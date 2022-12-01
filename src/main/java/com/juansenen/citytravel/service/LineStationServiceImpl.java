@@ -29,18 +29,6 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public List<LineStation> findAllWifi(boolean hasWifi) {
-        List<LineStation> lineStations = lineStationRepository.wifi(hasWifi);
-        return lineStations;
-    }
-
-    @Override
-    public List<LineStation> findAllStationWithBusStation(boolean hasBus) {
-        List<LineStation> lineStationList = lineStationRepository.busStation(hasBus);
-        return lineStationList;
-    }
-
-    @Override //(1) TODO REVISAR CON CONSULTA QUERY JPA
     public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
         return lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
     }
