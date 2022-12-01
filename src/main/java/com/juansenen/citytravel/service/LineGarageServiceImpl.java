@@ -35,6 +35,11 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
+    public List<LineGarage> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService) {
+        return lineGarageRepository.findAllGarageWithTallerOrRrhhOrPaintService(mechanic, rrhh, pService);
+    }
+
+    @Override
     public LineGarage delGarage(long id) throws LineNoFoundException {
         LineGarage delGarage = lineGarageRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);

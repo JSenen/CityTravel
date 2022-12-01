@@ -17,4 +17,6 @@ public interface LineGarageService {
     LineGarage addGarage (LineGarage lineGarage) throws StationNoFoundException;
 
     LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException;
+
+    List<LineGarage> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService);
 }

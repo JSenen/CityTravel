@@ -20,8 +20,17 @@ public class LineGarageControler {
     LineGarageService lineGarageService;
 
     @GetMapping("/garage")
-    public ResponseEntity<List<LineGarage>> getAll(){
-        return ResponseEntity.ok(lineGarageService.findAll());
+    public ResponseEntity<List<LineGarage>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
+                                                   @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
+                                                   @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
+        if (taller.equals("") && rechum.equals("") && paint.equals("")){
+            return ResponseEntity.ok(lineGarageService.findAll());
+        }
+        boolean mechanic = Boolean.parseBoolean(taller);
+        boolean rrhh = Boolean.parseBoolean(rechum);
+        boolean pService = Boolean.parseBoolean(paint);
+
+        return ResponseEntity.ok(lineGarageService.searchByTallerOrRecHumOrPaintService(mechanic, rrhh, pService));
     }
 
     @GetMapping("/garage/{id}")
