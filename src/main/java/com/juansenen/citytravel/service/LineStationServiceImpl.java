@@ -10,7 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,17 +35,20 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public List<LineStation> findAllHasBusStation(boolean busStation) {
-        List<LineStation> lineStations = lineStationRepository.busStation(busStation);
-        return lineStations;
+    public List<LineStation> findAllStationWithBusStation(boolean hasBus) {
+        List<LineStation> lineStationList = lineStationRepository.busStation(hasBus);
+        return lineStationList;
     }
 
+    @Override //(1) TODO REVISAR CON CONSULTA QUERY JPA
+    public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
+        return lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
+    }
 
     @Override
     public Optional<LineStation> findById(long id) throws StationNoFoundException {
         return lineStationRepository.findById(id);
     }
-
 
     @Override
     public LineStation delStation(long id) throws LineNoFoundException {

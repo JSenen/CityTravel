@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -19,15 +20,23 @@ public class LineStationControler {
     LineStationService lineStationService;
 
     @GetMapping("/station")
-    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi) {
-        if (wifi.equals("")) {
-            return ResponseEntity.ok(lineStationService.findAll());
-        } else {
-            boolean haswifi = Boolean.parseBoolean(wifi);
-            return ResponseEntity.ok(lineStationService.findAllWifi(haswifi));
-        }
+    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
+                                                    @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
+            @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
+        //if (wifi.equals("") && busStation.equals("")) {
+        //    return ResponseEntity.ok(lineStationService.findAll());
+        //}else if (!wifi.equals("") && busStation.equals("")){
+        //    boolean haswifi = Boolean.parseBoolean(wifi);
+        //    return ResponseEntity.ok(lineStationService.findAllWifi(haswifi));
+        //}else if (!busStation.equals("") && wifi.equals("")){
+        //    boolean hasBus = Boolean.parseBoolean(busStation);
+        //    return ResponseEntity.ok(lineStationService.findAllStationWithBusStation(hasBus));
+        //}
+        boolean hasBus = Boolean.parseBoolean(busStation);
+        boolean haswifi = Boolean.parseBoolean(wifi);
+        boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+        return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi)); //TODO Mejorar metodo
     }
-
     @GetMapping("/station/{id}")
     public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id) throws StationNoFoundException {
        Optional<LineStation> stationId = lineStationService.findById(id);

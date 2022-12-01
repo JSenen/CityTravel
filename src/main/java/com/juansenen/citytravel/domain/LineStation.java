@@ -29,7 +29,7 @@ public class LineStation {
     private LocalTime hclose;
     @Column(name="pto_info")
     private boolean ptoInfo;
-    @Column
+    @Column(name = "wifi")
     private boolean wifi;
     @Column(name="bus_station")
     private boolean busStation;

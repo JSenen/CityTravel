@@ -14,12 +14,9 @@ public interface LineStationService {
     LineStation delStation (long id) throws LineNoFoundException;
     LineStation modStation (long id, LineStation lineStation) throws LineNoFoundException;
     LineStation addStation (LineStation lineStation);
-
-
     LineStation addNewStationByLine(LineStation lineStation, long lineId) throws LineNoFoundException;
-
     List<LineStation> findAllWifi(boolean hasWifi);
-
-    List<LineStation> findAllHasBusStation(boolean busStation);
+    List<LineStation> findAllStationWithBusStation(boolean hasBus);
+    List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation);
 
 }
