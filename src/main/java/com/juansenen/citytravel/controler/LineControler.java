@@ -10,6 +10,7 @@ import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
 import com.juansenen.citytravel.service.LineTrainService;
+import org.hibernate.id.factory.IdentifierGeneratorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,9 +39,16 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getAll(){
-
+    public ResponseEntity<List<Line>> getAll(@RequestParam(name = "firstTime", defaultValue = "00:00",required = false) String start,
+                                             @RequestParam(name = "lastTime", defaultValue = "00:00", required = false) String close){
+        //por defecto se le asigna 00:00, para que cuente ese valor en caso de que solo se selccione una de las posibilidades
+        if (start.equals("00:00") && close.equals("00:00")){
             return ResponseEntity.ok(lineService.findAll());
+        }
+        LocalTime hstart = LocalTime.parse(start, DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime hclose = LocalTime.parse(close, DateTimeFormatter.ofPattern("HH:mm"));
+        return new ResponseEntity<>(lineService.searchByHourStartAndHourClose(hstart, hclose),HttpStatus.OK);
+
     }
     //Buscar por id
     @GetMapping("/line/{id}")
@@ -67,8 +78,8 @@ public class LineControler {
 
     @DeleteMapping("/line/{id}")
     public ResponseEntity<Void> delLine(@PathVariable long id) throws LineNoFoundException{
-         lineService.deleteLine(id);
-         return ResponseEntity.noContent().build();
+        lineService.deleteLine(id);
+        return ResponseEntity.noContent().build();
     }
     //Modificar 1 por id
     @PutMapping("/line/{id}")
@@ -99,11 +110,11 @@ public class LineControler {
         return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
     }
 
-    //@ExceptionHandler(Exception.class)
-    //public ResponseEntity<ErrorMessage> handleException (Exception exc){
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorMessage> handleException (Exception exc){
 
-    //    ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
-    //    return new ResponseEntity<>(errorMessage,HttpStatus.INTERNAL_SERVER_ERROR);
-    //}
+        ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
+        return new ResponseEntity<>(errorMessage,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
 }

@@ -14,4 +14,6 @@ public interface LineAccessService {
     void delAccess(long id) throws LineNoFoundException;
     LineAccess modyAccess(long id, LineAccess lineAccess) throws LineNoFoundException;
     LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws StationNoFoundException;
+
+    List<LineAccess> searchAccessWithElevator(boolean elevator);
 }

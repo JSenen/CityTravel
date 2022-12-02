@@ -1,10 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.LineGarage;
-import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.exception.LineNoFoundException;
-import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
@@ -12,10 +9,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.time.LocalTime;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class LineServiceImpl implements LineService {
@@ -42,6 +37,11 @@ public class LineServiceImpl implements LineService {
     public Line findById(long id) throws LineNoFoundException {
         return lineRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
+    }
+
+    @Override
+    public List<Line> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose) {
+        return lineRepository.findAllByHourStartOrHourClose(start, hclose);
     }
 
     //Añadir uno nuevo

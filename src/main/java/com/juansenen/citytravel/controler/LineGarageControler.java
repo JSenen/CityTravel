@@ -2,7 +2,6 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.LineGarage;
-import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineGarageService;
@@ -20,8 +19,17 @@ public class LineGarageControler {
     LineGarageService lineGarageService;
 
     @GetMapping("/garage")
-    public ResponseEntity<List<LineGarage>> getAll(){
-        return ResponseEntity.ok(lineGarageService.findAll());
+    public ResponseEntity<List<LineGarage>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
+                                                   @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
+                                                   @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
+        if (taller.equals("") && rechum.equals("") && paint.equals("")){
+            return ResponseEntity.ok(lineGarageService.findAll());
+        }
+        boolean mechanic = Boolean.parseBoolean(taller);
+        boolean rrhh = Boolean.parseBoolean(rechum);
+        boolean pService = Boolean.parseBoolean(paint);
+
+        return ResponseEntity.ok(lineGarageService.searchByTallerOrRecHumOrPaintService(mechanic, rrhh, pService));
     }
 
     @GetMapping("/garage/{id}")
@@ -36,7 +44,7 @@ public class LineGarageControler {
         return ResponseEntity.status(HttpStatus.CREATED).body(newLineGarage);
     }
     @PostMapping("/garage/{stationId}/garage")
-    public ResponseEntity<LineGarage> addOneTrain(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws StationNoFoundException {
+    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws StationNoFoundException {
         LineGarage newGarage = lineGarageService.addNewGarByLine(lineGarage, stationId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }
@@ -45,10 +53,10 @@ public class LineGarageControler {
         LineGarage changeGarage = lineGarageService.modGarage(id, lineGarage);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeGarage);
     }
-
-    @DeleteMapping("/garage/{id}")
-    public ResponseEntity<Void> delOneGarage(@PathVariable long id) throws LineNoFoundException {
-        LineGarage delOneGarage = lineGarageService.delGarage(id);
+    @DeleteMapping("/garage/{garageId}")
+    public ResponseEntity<LineGarage> delGarage(@PathVariable long garageId) throws LineNoFoundException {
+        LineGarage lineGarage = lineGarageService.deleteGarage(garageId);
         return ResponseEntity.noContent().build();
     }
+
 }

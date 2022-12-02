@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,8 +37,10 @@ public class LineGarage {
     private LineStation lineStationGarage;
 
     @OneToMany
-    @JoinColumn(name="linetrain")
+    @JoinColumn(name="garages")
     private List<LineTrain> lineTrainList;
+
+
 
 
 }

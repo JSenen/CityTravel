@@ -10,4 +10,6 @@ import java.util.List;
 public interface LineAccessRepository extends CrudRepository<LineAccess,Long> {
 
     List<LineAccess> findAll();
+
+    List<LineAccess> findByElevator(boolean elevator);
 }

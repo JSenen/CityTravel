@@ -2,8 +2,6 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
@@ -12,7 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +26,11 @@ public class LineStationServiceImpl implements LineStationService{
     @Override
     public List<LineStation> findAll() {
         return lineStationRepository.findAll();
+    }
+
+    @Override
+    public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
+        return lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
     }
 
     @Override
@@ -68,7 +70,7 @@ public class LineStationServiceImpl implements LineStationService{
         modStation.setName(lineStation.getName());
         modStation.setHopen(lineStation.getHopen());
         modStation.setHclose(lineStation.getHclose());
-        modStation.setBusSation(lineStation.isBusSation());
+        modStation.setBusStation(lineStation.isBusStation());
         modStation.setPtoInfo(lineStation.isPtoInfo());
         modStation.setTaxiStation(lineStation.isTaxiStation());
         modStation.setWifi(lineStation.isWifi());

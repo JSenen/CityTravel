@@ -1,8 +1,6 @@
 package com.juansenen.citytravel.controler;
 
-import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineTrain;
-import com.juansenen.citytravel.domain.dto.TrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineTrainService;
@@ -23,8 +21,21 @@ public class LineTrainControler {
     private LineService lineService;
 
     @GetMapping("/train")
-    public ResponseEntity<List<LineTrain>> getAll(){
-        return ResponseEntity.ok(lineTrainService.findAll());
+    public ResponseEntity<List<LineTrain>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
+                                                  @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
+                                                  @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
+        //Para que H2 reconozca el parametro, debe introducirse como defecto H2 No reconoce NUll en el Query
+        if (wagons.equals("0") && seats.equals("0") && standup.equals("0")){
+            //Si no se realiza ningun @Query, se listan todos
+            return ResponseEntity.ok(lineTrainService.findAll());
+        }
+        //Pasamos el parametro al tipo del atributo para que lo reconzca H2
+        int numWagons = Integer.valueOf(wagons);
+        int numSeats = Integer.valueOf(seats);
+        int numStandUp = Integer.valueOf(standup);
+
+
+        return ResponseEntity.ok(lineTrainService.searchByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp));
     }
 
     @GetMapping("/train/{id}")
@@ -38,9 +49,9 @@ public class LineTrainControler {
         return new ResponseEntity<>(trainList, HttpStatus.OK);
     }
 
-    @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
-        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId);
+    @PostMapping("/train/{lineId}/{garageId}/train")
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @PathVariable long garageId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId, garageId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
     @PutMapping("/train/{id}")

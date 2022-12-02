@@ -5,13 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -32,10 +29,10 @@ public class LineStation {
     private LocalTime hclose;
     @Column(name="pto_info")
     private boolean ptoInfo;
-    @Column
+    @Column(name = "wifi")
     private boolean wifi;
     @Column(name="bus_station")
-    private boolean busSation;
+    private boolean busStation;
     @Column(name="taxi_station")
     private boolean taxiStation;
 

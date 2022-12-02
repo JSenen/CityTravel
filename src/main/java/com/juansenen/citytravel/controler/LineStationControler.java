@@ -1,17 +1,16 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.dto.inLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -21,10 +20,17 @@ public class LineStationControler {
     LineStationService lineStationService;
 
     @GetMapping("/station")
-    public ResponseEntity<List<LineStation>> getAll(){
-        return ResponseEntity.ok(lineStationService.findAll());
+    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
+                                                    @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
+            @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
+        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
+            return ResponseEntity.ok(lineStationService.findAll());
+        }
+        boolean hasBus = Boolean.parseBoolean(busStation);
+        boolean haswifi = Boolean.parseBoolean(wifi);
+        boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+        return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi));
     }
-
     @GetMapping("/station/{id}")
     public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id) throws StationNoFoundException {
        Optional<LineStation> stationId = lineStationService.findById(id);

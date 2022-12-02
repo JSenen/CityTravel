@@ -33,12 +33,16 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
+    public List<LineAccess> searchAccessWithElevator(boolean elevator) {
+        return lineAccessRepository.findByElevator(elevator);
+    }
+
+    @Override
     public LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws StationNoFoundException {
         LineAccess newAccess = new LineAccess();
         modelMapper.map(lineAccess,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
                 .orElseThrow(StationNoFoundException::new);
-        //newAccess.setLineStationAccess(lineStation); //TODO revisar relación
         return lineAccessRepository.save(newAccess);
     }
     public void  delAccess(long id) throws LineNoFoundException {
