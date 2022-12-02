@@ -33,7 +33,7 @@ public class LineTrainControler {
         int numWagons = Integer.valueOf(wagons);
         int numSeats = Integer.valueOf(seats);
         int numStandUp = Integer.valueOf(standup);
-        System.out.println("NUMERO VAGONES "+wagons+" NUMERO ASIENTOS "+seats+" NUMERO DE PIE"+standup);
+
 
         return ResponseEntity.ok(lineTrainService.searchByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp));
     }

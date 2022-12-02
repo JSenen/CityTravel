@@ -1,11 +1,10 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 
+import java.time.LocalTime;
 import java.util.List;
-import java.util.Set;
 
 public interface LineService {
 
@@ -16,4 +15,5 @@ public interface LineService {
     void deleteLine (long id) throws LineNoFoundException;
     Line modyLine(long id, Line line) throws LineNoFoundException;
 
+    List<Line> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose);
 }
