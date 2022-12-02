@@ -29,19 +29,18 @@
         @Column(name = "num_stadup")
         private int numStandUp;
         @Column
-        @JsonFormat(pattern = "DD-MM-YYYY")
+        @JsonFormat(pattern = "dd-MM-YYYY")
         private Date datebuy;
 
         //Relacion trenes- garage M:1
-        //@ManyToOne
-        //@JoinColumn(name = "line_garage_id")
-        //@JsonIgnore
-        //private LineGarage garages;
+        @ManyToOne
+        @JoinColumn(name = "line_garage_id")
+        @JsonIgnore
+        private LineGarage garages;
 
         //Relación trenes - lineas M:1
         @ManyToOne
         @JoinColumn(name = "line_id")
-        //@JsonBackReference
         @JsonIgnore
         private Line line;
 

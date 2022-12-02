@@ -49,9 +49,9 @@ public class LineTrainControler {
         return new ResponseEntity<>(trainList, HttpStatus.OK);
     }
 
-    @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrain(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
-        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId);
+    @PostMapping("/train/{lineId}/{garageId}/train")
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @PathVariable long garageId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId, garageId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
     @PutMapping("/train/{id}")

@@ -1,9 +1,7 @@
 package com.juansenen.citytravel.service;
 
-import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineGarageRepository;
@@ -40,14 +38,6 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage delGarage(long id) throws LineNoFoundException {
-        LineGarage delGarage = lineGarageRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
-        lineGarageRepository.deleteById(id);
-        return delGarage;
-    }
-
-    @Override
     public LineGarage addGarage(LineGarage lineGarage) throws StationNoFoundException {
         LineGarage newGarage = lineGarageRepository.save(lineGarage);
         return newGarage;
@@ -77,8 +67,16 @@ public class LineGarageServiceImpl implements LineGarageService{
         modGarage.setRrhh(lineGarage.isRrhh());
         modGarage.setSurface(lineGarage.getSurface());
         modGarage.setTaller(lineGarage.isTaller());
-        modGarage.setLineTrainList(lineGarage.getLineTrainList());
+        //modGarage.setLineTrainList(lineGarage.getLineTrainList());
 
         return lineGarageRepository.save(modGarage);
+    }
+
+    @Override
+    public LineGarage deleteGarage(long garageId) throws LineNoFoundException {
+        LineGarage garage = lineGarageRepository.findById(garageId)
+                .orElseThrow(LineNoFoundException::new);
+        lineGarageRepository.deleteById(garageId);
+        return garage;
     }
 }

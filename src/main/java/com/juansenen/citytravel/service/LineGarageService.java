@@ -11,12 +11,12 @@ public interface LineGarageService {
 
     List<LineGarage> findAll();
     Optional<LineGarage> findById(long id);
-
-    LineGarage delGarage (long id) throws LineNoFoundException;
     LineGarage modGarage (long id, LineGarage lineGarage) throws LineNoFoundException;
     LineGarage addGarage (LineGarage lineGarage) throws StationNoFoundException;
 
     LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException;
 
     List<LineGarage> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService);
+
+    LineGarage deleteGarage(long garageId) throws LineNoFoundException;
 }

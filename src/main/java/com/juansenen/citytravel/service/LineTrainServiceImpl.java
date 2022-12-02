@@ -2,9 +2,11 @@
 
 
     import com.juansenen.citytravel.domain.Line;
+    import com.juansenen.citytravel.domain.LineGarage;
     import com.juansenen.citytravel.domain.LineTrain;
     import com.juansenen.citytravel.exception.LineNoFoundException;
 
+    import com.juansenen.citytravel.repository.LineGarageRepository;
     import com.juansenen.citytravel.repository.LineRepository;
     import com.juansenen.citytravel.repository.LineTrainRepository;
     import org.modelmapper.ModelMapper;
@@ -20,6 +22,8 @@
         private LineTrainRepository lineTrainRepository;
         @Autowired
         private LineRepository lineRepository;
+        @Autowired
+        private LineGarageRepository lineGarageRepository;
         @Autowired
         private ModelMapper modelMapper;
 
@@ -39,12 +43,13 @@
         @Override
         public LineTrain delTrain(long id) throws LineNoFoundException {
             LineTrain delTrain = lineTrainRepository.findById(id)
-                    .orElseThrow(LineNoFoundException::new);
+                    .orElseThrow(LineNoFoundException::new); //TODO añadir excepcion trenes
             lineTrainRepository.deleteById(id);
             return delTrain;
         }
+
         @Override
-        public LineTrain addNewTrain(LineTrain lineTrain, long lineId) throws LineNoFoundException {
+        public LineTrain addNewTrain(LineTrain lineTrain, long lineId, long garageId) throws LineNoFoundException {
             LineTrain newTrain = new LineTrain();
 
             modelMapper.map(lineTrain, newTrain);
@@ -52,14 +57,19 @@
             Line line = lineRepository.findById(lineId)
                     .orElseThrow(LineNoFoundException::new);
             newTrain.setLine(line);
+            LineGarage garage = lineGarageRepository.findById(garageId)
+                    .orElseThrow(LineNoFoundException::new);
+            newTrain.setGarages(garage);
+
             return lineTrainRepository.save(newTrain);
         }
 
         @Override
-        public LineTrain modTrain(long id, LineTrain lineTrain) throws LineNoFoundException {
+        public LineTrain modTrain(long id,  LineTrain lineTrain) throws LineNoFoundException {
 
             LineTrain modtrain = lineTrainRepository.findById(id)
                     .orElseThrow(LineNoFoundException::new);
+
             modtrain.setCode(lineTrain.getCode());
             modtrain.setModel(lineTrain.getModel());
             modtrain.setNumSeats(lineTrain.getNumSeats());
