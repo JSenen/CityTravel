@@ -64,7 +64,7 @@ public class LineControler {
     }
     //Grabar linea
     @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
+    public ResponseEntity<Line> addLine(@RequestBody Line line){
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
