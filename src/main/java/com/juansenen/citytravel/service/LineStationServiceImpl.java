@@ -5,6 +5,7 @@ import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
@@ -46,28 +47,28 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public LineStation delStation(long id) throws LineNoFoundException {
+    public LineStation delStation(long id) throws NotFoundException {
         LineStation delStation = lineStationRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         lineStationRepository.deleteById(id);
         return delStation;
     }
 
     @Override
-    public LineStation addStation(long lineId, inStationDTO inStationDTO) throws LineNoFoundException {
+    public LineStation addStation(long lineId, inStationDTO inStationDTO) throws NotFoundException {
         LineStation newStation = new LineStation();
 
         modelMapper.map(inStationDTO, newStation);
         Line line = lineRepository.findById(lineId)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new Line()));
         newStation.setLinestation(line);
 
         return lineStationRepository.save(newStation);
     }
     @Override
-    public LineStation modStation(long id, LineStation lineStation) throws LineNoFoundException {
+    public LineStation modStation(long id, LineStation lineStation) throws NotFoundException {
         LineStation modStation = lineStationRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         modStation.setName(lineStation.getName());
         modStation.setHopen(lineStation.getHopen());
         modStation.setHclose(lineStation.getHclose());

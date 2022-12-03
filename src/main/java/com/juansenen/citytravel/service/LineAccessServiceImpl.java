@@ -3,9 +3,7 @@ package com.juansenen.citytravel.service;
 import com.juansenen.citytravel.domain.*;
 import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
-import com.juansenen.citytravel.domain.dto.outLineDTO;
-import com.juansenen.citytravel.exception.LineNoFoundException;
-import com.juansenen.citytravel.exception.StationNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.repository.LineAccessRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.modelmapper.ModelMapper;
@@ -46,25 +44,25 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws StationNoFoundException {
+    public LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws NotFoundException {
         LineAccess newAccess = new LineAccess();
         modelMapper.map(inAccessDTO,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
-                .orElseThrow(StationNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         newAccess.setLineStationAccess(lineStation);
         return lineAccessRepository.save(newAccess);
     }
-    public LineAccess delAccess(long id) throws LineNoFoundException {
+    public LineAccess delAccess(long id) throws NotFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         lineAccessRepository.deleteById(id);
         return delAccess;
     }
 
     @Override
-    public LineAccess modyAccess(long id, LineAccess lineAccess) throws LineNoFoundException {
+    public LineAccess modyAccess(long id, LineAccess lineAccess) throws NotFoundException {
         LineAccess modAccess = lineAccessRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         modAccess.setStreet(lineAccess.getStreet());
         modAccess.setNum(lineAccess.getNum());
         modAccess.setLatitude(lineAccess.getLatitude());

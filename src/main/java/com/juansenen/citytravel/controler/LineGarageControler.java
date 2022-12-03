@@ -5,6 +5,7 @@ import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.dto.inGarageDTO;
 import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineGarageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,17 +42,17 @@ public class LineGarageControler {
     }
 
     @PostMapping("/garage/{stationId}/garage")
-    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody inGarageDTO inGarageDTO) throws StationNoFoundException {
+    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody inGarageDTO inGarageDTO) throws NotFoundException {
         LineGarage newGarage = lineGarageService.addNewGarByLine(inGarageDTO, stationId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }
     @PutMapping("/garage/{id}")
-    public ResponseEntity<LineGarage> modyGarage(@PathVariable long id, @RequestBody LineGarage lineGarage) throws LineNoFoundException {
+    public ResponseEntity<LineGarage> modyGarage(@PathVariable long id, @RequestBody LineGarage lineGarage) throws NotFoundException {
         LineGarage changeGarage = lineGarageService.modGarage(id, lineGarage);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeGarage);
     }
     @DeleteMapping("/garage/{garageId}")
-    public ResponseEntity<LineGarage> delGarage(@PathVariable long garageId) throws LineNoFoundException {
+    public ResponseEntity<LineGarage> delGarage(@PathVariable long garageId) throws NotFoundException {
         LineGarage lineGarage = lineGarageService.deleteGarage(garageId);
         return ResponseEntity.noContent().build();
     }

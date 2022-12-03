@@ -2,7 +2,7 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
-import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -37,9 +35,9 @@ public class LineServiceImpl implements LineService {
 
     //Buscar por id
     @Override
-    public Line findById(long id) throws LineNoFoundException {
+    public Line findById(long id) throws NotFoundException {
         return lineRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new Line()));
     }
 
     @Override
@@ -50,21 +48,21 @@ public class LineServiceImpl implements LineService {
         return linesDTO;
     }
     @Override
-    public Line add(Line line) throws LineNoFoundException{
+    public Line add(Line line) {
         Line newLine = lineRepository.save(line);
         return newLine;
     }
     @Override
-    public void deleteLine(long id) throws LineNoFoundException {
+    public void deleteLine(long id) throws NotFoundException {
         Line delLine = lineRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new Line()));
         lineRepository.delete(delLine);
     }
 
     @Override
-    public Line modyLine(long id, Line line) throws LineNoFoundException{
+    public Line modyLine(long id, Line line) throws NotFoundException {
         Line modyfLine = lineRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new Line()));
         modyfLine.setCodeLine(line.getCodeLine());
         modyfLine.setColor(line.getColor());
         modyfLine.setStopTime(line.getStopTime());

@@ -6,6 +6,7 @@ import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.inGarageDTO;
 import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineGarageRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
@@ -46,23 +47,23 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws StationNoFoundException {
+    public LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws NotFoundException {
 
         LineGarage newGarage = new LineGarage();
 
         modelMapper.map(inGarageDTO, newGarage);
 
         LineStation lineStation = lineStationRepository.findById(stationId)
-                .orElseThrow(StationNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
 
         newGarage.setLineStationGarage(lineStation);
         return lineGarageRepository.save(newGarage);
     }
 
     @Override
-    public LineGarage modGarage(long id, LineGarage lineGarage) throws LineNoFoundException {
+    public LineGarage modGarage(long id, LineGarage lineGarage) throws NotFoundException {
         LineGarage modGarage = lineGarageRepository.findById(id)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineGarage()));
         modGarage.setCodeGarage(lineGarage.getCodeGarage());
         modGarage.setPaintService(lineGarage.isPaintService());
         modGarage.setRrhh(lineGarage.isRrhh());
@@ -74,9 +75,9 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage deleteGarage(long garageId) throws LineNoFoundException {
+    public LineGarage deleteGarage(long garageId) throws NotFoundException {
         LineGarage garage = lineGarageRepository.findById(garageId)
-                .orElseThrow(LineNoFoundException::new);
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
         lineGarageRepository.deleteById(garageId);
         return garage;
     }

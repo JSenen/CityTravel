@@ -1,13 +1,9 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineAccess;
-import com.juansenen.citytravel.domain.LineGarage;
-import com.juansenen.citytravel.domain.LineStation;
-import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
-import com.juansenen.citytravel.exception.LineNoFoundException;
-import com.juansenen.citytravel.exception.StationNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.service.LineAccessService;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,19 +38,19 @@ public class LineAccessControler {
     }
 
     @PostMapping("/access/{stationid}/access")
-    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody inAccessDTO inAccessDTO) throws StationNoFoundException {
+    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody inAccessDTO inAccessDTO) throws NotFoundException {
         LineAccess newOneAccess = lineAccessService.addNewAccessByStation(inAccessDTO, stationid);
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
 
     @PutMapping("/access/{id}")
-    public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws LineNoFoundException {
+    public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws NotFoundException {
         LineAccess changeAccess = lineAccessService.modyAccess(id, lineAccess);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeAccess);
     }
 
     @DeleteMapping("/access/{id}")
-    public ResponseEntity<Void> delOneAccess(@PathVariable long id) throws LineNoFoundException {
+    public ResponseEntity<Void> delOneAccess(@PathVariable long id) throws NotFoundException {
         lineAccessService.delAccess(id);
         return ResponseEntity.noContent().build();
     }

@@ -4,6 +4,7 @@ import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,20 +42,20 @@ public class LineStationControler {
     }
 
     @PostMapping("/station/{lineId}/station")
-    public ResponseEntity<LineStation> addOneStation(@PathVariable long lineId, @RequestBody inStationDTO inStationDTO) throws LineNoFoundException {
+    public ResponseEntity<LineStation> addOneStation(@PathVariable long lineId, @RequestBody inStationDTO inStationDTO) throws NotFoundException, LineNoFoundException {
         LineStation newStation = lineStationService.addStation(lineId, inStationDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
 
 
     @PutMapping("/station/{id}")
-    public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws LineNoFoundException {
+    public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws NotFoundException, LineNoFoundException {
         LineStation changeStation = lineStationService.modStation(id, lineStation);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeStation);
     }
 
     @DeleteMapping("/station/{id}")
-    public ResponseEntity<Void> delOneStation(@PathVariable long id) throws LineNoFoundException {
+    public ResponseEntity<Void> delOneStation(@PathVariable long id) throws NotFoundException {
         LineStation stationDel = lineStationService.delStation(id);
         return ResponseEntity.noContent().build();
     }

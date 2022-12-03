@@ -6,6 +6,7 @@ import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
@@ -50,7 +51,7 @@ public class LineControler {
 
     //Buscar por id
     @GetMapping("/line/{id}")
-    public ResponseEntity<Line> getLine(@PathVariable long id) throws LineNoFoundException {
+    public ResponseEntity<Line> getLine(@PathVariable long id)  {
         Line line = lineService.findById(id);
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
@@ -70,13 +71,13 @@ public class LineControler {
     //Borrar uno
 
     @DeleteMapping("/line/{id}")
-    public ResponseEntity<Void> delLine(@PathVariable long id) throws LineNoFoundException{
+    public ResponseEntity<Void> delLine(@PathVariable long id) throws NotFoundException {
         lineService.deleteLine(id);
         return ResponseEntity.noContent().build();
     }
     //Modificar 1 por id
     @PutMapping("/line/{id}")
-    public  ResponseEntity<Line> modLine (@PathVariable long id, @RequestBody Line line) throws LineNoFoundException {
+    public  ResponseEntity<Line> modLine (@PathVariable long id, @RequestBody Line line) throws NotFoundException {
         Line lineModif = lineService.modyLine(id, line);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(lineModif);
     }
