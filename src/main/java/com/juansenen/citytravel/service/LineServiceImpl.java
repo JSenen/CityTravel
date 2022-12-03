@@ -1,15 +1,19 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -24,12 +28,11 @@ public class LineServiceImpl implements LineService {
     @Autowired
     private ModelMapper modelMapper;
 
-
-
-    //Listar todos
     @Override
-    public List<Line> findAll() {
-        return lineRepository.findAll();
+    public List<outLineDTO> findAll() {
+        List<Line> lines = lineRepository.findAll();
+        List<outLineDTO> linesDTO = modelMapper.map(lines, new TypeToken<List<outLineDTO>>() {}.getType());
+        return linesDTO;
     }
 
     //Buscar por id
@@ -40,18 +43,17 @@ public class LineServiceImpl implements LineService {
     }
 
     @Override
-    public List<Line> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose) {
-        return lineRepository.findAllByHourStartOrHourClose(start, hclose);
-    }
+    public List<outLineDTO> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose) {
+        List<Line> lines = lineRepository.findAllByHourStartOrHourClose(start, hclose);
+        List<outLineDTO> linesDTO =  modelMapper.map(lines, new TypeToken<List<outLineDTO>>() {}.getType());
 
-    //Añadir uno nuevo
+        return linesDTO;
+    }
     @Override
     public Line add(Line line) throws LineNoFoundException{
         Line newLine = lineRepository.save(line);
         return newLine;
     }
-
-
     @Override
     public void deleteLine(long id) throws LineNoFoundException {
         Line delLine = lineRepository.findById(id)

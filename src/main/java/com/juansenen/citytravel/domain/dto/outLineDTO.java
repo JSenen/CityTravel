@@ -5,22 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class outStationDTO {
+public class outLineDTO {
 
-    private long id;
-    private String name;
+    private String codeLine;
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime hopen;
+    private LocalTime firstTime;
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime hclose;
-    private boolean wifi;
-    private boolean busStation;
-    private boolean taxiStation;
-
+    private LocalTime lastTime;
 }

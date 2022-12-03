@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -21,8 +23,8 @@ public class LineStationControler {
 
     @GetMapping("/station")
     public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
-                                                    @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
-            @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
+                                                      @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
+                                                      @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
         if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
             return ResponseEntity.ok(lineStationService.findAll());
         }

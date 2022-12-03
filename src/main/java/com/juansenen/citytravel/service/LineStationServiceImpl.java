@@ -2,11 +2,13 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
