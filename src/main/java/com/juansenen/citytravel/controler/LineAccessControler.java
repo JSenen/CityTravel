@@ -4,6 +4,7 @@ import com.juansenen.citytravel.domain.LineAccess;
 import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.outAccessDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineAccessService;
@@ -25,7 +26,7 @@ public class LineAccessControler {
     LineStationService lineStationService;
 
     @GetMapping("/access")
-    public ResponseEntity<List<LineAccess>> getAll(@RequestParam(name = "elevator",defaultValue = "",required = false) String elev){
+    public ResponseEntity<List<outAccessDTO>> getAll(@RequestParam(name = "elevator",defaultValue = "",required = false) String elev){
         if (elev.equals("")){
             return ResponseEntity.ok(lineAccessService.findAll());
         }

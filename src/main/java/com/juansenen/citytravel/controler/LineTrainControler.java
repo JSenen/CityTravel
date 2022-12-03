@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.outTrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineTrainService;
@@ -21,9 +22,9 @@ public class LineTrainControler {
     private LineService lineService;
 
     @GetMapping("/train")
-    public ResponseEntity<List<LineTrain>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
-                                                  @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
-                                                  @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
+    public ResponseEntity<List<outTrainDTO>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
+                                                    @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
+                                                    @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
         //Para que H2 reconozca el parametro, debe introducirse como defecto H2 No reconoce NUll en el Query
         if (wagons.equals("0") && seats.equals("0") && standup.equals("0")){
             //Si no se realiza ningun @Query, se listan todos

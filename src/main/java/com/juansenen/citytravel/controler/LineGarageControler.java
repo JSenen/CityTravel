@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineGarageService;
@@ -19,9 +20,9 @@ public class LineGarageControler {
     LineGarageService lineGarageService;
 
     @GetMapping("/garage")
-    public ResponseEntity<List<LineGarage>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
-                                                   @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
-                                                   @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
+    public ResponseEntity<List<outGarageDTO>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
+                                                     @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
+                                                     @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
         if (taller.equals("") && rechum.equals("") && paint.equals("")){
             return ResponseEntity.ok(lineGarageService.findAll());
         }

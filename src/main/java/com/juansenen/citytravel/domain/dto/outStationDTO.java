@@ -19,8 +19,5 @@ public class outStationDTO {
     private LocalTime hopen;
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hclose;
-    private boolean wifi;
-    private boolean busStation;
-    private boolean taxiStation;
 
 }

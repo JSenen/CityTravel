@@ -22,7 +22,7 @@ public class LineStationControler {
     LineStationService lineStationService;
 
     @GetMapping("/station")
-    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
+    public ResponseEntity<List<outStationDTO>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
                                                       @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
                                                       @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
         if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
