@@ -2,11 +2,14 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inStationDTO;
+import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +27,17 @@ public class LineStationServiceImpl implements LineStationService{
     ModelMapper modelMapper;
 
     @Override
-    public List<LineStation> findAll() {
-        return lineStationRepository.findAll();
+    public List<outStationDTO> findAll() {
+        List<LineStation> stations = lineStationRepository.findAll();
+        List<outStationDTO> stationDTOS = modelMapper.map(stations, new TypeToken<List<outStationDTO>>(){}.getType());
+        return stationDTOS;
     }
 
     @Override
-    public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
-        return lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
+    public List<outStationDTO> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
+        List<LineStation> stations = lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
+        List<outStationDTO> stationDTOS = modelMapper.map(stations, new TypeToken<List<outStationDTO>>(){}.getType());
+        return stationDTOS;
     }
 
     @Override
@@ -47,20 +54,14 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public LineStation addStation(LineStation lineStation) {
+    public LineStation addStation(long lineId, inStationDTO inStationDTO) throws LineNoFoundException {
         LineStation newStation = new LineStation();
 
-        modelMapper.map(lineStation, newStation);
-
-        return lineStationRepository.save(newStation);
-    }
-
-    @Override
-    public LineStation addNewStationByLine(LineStation lineStation, long lineId) throws LineNoFoundException {
-        LineStation newStation = new LineStation();
-        modelMapper.map(lineStation,newStation);
-        Line line = lineRepository.findById(lineId).orElseThrow(LineNoFoundException::new);
+        modelMapper.map(inStationDTO, newStation);
+        Line line = lineRepository.findById(lineId)
+                .orElseThrow(LineNoFoundException::new);
         newStation.setLinestation(line);
+
         return lineStationRepository.save(newStation);
     }
     @Override

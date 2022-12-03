@@ -1,6 +1,8 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inStationDTO;
+import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
@@ -9,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -20,9 +23,9 @@ public class LineStationControler {
     LineStationService lineStationService;
 
     @GetMapping("/station")
-    public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
-                                                    @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
-            @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
+    public ResponseEntity<List<outStationDTO>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
+                                                      @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
+                                                      @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
         if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
             return ResponseEntity.ok(lineStationService.findAll());
         }
@@ -37,9 +40,9 @@ public class LineStationControler {
         return new ResponseEntity<>(stationId, HttpStatus.OK);
     }
 
-    @PostMapping("/station")
-    public ResponseEntity<LineStation> addOneStation(@RequestBody LineStation lineStation){
-        LineStation newStation = lineStationService.addStation(lineStation);
+    @PostMapping("/station/{lineId}/station")
+    public ResponseEntity<LineStation> addOneStation(@PathVariable long lineId, @RequestBody inStationDTO inStationDTO) throws LineNoFoundException {
+        LineStation newStation = lineStationService.addStation(lineId, inStationDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
 

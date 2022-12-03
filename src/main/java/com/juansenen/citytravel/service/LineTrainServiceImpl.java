@@ -4,12 +4,15 @@
     import com.juansenen.citytravel.domain.Line;
     import com.juansenen.citytravel.domain.LineGarage;
     import com.juansenen.citytravel.domain.LineTrain;
+    import com.juansenen.citytravel.domain.dto.inTrainDTO;
+    import com.juansenen.citytravel.domain.dto.outTrainDTO;
     import com.juansenen.citytravel.exception.LineNoFoundException;
 
     import com.juansenen.citytravel.repository.LineGarageRepository;
     import com.juansenen.citytravel.repository.LineRepository;
     import com.juansenen.citytravel.repository.LineTrainRepository;
     import org.modelmapper.ModelMapper;
+    import org.modelmapper.TypeToken;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Service;
 
@@ -29,16 +32,20 @@
 
 
         @Override
-        public List<LineTrain> findAll() {
-            return lineTrainRepository.findAll();
+        public List<outTrainDTO> findAll() {
+            List<LineTrain> trains = lineTrainRepository.findAll();
+            List<outTrainDTO> trainDTOS = modelMapper.map(trains, new TypeToken<List<outTrainDTO>>(){}.getType());
+            return trainDTOS;
         }
         @Override
         public Optional<LineTrain> findById(long id) throws LineNoFoundException {
             return lineTrainRepository.findById(id);
         }
         @Override
-        public List<LineTrain> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp) {
-            return lineTrainRepository.findAllByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp);
+        public List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp) {
+            List<LineTrain> trains = lineTrainRepository.findAllByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp);
+            List<outTrainDTO> trainDTOS = modelMapper.map(trains, new TypeToken<List<outTrainDTO>>(){}.getType());
+            return trainDTOS;
         }
         @Override
         public LineTrain delTrain(long id) throws LineNoFoundException {
@@ -49,18 +56,14 @@
         }
 
         @Override
-        public LineTrain addNewTrain(LineTrain lineTrain, long lineId, long garageId) throws LineNoFoundException {
+        public LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws LineNoFoundException {
             LineTrain newTrain = new LineTrain();
 
-            modelMapper.map(lineTrain, newTrain);
+            modelMapper.map(inTrainDTO, newTrain);
 
             Line line = lineRepository.findById(lineId)
                     .orElseThrow(LineNoFoundException::new);
             newTrain.setLine(line);
-            LineGarage garage = lineGarageRepository.findById(garageId)
-                    .orElseThrow(LineNoFoundException::new);
-            newTrain.setGarages(garage);
-
             return lineTrainRepository.save(newTrain);
         }
 

@@ -1,11 +1,15 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.*;
+import com.juansenen.citytravel.domain.dto.inAccessDTO;
+import com.juansenen.citytravel.domain.dto.outAccessDTO;
+import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.repository.LineAccessRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +27,10 @@ public class LineAccessServiceImpl implements LineAccessService{
     ModelMapper modelMapper;
 
     @Override
-    public List<LineAccess> findAll() {
-        return lineAccessRepository.findAll();
+    public List<outAccessDTO> findAll() {
+        List<LineAccess> access = lineAccessRepository.findAll();
+        List<outAccessDTO> accessDTO = modelMapper.map(access, new TypeToken<List<outAccessDTO>>() {}.getType());
+        return accessDTO;
     }
 
     @Override
@@ -33,22 +39,26 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public List<LineAccess> searchAccessWithElevator(boolean elevator) {
-        return lineAccessRepository.findByElevator(elevator);
+    public List<outAccessDTO> searchAccessWithElevator(boolean elevator) {
+        List<LineAccess> lineAccesses = lineAccessRepository.findByElevator(elevator);
+        List<outAccessDTO> outAccessDTOS = modelMapper.map(lineAccesses, new TypeToken<List<outAccessDTO>>(){}.getType());
+        return outAccessDTOS;
     }
 
     @Override
-    public LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws StationNoFoundException {
+    public LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws StationNoFoundException {
         LineAccess newAccess = new LineAccess();
-        modelMapper.map(lineAccess,newAccess);
+        modelMapper.map(inAccessDTO,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
                 .orElseThrow(StationNoFoundException::new);
+        newAccess.setLineStationAccess(lineStation);
         return lineAccessRepository.save(newAccess);
     }
-    public void  delAccess(long id) throws LineNoFoundException {
+    public LineAccess delAccess(long id) throws LineNoFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         lineAccessRepository.deleteById(id);
+        return delAccess;
     }
 
     @Override

@@ -1,25 +1,23 @@
 package com.juansenen.citytravel.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.juansenen.citytravel.domain.LineAccess;
+import com.juansenen.citytravel.domain.LineStation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.time.LocalTime;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class outStationDTO {
+public class outLineDTO {
 
-    private long id;
-    private String name;
+    private String codeLine;
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime hopen;
+    private LocalTime firstTime;
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime hclose;
-
+    private LocalTime lastTime;
+    private List<LineStation> stations;
 }

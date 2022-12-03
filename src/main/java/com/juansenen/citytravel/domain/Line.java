@@ -42,7 +42,6 @@ public class Line {
 
     //Relación Lineas con Trenes
     @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true) //Para borrar en cascada
-    //@JsonManagedReference
     private List<LineTrain> trains;
 
     @OneToMany(mappedBy = "linestation",cascade = CascadeType.REMOVE, orphanRemoval = true)

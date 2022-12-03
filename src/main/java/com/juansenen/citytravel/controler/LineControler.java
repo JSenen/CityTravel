@@ -1,16 +1,15 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.Line;
-import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
 import com.juansenen.citytravel.service.LineTrainService;
-import org.hibernate.id.factory.IdentifierGeneratorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +17,11 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 public class LineControler {
@@ -39,17 +36,18 @@ public class LineControler {
 
     //Listar todos
     @GetMapping("/line")
-    public ResponseEntity<List<Line>> getAll(@RequestParam(name = "firstTime", defaultValue = "00:00",required = false) String start,
-                                             @RequestParam(name = "lastTime", defaultValue = "00:00", required = false) String close){
+    public ResponseEntity<List<outLineDTO>> getAll(@RequestParam(name = "firstTime", defaultValue = "00:00",required = false) String start,
+                                                   @RequestParam(name = "lastTime", defaultValue = "00:00", required = false) String close){
         //por defecto se le asigna 00:00, para que cuente ese valor en caso de que solo se selccione una de las posibilidades
         if (start.equals("00:00") && close.equals("00:00")){
             return ResponseEntity.ok(lineService.findAll());
         }
         LocalTime hstart = LocalTime.parse(start, DateTimeFormatter.ofPattern("HH:mm"));
         LocalTime hclose = LocalTime.parse(close, DateTimeFormatter.ofPattern("HH:mm"));
-        return new ResponseEntity<>(lineService.searchByHourStartAndHourClose(hstart, hclose),HttpStatus.OK);
+        return ResponseEntity.ok(lineService.searchByHourStartAndHourClose(hstart, hclose));
 
     }
+
     //Buscar por id
     @GetMapping("/line/{id}")
     public ResponseEntity<Line> getLine(@PathVariable long id) throws LineNoFoundException {
@@ -68,11 +66,6 @@ public class LineControler {
     public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
-    }
-    @PostMapping("/station/{lineId}/station")
-    public ResponseEntity<LineStation> addOneLine(@PathVariable long lineId, @RequestBody LineStation lineStation) throws LineNoFoundException {
-        LineStation newStation = lineStationService.addNewStationByLine(lineStation, lineId);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
     //Borrar uno
 
