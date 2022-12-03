@@ -40,7 +40,7 @@ public class LineGarage {
     @JsonIgnore
     private LineStation lineStationGarage;
 
-    @OneToMany(mappedBy = "garages")
+    @OneToMany(mappedBy = "garages",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LineTrain> lineTrainList;
 
 

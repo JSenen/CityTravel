@@ -43,10 +43,10 @@ public class LineStation {
     @Column(name="taxi_station")
     private boolean taxiStation;
 
-    @OneToMany(mappedBy = "lineStationAccess")
+    @OneToMany(mappedBy = "lineStationAccess",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LineAccess> lineAccessList;
 
-    @OneToMany(mappedBy = "lineStationGarage")
+    @OneToMany(mappedBy = "lineStationGarage",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LineGarage> lineGarageList;
 
     @ManyToOne

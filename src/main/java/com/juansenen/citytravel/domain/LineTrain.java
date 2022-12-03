@@ -33,7 +33,7 @@
         @Column(name = "num_stadup")
         private int numStandUp;
         @Column
-        @JsonFormat(pattern = "dd-MM-YYYY")
+        @JsonFormat(pattern = "MM/dd/yyyy")
         private Date datebuy;
 
         //Relacion trenes- garage M:1
