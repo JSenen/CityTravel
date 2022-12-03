@@ -51,12 +51,12 @@ public class LineControler {
 
     //Buscar por id
     @GetMapping("/line/{id}")
-    public ResponseEntity<Line> getLine(@PathVariable long id)  {
+    public ResponseEntity<Line> getLine(@PathVariable long id) throws NotFoundException {
         Line line = lineService.findById(id);
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
     @GetMapping("/line/{lineId}/trains")
-    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws LineNoFoundException {
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws  NotFoundException {
         Line line = lineService.findById(lineId);
         List<LineTrain> trains = null;
         trains = lineTrainService.findByLineId(lineId);
