@@ -6,6 +6,7 @@ import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.exception.LineNoFoundException;
+import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
@@ -50,12 +51,12 @@ public class LineControler {
 
     //Buscar por id
     @GetMapping("/line/{id}")
-    public ResponseEntity<Line> getLine(@PathVariable long id) throws LineNoFoundException {
+    public ResponseEntity<Line> getLine(@PathVariable long id) throws NotFoundException {
         Line line = lineService.findById(id);
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
     @GetMapping("/line/{lineId}/trains")
-    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws LineNoFoundException {
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws  NotFoundException {
         Line line = lineService.findById(lineId);
         List<LineTrain> trains = null;
         trains = lineTrainService.findByLineId(lineId);
@@ -63,20 +64,20 @@ public class LineControler {
     }
     //Grabar linea
     @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@RequestBody Line line) throws LineNoFoundException{
+    public ResponseEntity<Line> addLine(@RequestBody Line line){
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
     //Borrar uno
 
     @DeleteMapping("/line/{id}")
-    public ResponseEntity<Void> delLine(@PathVariable long id) throws LineNoFoundException{
+    public ResponseEntity<Void> delLine(@PathVariable long id) throws NotFoundException {
         lineService.deleteLine(id);
         return ResponseEntity.noContent().build();
     }
     //Modificar 1 por id
     @PutMapping("/line/{id}")
-    public  ResponseEntity<Line> modLine (@PathVariable long id, @RequestBody Line line) throws LineNoFoundException {
+    public  ResponseEntity<Line> modLine (@PathVariable long id, @RequestBody Line line) throws NotFoundException {
         Line lineModif = lineService.modyLine(id, line);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(lineModif);
     }
