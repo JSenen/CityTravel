@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.inTrainDTO;
 import com.juansenen.citytravel.domain.dto.outTrainDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.service.LineService;
@@ -50,9 +51,9 @@ public class LineTrainControler {
         return new ResponseEntity<>(trainList, HttpStatus.OK);
     }
 
-    @PostMapping("/train/{lineId}/{garageId}/train")
-    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @PathVariable long garageId, @RequestBody LineTrain lineTrain) throws LineNoFoundException {
-        LineTrain newTrain = lineTrainService.addNewTrain(lineTrain, lineId, garageId);
+    @PostMapping("/train/{lineId}/train")
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody inTrainDTO inTrainDTO) throws LineNoFoundException {
+        LineTrain newTrain = lineTrainService.addNewTrain(lineId, inTrainDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
     }
     @PutMapping("/train/{id}")

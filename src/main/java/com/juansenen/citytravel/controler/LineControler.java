@@ -67,11 +67,6 @@ public class LineControler {
         Line newline = lineService.add(line);
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
     }
-    @PostMapping("/station/{lineId}/station")
-    public ResponseEntity<LineStation> addOneLine(@PathVariable long lineId, @RequestBody LineStation lineStation) throws LineNoFoundException {
-        LineStation newStation = lineStationService.addNewStationByLine(lineStation, lineId);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
-    }
     //Borrar uno
 
     @DeleteMapping("/line/{id}")

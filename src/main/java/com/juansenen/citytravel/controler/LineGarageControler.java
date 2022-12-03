@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.dto.inGarageDTO;
 import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -39,14 +40,9 @@ public class LineGarageControler {
         return new ResponseEntity<>(garageId, HttpStatus.OK);
     }
 
-    @PostMapping("/garage")
-    public ResponseEntity<LineGarage> addGarage(@RequestBody LineGarage lineGarage) throws StationNoFoundException {
-        LineGarage newLineGarage = lineGarageService.addGarage(lineGarage);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newLineGarage);
-    }
     @PostMapping("/garage/{stationId}/garage")
-    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws StationNoFoundException {
-        LineGarage newGarage = lineGarageService.addNewGarByLine(lineGarage, stationId);
+    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody inGarageDTO inGarageDTO) throws StationNoFoundException {
+        LineGarage newGarage = lineGarageService.addNewGarByLine(inGarageDTO, stationId);
         return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }
     @PutMapping("/garage/{id}")

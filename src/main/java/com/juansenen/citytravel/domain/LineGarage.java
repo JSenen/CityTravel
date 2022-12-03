@@ -36,8 +36,7 @@ public class LineGarage {
     @JsonIgnore
     private LineStation lineStationGarage;
 
-    @OneToMany
-    @JoinColumn(name="garages")
+    @OneToMany(mappedBy = "garages")
     private List<LineTrain> lineTrainList;
 
 

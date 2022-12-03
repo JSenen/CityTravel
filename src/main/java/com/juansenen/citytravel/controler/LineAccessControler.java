@@ -4,6 +4,7 @@ import com.juansenen.citytravel.domain.LineAccess;
 import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
+import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -41,8 +42,8 @@ public class LineAccessControler {
     }
 
     @PostMapping("/access/{stationid}/access")
-    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws StationNoFoundException {
-        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(lineAccess, stationid);
+    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody inAccessDTO inAccessDTO) throws StationNoFoundException {
+        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(inAccessDTO, stationid);
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
 

@@ -2,6 +2,7 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -53,20 +54,14 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public LineStation addStation(LineStation lineStation) {
+    public LineStation addStation(long lineId, inStationDTO inStationDTO) throws LineNoFoundException {
         LineStation newStation = new LineStation();
 
-        modelMapper.map(lineStation, newStation);
-
-        return lineStationRepository.save(newStation);
-    }
-
-    @Override
-    public LineStation addNewStationByLine(LineStation lineStation, long lineId) throws LineNoFoundException {
-        LineStation newStation = new LineStation();
-        modelMapper.map(lineStation,newStation);
-        Line line = lineRepository.findById(lineId).orElseThrow(LineNoFoundException::new);
+        modelMapper.map(inStationDTO, newStation);
+        Line line = lineRepository.findById(lineId)
+                .orElseThrow(LineNoFoundException::new);
         newStation.setLinestation(line);
+
         return lineStationRepository.save(newStation);
     }
     @Override

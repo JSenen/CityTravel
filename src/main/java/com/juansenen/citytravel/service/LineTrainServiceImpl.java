@@ -4,6 +4,7 @@
     import com.juansenen.citytravel.domain.Line;
     import com.juansenen.citytravel.domain.LineGarage;
     import com.juansenen.citytravel.domain.LineTrain;
+    import com.juansenen.citytravel.domain.dto.inTrainDTO;
     import com.juansenen.citytravel.domain.dto.outTrainDTO;
     import com.juansenen.citytravel.exception.LineNoFoundException;
 
@@ -55,18 +56,14 @@
         }
 
         @Override
-        public LineTrain addNewTrain(LineTrain lineTrain, long lineId, long garageId) throws LineNoFoundException {
+        public LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws LineNoFoundException {
             LineTrain newTrain = new LineTrain();
 
-            modelMapper.map(lineTrain, newTrain);
+            modelMapper.map(inTrainDTO, newTrain);
 
             Line line = lineRepository.findById(lineId)
                     .orElseThrow(LineNoFoundException::new);
             newTrain.setLine(line);
-            LineGarage garage = lineGarageRepository.findById(garageId)
-                    .orElseThrow(LineNoFoundException::new);
-            newTrain.setGarages(garage);
-
             return lineTrainRepository.save(newTrain);
         }
 

@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.LineGarage;
+import com.juansenen.citytravel.domain.dto.inGarageDTO;
 import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -13,9 +14,8 @@ public interface LineGarageService {
     List<outGarageDTO> findAll();
     Optional<LineGarage> findById(long id);
     LineGarage modGarage (long id, LineGarage lineGarage) throws LineNoFoundException;
-    LineGarage addGarage (LineGarage lineGarage) throws StationNoFoundException;
 
-    LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException;
+    LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws StationNoFoundException;
 
     List<outGarageDTO> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService);
 

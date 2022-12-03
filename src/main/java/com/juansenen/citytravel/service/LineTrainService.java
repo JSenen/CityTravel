@@ -1,6 +1,7 @@
     package com.juansenen.citytravel.service;
 
     import com.juansenen.citytravel.domain.LineTrain;
+    import com.juansenen.citytravel.domain.dto.inTrainDTO;
     import com.juansenen.citytravel.domain.dto.outTrainDTO;
     import com.juansenen.citytravel.exception.LineNoFoundException;
 
@@ -13,7 +14,7 @@
         Optional<LineTrain> findById(long id) throws LineNoFoundException;
 
         LineTrain delTrain(long id) throws LineNoFoundException;
-        LineTrain addNewTrain(LineTrain lineTrain,long lineId, long garageId) throws LineNoFoundException;
+        LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws LineNoFoundException;
         LineTrain modTrain(long id, LineTrain lineTrain) throws LineNoFoundException;
         List<LineTrain> findByLineId(long lineId);
         List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp);

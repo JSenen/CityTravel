@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.*;
+import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
@@ -45,17 +46,19 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws StationNoFoundException {
+    public LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws StationNoFoundException {
         LineAccess newAccess = new LineAccess();
-        modelMapper.map(lineAccess,newAccess);
+        modelMapper.map(inAccessDTO,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
                 .orElseThrow(StationNoFoundException::new);
+        newAccess.setLineStationAccess(lineStation);
         return lineAccessRepository.save(newAccess);
     }
-    public void  delAccess(long id) throws LineNoFoundException {
+    public LineAccess delAccess(long id) throws LineNoFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
                 .orElseThrow(LineNoFoundException::new);
         lineAccessRepository.deleteById(id);
+        return delAccess;
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.juansenen.citytravel.service;
 import com.juansenen.citytravel.domain.LineAccess;
 import com.juansenen.citytravel.domain.LineGarage;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inGarageDTO;
 import com.juansenen.citytravel.domain.dto.outGarageDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -45,18 +46,11 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage addGarage(LineGarage lineGarage) throws StationNoFoundException {
-        LineGarage newGarage = lineGarageRepository.save(lineGarage);
-        return newGarage;
-
-    }
-
-    @Override
-    public LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws StationNoFoundException {
+    public LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws StationNoFoundException {
 
         LineGarage newGarage = new LineGarage();
 
-        modelMapper.map(lineGarage, newGarage);
+        modelMapper.map(inGarageDTO, newGarage);
 
         LineStation lineStation = lineStationRepository.findById(stationId)
                 .orElseThrow(StationNoFoundException::new);

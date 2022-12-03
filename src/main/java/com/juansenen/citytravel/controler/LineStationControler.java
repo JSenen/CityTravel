@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.controler;
 
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -39,9 +40,9 @@ public class LineStationControler {
         return new ResponseEntity<>(stationId, HttpStatus.OK);
     }
 
-    @PostMapping("/station")
-    public ResponseEntity<LineStation> addOneStation(@RequestBody LineStation lineStation){
-        LineStation newStation = lineStationService.addStation(lineStation);
+    @PostMapping("/station/{lineId}/station")
+    public ResponseEntity<LineStation> addOneStation(@PathVariable long lineId, @RequestBody inStationDTO inStationDTO) throws LineNoFoundException {
+        LineStation newStation = lineStationService.addStation(lineId, inStationDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
     }
 
