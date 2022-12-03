@@ -7,6 +7,8 @@
     import lombok.NoArgsConstructor;
 
     import javax.persistence.*;
+    import javax.validation.constraints.NotBlank;
+    import javax.validation.constraints.NotNull;
     import java.util.Date;
 
     @Data
@@ -19,6 +21,8 @@
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         @Column(name = "code_train")
+        @NotNull
+        @NotBlank(message = "Must be filled")
         private String code;
         @Column
         private String model;

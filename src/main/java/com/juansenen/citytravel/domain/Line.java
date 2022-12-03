@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 import java.time.LocalTime;
@@ -28,14 +30,17 @@ public class Line {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name="code_line")
+    @NotBlank(message = "Must be filled")
     private String codeLine;
     @Column
     private String color;
     @Column(name = "first_time")
     @JsonFormat(pattern = "HH:mm")
+    @NotNull
     private LocalTime firstTime;
     @Column(name = "last_time")
     @JsonFormat(pattern = "HH:mm")
+    @NotNull
     private LocalTime lastTime;
     @Column(name="stop_line")
     private int stopTime;

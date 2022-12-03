@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +23,8 @@ public class LineGarage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name="code_garage")
+    @NotNull
+    @NotBlank(message = "Must be filled")
     private String codeGarage;
     @Column
     private boolean taller;

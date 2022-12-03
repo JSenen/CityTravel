@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
@@ -21,11 +23,15 @@ public class LineStation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
+    @NotNull
+    @NotBlank(message = "Must be filled")
     private String name;
     @Column
+    @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hopen;
     @Column
+    @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hclose;
     @Column(name="pto_info")
