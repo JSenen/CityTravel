@@ -17,4 +17,6 @@ public interface LineAccessService {
     LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws NotFoundException;
 
     List<outAccessDTO> searchAccessWithElevator(boolean elevator);
+
+    LineAccess updateOneAccess(long stationid, LineAccess lineAccess) throws NotFoundException;
 }

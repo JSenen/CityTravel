@@ -54,7 +54,7 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
     public LineAccess delAccess(long id) throws NotFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new LineStation()));
+                .orElseThrow(()-> new NotFoundException(new LineAccess()));
         lineAccessRepository.deleteById(id);
         return delAccess;
     }
@@ -70,5 +70,14 @@ public class LineAccessServiceImpl implements LineAccessService{
         modAccess.setElevator(lineAccess.isElevator());
 
         return lineAccessRepository.save(modAccess);
+    }
+
+    @Override
+    public LineAccess updateOneAccess(long accessId, LineAccess lineAccess) throws NotFoundException {
+        LineAccess updateAcc = lineAccessRepository.findById(accessId)
+                .orElseThrow(()->new NotFoundException(new LineStation()));
+        updateAcc.setElevator(lineAccess.isElevator());
+
+        return lineAccessRepository.save(updateAcc);
     }
 }

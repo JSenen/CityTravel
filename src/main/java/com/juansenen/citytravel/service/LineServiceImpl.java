@@ -73,6 +73,12 @@ public class LineServiceImpl implements LineService {
         return lineRepository.save(modyfLine);
 
     }
-
-
+    //Metodo actualización aprcial Patch
+    @Override
+    public Line updateLine(long id, Line line) throws NotFoundException {
+        Line updateLine = lineRepository.findById(id)
+                .orElseThrow(()-> new NotFoundException(new Line()));
+        updateLine.setCodeLine((line.getCodeLine()));
+        return lineRepository.save(updateLine);
+    }
 }

@@ -51,6 +51,13 @@ public class LineAccessControler {
         logger.info("Finish add access by station Id");
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
+    @PatchMapping("/access/{accessId}/access")
+    public ResponseEntity<LineAccess> updateAccess(@PathVariable long accessId, @RequestBody LineAccess lineAccess) throws NotFoundException {
+        logger.info("Begin update partialy access by access Id");
+        LineAccess updateAccess = lineAccessService.updateOneAccess(accessId, lineAccess);
+        logger.info("End update partialy access by access Id");
+        return ResponseEntity.status(HttpStatus.CREATED).body(updateAccess);
+    }
 
     @PutMapping("/access/{id}")
     public ResponseEntity<LineAccess> modyAccess(@PathVariable long id, @RequestBody LineAccess lineAccess) throws NotFoundException {

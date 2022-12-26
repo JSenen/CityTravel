@@ -80,5 +80,13 @@ public class LineStationServiceImpl implements LineStationService{
         return lineStationRepository.save(modStation);
     }
 
+    @Override
+    public LineStation updateOneStation(long lineId, LineStation lineStation) throws NotFoundException {
+        LineStation updStation = lineStationRepository.findById(lineId)
+                .orElseThrow(()-> new NotFoundException(new LineStation()));
+        updStation.setHopen(lineStation.getHopen());
+        updStation.setHclose(lineStation.getHclose());
 
+        return lineStationRepository.save(updStation);
+    }
 }

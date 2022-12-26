@@ -21,4 +21,6 @@ public interface LineGarageService {
     List<outGarageDTO> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService);
 
     LineGarage deleteGarage(long garageId) throws NotFoundException;
+
+    LineGarage updateGarg(long stationid, LineGarage lineGarage) throws NotFoundException;
 }

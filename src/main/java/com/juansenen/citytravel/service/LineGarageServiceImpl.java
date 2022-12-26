@@ -81,4 +81,14 @@ public class LineGarageServiceImpl implements LineGarageService{
         lineGarageRepository.deleteById(garageId);
         return garage;
     }
+
+    @Override
+    public LineGarage updateGarg(long garageId, LineGarage lineGarage) throws NotFoundException {
+        LineGarage updGarage = lineGarageRepository.findById(garageId)
+                .orElseThrow(()-> new NotFoundException((new LineGarage())));
+        updGarage.setPaintService(lineGarage.isPaintService());
+        updGarage.setRrhh(lineGarage.isRrhh());
+        updGarage.setTaller(lineGarage.isTaller());
+        return lineGarageRepository.save(updGarage);
+    }
 }

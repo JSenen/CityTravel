@@ -17,6 +17,8 @@ public interface LineService {
     void deleteLine (long id) throws  NotFoundException;
     Line modyLine(long id, Line line) throws NotFoundException;
 
+
     List<outLineDTO> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose);
 
+    Line updateLine(long id, Line line) throws NotFoundException;
 }
