@@ -14,6 +14,7 @@ import com.juansenen.citytravel.service.LineTrainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -81,6 +82,13 @@ public class LineControler {
         Line newline = lineService.add(line);
         logger.info("Finish add new Line");
         return ResponseEntity.status(HttpStatus.CREATED).body(newline);
+    }
+    //Actualizacion parcial
+
+    @PatchMapping("/line/{id}")
+    public ResponseEntity<Line> updateLine(@PathVariable long id, @RequestBody Line line) throws NotFoundException {
+        Line updateLine = lineService.updateLine(id, line);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateLine);
     }
     //Borrar uno
 

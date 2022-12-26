@@ -54,7 +54,7 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
     public LineAccess delAccess(long id) throws NotFoundException {
         LineAccess delAccess = lineAccessRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new LineStation()));
+                .orElseThrow(()-> new NotFoundException(new LineAccess()));
         lineAccessRepository.deleteById(id);
         return delAccess;
     }
