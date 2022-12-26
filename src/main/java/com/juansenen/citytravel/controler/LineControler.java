@@ -87,7 +87,9 @@ public class LineControler {
 
     @PatchMapping("/line/{id}")
     public ResponseEntity<Line> updateLine(@PathVariable long id, @RequestBody Line line) throws NotFoundException {
+        logger.info("Begin update partialy line by Id");
         Line updateLine = lineService.updateLine(id, line);
+        logger.info("End update partialy line by Id");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateLine);
     }
     //Borrar uno

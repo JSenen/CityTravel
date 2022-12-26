@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.List;
 import java.util.Optional;
@@ -62,6 +63,13 @@ public class LineStationControler {
         LineStation changeStation = lineStationService.modStation(id, lineStation);
         logger.info("Finish modify station by Id");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeStation);
+    }
+    @PatchMapping("/station/{stationId}/station")
+    public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody LineStation lineStation) throws NotFoundException {
+        logger.info("Begin update partialy station by station id");
+        LineStation updateStation = lineStationService.updateOneStation(stationId, lineStation);
+        logger.info("End update partialy station by station id");
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateStation);
     }
 
     @DeleteMapping("/station/{id}")

@@ -89,4 +89,15 @@
         public List<LineTrain> findByLineId(long lineId) {
             return lineTrainRepository.findAllTrainsByLineId(lineId);
         }
+
+        @Override
+        public LineTrain updateOneTrain(long trainId, LineTrain lineTrain) throws NotFoundException {
+            LineTrain updateTrain = lineTrainRepository.findById(trainId)
+                    .orElseThrow(()-> new NotFoundException(new LineTrain()));
+            updateTrain.setNumSeats(lineTrain.getNumSeats());
+            updateTrain.setNumWagons(lineTrain.getNumWagons());
+            updateTrain.setNumStandUp(lineTrain.getNumStandUp());
+
+            return lineTrainRepository.save(updateTrain);
+        }
     }

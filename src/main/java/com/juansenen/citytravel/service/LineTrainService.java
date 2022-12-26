@@ -21,4 +21,5 @@
         List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp);
 
 
+        LineTrain updateOneTrain(long trainId, LineTrain lineTrain) throws NotFoundException;
     }

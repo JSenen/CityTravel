@@ -73,6 +73,13 @@ public class LineTrainControler {
         logger.info("Finsih modify train by Id");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
     }
+    @PatchMapping("/train/{trainId}")
+    public ResponseEntity<LineTrain> updateTrain(@PathVariable long trainId, @RequestBody LineTrain lineTrain) throws NotFoundException {
+        logger.info("Begin update partialy train by train id");
+        LineTrain updtrain = lineTrainService.updateOneTrain(trainId, lineTrain);
+        logger.info("End update partialy train by train id");
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updtrain);
+    }
 
     @DeleteMapping("/train/{id}")
     public ResponseEntity<Void> delOneTrain(@PathVariable long id) throws NotFoundException {

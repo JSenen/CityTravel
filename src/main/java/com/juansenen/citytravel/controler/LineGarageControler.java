@@ -63,6 +63,13 @@ public class LineGarageControler {
         logger.info("Finish modify garage by Id");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeGarage);
     }
+    @PatchMapping("/garage/{garageId}/garage")
+    public ResponseEntity<LineGarage> updateGarage(@PathVariable long garageId, @RequestBody LineGarage lineGarage) throws NotFoundException {
+        logger.info("Begin update partialy garage by garage id");
+        LineGarage updateOneGarage = lineGarageService.updateGarg(garageId, lineGarage);
+        logger.info("End update partialy garage by garage id");
+        return ResponseEntity.status(HttpStatus.CREATED).body(updateOneGarage);
+    }
     @DeleteMapping("/garage/{garageId}")
     public ResponseEntity<LineGarage> delGarage(@PathVariable long garageId) throws NotFoundException {
         logger.info("Begin delete garage by garage Id");
