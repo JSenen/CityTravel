@@ -9,7 +9,7 @@
 Se ha creado una API para la gestión y consulta de lineas de tren.
 
 ### Requisitos (1 pto cada uno, obligatorios)
-1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación.
+1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación. ✅
    El modelo relacional entre las diferentes clases es el siguiente.
 
    ![Imagen](https://github.com/JSenen/CityTravel/blob/master/ER_DB.png)
@@ -23,20 +23,111 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
     | LineStation | Estaciones     | Nombre y horarios      |
     | LineTrain   | Trenes         | Código del tren        |
 
-2. Se tendrá que poder realizar, el menos, las operaciones CRUD sobre cada una de las clases. Se controlarán, al menos, los errores 400, 404 y 500
-3. Añade opciones de filtrado para al menos una operación en cada clase en donde se puedan indicar hasta 3 campos diferentes (solo aplicable para operaciones GET)
+2. Se tendrá que poder realizar, el menos, las operaciones CRUD sobre cada una de las clases. Se controlarán, al menos, los errores 400, 404 y 500  ✅
+   Sobre cada clase se puede realizar un CRUD completo con los metodos RESTweb.
+   ![GET](https://img.shields.io/static/v1?label=GET&message=Obtener&color=blue)
+   ![GET](https://img.shields.io/static/v1?label=GET&message=Filtrar&color=blue)
+   ![POST](https://img.shields.io/static/v1?label=POST&message=Crear&color=green)
+   ![PUT](https://img.shields.io/static/v1?label=PUT&message=Actualizar&color=orange)
+   ![PATCH](https://img.shields.io/static/v1?label=PATCH&message=Modificar&color=white)
+   ![DELETE](https://img.shields.io/static/v1?label=DELETE&message=Borrar&color=red)
+
+   El error 500 se ha controlado por medio del handler en la clase LineControler con el siguiente código
+   ```
+   @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorMessage> handleException (Exception exc){
+        logger.error(exc.getMessage(), exc);
+        ErrorMessage errorMessage = new ErrorMessage(500, "Internal Server Error");
+        logger.error("Finish 500 Internal Server error");
+        return new ResponseEntity<>(errorMessage,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+   ```
+   El error 400 han sido controlados mediante otro handler.
+   ```
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorMessage> handleBadRequestException (MethodArgumentNotValidException manve){
+        logger.error(manve.getMessage(), manve);
+        Map<String, String> errors = new HashMap<>();
+        manve.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String message = error.getDefaultMessage();
+            errors.put(fieldName, message);
+        });
+        ErrorMessage errorMessage = new ErrorMessage(400, "Bad Request",errors);
+        logger.error("Finish 4000 Bad Request exception");
+        return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
+    }
+   ```
+   Y por último, el 404 se ha controlado por medio de.
+   ```
+   @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorMessage> notFoundException(NotFoundException nfexc){
+        logger.error(nfexc.getMessage(), nfexc);
+        ErrorMessage errorMessage = new ErrorMessage(404, nfexc.getMessage());
+        logger.error("Finish NotFoundException");
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+   ```
+   Siendo este último válido para todas las clases. Al invocarlo, recoge el nombre de la clase donde se ha producido el error y por
+   medio del constructor nos devuelve el nombre de la clase concatenado al string NOT FOUND.
+   ```
+   public class NotFoundException extends Exception{
+
+    //Excepción genérica para recoger todas. Nos plasma la clase que causa la excepción más el texto que asignamos
+    public NotFoundException(Object obj){
+        super(obj.getClass().getSimpleName() + " NOT FOUND");
+    }
+   ```
+
+3. Añade opciones de filtrado para al menos una operación en cada clase en donde se puedan indicar hasta 3 campos diferentes (solo aplicable para operaciones GET)  ✅
+   En todas las clases se ha introducido una función de filtrado en la operación GET, la cual recoge los parámetros indicados en la petición al servidor para realizarla,
+   y en caso de no introducirse ninguno nos devuelve la totalidad del listado.
+   El código a continuación es un **ejemplo** de la clase Line.
+   ```
+   @GetMapping("/line")
+    public ResponseEntity<List<outLineDTO>> getAll(@RequestParam(name = "firstTime", defaultValue = "00:00",required = false) String start,
+                                                   @RequestParam(name = "lastTime", defaultValue = "00:00", required = false) String close){
+        logger.info("Begin getLine");
+        //por defecto se le asigna 00:00, para que cuente ese valor en caso de que solo se selccione una de las posibilidades
+        if (start.equals("00:00") && close.equals("00:00")){
+            logger.info("Finish getLine");
+            return ResponseEntity.ok(lineService.findAll());
+        }
+        logger.debug("Begin getLine by Hours");
+        LocalTime hstart = LocalTime.parse(start, DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime hclose = LocalTime.parse(close, DateTimeFormatter.ofPattern("HH:mm"));
+        logger.info("Finish getLine by Hours");
+        return ResponseEntity.ok(lineService.searchByHourStartAndHourClose(hstart, hclose));
+
+    }
+   ```
 4. Prepara una colección Postman que permita probar todas las operaciones desarrolladas
-5. Configura en el proyecto la librería logback para que la aplicación web cuente con un log. Añade trazas en el código de forma que permita seguir el rastro de ejecución en el log (para todas las operaciones que se puedan realizar y también para los casos en los que se recojan errores)
+   En el repositorio, dentro de la carpeta POSTMAN se puede encontrar la colección en formato JSON desarrollada para la prueba.✅
+5. Configura en el proyecto la librería logback para que la aplicación web cuente con un log. Añade trazas en el código de forma que permita seguir el rastro de ejecución en el log (para todas las operaciones que se puedan realizar y también para los casos en los que se recojan errores)✅
+   Se ha añadido la librería ***logback** para el control por medio de log en la aplicación. Cuya linrería ya viene incluida en SpringBoot por medio de la dependencia Maven ***log4s***
+
 ### Otras funcionalidades (1 pto cada una)
-6. Añade una operación PATCH para cada una de las clases del modelo
-7. Utiliza la herramienta Git (y GitHub) durante todo el desarrollo de la aplicación. Escribe el fichero README.md para explicar cómo poner en marcha el proyecto. Utiliza el gestor de Issues para los problemas/fallos que vayan surgiendo
-8. Añade 3 nuevos endpoints a la aplicación (sin repetir método) que realicen nuevas operaciones con los datos y que requieran el uso de DTOs y/o utilizar las relaciones entre las clases
+6. Añade una operación PATCH para cada una de las clases del modelo ✅
+   A todas las clases se ha incluido una operación ![PATCH](https://img.shields.io/static/v1?label=PATCH&message=Modificar&color=white) , para realizar ***modificaciones parciales del registro***
+7. Utiliza la herramienta Git (y GitHub) durante todo el desarrollo de la aplicación. Escribe el fichero README.md para explicar cómo poner en marcha el proyecto. Utiliza el gestor de Issues para los problemas/fallos que vayan surgiendo ✅
+   Durante el desarrollo de la actividad se ha usado este control de verisiones GITHUB
+8. Añade 3 nuevos endpoints a la aplicación (sin repetir método) que realicen nuevas operaciones con los datos y que requieran el uso de DTOs y/o utilizar las relaciones entre las clases ✅
+   Se han usado DTOs en todas las clases para mostrar datos parciales así como para modificaciones parciales
 9. Securiza algunas de tus operaciones de la API con un token JWT
 10. Añade 3 operaciones que utilicen consultas JPQL para extraer la información de la
     base de datos
 11. Añade 3 operaciones que utilicen consultas SQL nativas para extraer la información
     de la base de datos
+    Para el filtrado de elementos en los metodos ![GET](https://img.shields.io/static/v1?label=GET&message=Filtrar&color=blue) , se han usado SQL nativas.
+    Pudiendose encontrar todas ellas dentro del directorio ***repository** de cada una.
+    ***Ejemplo en clase LineRepository***
+    ```
+    @Query(value = "SELECT * FROM line WHERE first_time = ? OR last_time = ?",nativeQuery = true)
+    List<Line> findAllByHourStartOrHourClose(LocalTime start, LocalTime close);
+    ```
 12. Añade 2 clases más al modelo de datos con sus respectivas operaciones CRUD
     (inclúyelas también en la colección Postman)
 12. Parametriza la colección Postman para que pueda ser ejecutada con el Runner de
     Postman y realizar una prueba completa de la API
+    Dentro del archivo JSON de POSTMAN, se incluye un subdirectorio TEST_CityTravel en el que se ha parametrizado la colección completa y sus métodos para
+    realizar un test completo de su correcto desarrollo automáticamente.
