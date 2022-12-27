@@ -6,6 +6,7 @@
 ![Postman](https://img.shields.io/badge/Postman-orange?style=for-the-badge&logo=postman&logoColor=white)
 ![Github](https://img.shields.io/badge/github-black?style=for-the-badge&logo=github&logoColor=white)
 
+
 Se ha creado una API para la gestión y consulta de lineas de tren.
 
 ### Requisitos (1 pto cada uno, obligatorios)
@@ -214,3 +215,4 @@ Cada directorio correspondiente a cada clase puede realizar un CRUD completo de 
 En el direcorio TEST CityTravel, se encuentran una secuencia de todos los métodos, los cuales se han configurado por medio de ***javascript*** para realizar un test completo de la API con el 
 ***run folder*** de POSTMAN.
 
+=======
