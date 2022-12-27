@@ -24,6 +24,7 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
     | LineTrain   | Trenes         | Código del tren        |
 
 2. Se tendrá que poder realizar, el menos, las operaciones CRUD sobre cada una de las clases. Se controlarán, al menos, los errores 400, 404 y 500  ✅
+
    Sobre cada clase se puede realizar un CRUD completo con los metodos RESTweb.
    ![GET](https://img.shields.io/static/v1?label=GET&message=Obtener&color=blue)
    ![GET](https://img.shields.io/static/v1?label=GET&message=Filtrar&color=blue)
@@ -80,6 +81,7 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
    ```
 
 3. Añade opciones de filtrado para al menos una operación en cada clase en donde se puedan indicar hasta 3 campos diferentes (solo aplicable para operaciones GET)  ✅
+
    En todas las clases se ha introducido una función de filtrado en la operación GET, la cual recoge los parámetros indicados en la petición al servidor para realizarla,
    y en caso de no introducirse ninguno nos devuelve la totalidad del listado.
    El código a continuación es un **ejemplo** de la clase Line.
@@ -101,23 +103,34 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
 
     }
    ```
-4. Prepara una colección Postman que permita probar todas las operaciones desarrolladas
-   En el repositorio, dentro de la carpeta POSTMAN se puede encontrar la colección en formato JSON desarrollada para la prueba.✅
+4. Prepara una colección Postman que permita probar todas las operaciones desarrolladas✅
+
+   En el repositorio, dentro de la carpeta POSTMAN se puede encontrar la colección en formato JSON desarrollada para la prueba.
+
 5. Configura en el proyecto la librería logback para que la aplicación web cuente con un log. Añade trazas en el código de forma que permita seguir el rastro de ejecución en el log (para todas las operaciones que se puedan realizar y también para los casos en los que se recojan errores)✅
+
    Se ha añadido la librería ***logback** para el control por medio de log en la aplicación. Cuya linrería ya viene incluida en SpringBoot por medio de la dependencia Maven ***log4s***
 
 ### Otras funcionalidades (1 pto cada una)
+
 6. Añade una operación PATCH para cada una de las clases del modelo ✅
+
    A todas las clases se ha incluido una operación ![PATCH](https://img.shields.io/static/v1?label=PATCH&message=Modificar&color=white) , para realizar ***modificaciones parciales del registro***
+
 7. Utiliza la herramienta Git (y GitHub) durante todo el desarrollo de la aplicación. Escribe el fichero README.md para explicar cómo poner en marcha el proyecto. Utiliza el gestor de Issues para los problemas/fallos que vayan surgiendo ✅
+
    Durante el desarrollo de la actividad se ha usado este control de verisiones GITHUB
+
 8. Añade 3 nuevos endpoints a la aplicación (sin repetir método) que realicen nuevas operaciones con los datos y que requieran el uso de DTOs y/o utilizar las relaciones entre las clases ✅
+
    Se han usado DTOs en todas las clases para mostrar datos parciales así como para modificaciones parciales
+
 9. Securiza algunas de tus operaciones de la API con un token JWT
-10. Añade 3 operaciones que utilicen consultas JPQL para extraer la información de la
-    base de datos
-11. Añade 3 operaciones que utilicen consultas SQL nativas para extraer la información
-    de la base de datos
+
+10. Añade 3 operaciones que utilicen consultas JPQL para extraer la información de la base de datos
+
+11. Añade 3 operaciones que utilicen consultas SQL nativas para extraer la información de la base de datos ✅
+
     Para el filtrado de elementos en los metodos ![GET](https://img.shields.io/static/v1?label=GET&message=Filtrar&color=blue) , se han usado SQL nativas.
     Pudiendose encontrar todas ellas dentro del directorio ***repository** de cada una.
     ***Ejemplo en clase LineRepository***
@@ -125,9 +138,79 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
     @Query(value = "SELECT * FROM line WHERE first_time = ? OR last_time = ?",nativeQuery = true)
     List<Line> findAllByHourStartOrHourClose(LocalTime start, LocalTime close);
     ```
-12. Añade 2 clases más al modelo de datos con sus respectivas operaciones CRUD
-    (inclúyelas también en la colección Postman)
-12. Parametriza la colección Postman para que pueda ser ejecutada con el Runner de
-    Postman y realizar una prueba completa de la API
+12. Añade 2 clases más al modelo de datos con sus respectivas operaciones CRUD (inclúyelas también en la colección Postman)
+
+12. Parametriza la colección Postman para que pueda ser ejecutada con el Runner de Postman y realizar una prueba completa de la API ✅
+
     Dentro del archivo JSON de POSTMAN, se incluye un subdirectorio TEST_CityTravel en el que se ha parametrizado la colección completa y sus métodos para
     realizar un test completo de su correcto desarrollo automáticamente.
+
+
+### USO y FUNCIONAMIENTO
+
+Desde Intellij, una vez abierto el proyecto. Podemos arrancar SpringBoot mediante el comando en consola 
+```
+mvn spring-boot:run
+```
+Abrimos POSTMAN y cargamos e iomportamos el archivo CITYTRAVEL.postman_collection.json
+En la parte izquierda de la aplicación, podedemos encontrar 5 carpetas correspondientes a cada clase, y una ultima denominada TEST_CityTravel.
+Cada directorio correspondiente a cada clase puede realizar un CRUD completo de los siguientes métodos por clase. Estando todos ellos automatizados para realizar las pruebas por medio de datos ***random***
+
+| Directorio  | Método  | Path                         | Operación                                                 |
+|-------------|---------|------------------------------|-----------------------------------------------------------|
+| Line        | POST    | /line                        | Crear una nueva linea                                     |
+|             | PATCH   | /line/{id}                   | Modificacion codigo linea                                 |
+|             | GET     | /line/{id}                   | Obtener linea por id                                      |
+|             | GET     | /line//line?firstTime=04:30  | Obtención de lineas con filtrado por horarios             |
+|             | PUT     | /line/{id}                   | Modificación linea por id                                 |
+|             | DEL     | /line/{id}                   | Eliminacion de linea por {id}                             |
+
+
+| Directorio | Método | Path                      | Operación                                                                       |
+|------------|--------|---------------------------|---------------------------------------------------------------------------------|
+| Station    | POST   | /station/{lineId}/station | Crear nueva estacion en una linea                                               |
+|            | PATCH  | /station/{lineId}/station | Modificacion horarios estación                                                  |
+|            | GET    | /station/                 | Listado estaciones                                                              |
+|            | GET    | /station/{id}             | Listar estacion por Id                                                          |
+|            | GET    | /station?wifi=....        | Listar filtrando por wifi, si dispone de autobuses o si dispone de parada taxis |
+|            | PUT    | /station/{id}             | Modificación estación                                                           |
+|            | DEL    | /station/{id}             | Eliminacion de estacion por {id}                                                |
+
+
+| Directorio | Método | Path                  | Operación                                                     |
+|------------|--------|-----------------------|---------------------------------------------------------------|
+| Train      | POST   | /train/{lineid}/train | Crear tren asociado a linea                                   |
+|            | PATCH  | /train/{trainId}      | Modificacion vagones, asientos y plazas de pie tren           |
+|            | GET    | /train                | Listado trenes                                                |
+|            | GET    | /line/{lineId}/trains | Listar trenes de una linea por id linea                       |
+|            | GET    | /train?numWagons=.    | Listar filtrando por número vagones, asientos o plazas de pie |
+|            | PUT    | /train/{id}           | Modificación tren                                             |
+|            | DEL    | /train/{id}           | Eliminacion de tren por {id}                                  |
+
+
+
+| Directorio | Método | Path                       | Operación                                   |
+|------------|--------|----------------------------|---------------------------------------------|
+| Access     | POST   | /access/{stationId}/access | Crear acceso a estacion                     |
+|            | PATCH  | /access/{stationId}/access | Modificacion valor ascensor acceso estacion |
+|            | GET    | /access                    | Listado accesos                             |
+|            | GET    | /access/{id}               | Listar accesos por {id}                     |
+|            | GET    | /access?elevator=..        | Listar filtrando por ascensores             |
+|            | PUT    | /access/{id}               | Modificación acceso estacion                |
+|            | DEL    | /access/{id}               | Eliminacion de acceso por {id}              |
+
+
+| Directorio | Método | Path                       | Operación                                |
+|------------|--------|----------------------------|------------------------------------------|
+| Garage     | POST   | /garage/{stationId}/garage | Crear garage trenes en estacion          |
+|            | PATCH  | /garage/{garageId}/garage  | Modificacion servicios en garage         |
+|            | GET    | /garage                    | Listado garages                          |
+|            | GET    | /garage/{id}               | Listar garages por {id}                  |
+|            | GET    | /garage?taller=tr...       | Listar filtrando por distintos servicios |
+|            | PUT    | /garage/{id}               | Modificación garage                      |
+|            | DEL    | /garage/{id}               | Eliminacion de garage por {id}           |
+
+
+En el direcorio TEST CityTravel, se encuentran una secuencia de todos los métodos, los cuales se han configurado por medio de ***javascript*** para realizar un test completo de la API con el 
+***run folder*** de POSTMAN.
+
