@@ -6,9 +6,23 @@
 ![Postman](https://img.shields.io/badge/Postman-orange?style=for-the-badge&logo=postman&logoColor=white)
 ![Github](https://img.shields.io/badge/github-black?style=for-the-badge&logo=github&logoColor=white)
 
+Se ha creado una API para la gestión y consulta de lineas de tren.
+
 ### Requisitos (1 pto cada uno, obligatorios)
 1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación.
+   El modelo relacional entre las diferentes clases es el siguiente.
+
    ![Imagen](https://github.com/JSenen/CityTravel/blob/master/ER_DB.png)
+    
+     Las clases y validaciones/restricciones son las siguientes.
+    | Clase | Uso | Validación - Restriccion |
+    | ----------- | -------------- | ---------------------- |
+    | Line        | Lineas de tren | Código y Horarios      |
+    | LineAccess  | Accesos        | Nombre de la calle     |
+    | LineGarage  | Garages trenes | Codigo del garage      |
+    | LineStation | Estaciones     | Nombre y horarios      |
+    | LineTrain   | Trenes         | Código del tren        |
+
 2. Se tendrá que poder realizar, el menos, las operaciones CRUD sobre cada una de las clases. Se controlarán, al menos, los errores 400, 404 y 500
 3. Añade opciones de filtrado para al menos una operación en cada clase en donde se puedan indicar hasta 3 campos diferentes (solo aplicable para operaciones GET)
 4. Prepara una colección Postman que permita probar todas las operaciones desarrolladas
