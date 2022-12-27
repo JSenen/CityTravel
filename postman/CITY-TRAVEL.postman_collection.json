@@ -1,0 +1,2998 @@
+{
+	"info": {
+		"_postman_id": "276601f9-a465-4712-88e8-9570dd9070ef",
+		"name": "CITY-TRAVEL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17632514"
+	},
+	"item": [
+		{
+			"name": "Line",
+			"item": [
+				{
+					"name": "/line",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.globals.set(\"randomTimeStop\", _.random(1,15));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}},\n        \"period\": {{$randomInt}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line /{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.globals.set(\"randomTimeStop\", _.random(1,15));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\"\n        \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line/15",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/{{randomLine}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{randomLine}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line?firstTime=04:30",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line?firstTime=04:30",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line"
+							],
+							"query": [
+								{
+									"key": "firstTime",
+									"value": "04:30",
+									"description": "Hora de inicio"
+								},
+								{
+									"key": "lastTime",
+									"value": "22:00",
+									"description": "Hora de fin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line/{{randomLine}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{randomLine}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/13",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"13"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Station",
+			"item": [
+				{
+					"name": "/station/{lineId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{randomLine}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{randomLine}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{stationId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{randomStation}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{randomStation}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station/{{randomStation}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{randomStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station?wifi=true&busStation=false&taxiStation=true",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "wifi",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/station/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								""
+							],
+							"query": [
+								{
+									"key": "wifi",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "busStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "taxiStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{randomStation}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{randomStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station/56",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"56"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Train",
+			"item": [
+				{
+					"name": "/train/{lineid}/train",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomCountryCode}}\",\n        \"model\": \"{{$randomLoremWord}}\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/train/{{randomLine}}/train",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"{{randomLine}}",
+								"train"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{trainId}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"numSeats\": {{randomSeats}},\n        \"numWagons\": {{randomWagons}},\n        \"numStandUp\": {{randomStandUp}}\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/train/6",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{lineId}/trains",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/{{randomLine}}/trains",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{randomLine}}",
+								"trains"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train?numWagons={{$randomInt}}&numSeats={{$randomInt}}&numStandUp={{$randomInt}}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
+									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
+									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train?numWagons={{randomWagons}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train"
+							],
+							"query": [
+								{
+									"key": "numWagons",
+									"value": "{{randomWagons}}"
+								},
+								{
+									"key": "numSeats",
+									"value": "{{randomSeats}}",
+									"disabled": true
+								},
+								{
+									"key": "numStandUp",
+									"value": "{{randomStandUp}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
+									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
+									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n       \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/train/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"train",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train/4",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Access",
+			"item": [
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{randomStation}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{randomStation}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"elevator\": {{$randomBoolean}}        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{randomStation}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{randomStation}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access/{{randomAccessId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{randomAccessId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access?elevator=true",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access?elevator=true",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access"
+							],
+							"query": [
+								{
+									"key": "elevator",
+									"value": "true"
+								},
+								{
+									"key": "elevator",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{randomAccessId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{randomAccessId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Garage",
+			"item": [
+				{
+					"name": "/garage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage/{{randomGarageId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{randomGarageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage?taller=true&paintService=true&rrhh=false",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage"
+							],
+							"query": [
+								{
+									"key": "taller",
+									"value": "true"
+								},
+								{
+									"key": "rrhh",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "paintService",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "taller",
+									"value": "false"
+								},
+								{
+									"key": "rrhh",
+									"value": "false"
+								},
+								{
+									"key": "paintService",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{stationId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{randomStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{garageId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}},\n        \"taller\": {{$randomBoolean}}\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{randomStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,10));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{randomGarageId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{randomGarageId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage/83",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"83"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEST CityTravel",
+			"item": [
+				{
+					"name": "/line",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.globals.set(\"randomTimeStop\", _.random(1,15));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"id\", response.id);",
+									"pm.collectionVariables.set(\"firstTime\", response.firstTime);",
+									"",
+									"pm.test(\"New Line\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}},\n        \"period\": {{$randomInt}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Line\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Line by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/{{id}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line?firstTime=04:30",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Line by params\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line?firstTime={{firstTime}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line"
+							],
+							"query": [
+								{
+									"key": "lastTime",
+									"value": "22:00",
+									"description": "Hora de fin",
+									"disabled": true
+								},
+								{
+									"key": "firstTime",
+									"value": "{{firstTime}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Modify Line by id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line/{{id}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Update Line code\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"codeLine\":\"L-{{$randomInt}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/line/{{id}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{lineId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idStation\", response.id);",
+									"",
+									"",
+									"pm.test(\"New Station by Line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{id}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{id}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{stationId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idStation\", response.id);",
+									"",
+									"",
+									"pm.test(\"Update hours by Line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{idStation}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{idStation}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Station\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"WifiStation\", response.wifi);",
+									"",
+									"pm.test(\"Get Station By id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station/{{idStation}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{idStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station?wifi=true&busStation=false&taxiStation=true",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GetStation by Params\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "wifi",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/station/?wifi={{$randomBoolean}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								""
+							],
+							"query": [
+								{
+									"key": "wifi",
+									"value": "{{$randomBoolean}}"
+								},
+								{
+									"key": "busStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "taxiStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Modify Station by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/station/{{idStation}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{idStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{stationId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idGarage\", response.id);",
+									"",
+									"pm.test(\"New Garage by Station Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{idStation}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{idStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{garageId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idStation\", response.id);",
+									"",
+									"",
+									"pm.test(\"Update services boolean\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}},\n        \"taller\": {{$randomBoolean}}\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{idGarage}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{idGarage}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get garages\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get garage by id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{idGarage}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage?taller=true&paintService=true&rrhh=false",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get garages by Params\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage"
+							],
+							"query": [
+								{
+									"key": "taller",
+									"value": "true"
+								},
+								{
+									"key": "rrhh",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "paintService",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "taller",
+									"value": "false"
+								},
+								{
+									"key": "rrhh",
+									"value": "false"
+								},
+								{
+									"key": "paintService",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,10));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Modify garage by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{idGarage}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idAccess\", response.id);",
+									"",
+									"pm.test(\"Add new access\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{idStation}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{idStation}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idAccess\", response.id);",
+									"",
+									"pm.test(\"Add new access\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"elevator\": {{$randomBoolean}}        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{idAccess}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{idAccess}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get access\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get access by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{idAccess}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access?elevator=true Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get access with Params\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access?elevator=true",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access"
+							],
+							"query": [
+								{
+									"key": "elevator",
+									"value": "true"
+								},
+								{
+									"key": "elevator",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Modify access by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{idAccess}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{lineid}/train",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTrain\", response.id);",
+									"",
+									"",
+									"pm.test(\"New train by line id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomCountryCode}}\",\n        \"model\": \"{{$randomLoremWord}}\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/train/{{id}}/train",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"{{id}}",
+								"train"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{trainId}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTrain\", response.id);",
+									"",
+									"",
+									"pm.test(\"Update train by line id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"numSeats\": {{randomSeats}},\n        \"numWagons\": {{randomWagons}},\n        \"numStandUp\": {{randomStandUp}}\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/train/{{idTrain}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"{{idTrain}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
+									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
+									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"numberWagons\", response.numWagons);",
+									"",
+									"pm.test(\"Modify train by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(202);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n       \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/train/{{idTrain}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"train",
+								"{{idTrain}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Trains\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{lineId}/trains",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get trains by line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/{{id}}/trains",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{id}}",
+								"trains"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train?numWagons={{$randomInt}}&numSeats={{$randomInt}}&numStandUp={{$randomInt}}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
+									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
+									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get trains with params\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train?numWagons={{numberWagons}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train"
+							],
+							"query": [
+								{
+									"key": "numSeats",
+									"value": "{{randomSeats}}",
+									"disabled": true
+								},
+								{
+									"key": "numStandUp",
+									"value": "{{randomStandUp}}",
+									"disabled": true
+								},
+								{
+									"key": "numWagons",
+									"value": "{{numberWagons}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete garage by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(204);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"access",
+								"{{idAccess}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete garage by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(204);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{idGarage}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete station by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(204);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/station/{{idStation}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"station",
+								"{{idStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Delete train by Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(204);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/train/{{idTrain}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"train",
+								"{{idTrain}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Delete Line\", () => {",
+									"    pm.expect(pm.response.code).to.eq(204);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/line/{{id}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"line",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "randomYear",
+			"value": ""
+		},
+		{
+			"key": "randomSur",
+			"value": ""
+		},
+		{
+			"key": "randomLine",
+			"value": ""
+		},
+		{
+			"key": "randomAccessId",
+			"value": ""
+		},
+		{
+			"key": "randomGarageId",
+			"value": ""
+		},
+		{
+			"key": "randomTrain",
+			"value": ""
+		},
+		{
+			"key": "randomStation",
+			"value": ""
+		},
+		{
+			"key": "randomwagons",
+			"value": ""
+		},
+		{
+			"key": "randomWagons",
+			"value": ""
+		},
+		{
+			"key": "randomSeats",
+			"value": ""
+		},
+		{
+			"key": "randomStandUp",
+			"value": ""
+		},
+		{
+			"key": "id",
+			"value": ""
+		},
+		{
+			"key": "firstTime",
+			"value": ""
+		},
+		{
+			"key": "idStation",
+			"value": ""
+		},
+		{
+			"key": "idGarage",
+			"value": ""
+		},
+		{
+			"key": "idAccess",
+			"value": ""
+		},
+		{
+			"key": "idTrain",
+			"value": ""
+		},
+		{
+			"key": "numberWagons",
+			"value": ""
+		},
+		{
+			"key": "WifiStation",
+			"value": ""
+		}
+	]
+}
