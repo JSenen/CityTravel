@@ -126,7 +126,10 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
 
    Se han usado DTOs en todas las clases para mostrar datos parciales así como para modificaciones parciales
 
-9. Securiza algunas de tus operaciones de la API con un token JWT
+9. Securiza algunas de tus operaciones de la API con un token JWT ✅
+
+    Para poder interaccionar con la API, es necesario usar el metodo ![POST](https://img.shields.io/static/v1?label=POST&message=Registerr&color=yellow), para registrarse y ![POST](https://img.shields.io/static/v1?label=POST&message=Token&color=yellow) para obtner un token que nos permita interactuar con todos los endpoints
+    Por el momento no se han establecido roles.
 
 10. Añade 3 operaciones que utilicen consultas JPQL para extraer la información de la base de datos
 
@@ -154,6 +157,13 @@ Desde Intellij, una vez abierto el proyecto. Podemos arrancar SpringBoot mediant
 mvn spring-boot:run
 ```
 Abrimos POSTMAN y cargamos e iomportamos el archivo CITYTRAVEL.postman_collection.json
+
+El primer paso es registrarnos como usuarios por medio del ![POST](https://img.shields.io/static/v1?label=POST&message=Registerr&color=yellow).
+
+Y una vez nos hemos registrado, deberemos obtener un token por medio de ![POST](https://img.shields.io/static/v1?label=POST&message=Token&color=yellow).
+
+Igualmentem deberemos comprobar en las cabeceras de postman, que se haya habiltado la ***Authorization token***
+
 En la parte izquierda de la aplicación, podedemos encontrar 5 carpetas correspondientes a cada clase, y una ultima denominada TEST_CityTravel.
 Cada directorio correspondiente a cada clase puede realizar un CRUD completo de los siguientes métodos por clase. Estando todos ellos automatizados para realizar las pruebas por medio de datos ***random***
 
