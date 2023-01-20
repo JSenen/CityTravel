@@ -30,7 +30,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}},\n        \"period\": {{$randomInt}}\n}",
@@ -73,7 +79,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\"\n        \n}",
@@ -84,13 +96,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/15",
+							"raw": "{{API_URL}}/line/33",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"line",
-								"15"
+								"33"
 							]
 						}
 					},
@@ -111,15 +123,21 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{API_URL}}/line/{{randomLine}}",
+							"raw": "{{API_URL}}/line/33",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"line",
-								"{{randomLine}}"
+								"33"
 							]
 						}
 					},
@@ -129,9 +147,15 @@
 					"name": "/line?firstTime=04:30",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{API_URL}}/line?firstTime=04:30",
+							"raw": "{{API_URL}}/line?firstTime=04:30&lastTime=22:00",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -147,8 +171,7 @@
 								{
 									"key": "lastTime",
 									"value": "22:00",
-									"description": "Hora de fin",
-									"disabled": true
+									"description": "Hora de fin"
 								}
 							]
 						}
@@ -170,7 +193,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:30\"\n}",
@@ -181,13 +210,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/{{randomLine}}",
+							"raw": "{{API_URL}}/line/33",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"line",
-								"{{randomLine}}"
+								"33"
 							]
 						}
 					},
@@ -197,7 +226,13 @@
 					"name": "/line/{id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line/13",
 							"host": [
@@ -246,7 +281,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
@@ -257,13 +298,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/{{randomLine}}/station",
+							"raw": "{{API_URL}}/station/25/station",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"station",
-								"{{randomLine}}",
+								"25",
 								"station"
 							]
 						}
@@ -293,7 +334,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
@@ -321,7 +368,13 @@
 					"name": "/station",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station",
 							"host": [
@@ -349,7 +402,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station/{{randomStation}}",
 							"host": [
@@ -369,10 +428,9 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "wifi",
-								"value": "",
-								"type": "text",
-								"disabled": true
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -426,7 +484,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
@@ -453,7 +517,13 @@
 					"name": "/station/{id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station/56",
 							"host": [
@@ -515,6 +585,11 @@
 								"value": "",
 								"type": "text",
 								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -583,6 +658,11 @@
 								"value": "",
 								"type": "text",
 								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -611,7 +691,13 @@
 					"name": "/train",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/train",
 							"host": [
@@ -639,7 +725,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line/{{randomLine}}/trains",
 							"host": [
@@ -671,7 +763,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/train?numWagons={{randomWagons}}",
 							"host": [
@@ -718,7 +816,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n       \n}",
@@ -747,15 +851,21 @@
 					"name": "/train/{id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{API_URL}}/train/4",
+							"raw": "{{API_URL}}/train/25",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"train",
-								"4"
+								"25"
 							]
 						}
 					},
@@ -784,7 +894,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
@@ -826,7 +942,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"elevator\": {{$randomBoolean}}        \n    \n}",
@@ -854,7 +976,13 @@
 					"name": "/access",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access",
 							"host": [
@@ -882,7 +1010,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access/{{randomAccessId}}",
 							"host": [
@@ -900,7 +1034,13 @@
 					"name": "/access?elevator=true",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access?elevator=true",
 							"host": [
@@ -939,7 +1079,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
@@ -966,7 +1112,13 @@
 					"name": "/access/{id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access/1",
 							"host": [
@@ -986,10 +1138,108 @@
 			"name": "Garage",
 			"item": [
 				{
+					"name": "/garage/{stationId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"{{randomStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{garageId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}},\n        \"taller\": {{$randomBoolean}}\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/garage/2/garage",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"garage",
+								"2",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/garage",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage",
 							"host": [
@@ -1018,7 +1268,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage/{{randomGarageId}}",
 							"host": [
@@ -1036,7 +1292,13 @@
 					"name": "/garage?taller=true&paintService=true&rrhh=false",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
 							"host": [
@@ -1079,86 +1341,6 @@
 					"response": []
 				},
 				{
-					"name": "/garage/{stationId}/garage",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage",
-								"{{randomStation}}",
-								"garage"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage/{garageId}/garage",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}},\n        \"taller\": {{$randomBoolean}}\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage",
-								"{{randomStation}}",
-								"garage"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "/garage/{id}",
 					"event": [
 						{
@@ -1173,7 +1355,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n}",
@@ -1200,7 +1388,13 @@
 					"name": "/garage/{id}",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage/83",
 							"host": [
@@ -1256,7 +1450,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}},\n        \"period\": {{$randomInt}}\n}",
@@ -1305,7 +1505,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line",
 							"host": [
@@ -1345,7 +1551,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line/{{id}}",
 							"host": [
@@ -1377,7 +1589,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line?firstTime={{firstTime}}",
 							"host": [
@@ -1429,7 +1647,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:30\"\n}",
@@ -1479,7 +1703,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n         \"codeLine\":\"L-{{$randomInt}}\"\n}",
@@ -1544,7 +1774,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
@@ -1610,7 +1846,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
@@ -1652,7 +1894,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station",
 							"host": [
@@ -1695,7 +1943,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station/{{idStation}}",
 							"host": [
@@ -1732,6 +1986,11 @@
 								"value": "",
 								"type": "text",
 								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -1796,7 +2055,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
@@ -1849,7 +2114,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
@@ -1904,7 +2175,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}},\n        \"taller\": {{$randomBoolean}}\n        \n    \n}",
@@ -1945,7 +2222,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage",
 							"host": [
@@ -1985,7 +2268,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage/{{idGarage}}",
 							"host": [
@@ -2016,7 +2305,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
 							"host": [
@@ -2084,7 +2379,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n}",
@@ -2139,7 +2440,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
@@ -2195,7 +2502,13 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"elevator\": {{$randomBoolean}}        \n    \n}",
@@ -2236,7 +2549,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access",
 							"host": [
@@ -2275,7 +2594,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access/{{idAccess}}",
 							"host": [
@@ -2306,7 +2631,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access?elevator=true",
 							"host": [
@@ -2356,7 +2687,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
@@ -2437,6 +2774,11 @@
 								"value": "",
 								"type": "text",
 								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -2520,6 +2862,11 @@
 								"value": "",
 								"type": "text",
 								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -2576,7 +2923,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n       \n}",
@@ -2619,7 +2972,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/train",
 							"host": [
@@ -2658,7 +3017,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line/{{id}}/trains",
 							"host": [
@@ -2701,7 +3066,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/train?numWagons={{numberWagons}}",
 							"host": [
@@ -2747,7 +3118,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/access/{{idAccess}}",
 							"host": [
@@ -2778,7 +3155,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/garage/{{idGarage}}",
 							"host": [
@@ -2809,7 +3192,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/station/{{idStation}}",
 							"host": [
@@ -2841,7 +3230,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/train/{{idTrain}}",
 							"host": [
@@ -2873,7 +3268,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{API_URL}}/line/{{id}}",
 							"host": [
@@ -2895,6 +3296,73 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"juansenen\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"juansenen\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -2992,6 +3460,10 @@
 		},
 		{
 			"key": "WifiStation",
+			"value": ""
+		},
+		{
+			"key": "token",
 			"value": ""
 		}
 	]
