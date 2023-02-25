@@ -51,30 +51,192 @@ paths:
                   $ref: '#/components/schemas/OutLineDTO'
         '500':
           $ref: '#/components/responses/InternalServerError'
-
+    post:
+      tags:
+        - Line
+      summary: Añadir lineas de transporte
+      description: Podemos añadir las lineas de transporte. Con diferentes parámetros.
+      operationId: postLine
+      requestBody:
+        $ref: '#/components/requestBodies/postLine'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Line'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /line/{id}:
+    get:
+      tags:
+        - Line
+      summary: Listado de lineas de transporte por medio de su Id
+      description: Devuelve la linea por medio de su identificador Id.
+      operationId: getLinesById
+      parameters:
+        - name: id
+          in: path
+          description: Número id de la linea
+          required: true
+          schema:
+            $ref: '#/components/schemas/Line'
+      responses:
+        '200':
+          description: Se devuelve el listado de lineas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Line'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /train:
+    get:
+      tags:
+        - Train
+      summary: Recibimos el listado total de trenes
+      description: Recibimos el listado total de trenes, pudiendo filtrar por número de vagones, asientos o de pie.
+      operationId: getTrains
+      parameters:
+        - name: numwagons
+          in: query
+          description: Indicación del numero de vagones por el que se queire filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+        - name: numSeats
+          in: query
+          description: Indicación del numero de asientos por el que se quiere filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+        - name: numStandUp
+          in: query
+          description: Indicación del numero de plazas de pie  por el que se quiere filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+      responses:
+        '200':
+          description: Se devuelve el listado completo de trenes si no se introduce filtros. 
+                       En caso contrario el listado completo dependiendo de los filtros
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
 components:
   schemas:
-    OutLineDTO:
+    Line:
       type: object
       properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
         codeLine:
           type: string
           format: string
-          description: Código identificativo de la linea
-          example: C123
+          description: Código de la linea
+          example: L-456
+        color:
+          type: string
+          format: string
+          description: Color de la linea
+          example: Red
         firstTime:
           type: string
           format: 'date-time'
-          description: Horario de inicio del servicio
-          example: "06:30"
-        lastTime:
+          description: Horario de apertura de la linea
+          example: "06:45"
+        LastTime:
           type: string
           format: 'date-time'
-          description: Horario de último servicio
-          example: "23:30"
-        Station:
-          $ref: '#/components/schemas/OutLineDTO'
+          description: Horario de cierre de la linea
+          example: "23:00"
+        stopTime:
+          type: integer
+          format: int32
+          description: Tiempo de parada en las estaciones
+          example: 5
+    LineAccess:
+      type: object
+      properties:
+        Id:
+          type: number
+          format: int32
+          description: Número identificación del acceso
+          example: 23
+        street:
+          type: string
+          format: string
+          description: Dirección de la calle donde se situa el acceso a la estación
+          example: 'Avda Barcelona'
+        num:
+          type: number
+          format: int32
+          description: Número de la calle donde se situa el acceso
+          example: 291
+        latitude:
+          type: number
+          format: int32
+          description: Punto latitud del acceso
+          example: 23.2345
+        longitude:
+          type: number
+          format: int32
+          description: Punto longitud del acceso
+          example: 12.456
+        elevator:
+          type: boolean
+          format: boolean
+          description: Indicación si el acceso dispone de ascensores
+    LineGarage:
+      type: object
+      properties:
+        Id:
+          type: number
+          format: int32
+          description: Número identificación del garage
+          example: 2
+        codeGarage:
+          type: string
+          format: string
+          description: Código de identificación del garage
+          example: 'G-234'
+        taller:
+          type: boolean
+          format: boolean
+          description: Indicación si el garage dispone de taller de reparaciones
+        surface:
+          type: number
+          format: int32
+          description: Indicación si el garage dispone de taller de reparaciones
+          example: 234.45
+        rrhh:
+          type: boolean
+          format: boolean
+          description: Indicación si el garage dispone de recursos humanos
+        paintService:
+          type: boolean
+          format: boolean
+          description: Indicación si el garage dispone de taller de pintura
     LineStation:
       type: object
       properties:
@@ -114,15 +276,91 @@ components:
           type: boolean
           format: boolean
           description: Indicación si dispone de enlace con estación de taxis
+    LineTrain:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id del tren
+          example: 4
+        codeTrain:
+          type: string
+          format: string
+          description: Código de identificación del tren
+          example: 'GHF-234'
+        model:
+          type: string
+          format: string
+          description: Módelo de locomotora
+          example: 'REFLEX-23V'
+        numWagons:
+          type: number
+          format: int32
+          description: Número de vagones del que dispone el tren
+          example: 10
+        numSeats:
+          type: number
+          format: int32
+          description: Número de asientos totales que dispone el tren
+          example: 160
+        numStandUp:
+          type: number
+          format: int32
+          description: Número de plazas de pie que dispone el tren
+          example: 240
+        dateBuy:
+          type: string
+          format: 'date-time'
+          description: Fecha de adquisición del tren
+          example: '23-02-1998'
+    OutLineDTO:
+      type: object
+      properties:
+        codeLine:
+          type: string
+          format: string
+          description: Código identificativo de la linea
+          example: C123
+        firstTime:
+          type: string
+          format: 'date-time'
+          description: Horario de inicio del servicio
+          example: "06:30"
+        lastTime:
+          type: string
+          format: 'date-time'
+          description: Horario de último servicio
+          example: "23:30"
+        Station:
+          $ref: '#/components/schemas/OutLineDTO'
     ErrorResponse:
       properties:
         errorCode:
           type: number
           format: int32
-          example: 104
+          example: 500
         message:
           type: string
           example: Validation error
+    NoFound:
+      properties:
+        errorCode:
+          type: number
+          format: int32
+          example: 404
+        message:
+          type: string
+          example: Line not found
+
+  requestBodies:
+    postLine:
+      description: Datos de una linea nueva
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Line'
 
   responses:
     InternalServerError:
@@ -134,3 +372,15 @@ components:
           example:
             errorCode: 500
             message: "Se ha producido un error en el servidor"
+    NotFoundException:
+      description: Objeto no encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NoFound'
+          example:
+            errorCode: 404
+            message: 'Line not found'
+
+
+
