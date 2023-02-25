@@ -1,0 +1,136 @@
+openapi: 3.0.1
+info:
+  title: City Travel API
+  version: "1.0"
+servers:
+  - url: https://CityTravelAPI
+tags:
+  - name: Line
+    description: Operaciones para realizar con las lineas de transporte
+  - name: Train
+    description: Operaciones para realizar con los trenes en las lineas de transporte
+  - name: Station
+    description: Operaciones para realizar con las estaciones de la linea de transporte
+  - name: Garage
+    description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
+  - name: Access
+    description: Operaciones para realizar con los accesos y servicios que poseé cada estación.
+paths:
+  /Line:
+    get:
+      tags:
+        - Line
+      summary: Listado de lineas de transporte
+      description: Devuelve el listado completo de todas las lineas de transporte. Es posible filtrar por la horarios de inicio del servicio, fin del servicio o ambos
+      operationId: getLines
+      parameters:
+        - name: fisrtHour
+          in: query
+          description: Filtro por hora de inicio del servicio
+          required: false
+          schema:
+            type: string
+            format: 'date-time'
+            default: "00:00"
+        - name: lastHour
+          in: query
+          description: Filtro por hora del último servicio
+          required: false
+          schema:
+            type: string
+            format: 'date-time'
+            default: "00:00"
+      responses:
+        '200':
+          description: Se devuelve el listado de lineas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OutLineDTO'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
+components:
+  schemas:
+    OutLineDTO:
+      type: object
+      properties:
+        codeLine:
+          type: string
+          format: string
+          description: Código identificativo de la linea
+          example: C123
+        firstTime:
+          type: string
+          format: 'date-time'
+          description: Horario de inicio del servicio
+          example: "06:30"
+        lastTime:
+          type: string
+          format: 'date-time'
+          description: Horario de último servicio
+          example: "23:30"
+        Station:
+          $ref: '#/components/schemas/OutLineDTO'
+    LineStation:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
+        name:
+          type: string
+          format: string
+          description: nombre de la estacion
+          example: "San Clemencio"
+        hopen:
+          type: string
+          format: 'date-time'
+          description: Horario de apertura de la estacion
+          example: "06:45"
+        hcose:
+          type: string
+          format: 'date-time'
+          description: Horario de cierre de la estacion
+          example: "23:00"
+        ptoInfo:
+          type: boolean
+          format: boolean
+          description: Indicación se dispone de punto de informacion de la red
+        wifi:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de puntos de acceso wifi
+        bus_station:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de enlace con estación de autobus
+        taxi_station:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de enlace con estación de taxis
+    ErrorResponse:
+      properties:
+        errorCode:
+          type: number
+          format: int32
+          example: 104
+        message:
+          type: string
+          example: Validation error
+
+  responses:
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            errorCode: 500
+            message: "Se ha producido un error en el servidor"
