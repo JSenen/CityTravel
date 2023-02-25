@@ -69,19 +69,14 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
+    parameters:
+      - $ref: '#/components/parameters/LineId'
     get:
       tags:
         - Line
       summary: Listado de lineas de transporte por medio de su Id
       description: Devuelve la linea por medio de su identificador Id.
       operationId: getLinesById
-      parameters:
-        - name: id
-          in: path
-          description: Número id de la linea
-          required: true
-          schema:
-            $ref: '#/components/schemas/Line'
       responses:
         '200':
           description: Se devuelve el listado de lineas
@@ -91,6 +86,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Line
+      summary: Eliminar una Line por su Id
+      description: Eliminamos una linea por su ID
+      operationId: deleteLineById
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -141,6 +149,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 
 components:
+
   schemas:
     Line:
       type: object
@@ -352,7 +361,16 @@ components:
         message:
           type: string
           example: Line not found
-
+  parameters:
+    LineId:
+      name: id
+      in: path
+      description: Número id de la linea
+      required: true
+      schema:
+        type: number
+        format: int32
+        example: 32
   requestBodies:
     postLine:
       description: Datos de una linea nueva
@@ -361,8 +379,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Line'
-
   responses:
+    NoContent:
+      description: No content
     InternalServerError:
       description: Internal Server Error
       content:
