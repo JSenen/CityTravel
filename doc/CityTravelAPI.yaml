@@ -40,6 +40,8 @@ paths:
             type: string
             format: 'date-time'
             default: "00:00"
+      security:
+        - bearerAuth: [ ]
       responses:
         '200':
           description: Se devuelve el listado de lineas
@@ -49,6 +51,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OutLineDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
     post:
@@ -103,6 +107,70 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Line
+      summary: Modifica una linea
+      description: Modifica atributos de la linea, buscandola por su Id de identificación
+      operationId: putLineById
+      requestBody:
+        $ref: '#/components/requestBodies/postLine'
+      responses:
+
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+        - Line
+      summary: Modificación de un campo de una linea
+      operationId: patchLineById
+      requestBody:
+        description: Nombre y valor del campo que se modifica
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchLine'
+      responses:
+        '200':
+          description: Se devuelve la linea
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Line'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /line/{lineId}/trains:
+    parameters:
+      - $ref: '#/components/parameters/LineId'
+    get:
+      tags:
+        - Line
+        - Train
+      summary: Listado de trenes en una linea por su Id
+      description: Devuelve un listado completo de trenes que circulan por una linea identificada con su Id
+      operationId: getTrainsByLineId
+      responses:
+        '200':
+          description: Se devuelve el listado de los trenes de la linea
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
   /train:
     get:
       tags:
@@ -149,6 +217,12 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 
 components:
+
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
   schemas:
     Line:
@@ -343,6 +417,14 @@ components:
           example: "23:30"
         Station:
           $ref: '#/components/schemas/OutLineDTO'
+    PatchLine:
+      properties:
+        field:
+          type: strind
+          example: "CodeLine"
+        value:
+          type: string
+          example: 'C-245'
     ErrorResponse:
       properties:
         errorCode:
@@ -379,6 +461,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Line'
+
   responses:
     NoContent:
       description: No content
@@ -400,6 +483,8 @@ components:
           example:
             errorCode: 404
             message: 'Line not found'
+    UnauthorizedError:
+      description: Access token is missing or invalid
 
 
 
