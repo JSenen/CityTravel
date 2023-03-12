@@ -44,9 +44,9 @@ public class LineAccessServiceImpl implements LineAccessService{
     }
 
     @Override
-    public LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws NotFoundException {
+    public LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws NotFoundException {
         LineAccess newAccess = new LineAccess();
-        modelMapper.map(inAccessDTO,newAccess);
+        modelMapper.map(lineAccess,newAccess);
         LineStation lineStation = lineStationRepository.findById(stationid)
                 .orElseThrow(()-> new NotFoundException(new LineStation()));
         newAccess.setLineStationAccess(lineStation);

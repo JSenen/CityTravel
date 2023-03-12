@@ -50,7 +50,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OutLineDTO'
+                  $ref: '#/components/schemas/Line'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -61,6 +61,8 @@ paths:
       summary: Añadir lineas de transporte
       description: Podemos añadir las lineas de transporte. Con diferentes parámetros.
       operationId: postLine
+      security:
+        - bearerAuth: [ ]
       requestBody:
         $ref: '#/components/requestBodies/postLine'
       responses:
@@ -69,7 +71,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Line'
+                $ref: '#/components/schemas/LineIn'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
@@ -78,8 +82,10 @@ paths:
     get:
       tags:
         - Line
+      security:
+        - bearerAuth: [ ]
       summary: Listado de lineas de transporte por medio de su Id
-      description: Devuelve la linea por medio de su identificador Id.
+      description: Devuelve los datos relativos a la linea seleccionada por su id.
       operationId: getLinesById
       responses:
         '200':
@@ -90,6 +96,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -103,6 +111,8 @@ paths:
       responses:
         '204':
           $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -116,7 +126,8 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/postLine'
       responses:
-
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -124,7 +135,7 @@ paths:
     patch:
       tags:
         - Line
-      summary: Modificación de un campo de una linea
+      summary: Modificación de un campo especifico de la linea seleccioanda por su id
       operationId: patchLineById
       requestBody:
         description: Nombre y valor del campo que se modifica
@@ -153,9 +164,11 @@ paths:
       tags:
         - Line
         - Train
-      summary: Listado de trenes en una linea por su Id
+      summary: Listado de trenes correspondientes a una linea por el identificador de esta
       description: Devuelve un listado completo de trenes que circulan por una linea identificada con su Id
       operationId: getTrainsByLineId
+      security:
+        - bearerAuth: [ ]
       responses:
         '200':
           description: Se devuelve el listado de los trenes de la linea
@@ -164,7 +177,9 @@ paths:
               schema:
                 type: array
                 items:
-
+                  $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -220,24 +235,19 @@ components:
 
   securitySchemes:
     bearerAuth: # arbitrary name for the security scheme
-      type: http
+      type: security
       scheme: bearer
       bearerFormat: JWT
 
   schemas:
-    Line:
+    LineIn:
       type: object
       properties:
-        id:
-          type: number
-          format: int32
-          description: Código Id de la estación
-          example: 12
         codeLine:
           type: string
           format: string
           description: Código de la linea
-          example: L-456
+          example: "L-111"
         color:
           type: string
           format: string
@@ -258,6 +268,47 @@ components:
           format: int32
           description: Tiempo de parada en las estaciones
           example: 5
+        period:
+          type: integer
+          format: int32
+          description: Frecuencia de paso
+          example: 5
+
+    Line:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
+        codeLine:
+          type: string
+          format: string
+          description: Código de la linea
+          example: "L-321"
+        color:
+          type: string
+          format: string
+          description: Color de la linea
+          example: Red
+        firstTime:
+          type: string
+          format: 'date-time'
+          description: Horario de apertura de la linea
+          example: "06:45"
+        LastTime:
+          type: string
+          format: 'date-time'
+          description: Horario de cierre de la linea
+          example: "23:00"
+        stopTime:
+          type: integer
+          format: int32
+          description: Tiempo de parada en las estaciones
+          example: 5
+        Station:
+          $ref: '#/components/schemas/LineStation'
     LineAccess:
       type: object
       properties:
@@ -359,6 +410,10 @@ components:
           type: boolean
           format: boolean
           description: Indicación si dispone de enlace con estación de taxis
+        LineAccess:
+          $ref: '#/components/schemas/LineAccess'
+        LineGarage:
+          $ref: '#/components/schemas/LineGarage'
     LineTrain:
       type: object
       properties:
@@ -404,7 +459,7 @@ components:
           type: string
           format: string
           description: Código identificativo de la linea
-          example: C123
+          example: "L-123"
         firstTime:
           type: string
           format: 'date-time'
@@ -416,6 +471,7 @@ components:
           description: Horario de último servicio
           example: "23:30"
         Station:
+
           $ref: '#/components/schemas/OutLineDTO'
     PatchLine:
       properties:
@@ -460,8 +516,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Line'
-
+            $ref: '#/components/schemas/LineIn'
   responses:
     NoContent:
       description: No content
@@ -485,6 +540,9 @@ components:
             message: 'Line not found'
     UnauthorizedError:
       description: Access token is missing or invalid
+security:
+  - bearerAuth: []
+
 
 
 

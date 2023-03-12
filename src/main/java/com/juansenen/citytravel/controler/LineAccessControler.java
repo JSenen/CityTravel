@@ -45,9 +45,9 @@ public class LineAccessControler {
     }
 
     @PostMapping("/access/{stationid}/access")
-    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody inAccessDTO inAccessDTO) throws NotFoundException {
+    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws NotFoundException {
         logger.info("Begin add access by station Id");
-        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(inAccessDTO, stationid);
+        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(lineAccess, stationid);
         logger.info("Finish add access by station Id");
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
