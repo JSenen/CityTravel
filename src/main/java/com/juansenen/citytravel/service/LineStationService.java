@@ -12,12 +12,12 @@ import java.util.Optional;
 
 public interface LineStationService {
 
-    List<outStationDTO> findAll();
+    List<LineStation> findAll();
     Optional<LineStation> findById(long id) throws StationNoFoundException;
     LineStation delStation (long id) throws NotFoundException;
     LineStation modStation (long id, LineStation lineStation) throws NotFoundException;
     LineStation addStation (long lineId, inStationDTO inStationDTO) throws NotFoundException;
-    List<outStationDTO> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation);
+    List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation);
 
 
     LineStation updateOneStation(long lineId, LineStation lineStation) throws NotFoundException;

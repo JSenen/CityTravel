@@ -41,7 +41,7 @@ paths:
             format: 'date-time'
             default: "00:00"
       security:
-        - bearerAuth: [ ]
+        - bearerAuth: []
       responses:
         '200':
           description: Se devuelve el listado de lineas
@@ -78,7 +78,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
     parameters:
-      - $ref: '#/components/parameters/LineId'
+      - $ref: '#/components/parameters/Id'
     get:
       tags:
         - Line
@@ -159,7 +159,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
   /line/{lineId}/trains:
     parameters:
-      - $ref: '#/components/parameters/LineId'
+      - $ref: '#/components/parameters/Id'
     get:
       tags:
         - Line
@@ -230,6 +230,196 @@ paths:
                   $ref: '#/components/schemas/LineTrain'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /train/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+        - Train
+      security:
+        - bearerAuth: [ ]
+      summary: Atributos correspondientes a un tren por su identificador
+      description: Devuelve los atributos de un tren por medio del identificador de este
+      operationId: getTrainById
+      responses:
+        '200':
+          description: Se devuelve el listado de lineas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Train
+      summary: Modificar un tren por su Identificador
+      operationId: putTrainById
+      requestBody:
+        $ref: '#/components/requestBodies/putTrainId'
+      responses:
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+        - Train
+      summary: Modificación de un campo especifico de el tren seleccionado por su id
+      operationId: patchTrainById
+      requestBody:
+        description: Se puede modificar asientos, vagones y plazas de pie
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchTrain'
+      responses:
+        '202':
+          description: Se devuelve el tren
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Train
+      summary: Eliminar un tren por el identificador del mismo
+      description: Eliminamos una linea por su número de Id
+      operationId: deleteTrainById
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /train/{lineId}/train:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    post:
+      tags:
+        - Train
+      summary: Añadir tren en una linea por el Id de la Linea
+      description: Podemos añadir un tren a una linea esecificando el ide de la linea
+      operationId: postTrainByIdLine
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        $ref: '#/components/requestBodies/postTrainByIdLine'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /station:
+    get:
+      tags:
+        - Station
+      parameters:
+        - name: wifi
+          in: query
+          description: Filtro disponibilidad servicio wifi
+          required: false
+          schema:
+            type: boolean
+        - name: busStation
+          in: query
+          description: Filtro enlace con estacion de autobuses
+          required: false
+          schema:
+            type: boolean
+        - name: taxiStation
+          in: query
+          description: Filtro enlace estacion de taxis
+          required: false
+          schema:
+            type: boolean
+      security:
+        - bearerAuth: [ ]
+      summary: Atributos correspondientes a una estacion
+      description: Devuelve los atributos de una estacion
+      operationId: getStation
+      responses:
+        '200':
+          description: Se devuelve el listado de estaciones
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OutStation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /station/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+        - Station
+      security:
+        - bearerAuth: [ ]
+      summary: Atributos correspondientes a una estación por su identificador
+      description: Devuelve los atributos de una estacón por medio del identificador de este
+      operationId: getStationById
+      responses:
+        '200':
+          description: Se devuelve la estacion
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineStation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Station
+      summary: Modificar una estación por su Identificador
+      operationId: putStationById
+      requestBody:
+        $ref: '#/components/requestBodies/putStationId'
+      responses:
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
 
 components:
 
@@ -414,6 +604,31 @@ components:
           $ref: '#/components/schemas/LineAccess'
         LineGarage:
           $ref: '#/components/schemas/LineGarage'
+
+    OutStation:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
+        name:
+          type: string
+          format: string
+          description: nombre de la estacion
+          example: "San Clemencio - STATION"
+        hopen:
+          type: string
+          format: 'date-time'
+          description: Horario de apertura de la estacion
+          example: "06:45"
+        hcose:
+          type: string
+          format: 'date-time'
+          description: Horario de cierre de la estacion
+          example: "23:00"
+
     LineTrain:
       type: object
       properties:
@@ -471,16 +686,74 @@ components:
           description: Horario de último servicio
           example: "23:30"
         Station:
-
           $ref: '#/components/schemas/OutLineDTO'
     PatchLine:
       properties:
         field:
-          type: strind
+          type: string
           example: "CodeLine"
         value:
           type: string
           example: 'C-245'
+    PutStationIn:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
+        name:
+          type: string
+          format: string
+          description: nombre de la estacion
+          example: "San Clemencio"
+        hopen:
+          type: string
+          format: 'date-time'
+          description: Horario de apertura de la estacion
+          example: "06:45"
+        hcose:
+          type: string
+          format: 'date-time'
+          description: Horario de cierre de la estacion
+          example: "23:00"
+        ptoInfo:
+          type: boolean
+          format: boolean
+          description: Indicación se dispone de punto de informacion de la red
+        wifi:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de puntos de acceso wifi
+        bus_station:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de enlace con estación de autobus
+        taxi_station:
+          type: boolean
+          format: boolean
+          description: Indicación si dispone de enlace con estación de taxis
+
+    PatchTrain:
+      type: object
+      properties:
+        numWagons:
+          type: number
+          format: int32
+          description: Número de vagones del que dispone el tren
+          example: 10
+        numSeats:
+          type: number
+          format: int32
+          description: Número de asientos totales que dispone el tren
+          example: 234
+        numStandUp:
+          type: number
+          format: int32
+          description: Número de plazas de pie disponibles
+          example: 133
+
     ErrorResponse:
       properties:
         errorCode:
@@ -500,15 +773,16 @@ components:
           type: string
           example: Line not found
   parameters:
-    LineId:
+    Id:
       name: id
       in: path
-      description: Número id de la linea
+      description: Número ID identificador
       required: true
       schema:
         type: number
         format: int32
         example: 32
+
   requestBodies:
     postLine:
       description: Datos de una linea nueva
@@ -517,6 +791,28 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineIn'
+    postTrainByIdLine:
+      description: Datos de un nuevo tren
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LineTrain'
+    putTrainId:
+      description: Datos de un tren
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LineTrain'
+    putStationId:
+      description: Datos de una estación
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PutStationIn'
+
   responses:
     NoContent:
       description: No content
