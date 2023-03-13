@@ -418,6 +418,74 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Station
+      summary: Eliminar una estación por su Identificador
+      operationId: deleteStationId
+      requestBody:
+        $ref: '#/components/requestBodies/putStationId'
+      responses:
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /station/{StationId}/satation:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    patch:
+      tags:
+        - Station
+      summary: Modificación de los campor de horario de la estacion por el id de esta
+      operationId: patchStationId
+      requestBody:
+        description: Se puede modificar horarios de apertura y cierra
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchStation'
+      responses:
+        '202':
+          description: Se devuelve la estación
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineStation'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /station/{LineId}/station:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    post:
+      tags:
+        - Station
+      summary: Añadir datos parciales de una estación por el Id de una linea
+      description: Podemos añadir una eestación a una linea esecificando el ide de la linea
+      operationId: postStationByIdLine
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        $ref: '#/components/requestBodies/postStationByIdLine'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
+
 
 
 
@@ -695,6 +763,39 @@ components:
         value:
           type: string
           example: 'C-245'
+    PatchStation:
+      type: object
+      properties:
+        hopen:
+          type: string
+          format: string
+          description: Hora de apertura de la estacion
+          example: '06:15'
+        hclose:
+          type: string
+          format: string
+          description: Hora de cierre de la estacion
+          example: '23:15'
+
+    PostStationByIdLine:
+      type: object
+      properties:
+        name:
+          type: string
+          format: string
+          description: Nombre de la estación
+          example: 'Blockshire-STATION'
+        hopen:
+          type: string
+          format: string
+          description: horario de apertura de la estacion
+          example: "05:00"
+        hclose:
+          type: string
+          format: string
+          description: Horaio de cierre de la estacion
+          example: '23:45'
+
     PutStationIn:
       type: object
       properties:
@@ -812,6 +913,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PutStationIn'
+    postStationByIdLine:
+      description: Datos de la nueva estación en la línea
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostStationByIdLine'
 
   responses:
     NoContent:
