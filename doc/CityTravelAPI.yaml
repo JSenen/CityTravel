@@ -478,11 +478,53 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LineTrain'
+                $ref: '#/components/schemas/GaraageDTO'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /garage:
+    get:
+      tags:
+        - Garage
+      parameters:
+        - name: taller
+          in: query
+          description: Filtro disponibilidad talleres en el garage
+          required: false
+          schema:
+            type: boolean
+        - name: rrhh
+          in: query
+          description: Filtro disponibilidad de recursos humanos en el garage
+          required: false
+          schema:
+            type: boolean
+        - name: paintservice
+          in: query
+          description: Filtro disponibilidad servicio de pintura en el garage
+          required: false
+          schema:
+            type: boolean
+      summary: Atributos correspondientes a un garage o cochera
+      description: Devuelve filtrado por los atributos del garage o cochera
+      operationId: getGarage
+      responses:
+        '200':
+          description: Se devuelve el listado de Garages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GaraageDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
 
 
 
@@ -755,6 +797,19 @@ components:
           example: "23:30"
         Station:
           $ref: '#/components/schemas/OutLineDTO'
+    GaraageDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: Número identificador
+          example: '5'
+        codeGarage:
+          type: string
+          format: string
+          description: Código de la cochera o garage
+          example: 'GST-238'
     PatchLine:
       properties:
         field:
