@@ -525,6 +525,121 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
+  /garage/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+        - Garage
+      security:
+        - bearerAuth: [ ]
+      summary: Atributos correspondientes a garage por su identificador
+      description: Devuelve los atributos de garade por medio del identificador de este
+      operationId: getGarageById
+      responses:
+        '200':
+          description: Se devuelve el garage
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineGarage'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Garage
+      summary: Modificacion garage por el id de este
+      description: Modificacion de un garage especificado por el número de Id
+      operationId: putGarageById
+      requestBody:
+        $ref: '#/components/requestBodies/PutGarageById'
+      responses:
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Garage
+      summary: Eliminar una garage por su Identificador
+      operationId: deleteGarageById
+      requestBody:
+        $ref: '#/components/requestBodies/putStationId'
+      responses:
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /garage/{stationId}/garage:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    post:
+      tags:
+        - Garage
+      summary: Añade un garage a una estacion por el Id de la estación
+      description: Podemos añadir un garage a una estacion por el Id de esta
+      operationId: postGarageByStationId
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        $ref: '#/components/requestBodies/postGarageByStationId'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineGarage'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /garage/{garageId}/garage:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    patch:
+      tags:
+        - Garage
+      summary: Modificación dparcial de un garage por el Id del garage
+      operationId: patchGarageById
+      requestBody:
+        description: Se puede modificar recursos humanos, servicio de pintura y taller
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchGarage'
+      responses:
+        '202':
+          description: Se devuelve el garage completo
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineGarage'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -797,6 +912,14 @@ components:
           example: "23:30"
         Station:
           $ref: '#/components/schemas/OutLineDTO'
+    GarageCode:
+      type: object
+      properties:
+        codeGarage:
+          type: string
+          format: string
+          description: Código de la cochera o garage
+          example: 'GST-238'
     GaraageDTO:
       type: object
       properties:
@@ -831,6 +954,18 @@ components:
           format: string
           description: Hora de cierre de la estacion
           example: '23:15'
+    PatchGarage:
+      type: object
+      properties:
+        rrhh:
+          type: boolean
+          description: Existencia de recursos humanos
+        taller:
+          type: boolean
+          description: Existencia de taller
+        paintservice:
+          type: boolean
+          description: Existencia de servicio de pintura
 
     PostStationByIdLine:
       type: object
@@ -940,6 +1075,13 @@ components:
         example: 32
 
   requestBodies:
+    postGarageByStationId:
+      description: Datos de un garager nuevo en una estacion especificada por el Id
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GarageCode'
     postLine:
       description: Datos de una linea nueva
       required: true
@@ -975,6 +1117,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PostStationByIdLine'
+    PutGarageById:
+      description: Datos de el garage
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LineGarage'
+
 
   responses:
     NoContent:
