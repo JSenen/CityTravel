@@ -158,8 +158,6 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{lineId}/trains:
-    parameters:
-      - $ref: '#/components/parameters/Id'
     get:
       tags:
         - Line
@@ -167,6 +165,14 @@ paths:
       summary: Listado de trenes correspondientes a una linea por el identificador de esta
       description: Devuelve un listado completo de trenes que circulan por una linea identificada con su Id
       operationId: getTrainsByLineId
+      parameters:
+        - name: lineId
+          in: path
+          description: ID de la Linea
+          required: true
+          schema:
+            type: integer
+            format: int64
       security:
         - bearerAuth: [ ]
       responses:
@@ -220,8 +226,8 @@ paths:
             default: 0
       responses:
         '200':
-          description: Se devuelve el listado completo de trenes si no se introduce filtros. 
-                       En caso contrario el listado completo dependiendo de los filtros
+          description: Se devuelve el listado completo de trenes si no se introduce filtros.
+            En caso contrario el listado completo dependiendo de los filtros
           content:
             application/json:
               schema:
@@ -312,14 +318,21 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 
   /train/{lineId}/train:
-    parameters:
-      - $ref: '#/components/parameters/Id'
     post:
       tags:
         - Train
       summary: Añadir tren en una linea por el Id de la Linea
       description: Podemos añadir un tren a una linea esecificando el ide de la linea
       operationId: postTrainByIdLine
+      parameters:
+        - name: lineId
+          in: path
+          description: ID de la Linea
+          required: true
+          schema:
+            type: integer
+            format: int64
+
       security:
         - bearerAuth: [ ]
       requestBody:
@@ -380,7 +393,13 @@ paths:
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: id
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     get:
       tags:
         - Station
@@ -423,16 +442,28 @@ paths:
         - Station
       summary: Eliminar una estación por su Identificador
       operationId: deleteStationId
-      requestBody:
-        $ref: '#/components/requestBodies/putStationId'
+      parameters:
+        - name: id
+          in: path
+          description: ID de la Linea
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         '500':
           $ref: '#/components/responses/InternalServerError'
         '204':
           $ref: '#/components/responses/NoContent'
-  /station/{StationId}/satation:
+  /station/{StationId}/station:
     parameters:
-    - $ref: '#/components/parameters/Id'
+      - name: StationId
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     patch:
       tags:
         - Station
@@ -461,7 +492,13 @@ paths:
 
   /station/{LineId}/station:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: LineId
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     post:
       tags:
         - Station
@@ -571,8 +608,6 @@ paths:
         - Garage
       summary: Eliminar una garage por su Identificador
       operationId: deleteGarageById
-      requestBody:
-        $ref: '#/components/requestBodies/putStationId'
       responses:
         '500':
           $ref: '#/components/responses/InternalServerError'
@@ -580,7 +615,13 @@ paths:
           $ref: '#/components/responses/NoContent'
   /garage/{stationId}/garage:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: stationId
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     post:
       tags:
         - Garage
@@ -604,7 +645,13 @@ paths:
           $ref: '#/components/responses/InternalServerError'
   /garage/{garageId}/garage:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: garageId
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     patch:
       tags:
         - Garage
@@ -714,7 +761,13 @@ paths:
           $ref: '#/components/responses/NoContent'
   /access/{stationId}/access:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: stationId
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     post:
       tags:
         - Access
@@ -738,7 +791,13 @@ paths:
           $ref: '#/components/responses/InternalServerError'
   /access/{accessId}/access:
     parameters:
-      - $ref: '#/components/parameters/Id'
+      - name: accessId
+        in: path
+        description: ID del acceso
+        required: true
+        schema:
+          type: integer
+          format: int64
     patch:
       tags:
         - Access
@@ -774,7 +833,7 @@ components:
 
   securitySchemes:
     bearerAuth: # arbitrary name for the security scheme
-      type: security
+      type: http
       scheme: bearer
       bearerFormat: JWT
 
@@ -1321,6 +1380,7 @@ components:
       description: Access token is missing or invalid
 security:
   - bearerAuth: []
+
 
 
 
