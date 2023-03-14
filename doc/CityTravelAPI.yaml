@@ -474,7 +474,7 @@ paths:
         $ref: '#/components/requestBodies/postStationByIdLine'
       responses:
         '201':
-          description: El producto se registra correctamente
+          description: La estación se registra correctamente
           content:
             application/json:
               schema:
@@ -630,19 +630,143 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /access:
+    get:
+      tags:
+        - Access
+      parameters:
+        - name: elevator
+          in: query
+          description: Filtro disponibilidad de ascensor
+          required: false
+          schema:
+            type: boolean
+      summary: Atributos correspondientes a un acceso a una estación
+      description: Devuelve filtrado o no por si dispone de ascensor , la id y la dirección del acceso a una estación
+      operationId: getAccess
+      responses:
+        '200':
+          description: Se devuelve el listado de Accesos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OutAccess'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /access/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+        - Access
+      security:
+        - bearerAuth: [ ]
+      summary: Atributos correspondientes a un acceso de estación por su Id identificador
+      description: Devuelve los atributos de un acceso buscado por su identifcador
+      operationId: getAccessById
+      responses:
+        '200':
+          description: Se devuelve el acceso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineAccess'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Access
+      summary: Modificacion acceso a estaciónpor el id de este
+      description: Modificacion de un acceso a estación por el número de Id
+      operationId: putAccessId
+      requestBody:
+        $ref: '#/components/requestBodies/PutAccessById'
+      responses:
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Access
+      summary: Eliminar una acceso a una estación por identificador del acceso
+      operationId: deleteAccessById
+      responses:
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '204':
+          $ref: '#/components/responses/NoContent'
+  /access/{stationId}/access:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    post:
+      tags:
+        - Access
+      summary: Añade un acceso a una estacion por el Id de la estación
+      description: Podemos añadir un acceso a una estacion por el Id de esta
+      operationId: postAccessByStationId
+      security:
+        - bearerAuth: [ ]
+      requestBody:
+        $ref: '#/components/requestBodies/PutAccessById'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineGarage'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /access/{accessId}/access:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    patch:
+      tags:
+        - Access
+      summary: Modificación parcial de un acceso por el Id del mismo
+      operationId: patchGarageById
+      requestBody:
+        description: Se puede modificar la disponibilidad de ascensor en un acceso
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                elevator:
+                  type: boolean
 
-
-
-
-
-
-
-
-
-
-
-
-
+      responses:
+        '202':
+          description: Se devuelve los datos completos del acceso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineAccess'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
 
 
@@ -829,6 +953,19 @@ components:
           $ref: '#/components/schemas/LineAccess'
         LineGarage:
           $ref: '#/components/schemas/LineGarage'
+    OutAccess:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la estación
+          example: 12
+        street:
+          type: string
+          format: string
+          description: Direccion
+          example: '54329 Hayes Cliffs'
 
     OutStation:
       type: object
@@ -985,7 +1122,33 @@ components:
           format: string
           description: Horaio de cierre de la estacion
           example: '23:45'
-
+    PutAccessById:
+      type: object
+      properties:
+        street:
+          type: string
+          format: string
+          description: Dirección de la calle donde se situa el acceso a la estación
+          example: '56094 Hills Mission'
+        num:
+          type: number
+          format: int32
+          description: Número de la calle donde se situa el acceso
+          example: 671
+        latitude:
+          type: number
+          format: int32
+          description: Punto latitud del acceso
+          example: -12.8238
+        longitude:
+          type: number
+          format: int32
+          description: Punto longitud del acceso
+          example: 8.1505
+        elevator:
+          type: boolean
+          format: boolean
+          description: Indicación si el acceso dispone de ascensores
     PutStationIn:
       type: object
       properties:
@@ -1124,6 +1287,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineGarage'
+    PutAccessById:
+      description: Datos del acceso a la estación
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PutAccessById'
 
 
   responses:
