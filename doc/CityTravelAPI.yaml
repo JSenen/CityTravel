@@ -2,8 +2,9 @@ openapi: 3.0.1
 info:
   title: City Travel API
   version: "1.0"
+  description: API diseñada para el control y consulta sobre lineas de transporte ferroviariao urbano. Pueden realizarse distintas operaciones sonre las lineas, las estaciones, los trenes y los accesos. Para el uso de la aplicación, es necesario registrarse en la misma.
 servers:
-  - url: https://CityTravelAPI
+  - url: http://localhost:8080/
 tags:
   - name: Line
     description: Operaciones para realizar con las lineas de transporte
@@ -15,6 +16,8 @@ tags:
     description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
   - name: Access
     description: Operaciones para realizar con los accesos y servicios que poseé cada estación.
+  - name: User
+    description: Operaciones de seguridad por medio de un token JWT.
 paths:
   /Line:
     get:
@@ -30,16 +33,16 @@ paths:
           required: false
           schema:
             type: string
-            format: 'date-time'
-            default: "00:00"
+            format: 'time'
+            default: '00:00'
         - name: lastHour
           in: query
           description: Filtro por hora del último servicio
           required: false
           schema:
             type: string
-            format: 'date-time'
-            default: "00:00"
+            format: 'time'
+            default: '00:00'
       security:
         - bearerAuth: []
       responses:
@@ -50,7 +53,18 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Line'
+                  $ref: '#/components/schemas/OutLineDTO'
+              examples:
+                example1:
+                  value:
+                    codeLine: "L-123"
+                    firstTime: "06:30"
+                    lastTime: "23:00"
+                example2:
+                  value:
+                    codeLine: "L-654"
+                    firstTime: "06:30"
+                    lastTime: "20:45"
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -826,7 +840,43 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /register:
+    post:
+      tags:
+        - User
+      summary: Añade un usuario a la base de datos con una clave asociada
+      description: Nos permite añadir un registro de un usuario.
+      operationId: registerUser
 
+      requestBody:
+        $ref: '#/components/requestBodies/NewUserRegister'
+      responses:
+        '200':
+          description: El usuario se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewUserOut'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /token:
+    post:
+      tags:
+        - User
+      summary: Ofrece el token asociado al usuario
+      description: Ofrece el token de asociado al usuario para poder autorizarle las peticiones
+      operationId: tokenPost
+      requestBody:
+        $ref: '#/components/requestBodies/tokenRegisterUser'
+      responses:
+        '200':
+          description: El usuario se activa correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserToken'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
 
 components:
@@ -1106,8 +1156,7 @@ components:
           format: 'date-time'
           description: Horario de último servicio
           example: "23:30"
-        Station:
-          $ref: '#/components/schemas/OutLineDTO'
+
     GarageCode:
       type: object
       properties:
@@ -1266,6 +1315,62 @@ components:
           format: int32
           description: Número de plazas de pie disponibles
           example: 133
+    NewUser:
+      type: object
+      properties:
+        user:
+          type: string
+          format: string
+          description: Nombre del usuario
+          example: 'Admin'
+        password:
+          type: string
+          format: string
+          description: Clave del usuario
+          example: '1234'
+    NewUserOut:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: Id asociada al nuevo usuario
+          example: 18
+        user:
+          type: string
+          format: string
+          description: Nombre del usuario
+          example: 'Admin'
+        password:
+          type: string
+          format: string
+          description: Clave del usuario encriptada
+          example: '$2a$10$1VwW6NIbt33FIVQa9.Sfl.muI0hQN2T4WCViXUQxHgchFOosor7ua'
+        active:
+          type: boolean
+          description: Indica si el usuario esta activo
+        roles:
+          type: string
+          format: string
+          description: Indica el rol asignado al usuario
+          example: 'administrador'
+    UserToken:
+      type: object
+      properties:
+        token:
+          type: string
+          format: string
+          description: token asignado al usuario
+          example: 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
+                    TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
+                    kPhQcszk4XU9J1Qu5iTpr7X72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
+                    WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
+                    Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ'
+        username:
+          type: string
+          format: string
+          description: Nombre del usuario
+          example: 'administrador'
 
     ErrorResponse:
       properties:
@@ -1353,6 +1458,22 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PutAccessById'
+    NewUserRegister:
+      description: Datos de registro de nuevo usuario
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NewUser'
+
+    tokenRegisterUser:
+      description: Registro el usuario
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NewUser'
+
 
 
   responses:
@@ -1378,6 +1499,8 @@ components:
             message: 'Line not found'
     UnauthorizedError:
       description: Access token is missing or invalid
+
+
 security:
   - bearerAuth: []
 

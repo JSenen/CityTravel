@@ -22,18 +22,18 @@ public class User {
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column
-    private String nif;
-    @Column
-    private String name;
-    @Column
-    private String email;
-    @Column
-    private String surname;
+//    @Column
+//    private String nif;
+//    @Column
+//    private String name;
+//    @Column
+//    private String email;
+//    @Column
+//    private String surname;
     @Column(name = "active")
     private boolean active = true;
-    @Column(name = "creation_date")
-    private LocalDate creationDate;
+//    @Column(name = "creation_date")
+//    private LocalDate creationDate;
 
     //Relacion usuarios - roles
     @ManyToMany

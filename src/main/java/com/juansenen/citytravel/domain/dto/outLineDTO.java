@@ -19,5 +19,5 @@ public class outLineDTO {
     private LocalTime firstTime;
     @JsonFormat(pattern = "HH:mm")
     private LocalTime lastTime;
-    private List<LineStation> stations;
+    //private List<LineStation> stations;
 }
