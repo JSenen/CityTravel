@@ -98,7 +98,7 @@ paths:
         - Line
       security:
         - bearerAuth: [ ]
-      summary: Listado de lineas de transporte por medio de su Id
+      summary: Datos de una linea localizada por su número de id
       description: Devuelve los datos relativos a la linea seleccionada por su id.
       operationId: getLinesById
       responses:
