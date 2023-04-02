@@ -55,10 +55,10 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public LineStation addStation(long lineId, inStationDTO inStationDTO) throws NotFoundException {
+    public LineStation addStation(long lineId, LineStation lineStation) throws NotFoundException {
         LineStation newStation = new LineStation();
 
-        modelMapper.map(inStationDTO, newStation);
+        modelMapper.map(lineStation, newStation);
         Line line = lineRepository.findById(lineId)
                 .orElseThrow(()-> new NotFoundException(new Line()));
         newStation.setLinestation(line);

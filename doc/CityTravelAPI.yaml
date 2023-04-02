@@ -398,7 +398,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OutStation'
+                  $ref: '#/components/schemas/LineStation'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -1037,6 +1037,16 @@ components:
           format: 'date-time'
           description: Horario de apertura de la estacion
           example: "06:45"
+        latitude:
+          type: number
+          format: float
+          description: Coordenadas latitud
+          example: -8.2698
+        longitude:
+          type: number
+          format: float
+          description: Coordenadas longitud
+          example: 122.9332
         hcose:
           type: string
           format: 'date-time'

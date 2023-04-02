@@ -31,6 +31,10 @@ public class LineStation {
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hopen;
     @Column
+    private float latitude;
+    @Column
+    private float longitude;
+    @Column
     @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hclose;
