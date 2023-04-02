@@ -25,7 +25,7 @@ public class LineStationControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineStation.class);
 
-    @GetMapping("/station")
+    @GetMapping("/stations")
     public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
                                                       @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
                                                       @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){

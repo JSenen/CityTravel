@@ -19,7 +19,7 @@ tags:
   - name: User
     description: Operaciones de seguridad por medio de un token JWT.
 paths:
-  /Line:
+  /Lines:
     get:
       tags:
         - Line
@@ -206,7 +206,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 
 
-  /train:
+  /trains:
     get:
       tags:
         - Train
@@ -362,7 +362,7 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /station:
+  /stations:
     get:
       tags:
         - Station
@@ -534,7 +534,7 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /garage:
+  /garages:
     get:
       tags:
         - Garage
@@ -691,7 +691,7 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /access:
+  /accesses:
     get:
       tags:
         - Access

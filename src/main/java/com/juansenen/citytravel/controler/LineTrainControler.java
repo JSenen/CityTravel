@@ -25,7 +25,7 @@ public class LineTrainControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineTrainControler.class);
 
-    @GetMapping("/train")
+    @GetMapping("/trains")
     public ResponseEntity<List<outTrainDTO>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
                                                     @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
                                                     @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){

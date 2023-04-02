@@ -24,7 +24,7 @@ public class LineGarageControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineGarageControler.class);
 
-    @GetMapping("/garage")
+    @GetMapping("/garages")
     public ResponseEntity<List<outGarageDTO>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
                                                      @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
                                                      @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){

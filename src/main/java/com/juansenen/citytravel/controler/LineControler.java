@@ -41,7 +41,7 @@ public class LineControler {
 
 
     //Listar todos
-    @GetMapping("/line")
+    @GetMapping("/lines")
     public ResponseEntity<List<outLineDTO>> getAll(@RequestParam(name = "firstTime", defaultValue = "00:00",required = false) String start,
                                                    @RequestParam(name = "lastTime", defaultValue = "00:00", required = false) String close){
         logger.info("Begin getLine");

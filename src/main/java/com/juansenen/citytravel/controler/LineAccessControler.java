@@ -24,7 +24,7 @@ public class LineAccessControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineAccessControler.class);
 
-    @GetMapping("/access")
+    @GetMapping("/accesses")
     public ResponseEntity<List<outAccessDTO>> getAll(@RequestParam(name = "elevator",defaultValue = "",required = false) String elev){
         logger.info("Begin get Access with or without @RequestParam");
         if (elev.equals("")){
