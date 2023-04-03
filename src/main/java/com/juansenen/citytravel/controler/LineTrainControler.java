@@ -3,6 +3,8 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.inTrainDTO;
 import com.juansenen.citytravel.domain.dto.outTrainDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
+import com.juansenen.citytravel.exception.ErrorResponse;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.service.LineService;
@@ -60,11 +62,15 @@ public class LineTrainControler {
     }
 
     @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody inTrainDTO inTrainDTO) throws NotFoundException {
-        logger.info("Begin add train by Line Id");
-        LineTrain newTrain = lineTrainService.addNewTrain(lineId, inTrainDTO);
-        logger.info("Finish add train by Id");
-        return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody inTrainDTO inTrainDTO) throws LineNoFoundException{
+        try {
+            LineTrain newTrain = lineTrainService.addNewTrain(lineId, inTrainDTO);
+            logger.info("Finish add train by Id");
+            return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
+        } catch (LineNoFoundException e) {
+            ErrorResponse error = new ErrorResponse(404,"Line ID not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
     @PutMapping("/train/{id}")
     public ResponseEntity<LineTrain> modTrain(@PathVariable long id, @RequestBody LineTrain lineTrain) throws  NotFoundException {

@@ -15,7 +15,7 @@
         Optional<LineTrain> findById(long id) throws LineNoFoundException;
 
         LineTrain delTrain(long id) throws NotFoundException;
-        LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws  NotFoundException;
+        LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws LineNoFoundException;
         LineTrain modTrain(long id, LineTrain lineTrain) throws NotFoundException;
         List<LineTrain> findByLineId(long lineId);
         List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp);

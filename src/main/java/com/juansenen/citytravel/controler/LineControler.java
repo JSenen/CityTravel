@@ -4,10 +4,7 @@ import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
-import com.juansenen.citytravel.exception.ErrorMessage;
-import com.juansenen.citytravel.exception.LineNoFoundException;
-import com.juansenen.citytravel.exception.NotFoundException;
-import com.juansenen.citytravel.exception.StationNoFoundException;
+import com.juansenen.citytravel.exception.*;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
 import com.juansenen.citytravel.service.LineTrainService;
@@ -18,9 +15,16 @@ import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.lang.NumberFormatException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -28,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@Validated
 public class LineControler {
 
     @Autowired
@@ -60,14 +65,19 @@ public class LineControler {
 
     //Buscar por id
     @GetMapping("/line/{id}")
-    public ResponseEntity<Line> getLine(@PathVariable long id) throws NotFoundException {
+    public ResponseEntity<Line> getLine(@PathVariable("id") @Min(1L) long id) throws NotFoundException, LineNoFoundException {
         logger.info("Begin getLine By Id");
+        try {
+            Long.parseLong(String.valueOf(id));
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID must be a number", e);
+        }
         Line line = lineService.findById(id);
         logger.info("Finish getLine By Id");
         return new ResponseEntity<>(line,HttpStatus.OK);
     }
     @GetMapping("/line/{lineId}/trains")
-    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws  NotFoundException {
+    public ResponseEntity<List<LineTrain>> getTrainsByLineId(@PathVariable long lineId) throws NotFoundException, LineNoFoundException {
         logger.info("Begin getLine trains by Id Line");
         Line line = lineService.findById(lineId);
         List<LineTrain> trains = null;
@@ -76,8 +86,8 @@ public class LineControler {
         return ResponseEntity.ok(trains);
     }
     //Grabar linea
-    @PostMapping("/line")
-    public ResponseEntity<Line> addLine(@RequestBody Line line){
+    @PostMapping("/line") /** @NotNull y MethodArgumentNotValidException para validar entradas */
+    public ResponseEntity<Line> addLine(@RequestBody @NotNull Line line) throws MethodArgumentNotValidException{
         logger.info("Begin add new Line");
         Line newline = lineService.add(line);
         logger.info("Finish add new Line");
@@ -86,11 +96,17 @@ public class LineControler {
     //Actualizacion parcial
 
     @PatchMapping("/line/{id}")
-    public ResponseEntity<Line> updateLine(@PathVariable long id, @RequestBody Line line) throws NotFoundException {
-        logger.info("Begin update partialy line by Id");
-        Line updateLine = lineService.updateLine(id, line);
-        logger.info("End update partialy line by Id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateLine);
+    public ResponseEntity<Line> updateLine(@PathVariable long id, @RequestBody Line line) throws LineNoFoundException {
+        try{
+            logger.info("Begin update partialy line by Id");
+            Line updateLine = lineService.updateLine(id, line);
+            logger.info("End update partialy line by Id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateLine);
+        }catch (NotFoundException nfe){
+            ErrorResponse error = new ErrorResponse(404,"Line ID not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
     }
     //Borrar uno
 
@@ -103,7 +119,7 @@ public class LineControler {
     }
     //Modificar 1 por id
     @PutMapping("/line/{id}")
-    public  ResponseEntity<Line> modLine (@PathVariable long id, @RequestBody Line line) throws NotFoundException {
+    public  ResponseEntity<Line> modLine (@PathVariable long id , @RequestBody Line line) throws NotFoundException {
         logger.info("Begin modify a Line by Id");
         Line lineModif = lineService.modyLine(id, line);
         logger.info("Finish modify a Line by Id");
@@ -118,6 +134,21 @@ public class LineControler {
         logger.error("Finish NotFoundException");
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(LineNoFoundException.class)
+    public ResponseEntity<ErrorMessage> lineNoFoundException(LineNoFoundException lnfe){
+        logger.error(lnfe.getMessage(), lnfe);
+        ErrorMessage errorMessage = new ErrorMessage(404, lnfe.getMessage());
+        logger.error("Finish NotFoundException");
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(NumberFormatException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<ErrorMessage> handleNumberFormatException(NumberFormatException nfe){
+        logger.error(nfe.getMessage(), nfe);
+        ErrorMessage errorMessage = new ErrorMessage(404, nfe.getMessage());
+        logger.error("Finish NotFoundException");
+        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+    }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorMessage> handleBadRequestException (MethodArgumentNotValidException manve){
         logger.error(manve.getMessage(), manve);
@@ -128,7 +159,7 @@ public class LineControler {
             errors.put(fieldName, message);
         });
         ErrorMessage errorMessage = new ErrorMessage(400, "Bad Request",errors);
-        logger.error("Finish 4000 Bad Request exception");
+        logger.error("Finish 400 Bad Request exception");
         return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
     }
 

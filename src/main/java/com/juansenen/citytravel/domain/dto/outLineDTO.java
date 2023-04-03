@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class outLineDTO {
 
+    private long id;
     private String codeLine;
     @JsonFormat(pattern = "HH:mm")
     private LocalTime firstTime;

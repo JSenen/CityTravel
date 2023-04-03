@@ -12,7 +12,7 @@ public interface LineService {
 
 
     List<outLineDTO> findAll();
-    Line findById(long id) throws NotFoundException;
+    Line findById(long id) throws LineNoFoundException;
     Line add(Line line);
     void deleteLine (long id) throws  NotFoundException;
     Line modyLine(long id, Line line) throws NotFoundException;
@@ -20,5 +20,5 @@ public interface LineService {
 
     List<outLineDTO> searchByHourStartAndHourClose(LocalTime start, LocalTime hclose);
 
-    Line updateLine(long id, Line line) throws NotFoundException;
+    Line updateLine(long id, Line line) throws NotFoundException, LineNoFoundException;
 }
