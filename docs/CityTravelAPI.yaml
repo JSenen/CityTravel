@@ -1599,7 +1599,7 @@ components:
 
 
 security:
-  - bearerAuth: []
+  - JWT: []
 
 
 
