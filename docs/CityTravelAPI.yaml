@@ -24,7 +24,7 @@ paths:
       tags:
         - Line
       summary: Listado de lineas de transporte
-      description: Devuelve el listado completo de todas las lineas de transporte. Es posible filtrar por la horarios de inicio del servicio, fin del servicio o ambos
+      description: Devuelve el listado completo de todas las lineas de transporte. Si se proporcionan los parametros "firstTime" ( hora inicio ) o "lastTime" ( hora final), se buscara en el rango especificado
       operationId: getLines
       parameters:
         - name: fisrtHour
@@ -47,7 +47,7 @@ paths:
         - bearerAuth: []
       responses:
         '200':
-          description: Se devuelve el listado de lineas
+          description: Se devuelve el listado completo de las lineas, o en su caso por los parametros de inicio y fin indicados
           content:
             application/json:
               schema:
@@ -65,15 +65,18 @@ paths:
                     codeLine: "L-654"
                     firstTime: "06:30"
                     lastTime: "20:45"
+        '404':
+          $ref: '#/components/responses/NotFoundException'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
+
     post:
       tags:
         - Line
       summary: Añadir lineas de transporte
-      description: Podemos añadir las lineas de transporte. Con diferentes parámetros.
+      description: Podemos añadir las lineas de transporte.
       operationId: postLine
       security:
         - bearerAuth: [ ]
@@ -81,11 +84,13 @@ paths:
         $ref: '#/components/requestBodies/postLine'
       responses:
         '201':
-          description: El producto se registra correctamente
+          description: El producto se registra correctamente. Devolviendo los datos de la linea creada
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineIn'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -103,13 +108,15 @@ paths:
       operationId: getLinesById
       responses:
         '200':
-          description: Se devuelve el listado de lineas
+          description: Se devuelve los datos de la linea seleccionada
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -119,7 +126,7 @@ paths:
     delete:
       tags:
         - Line
-      summary: Eliminar una Line por su Id
+      summary: Eliminar una Line por su numero de Id identificativa
       description: Eliminamos una linea por su ID
       operationId: deleteLineById
       responses:
@@ -140,6 +147,8 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/postLine'
       responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -149,7 +158,7 @@ paths:
     patch:
       tags:
         - Line
-      summary: Modificación de un campo especifico de la linea seleccioanda por su id
+      summary: Modificación de un campo especifico de la linea seleccionada por su id
       operationId: patchLineById
       requestBody:
         description: Nombre y valor del campo que se modifica
@@ -159,8 +168,8 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchLine'
       responses:
-        '200':
-          description: Se devuelve la linea
+        '202':
+          description: Se acepta la modificacion y devuelve el cuerpo con la linea y el detalle de la modificacion del campo codigo
           content:
             application/json:
               schema:
@@ -191,7 +200,7 @@ paths:
         - bearerAuth: [ ]
       responses:
         '200':
-          description: Se devuelve el listado de los trenes de la linea
+          description: Se devuelve el listado de los trenes que corresponden a la linea indicada
           content:
             application/json:
               schema:
@@ -1381,7 +1390,15 @@ components:
           format: string
           description: Nombre del usuario
           example: 'administrador'
-
+    BadRequest:
+      properties:
+        errorCode:
+          type: number
+          format: int32
+          example: 404
+        message:
+          type: string
+          example: Bad Request
     ErrorResponse:
       properties:
         errorCode:
@@ -1487,6 +1504,12 @@ components:
 
 
   responses:
+    Accepted:
+      description: Modificacion aceptada correctamente
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Line'
     NoContent:
       description: No content
     InternalServerError:
@@ -1504,6 +1527,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NoFound'
+          example:
+            errorCode: 404
+            message: 'Line not found'
+    BadRequest:
+      description: Campos no cumplen los requisitos
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BadRequest'
           example:
             errorCode: 404
             message: 'Line not found'

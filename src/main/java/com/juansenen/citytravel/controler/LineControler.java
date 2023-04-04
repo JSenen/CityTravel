@@ -86,8 +86,8 @@ public class LineControler {
         return ResponseEntity.ok(trains);
     }
     //Grabar linea
-    @PostMapping("/line") /** @NotNull y MethodArgumentNotValidException para validar entradas */
-    public ResponseEntity<Line> addLine(@RequestBody @NotNull Line line) throws MethodArgumentNotValidException{
+    @PostMapping("/line") /** @Validated y MethodArgumentNotValidException para validar entradas error 400 BadRequest */
+    public ResponseEntity<Line> addLine(@RequestBody @Validated Line line) throws MethodArgumentNotValidException{
         logger.info("Begin add new Line");
         Line newline = lineService.add(line);
         logger.info("Finish add new Line");
