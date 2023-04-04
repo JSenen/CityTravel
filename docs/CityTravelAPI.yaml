@@ -7,6 +7,8 @@ info:
 servers:
   - url: /CityTravel
 tags:
+  - name: User
+    description: Operaciones de seguridad. Registro y logeo de usuarios por medio de un token JWT.
   - name: Line
     description: Operaciones para realizar con las lineas de transporte
   - name: Train
@@ -17,8 +19,6 @@ tags:
     description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
   - name: Access
     description: Operaciones para realizar con los accesos y servicios que poseé cada estación.
-  - name: User
-    description: Operaciones de seguridad por medio de un token JWT.
 paths:
   /Lines:
     get:
