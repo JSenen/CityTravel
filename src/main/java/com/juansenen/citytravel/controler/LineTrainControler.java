@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,9 +49,14 @@ public class LineTrainControler {
 
     @GetMapping("/train/{id}")
     public ResponseEntity<Optional<LineTrain>> getById(@PathVariable long id) throws LineNoFoundException {
+
         logger.info("Begin get train by Id");
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         logger.info("Finish get train by Id");
+        if (trainId.isEmpty()) {
+            ErrorResponse error = new ErrorResponse(404, "Train not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(trainId);
+        }
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
     @GetMapping("/train/{lineId}/trains")
@@ -74,24 +80,39 @@ public class LineTrainControler {
     }
     @PutMapping("/train/{id}")
     public ResponseEntity<LineTrain> modTrain(@PathVariable long id, @RequestBody LineTrain lineTrain) throws  NotFoundException {
-        logger.info("Begin modify train by Id");
-        LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
-        logger.info("Finsih modify train by Id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
+        try{
+            logger.info("Begin modify train by Id");
+            LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
+            logger.info("Finsih modify train by Id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
+        }catch (NotFoundException nfe){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
     @PatchMapping("/train/{trainId}")
     public ResponseEntity<LineTrain> updateTrain(@PathVariable long trainId, @RequestBody LineTrain lineTrain) throws NotFoundException {
-        logger.info("Begin update partialy train by train id");
-        LineTrain updtrain = lineTrainService.updateOneTrain(trainId, lineTrain);
-        logger.info("End update partialy train by train id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updtrain);
+        try{
+            logger.info("Begin update partialy train by train id");
+            LineTrain updtrain = lineTrainService.updateOneTrain(trainId, lineTrain);
+            logger.info("End update partialy train by train id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(updtrain);
+        }catch (NotFoundException nfe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+
     }
 
     @DeleteMapping("/train/{id}")
     public ResponseEntity<Void> delOneTrain(@PathVariable long id) throws NotFoundException {
-        logger.info("Begin delete train by Id");
-        lineTrainService.delTrain(id);
-        logger.info("Finish get train by Id");
-        return ResponseEntity.noContent().build();
+        try{
+            logger.info("Begin delete train by Id");
+            lineTrainService.delTrain(id);
+            logger.info("Finish get train by Id");
+            return ResponseEntity.noContent().build();
+        }catch (NotFoundException nfe){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
     }
 }

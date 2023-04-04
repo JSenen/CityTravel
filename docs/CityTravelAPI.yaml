@@ -3,8 +3,9 @@ info:
   title: City Travel API
   version: "1.0"
   description: API diseñada para el control y consulta sobre lineas de transporte ferroviariao urbano. Pueden realizarse distintas operaciones sonre las lineas, las estaciones, los trenes y los accesos. Para el uso de la aplicación, es necesario registrarse en la misma.
+
 servers:
-  - url: http://localhost:8080/
+  - url: /CityTravel
 tags:
   - name: Line
     description: Operaciones para realizar con las lineas de transporte
@@ -44,7 +45,7 @@ paths:
             format: 'time'
             default: '00:00'
       security:
-        - bearerAuth: []
+        - JWT: []
       responses:
         '200':
           description: Se devuelve el listado completo de las lineas, o en su caso por los parametros de inicio y fin indicados
@@ -65,8 +66,6 @@ paths:
                     codeLine: "L-654"
                     firstTime: "06:30"
                     lastTime: "20:45"
-        '404':
-          $ref: '#/components/responses/NotFoundException'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -79,7 +78,7 @@ paths:
       description: Podemos añadir las lineas de transporte.
       operationId: postLine
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       requestBody:
         $ref: '#/components/requestBodies/postLine'
       responses:
@@ -102,7 +101,7 @@ paths:
       tags:
         - Line
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       summary: Datos de una linea localizada por su número de id
       description: Devuelve los datos relativos a la linea seleccionada por su id.
       operationId: getLinesById
@@ -197,7 +196,7 @@ paths:
             type: integer
             format: int64
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       responses:
         '200':
           description: Se devuelve el listado de los trenes que corresponden a la linea indicada
@@ -257,6 +256,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /train/{id}:
@@ -266,13 +267,13 @@ paths:
       tags:
         - Train
       security:
-        - bearerAuth: [ ]
-      summary: Atributos correspondientes a un tren por su identificador
-      description: Devuelve los atributos de un tren por medio del identificador de este
+        - JWT: []
+      summary: Atributos correspondientes a un tren por el identificador del mismo
+      description: Devuelve los atributos de un tren al buscarlo por medio del Identificador (id) de este
       operationId: getTrainById
       responses:
         '200':
-          description: Se devuelve el listado de lineas
+          description: Se devuelvem los campos completos del tren solicitado
           content:
             application/json:
               schema:
@@ -293,6 +294,10 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/putTrainId'
       responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -302,7 +307,7 @@ paths:
     patch:
       tags:
         - Train
-      summary: Modificación de un campo especifico de el tren seleccionado por su id
+      summary: Modificación de 3 campos especifico del tren seleccionado por su id
       operationId: patchTrainById
       requestBody:
         description: Se puede modificar asientos, vagones y plazas de pie
@@ -357,7 +362,7 @@ paths:
             format: int64
 
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       requestBody:
         $ref: '#/components/requestBodies/postTrainByIdLine'
       responses:
@@ -395,7 +400,7 @@ paths:
           schema:
             type: boolean
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       summary: Atributos correspondientes a una estacion
       description: Devuelve los atributos de una estacion
       operationId: getStation
@@ -410,8 +415,6 @@ paths:
                   $ref: '#/components/schemas/LineStation'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
@@ -427,7 +430,7 @@ paths:
       tags:
         - Station
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       summary: Atributos correspondientes a una estación por su identificador
       description: Devuelve los atributos de una estacón por medio del identificador de este
       operationId: getStationById
@@ -454,6 +457,8 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/putStationId'
       responses:
+        '202':
+          $ref: '#/components/responses/AcceptedStation'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -478,6 +483,10 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         '204':
           $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
   /station/{StationId}/station:
     parameters:
       - name: StationId
@@ -490,6 +499,8 @@ paths:
     patch:
       tags:
         - Station
+      security:
+        - JWT: [ ]
       summary: Modificación de los campor de horario de la estacion por el id de esta
       operationId: patchStationId
       requestBody:
@@ -501,7 +512,7 @@ paths:
               $ref: '#/components/schemas/PatchStation'
       responses:
         '202':
-          description: Se devuelve la estación
+          description: Se devuelve la estación modificada
           content:
             application/json:
               schema:
@@ -510,6 +521,8 @@ paths:
                   $ref: '#/components/schemas/LineStation'
         '404':
           $ref: '#/components/responses/NotFoundException'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
 
@@ -529,7 +542,7 @@ paths:
       description: Podemos añadir una eestación a una linea esecificando el ide de la linea
       operationId: postStationByIdLine
       security:
-        - bearerAuth: [ ]
+        - JWT: [ ]
       requestBody:
         $ref: '#/components/requestBodies/postStationByIdLine'
       responses:
@@ -538,15 +551,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GaraageDTO'
+                $ref: '#/components/schemas/LineStation'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /garages:
     get:
       tags:
         - Garage
+      security:
+        - JWT: [ ]
       parameters:
         - name: taller
           in: query
@@ -592,7 +609,7 @@ paths:
       tags:
         - Garage
       security:
-        - bearerAuth: [ ]
+        - JWT: []
       summary: Atributos correspondientes a garage por su identificador
       description: Devuelve los atributos de garade por medio del identificador de este
       operationId: getGarageById
@@ -620,6 +637,12 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PutGarageById'
       responses:
+        '202':
+          description: La solicitud ha sido aceptada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineGarage'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -636,6 +659,8 @@ paths:
           $ref: '#/components/responses/InternalServerError'
         '204':
           $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
   /garage/{stationId}/garage:
     parameters:
       - name: stationId
@@ -652,7 +677,7 @@ paths:
       description: Podemos añadir un garage a una estacion por el Id de esta
       operationId: postGarageByStationId
       security:
-        - bearerAuth: [ ]
+        - JWT: [ ]
       requestBody:
         $ref: '#/components/requestBodies/postGarageByStationId'
       responses:
@@ -662,6 +687,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineGarage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -678,6 +707,8 @@ paths:
     patch:
       tags:
         - Garage
+      security:
+        - JWT: [ ]
       summary: Modificación dparcial de un garage por el Id del garage
       operationId: patchGarageById
       requestBody:
@@ -696,6 +727,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineGarage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -704,6 +737,8 @@ paths:
     get:
       tags:
         - Access
+      security:
+        - JWT: [ ]
       parameters:
         - name: elevator
           in: query
@@ -725,8 +760,6 @@ paths:
                   $ref: '#/components/schemas/OutAccess'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /access/{id}:
@@ -736,7 +769,7 @@ paths:
       tags:
         - Access
       security:
-        - bearerAuth: [ ]
+        - JWT: [ ]
       summary: Atributos correspondientes a un acceso de estación por su Id identificador
       description: Devuelve los atributos de un acceso buscado por su identifcador
       operationId: getAccessById
@@ -764,6 +797,12 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/PutAccessById'
       responses:
+        '202':
+          description: La solicitud ha sido aceptada para procesamiento, pero la respuesta final no está disponible todavía
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineAccess'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -778,6 +817,8 @@ paths:
       responses:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
         '204':
@@ -798,7 +839,7 @@ paths:
       description: Podemos añadir un acceso a una estacion por el Id de esta
       operationId: postAccessByStationId
       security:
-        - bearerAuth: [ ]
+        - JWT: [ ]
       requestBody:
         $ref: '#/components/requestBodies/PutAccessById'
       responses:
@@ -808,6 +849,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineAccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
@@ -824,6 +869,8 @@ paths:
     patch:
       tags:
         - Access
+      security:
+        - JWT: [ ]
       summary: Modificación parcial de un acceso por el Id del mismo
       operationId: patchGarageById
       requestBody:
@@ -845,6 +892,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineAccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -891,7 +940,7 @@ paths:
 components:
 
   securitySchemes:
-    bearerAuth: # arbitrary name for the security scheme
+    JWT:
       type: http
       scheme: bearer
       bearerFormat: JWT
@@ -1510,6 +1559,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Line'
+    AcceptedStation:
+      description: Modificacion aceptada correctamente
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LineStation'
     NoContent:
       description: No content
     InternalServerError:

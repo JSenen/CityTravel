@@ -50,10 +50,14 @@ public class LineStationControler {
 
     @PostMapping("/station/{lineId}/station")
     public ResponseEntity<LineStation> addOneStation(@PathVariable long lineId, @RequestBody LineStation lineStation) throws NotFoundException {
-        logger.info("Begin add station by Line Id");
-        LineStation newStation = lineStationService.addStation(lineId, lineStation);
-        logger.info("Finish add station by Line Id");
-        return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
+        try{
+            logger.info("Begin add station by Line Id");
+            LineStation newStation = lineStationService.addStation(lineId, lineStation);
+            logger.info("Finish add station by Line Id");
+            return ResponseEntity.status(HttpStatus.CREATED).body(newStation);
+        }catch (NotFoundException nfe){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
 
