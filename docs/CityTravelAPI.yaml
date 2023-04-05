@@ -2,7 +2,12 @@ openapi: 3.0.1
 info:
   title: City Travel API
   version: "1.0"
-  description: API diseñada para el control y consulta sobre lineas de transporte ferroviariao urbano. Pueden realizarse distintas operaciones sonre las lineas, las estaciones, los trenes y los accesos. Para el uso de la aplicación, es necesario registrarse en la misma.
+  description: API diseñada para el control y consulta sobre lineas de transporte
+    ferroviariao urbano. Pueden realizarse distintas operaciones sonre las
+    lineas, las estaciones, los trenes y los accesos. Para el acceso a
+    determinadas acciones, de edición, actualización o borrado, será necesario
+    encontrarse logueado como usuario para para poder realizarlas; debido a que
+    la API se encuentra securizada por medio de un Json Web Token (JWT).
 
 servers:
   - url: /CityTravel
@@ -74,7 +79,7 @@ paths:
       description: Podemos añadir las lineas de transporte.
       operationId: postLine
       security:
-        - JWT: []
+        - JWT: [ ]
       requestBody:
         $ref: '#/components/requestBodies/postLine'
       responses:
@@ -118,6 +123,8 @@ paths:
       tags:
         - Line
       summary: Eliminar una Line por su numero de Id identificativa
+      security:
+        - JWT: [ ]
       description: Eliminamos una linea por su ID
       operationId: deleteLineById
       responses:
@@ -133,6 +140,8 @@ paths:
       tags:
         - Line
       summary: Modifica una linea
+      security:
+        - JWT: [ ]
       description: Modifica atributos de la linea, buscandola por su Id de identificación
       operationId: putLineById
       requestBody:
@@ -150,6 +159,8 @@ paths:
       tags:
         - Line
       summary: Modificación de un campo especifico de la linea seleccionada por su id
+      security:
+        - JWT: [ ]
       operationId: patchLineById
       requestBody:
         description: Nombre y valor del campo que se modifica
@@ -167,6 +178,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -244,8 +257,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /train/{id}:
@@ -254,8 +265,6 @@ paths:
     get:
       tags:
         - Train
-      security:
-        - JWT: []
       summary: Atributos correspondientes a un tren por el identificador del mismo
       description: Devuelve los atributos de un tren al buscarlo por medio del Identificador (id) de este
       operationId: getTrainById
@@ -276,6 +285,8 @@ paths:
       tags:
         - Train
       summary: Modificar un tren por su Identificador
+      security:
+        - JWT: [ ]
       operationId: putTrainById
       requestBody:
         $ref: '#/components/requestBodies/putTrainId'
@@ -294,6 +305,8 @@ paths:
       tags:
         - Train
       summary: Modificación de 3 campos especifico del tren seleccionado por su id
+      security:
+        - JWT: [ ]
       operationId: patchTrainById
       requestBody:
         description: Se puede modificar asientos, vagones y plazas de pie
@@ -311,6 +324,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -319,6 +334,8 @@ paths:
       tags:
         - Train
       summary: Eliminar un tren por el identificador del mismo
+      security:
+        - JWT: [ ]
       description: Eliminamos una linea por su número de Id
       operationId: deleteTrainById
       responses:
@@ -336,6 +353,8 @@ paths:
       tags:
         - Train
       summary: Añadir tren en una linea por el Id de la Linea
+      security:
+        - JWT: [ ]
       description: Podemos añadir un tren a una linea esecificando el ide de la linea
       operationId: postTrainByIdLine
       parameters:
@@ -346,9 +365,6 @@ paths:
           schema:
             type: integer
             format: int64
-
-      security:
-        - JWT: []
       requestBody:
         $ref: '#/components/requestBodies/postTrainByIdLine'
       responses:
@@ -412,6 +428,7 @@ paths:
       tags:
         - Station
       summary: Atributos correspondientes a una estación por su identificador
+
       description: Devuelve los atributos de una estacón por medio del identificador de este
       operationId: getStationById
       responses:
@@ -431,6 +448,8 @@ paths:
       tags:
         - Station
       summary: Modificar una estación por su Identificador
+      security:
+        - JWT: [ ]
       operationId: putStationById
       requestBody:
         $ref: '#/components/requestBodies/putStationId'
@@ -447,6 +466,8 @@ paths:
       tags:
         - Station
       summary: Eliminar una estación por su Identificador
+      security:
+        - JWT: [ ]
       operationId: deleteStationId
       parameters:
         - name: id
@@ -477,9 +498,9 @@ paths:
     patch:
       tags:
         - Station
+      summary: Modificación de los campor de horario de la estacion por el id de esta
       security:
         - JWT: [ ]
-      summary: Modificación de los campor de horario de la estacion por el id de esta
       operationId: patchStationId
       requestBody:
         description: Se puede modificar horarios de apertura y cierra
@@ -602,6 +623,8 @@ paths:
       tags:
         - Garage
       summary: Modificacion garage por el id de este
+      security:
+        - JWT: [ ]
       description: Modificacion de un garage especificado por el número de Id
       operationId: putGarageById
       requestBody:
@@ -623,6 +646,8 @@ paths:
       tags:
         - Garage
       summary: Eliminar una garage por su Identificador
+      security:
+        - JWT: [ ]
       operationId: deleteGarageById
       responses:
         '500':
@@ -699,6 +724,8 @@ paths:
                   $ref: '#/components/schemas/LineGarage'
         '400':
           $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -754,6 +781,8 @@ paths:
       tags:
         - Access
       summary: Modificacion acceso a estaciónpor el id de este
+      security:
+        - JWT: [ ]
       description: Modificacion de un acceso a estación por el número de Id
       operationId: putAccessId
       requestBody:
@@ -775,6 +804,8 @@ paths:
       tags:
         - Access
       summary: Eliminar una acceso a una estación por identificador del acceso
+      security:
+        - JWT: [ ]
       operationId: deleteAccessById
       responses:
         '401':
@@ -1558,12 +1589,3 @@ components:
             message: 'Line not found'
     UnauthorizedError:
       description: Access token is missing or invalid
-
-
-security:
-  - JWT: []
-
-
-
-
-
