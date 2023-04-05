@@ -44,8 +44,6 @@ paths:
             type: string
             format: 'time'
             default: '00:00'
-      security:
-        - JWT: []
       responses:
         '200':
           description: Se devuelve el listado completo de las lineas, o en su caso por los parametros de inicio y fin indicados
@@ -66,8 +64,6 @@ paths:
                     codeLine: "L-654"
                     firstTime: "06:30"
                     lastTime: "20:45"
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
 
@@ -100,8 +96,6 @@ paths:
     get:
       tags:
         - Line
-      security:
-        - JWT: []
       summary: Datos de una linea localizada por su número de id
       description: Devuelve los datos relativos a la linea seleccionada por su id.
       operationId: getLinesById
@@ -116,8 +110,6 @@ paths:
                   $ref: '#/components/schemas/Line'
         '400':
           $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -195,8 +187,6 @@ paths:
           schema:
             type: integer
             format: int64
-      security:
-        - JWT: []
       responses:
         '200':
           description: Se devuelve el listado de los trenes que corresponden a la linea indicada
@@ -206,8 +196,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -280,8 +268,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -399,8 +385,6 @@ paths:
           required: false
           schema:
             type: boolean
-      security:
-        - JWT: []
       summary: Atributos correspondientes a una estacion
       description: Devuelve los atributos de una estacion
       operationId: getStation
@@ -413,8 +397,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
@@ -429,8 +411,6 @@ paths:
     get:
       tags:
         - Station
-      security:
-        - JWT: []
       summary: Atributos correspondientes a una estación por su identificador
       description: Devuelve los atributos de una estacón por medio del identificador de este
       operationId: getStationById
@@ -443,8 +423,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -562,8 +540,6 @@ paths:
     get:
       tags:
         - Garage
-      security:
-        - JWT: [ ]
       parameters:
         - name: taller
           in: query
@@ -595,8 +571,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GaraageDTO'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -608,8 +582,6 @@ paths:
     get:
       tags:
         - Garage
-      security:
-        - JWT: []
       summary: Atributos correspondientes a garage por su identificador
       description: Devuelve los atributos de garade por medio del identificador de este
       operationId: getGarageById
@@ -622,8 +594,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineGarage'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -737,8 +707,6 @@ paths:
     get:
       tags:
         - Access
-      security:
-        - JWT: [ ]
       parameters:
         - name: elevator
           in: query
@@ -758,8 +726,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OutAccess'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /access/{id}:
@@ -768,8 +734,6 @@ paths:
     get:
       tags:
         - Access
-      security:
-        - JWT: [ ]
       summary: Atributos correspondientes a un acceso de estación por su Id identificador
       description: Devuelve los atributos de un acceso buscado por su identifcador
       operationId: getAccessById
@@ -782,8 +746,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineAccess'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':

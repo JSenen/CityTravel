@@ -51,8 +51,10 @@ public class LibraryConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                //Rutas abiertas
-                .authorizeRequests().antMatchers("/register", "/token", "/h2-console/**").permitAll()
+                /** Rutas ABIERTAS */
+                .authorizeRequests().antMatchers("/register", "/token", "/lines","/line/{id}","/line/{lineId}/trains",
+                        "/stations","/station/{id}","/garages","/garage/{id}","/accesses","/access/{id}"
+                        ,"/h2-console/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
