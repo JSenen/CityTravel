@@ -57,21 +57,11 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OutLineDTO'
-              examples:
-                example1:
-                  value:
-                    codeLine: "L-123"
-                    firstTime: "06:30"
-                    lastTime: "23:00"
-                example2:
-                  value:
-                    codeLine: "L-654"
-                    firstTime: "06:30"
-                    lastTime: "20:45"
+                  $ref: '#/components/schemas/Line'
         '500':
           $ref: '#/components/responses/InternalServerError'
 
+  /line:
     post:
       tags:
         - Line
@@ -292,7 +282,7 @@ paths:
         $ref: '#/components/requestBodies/putTrainId'
       responses:
         '202':
-          $ref: '#/components/responses/Accepted'
+          $ref: '#/components/responses/AcceptedTrain'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -412,7 +402,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LineStation'
+                  $ref: '#/components/schemas/OutStation'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
@@ -1199,6 +1189,7 @@ components:
           format: 'date-time'
           description: Fecha de adquisición del tren
           example: '23-02-1998'
+
     OutLineDTO:
       type: object
       properties:
@@ -1558,6 +1549,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineStation'
+    AcceptedTrain:
+      description: Modificacion aceptada correctamente
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LineTrain'
     NoContent:
       description: No content
     InternalServerError:
@@ -1585,7 +1582,7 @@ components:
           schema:
             $ref: '#/components/schemas/BadRequest'
           example:
-            errorCode: 404
-            message: 'Line not found'
+            errorCode: 400
+            message: 'Bad Request'
     UnauthorizedError:
       description: Access token is missing or invalid
