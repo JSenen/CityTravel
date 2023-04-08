@@ -1198,6 +1198,11 @@ components:
           format: string
           description: Código identificativo de la linea
           example: "L-123"
+        color:
+          type: string
+          format: string
+          description: Color de la linea
+          example: "Red"
         firstTime:
           type: string
           format: 'date-time'

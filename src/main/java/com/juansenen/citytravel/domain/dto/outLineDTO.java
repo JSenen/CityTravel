@@ -16,6 +16,7 @@ public class outLineDTO {
 
     private long id;
     private String codeLine;
+    private String color;
     @JsonFormat(pattern = "HH:mm")
     private LocalTime firstTime;
     @JsonFormat(pattern = "HH:mm")
