@@ -203,7 +203,35 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-
+  /line/{lineId}/stations:
+     get:
+       tags:
+         - Line
+         - Station
+       summary: Listado todas las estaciones en una linea de tren
+       description: Devuelve un listado completo de estaciones por las que circula una linea
+       operationId: getStationsByLineId
+       parameters:
+         - name: lineId
+           in: path
+           description: ID de la Linea
+           required: true
+           schema:
+             type: integer
+             format: int64
+       responses:
+         '200':
+           description: Se devuelve el listado de las estaciones que corresponden a la linea indicada
+           content:
+             application/json:
+               schema:
+                 type: array
+                 items:
+                   $ref: '#/components/schemas/LineStation'
+         '404':
+           $ref: '#/components/responses/NotFoundException'
+         '500':
+           $ref: '#/components/responses/InternalServerError'
 
   /trains:
     get:

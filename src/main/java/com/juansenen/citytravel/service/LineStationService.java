@@ -21,4 +21,8 @@ public interface LineStationService {
 
 
     LineStation updateOneStation(long lineId, LineStation lineStation) throws NotFoundException;
+
+
+    List<LineStation> findByLineId(long lineId);
 }
+

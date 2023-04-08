@@ -86,6 +86,15 @@ public class LineControler {
         logger.info("Finsh getLine trains by Id Line");
         return ResponseEntity.ok(trains);
     }
+    @GetMapping("/line/{lineId}/stations")
+    public ResponseEntity<List<LineStation>> getStationsByLineID(@PathVariable long lineId) throws NotFoundException, LineNoFoundException {
+        logger.info("Begin getLine stations by Id Line");
+        Line line = lineService.findById(lineId);
+        List<LineStation> stations = null;
+        stations = lineStationService.findByLineId(lineId);
+        logger.info("Finsh getLine trains by Id Line");
+        return ResponseEntity.ok(stations);
+    }
     //Grabar linea
     @PostMapping("/line") /** @Validated y MethodArgumentNotValidException para validar entradas error 400 BadRequest */
     public ResponseEntity<Line> addLine(@RequestBody @Validated Line line) throws MethodArgumentNotValidException{

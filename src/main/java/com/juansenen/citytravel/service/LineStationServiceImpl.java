@@ -61,7 +61,7 @@ public class LineStationServiceImpl implements LineStationService{
         modelMapper.map(lineStation, newStation);
         Line line = lineRepository.findById(lineId)
                 .orElseThrow(()-> new NotFoundException(new Line()));
-        newStation.setLinestation(line);
+        newStation.setLine(line);
 
         return lineStationRepository.save(newStation);
     }
@@ -88,5 +88,10 @@ public class LineStationServiceImpl implements LineStationService{
         updStation.setHclose(lineStation.getHclose());
 
         return lineStationRepository.save(updStation);
+    }
+
+    @Override
+    public List<LineStation> findByLineId(long lineId) {
+        return lineStationRepository.findAllStationsByLineId(lineId);
     }
 }

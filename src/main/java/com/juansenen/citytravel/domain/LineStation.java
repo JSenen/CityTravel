@@ -54,9 +54,9 @@ public class LineStation {
     private List<LineGarage> lineGarageList;
 
     @ManyToOne
-    @JoinColumn(name = "station_id")
+    @JoinColumn(name = "line_id")
     @JsonIgnore
-    private Line linestation;
+    private Line line;
 
 
 }

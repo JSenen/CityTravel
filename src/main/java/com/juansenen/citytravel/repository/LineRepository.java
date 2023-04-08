@@ -1,6 +1,7 @@
 package com.juansenen.citytravel.repository;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,6 +19,8 @@ public interface LineRepository extends CrudRepository<Line, Long> {
 
     @Query(value = "SELECT * FROM line WHERE first_time = ? OR last_time = ?",nativeQuery = true)
     List<Line> findAllByHourStartOrHourClose(LocalTime start, LocalTime close);
+
+
 
 
 }

@@ -12,6 +12,7 @@ import java.util.List;
 public interface LineStationRepository extends CrudRepository<LineStation,Long> {
 
     List<LineStation> findAll();
+    List<LineStation> findAllStationsByLineId(long lineId);
     @Query( value = "SELECT * FROM \"line_station\" WHERE wifi=? and bus_station=? and taxi_station=?", nativeQuery = true)
     List<LineStation> findByWifiOrBusStationOrTaxiStation(boolean wifi, boolean busStation, boolean taxiStation);
 

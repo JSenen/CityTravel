@@ -51,7 +51,7 @@ public class Line {
     @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true) //Para borrar en cascada
     private List<LineTrain> trains;
 
-    @OneToMany(mappedBy = "linestation",cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LineStation> stations;
 
 
