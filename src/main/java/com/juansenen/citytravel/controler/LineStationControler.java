@@ -61,7 +61,7 @@ public class LineStationControler {
     }
 
 
-    @PutMapping("/station/{id}")
+    @PutMapping("/stations/{id}")
     public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws NotFoundException {
         logger.info("Begin modify station by Id");
         LineStation changeStation = lineStationService.modStation(id, lineStation);
@@ -76,7 +76,7 @@ public class LineStationControler {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateStation);
     }
 
-    @DeleteMapping("/station/{id}")
+    @DeleteMapping("/stations/{id}")
     public ResponseEntity<Void> delOneStation(@PathVariable long id) throws NotFoundException {
         logger.info("Begin delete station by Id");
         lineStationService.delStation(id);
