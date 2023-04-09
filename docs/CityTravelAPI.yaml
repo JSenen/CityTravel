@@ -1390,6 +1390,16 @@ components:
           type: boolean
           format: boolean
           description: Indicación si dispone de enlace con estación de taxis
+        latitude:
+          type: number
+          format: int32
+          description: Punto latitud de la estacion (Orientacion N-S)
+          example: -12.8238
+        longitude:
+          type: number
+          format: int32
+          description: Punto longitud de la estacion (Orientacion E-O)
+          example: 8.1505
 
     PatchTrain:
       type: object

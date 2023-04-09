@@ -76,6 +76,8 @@ public class LineStationServiceImpl implements LineStationService{
         modStation.setPtoInfo(lineStation.isPtoInfo());
         modStation.setTaxiStation(lineStation.isTaxiStation());
         modStation.setWifi(lineStation.isWifi());
+        modStation.setLatitude(lineStation.getLatitude());
+        modStation.setLongitude(lineStation.getLongitude());
 
         return lineStationRepository.save(modStation);
     }
