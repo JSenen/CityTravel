@@ -462,6 +462,15 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /stations/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: ID de la Linea
+        required: true
+        schema:
+          type: integer
+          format: int64
     put:
       tags:
         - Station
