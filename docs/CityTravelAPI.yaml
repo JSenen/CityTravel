@@ -109,25 +109,6 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-    put:
-      tags:
-        - Line
-      summary: Modifica una linea
-      security:
-        - JWT: [ ]
-      description: Modifica atributos de la linea, buscandola por su Id de identificación
-      operationId: putLineById
-      requestBody:
-        $ref: '#/components/requestBodies/postLine'
-      responses:
-        '202':
-          $ref: '#/components/responses/Accepted'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     patch:
       tags:
         - Line
@@ -158,6 +139,25 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /lines{id}:
+    put:
+      tags:
+        - Line
+      summary: Modifica una linea
+      security:
+        - JWT: [ ]
+      description: Modifica atributos de la linea, buscandola por su Id de identificación.
+      operationId: putLineById
+      requestBody:
+        $ref: '#/components/requestBodies/postLine'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
     delete:
       tags:
         - Line

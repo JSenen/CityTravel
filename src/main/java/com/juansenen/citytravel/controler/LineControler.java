@@ -128,7 +128,7 @@ public class LineControler {
         return ResponseEntity.noContent().build();
     }
     //Modificar 1 por id
-    @PutMapping("/line/{id}")
+    @PutMapping("/lines/{id}")
     public  ResponseEntity<Line> modLine (@PathVariable long id , @RequestBody Line line) throws NotFoundException {
         logger.info("Begin modify a Line by Id");
         Line lineModif = lineService.modyLine(id, line);
