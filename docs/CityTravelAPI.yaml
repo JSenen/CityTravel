@@ -995,12 +995,6 @@ components:
           format: int32
           description: Tiempo de parada en las estaciones
           example: 5
-        period:
-          type: integer
-          format: int32
-          description: Frecuencia de paso
-          example: 5
-
     Line:
       type: object
       properties:
