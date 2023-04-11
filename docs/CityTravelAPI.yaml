@@ -109,23 +109,6 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-    delete:
-      tags:
-        - Line
-      summary: Eliminar una Line por su numero de Id identificativa
-      security:
-        - JWT: [ ]
-      description: Eliminamos una linea por su ID
-      operationId: deleteLineById
-      responses:
-        '204':
-          $ref: '#/components/responses/NoContent'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     put:
       tags:
         - Line
@@ -168,6 +151,24 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /lines{id}:
+    delete:
+      tags:
+        - Line
+      summary: Eliminar una Line por su numero de Id identificativa
+      security:
+        - JWT: [ ]
+      description: Eliminamos una linea por su ID
+      operationId: deleteLineById
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':

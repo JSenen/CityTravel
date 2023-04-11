@@ -120,7 +120,7 @@ public class LineControler {
     }
     //Borrar uno
 
-    @DeleteMapping("/line/{id}")
+    @DeleteMapping("/lines/{id}")
     public ResponseEntity<Void> delLine(@PathVariable long id) throws NotFoundException {
         logger.info("Begin delete a Line");
         lineService.deleteLine(id);
