@@ -139,6 +139,8 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /lines{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
     put:
       tags:
         - Line
@@ -1030,6 +1032,7 @@ components:
           example: 5
         Station:
           $ref: '#/components/schemas/LineStation'
+
     LineAccess:
       type: object
       properties:

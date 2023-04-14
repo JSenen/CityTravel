@@ -63,6 +63,7 @@ public class LineStationServiceImpl implements LineStationService{
                 .orElseThrow(()-> new NotFoundException(new Line()));
         newStation.setLine(line);
 
+
         return lineStationRepository.save(newStation);
     }
     @Override
