@@ -30,15 +30,15 @@ public class LineStationServiceImpl implements LineStationService{
     @Override
     public List<LineStation> findAll() {
         List<LineStation> stations = lineStationRepository.findAll();
-        List<LineStation> stationDTOS = modelMapper.map(stations, new TypeToken<List<outStationDTO>>(){}.getType());
-        return stationDTOS;
+        List<LineStation> lineStations = modelMapper.map(stations, new TypeToken<List<LineStation>>(){}.getType());
+        return lineStations;
     }
 
     @Override
     public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
         List<LineStation> stations = lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
-        List<LineStation> stationDTOS = modelMapper.map(stations, new TypeToken<List<outStationDTO>>(){}.getType());
-        return stationDTOS;
+        List<LineStation> lineStations = modelMapper.map(stations, new TypeToken<List<LineStation>>(){}.getType());
+        return lineStations;
     }
 
     @Override

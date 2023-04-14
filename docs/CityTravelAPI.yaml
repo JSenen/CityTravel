@@ -433,7 +433,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OutStation'
+                  $ref: '#/components/schemas/LineStation'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
