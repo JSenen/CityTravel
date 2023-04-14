@@ -222,6 +222,25 @@ paths:
            schema:
              type: integer
              format: int64
+             default: ""
+         - name: wifi
+           in: query
+           description: Filtro para buscar estaciones que dispongan de servicio wifi
+           required: false
+           schema:
+             type: boolean
+         - name: busStation
+           in: query
+           description: para buscar estaciones que dispongan de estación de autobuses
+           required: false
+           schema:
+             type: boolean
+         - name: taxiStation
+           in: query
+           description: para buscar estaciones que dispongan de estación de taxis
+           required: false
+           schema:
+             type: boolean
        responses:
          '200':
            description: Se devuelve el listado de las estaciones que corresponden a la linea indicada

@@ -11,7 +11,6 @@ import com.juansenen.citytravel.service.LineTrainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.BasePathAwareController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -19,15 +18,11 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
-import javax.annotation.security.PermitAll;
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.lang.NumberFormatException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,14 +81,25 @@ public class LineControler {
         logger.info("Finsh getLine trains by Id Line");
         return ResponseEntity.ok(trains);
     }
+    /** Filtrar por datos las estaciones */
     @GetMapping("/line/{lineId}/stations")
-    public ResponseEntity<List<LineStation>> getStationsByLineID(@PathVariable long lineId) throws NotFoundException, LineNoFoundException {
+    public ResponseEntity<List<LineStation>> getStationsByLineID(@PathVariable long lineId,@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
+                                                                 @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
+                                                                 @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation) throws NotFoundException, LineNoFoundException {
         logger.info("Begin getLine stations by Id Line");
-        Line line = lineService.findById(lineId);
-        List<LineStation> stations = null;
-        stations = lineStationService.findByLineId(lineId);
+        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
+            Line line = lineService.findById(lineId);
+            List<LineStation> stations = null;
+            stations = lineStationService.findByLineId(lineId);
+            return ResponseEntity.ok(stations);
+        }
+        boolean hasBus = Boolean.parseBoolean(busStation);
+        boolean haswifi = Boolean.parseBoolean(wifi);
+        boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+        List<LineStation> stationsParams = new ArrayList<>();
+        stationsParams = lineStationService.findStationsByParams(lineId,haswifi,hasBus,hasTaxi);
         logger.info("Finsh getLine trains by Id Line");
-        return ResponseEntity.ok(stations);
+        return ResponseEntity.ok(stationsParams);
     }
     //Grabar linea
     @PostMapping("/line") /** @Validated y MethodArgumentNotValidException para validar entradas error 400 BadRequest */

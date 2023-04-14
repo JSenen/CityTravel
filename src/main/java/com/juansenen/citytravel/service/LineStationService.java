@@ -24,5 +24,8 @@ public interface LineStationService {
 
 
     List<LineStation> findByLineId(long lineId);
+
+    List<LineStation> findStationsByParams(long lineId, boolean haswifi, boolean hasBus, boolean hasTaxi) throws NotFoundException;
+
 }
 

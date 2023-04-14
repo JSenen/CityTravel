@@ -41,11 +41,12 @@ public class LineStationControler {
         return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi));
     }
     @GetMapping("/station/{id}")
-    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id) throws StationNoFoundException {
+    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws StationNoFoundException {
         logger.info("Begin get station by Id");
         Optional<LineStation> stationId = lineStationService.findById(id);
         logger.info("Finish get station by Id");
         return new ResponseEntity<>(stationId, HttpStatus.OK);
+
     }
 
     @PostMapping("/station/{lineId}/station")
