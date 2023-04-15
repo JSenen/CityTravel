@@ -3,6 +3,8 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineAccess;
 import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
+import com.juansenen.citytravel.exception.ErrorResponse;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.service.LineAccessService;
 
@@ -70,8 +72,12 @@ public class LineAccessControler {
     @DeleteMapping("/access/{id}")
     public ResponseEntity<Void> delOneAccess(@PathVariable long id) throws NotFoundException {
         logger.info("Begin delete access by Id");
-        lineAccessService.delAccess(id);
-        logger.info("Fininsh delete access by Id");
-        return ResponseEntity.noContent().build();
+        try {
+            lineAccessService.delAccess(id);
+            logger.info("Finish delete access by Id");
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }
