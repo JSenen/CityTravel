@@ -50,9 +50,9 @@ public class LineGarageControler {
     }
 
     @PostMapping("/garage/{stationId}/garage")
-    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody inGarageDTO inGarageDTO) throws NotFoundException {
+    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws NotFoundException {
         logger.info("Begin add garage by station Id");
-        LineGarage newGarage = lineGarageService.addNewGarByLine(inGarageDTO, stationId);
+        LineGarage newGarage = lineGarageService.addNewGarByLine(lineGarage, stationId);
         logger.info("Finish add garage by station Id");
         return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }

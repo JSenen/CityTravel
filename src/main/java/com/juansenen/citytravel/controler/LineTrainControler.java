@@ -29,7 +29,7 @@ public class LineTrainControler {
     private final Logger logger = LoggerFactory.getLogger(LineTrainControler.class);
 
     @GetMapping("/trains")
-    public ResponseEntity<List<outTrainDTO>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
+    public ResponseEntity<List<LineTrain>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
                                                     @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
                                                     @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
         logger.info("Begin get trains with or without @ReuestParam");
@@ -68,9 +68,9 @@ public class LineTrainControler {
     }
 
     @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody inTrainDTO inTrainDTO) throws LineNoFoundException{
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException{
         try {
-            LineTrain newTrain = lineTrainService.addNewTrain(lineId, inTrainDTO);
+            LineTrain newTrain = lineTrainService.addNewTrain(lineId, lineTrain);
             logger.info("Finish add train by Id");
             return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
         } catch (LineNoFoundException e) {
