@@ -33,8 +33,8 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation) {
-        List<LineStation> stations = lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation);
+    public List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation, boolean ptoInfo) {
+        List<LineStation> stations = lineStationRepository.findByWifiOrBusStationOrTaxiStation(wifi, busStation, taxiStation, ptoInfo);
         List<LineStation> lineStations = modelMapper.map(stations, new TypeToken<List<LineStation>>(){}.getType());
         return lineStations;
     }
@@ -97,10 +97,10 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public List<LineStation> findStationsByParams(long lineId, boolean haswifi, boolean hasBus, boolean hasTaxi) throws NotFoundException {
+    public List<LineStation> findStationsByParams(long lineId, boolean haswifi, boolean hasBus, boolean hasTaxi, boolean hasPtoInfo) throws NotFoundException {
         Line line = lineRepository.findById(lineId)
                 .orElseThrow(()->new NotFoundException(new Line()));
-        return lineStationRepository.findStationsByParams(lineId, haswifi, hasBus, hasTaxi);
+        return lineStationRepository.findStationsByParams(lineId, haswifi, hasBus, hasTaxi,hasPtoInfo);
 
     }
 

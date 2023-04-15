@@ -28,17 +28,19 @@ public class LineStationControler {
     @GetMapping("/stations")
     public ResponseEntity<List<LineStation>> getAll(@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
                                                       @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
-                                                      @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation){
+                                                      @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation,
+                                                    @RequestParam(name="pto_info", defaultValue = "", required = false) String ptoInfo){
         logger.info("Begin get station with or without @RequestParam");
-        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
+        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("") && ptoInfo.equals("")){
             logger.info("Finish get station without @RequestParam");
             return ResponseEntity.ok(lineStationService.findAll());
         }
         boolean hasBus = Boolean.parseBoolean(busStation);
         boolean haswifi = Boolean.parseBoolean(wifi);
         boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+        boolean hasPtoInfo = Boolean.parseBoolean(ptoInfo);
         logger.info("Finish get station with @RequestParam");
-        return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi));
+        return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi,hasPtoInfo));
     }
     @GetMapping("/station/{id}")
     public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws StationNoFoundException {

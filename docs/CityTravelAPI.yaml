@@ -241,6 +241,12 @@ paths:
            required: false
            schema:
              type: boolean
+         - name: ptoInfo
+           in: query
+           description: para buscar estaciones que dispongan de centros de Información
+           required: false
+           schema:
+             type: boolean
        responses:
          '200':
            description: Se devuelve el listado de las estaciones que corresponden a la linea indicada
@@ -438,6 +444,12 @@ paths:
         - name: taxiStation
           in: query
           description: Filtro enlace estacion de taxis
+          required: false
+          schema:
+            type: boolean
+        - name: ptoInfo
+          in: query
+          description: para buscar estaciones que dispongan de puntos de información
           required: false
           schema:
             type: boolean

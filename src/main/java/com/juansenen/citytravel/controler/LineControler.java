@@ -85,9 +85,10 @@ public class LineControler {
     @GetMapping("/line/{lineId}/stations")
     public ResponseEntity<List<LineStation>> getStationsByLineID(@PathVariable long lineId,@RequestParam(name="wifi",defaultValue = "",required = false) String wifi,
                                                                  @RequestParam(name="busStation", defaultValue = "",required = false) String busStation,
-                                                                 @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation) throws NotFoundException, LineNoFoundException {
+                                                                 @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation,
+                                                                 @RequestParam(name="ptoInfo", defaultValue = "", required = false) String ptoInfo) throws NotFoundException, LineNoFoundException {
         logger.info("Begin getLine stations by Id Line");
-        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("")){
+        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("") && ptoInfo.equals("")){
             Line line = lineService.findById(lineId);
             List<LineStation> stations = null;
             stations = lineStationService.findByLineId(lineId);
@@ -96,8 +97,9 @@ public class LineControler {
         boolean hasBus = Boolean.parseBoolean(busStation);
         boolean haswifi = Boolean.parseBoolean(wifi);
         boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+        boolean hasPtoInfo = Boolean.parseBoolean(ptoInfo);
         List<LineStation> stationsParams = new ArrayList<>();
-        stationsParams = lineStationService.findStationsByParams(lineId,haswifi,hasBus,hasTaxi);
+        stationsParams = lineStationService.findStationsByParams(lineId,haswifi,hasBus,hasTaxi,hasPtoInfo);
         logger.info("Finsh getLine trains by Id Line");
         return ResponseEntity.ok(stationsParams);
     }
