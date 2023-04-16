@@ -60,6 +60,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+              examples:
+                Line1:
+                  $ref: '#/components/examples/Line1'
+                Line2:
+                  $ref: '#/components/examples/Line2'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
@@ -80,6 +85,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+              examples:
+                Line1:
+                  $ref: '#/components/examples/LineId1'
+                Line2:
+                  $ref: '#/components/examples/LineId2'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -98,6 +108,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PatchLine'
+            examples:
+              BodyPatchLine1:
+                $ref: '#/components/examples/PatchLine1'
+              BodyPatchLine2:
+                $ref: '#/components/examples/PatchLine2'
       responses:
         '202':
           description: Se acepta la modificacion y devuelve el cuerpo con la linea y el detalle de la modificacion del campo codigo
@@ -107,6 +122,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
+              examples:
+                LinePatch1:
+                  $ref: '#/components/examples/LineId1'
+                LinePatch2:
+                  $ref: '#/components/examples/LineId2'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -125,7 +145,16 @@ paths:
         $ref: '#/components/requestBodies/postLine'
       responses:
         '202':
-          $ref: '#/components/responses/Accepted'
+          description: Se acepta la modificacion completa y devuelve el cuerpo de la linea completo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Accepted'
+              examples:
+                PutResponseLineID1:
+                  $ref: '#/components/examples/LineId1'
+                PutResponseLineID2:
+                  $ref: '#/components/examples/LineId2'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -176,6 +205,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+              examples:
+                getTrains1:
+                  $ref: '#/components/examples/LineTrain1'
+                getTrains2:
+                  $ref: '#/components/examples/LineTrain2'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -230,6 +264,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
+              examples:
+                geStationsByLineId1:
+                  $ref: '#/components/examples/OutStation1'
+                getStationsByLineId2:
+                  $ref: '#/components/examples/OutStation2'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -253,6 +292,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineIn'
+              examples:
+                  example1:
+                    $ref: '#/components/examples/LineIn1'
+                  example2:
+                    $ref: '#/components/examples/LineIn2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -302,6 +346,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
+              examples:
+                getAllStations1:
+                  $ref: '#/components/examples/LineStation1'
+                getAllStations2:
+                  $ref: '#/components/examples/LineStation2'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
@@ -330,6 +379,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
+              examples:
+                getStationById1:
+                  $ref: '#/components/examples/LineStation1'
+                getStationById2:
+                  $ref: '#/components/examples/LineStation2'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '400':
@@ -368,6 +422,7 @@ paths:
       tags:
         - Station
       summary: Eliminar una estación por el número de su identificador
+      description: Se elimina una estacion, especificandola por el número Id de la misma
       security:
         - JWT: [ ]
       operationId: deleteStationId
@@ -407,12 +462,7 @@ paths:
         - JWT: [ ]
       operationId: patchStationId
       requestBody:
-        description: Se puede modificar horarios de apertura y cierra
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchStation'
+        $ref: '#/components/requestBodies/patchStationId'
       responses:
         '202':
           description: Se devuelve la estación modificada
@@ -422,6 +472,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
+              examples:
+                PatchOneStationById1:
+                  $ref: '#/components/examples/LineStation1'
+                PatchOneStationById2:
+                  $ref: '#/components/examples/LineStation2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -999,7 +1054,18 @@ paths:
       operationId: registerUser
 
       requestBody:
-        $ref: '#/components/requestBodies/NewUserRegister'
+        description: Se solicita nombre de usuario y contraseña
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/requestBodies/NewUserRegister'
+            examples:
+              ExampleUserBody1:
+                $ref: '#/components/examples/UserRegisterBody1'
+              ExamplesUserBody2:
+                $ref: '#/components/examples/UserRegisterBody2'
       responses:
         '200':
           description: El usuario se registra correctamente
@@ -1007,6 +1073,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NewUserOut'
+              examples:
+                ExampleResponseRegister1:
+                  $ref: '#/components/examples/UserRegisterBodyResponse1'
+                ExampleResponseRegister2:
+                  $ref: '#/components/examples/UserRegisterBodyResponse2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '500':
@@ -1019,7 +1090,8 @@ paths:
       description: Ofrece el token asociado al usuario para poder autorizar las peticiones
       operationId: tokenPost
       requestBody:
-        $ref: '#/components/requestBodies/tokenRegisterUser'
+            $ref: '#/components/requestBodies/tokenRegisterUser'
+
       responses:
         '200':
           description: El usuario se activa correctamente
@@ -1027,6 +1099,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserToken'
+              examples:
+                UserTakeToken1:
+                  $ref: '#/components/examples/UserTokenResponse1'
+                UserTakeToken2:
+                  $ref: '#/components/examples/UserTokenResponse2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -1034,15 +1111,417 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-
+#Componentes
 components:
-
+  #Esquema de seguridad de la API
   securitySchemes:
     JWT:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  #Ejemplos para mostrar tanto en el cuerpo como en la respuesta
+  examples:
+    UserRegisterBody1:
+      summary: Ejemplo de usuario 1
+      value:
+        username: "JSenen"
+        password: "JSenen1234"
+    UserRegisterBody2:
+      summary: Ejemplo de usuario 2
+      value:
+        username: "Senen"
+        password: "Senen9182"
+    UserRegisterBodyResponse1:
+      summary: Ejemplo de usuario 1
+      value:
+        id: 12
+        username: "JSenen"
+        password: "$2a$10$urG/bPJ81AgbBrGsxzmRGOwF/6vOZJEjXgRGr2GffB0dFcmaEjJkm"
+        active: true
+        roles: null
+    UserRegisterBodyResponse2:
+      summary: Ejemplo de usuario 2
+      value:
+        id: 13
+        username: "Senen"
+        password: "$333$urG/bPJ81AgbBrGsxzmRGOwF/6vOZJEjXgRGr2GffB0dFcmaEjJkm"
+        active: true
+        roles: null
+    UserTokenResponse1:
+      summary: Ejemplo respuesta token usuario 1
+      value:
+        token: 'eJasasiJSUzI1Ni56666JzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
+                    TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
+                    kPhQcszk4XU9asasX72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
+                    WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
+                    Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ'
+        username: "JSenen"
+    UserTokenResponse2:
+      summary: Ejemplo respuesta token usuario 2
+      value:
+        token: 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
+                    TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
+                    kPhQcszk4XU9J1Qu5iTpr7X72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
+                    WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
+                    Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ'
+        username: "Senen"
+    LineIn1:
+      summary: Ejemplo 1 de linea
+      value:
+        codeLine: "Sant Petersburgo"
+        color: "red"
+        firstTime: "05:30"
+        lastTime: "23:30"
+        stopTime: 6
+    LineIn2:
+      summary: Ejemplo 2 de linea
+      value:
+        codeLine: "Nueva Terminal"
+        color: "blue"
+        firstTime: "04:30"
+        lastTime: "22:30"
+        stopTime: 6
+    LineId1:
+      summary: Ejemplo 1 de obtencion linea por Id
+      value:
+        codeLine: "Sant Petersburgo"
+        color: "red"
+        firstTime: "05:30"
+        lastTime: "23:30"
+        stopTime: 6
+        trains:
+          - id: 34
+            codeTrain: "KG"
+            model: "quan"
+            numWagons: 23
+            numSeats: 125
+            numStandUp: 20
+            dateBuy: "01-04-1998"
+        Station:
+          - id: 54
+            name: "Sant Estacion"
+            hopen: "03:30"
+            latitude: 41.0345
+            longitude: 2.4567
+            hclose: "00:30"
+            ptoInfo: true
+            wifi: true
+            bus_station: true
+            taxi_station: true
+            lineAccess:
+              - id: 2
+                street: "Mayor"
+                num: 12
+                latitude: 41.0345
+                longitude: 2.8900
+                elevator: true
+            lineGarage:
+              - id: 1
+                codeGarage: "GR-55"
+                taller: true
+                surface: 1630
+                rrhh: true
+                paintService: true
 
+    LineId2:
+      summary: Ejemplo 2 de obtención de linea por id
+      value:
+        codeLine: "Nueva Terminal"
+        color: "blue"
+        firstTime: "04:30"
+        lastTime: "22:30"
+        stopTime: 6
+        trains:
+          - id: 36
+            codeTrain: "KGR"
+            model: "Snow Breaker"
+            numWagons: 19
+            numSeats: 134
+            numStandUp: 10
+            dateBuy: "21-10-1989"
+        Station:
+          - id: 57
+            name: "Atocha"
+            hopen: "03:30"
+            latitude: 41.0345
+            longitude: 1.4567
+            hclose: "00:30"
+            ptoInfo: true
+            wifi: true
+            bus_station: false
+            taxi_station: true
+            lineAccess:
+              - id: 4
+                street: "Camino del Medio"
+                num: 8
+                latitude: 41.0345
+                longitude: 1.4567
+                elevator: false
+            lineGarage:
+              - id: 2
+                codeGarage: "GR-59"
+                taller: false
+                surface: 1680
+                rrhh: true
+                paintService: true
+
+
+    Line1:
+      summary: Ejemplo 1 de linea completa
+      value:
+        id: 12
+        codeLine: "Sant Petersburgo"
+        color: "purple"
+        firstTime: "07:30"
+        lastTime: "23:30"
+        stopTime: 12
+        Station:
+          - id: 54
+            name: "Sant Estacion"
+            hopen: "03:30"
+            latitude: 41.0345
+            longitude: 2.4567
+            hclose: "00:30"
+            ptoInfo: true
+            wifi: true
+            bus_station: true
+            taxi_station: true
+            lineAccess:
+              - id: 2
+                street: "Mayor"
+                num: 12
+                latitude: 41.0345
+                longitude: 2.8900
+                elevator: true
+            lineGarage:
+              - id: 1
+                codeGarage: "GR-55"
+                taller: true
+                surface: 1630
+                rrhh: true
+                paintService: true
+    Line2:
+      summary: Ejemplo 2 de linea completa
+      value:
+        id: 13
+        codeLine: "L-654"
+        color: "red"
+        firstTime: "01:30"
+        lastTime: "23:30"
+        stopTime: 12
+        Station:
+          - id: 57
+            name: "Atocha"
+            hopen: "03:30"
+            latitude: 41.0345
+            longitude: 1.4567
+            hclose: "00:30"
+            ptoInfo: true
+            wifi: true
+            bus_station: false
+            taxi_station: true
+            lineAccess:
+              - id: 4
+                street: "Camino del Medio"
+                num: 8
+                latitude: 41.0345
+                longitude: 1.4567
+                elevator: false
+            lineGarage:
+              - id: 2
+                codeGarage: "GR-59"
+                taller: false
+                surface: 1680
+                rrhh: true
+                paintService: true
+
+
+    LineStation1:
+      summary: Ejemplo 1 estación
+      value:
+        id: 54
+        name: "Sant Estacion"
+        hopen: "04:30"
+        latitude: 41.0345
+        longitude: 2.4567
+        hclose: "23:30"
+        ptoInfo: true
+        wifi: true
+        bus_station: true
+        taxi_station: true
+        lineAccess:
+          - id: 2
+            street: "Mayor"
+            num: 12
+            latitude: 41.0345
+            longitude: 2.8900
+            elevator: true
+        lineGarage:
+          - id: 1
+            codeGarage: "GR-55"
+            taller: true
+            surface: 1630
+            rrhh: true
+            paintService: true
+    LineStation2:
+      summary: Ejemplo 2 estacion
+      value:
+        id: 85
+        name: "Atocha"
+        hopen: "06:30"
+        latitude: 41.0345
+        longitude: 1.4567
+        hclose: "20:30"
+        ptoInfo: true
+        wifi: true
+        bus_station: false
+        taxi_station: true
+        lineAccess:
+          - id: 4
+            street: "Camino del Medio"
+            num: 8
+            latitude: 41.0345
+            longitude: 1.4567
+            elevator: false
+        lineGarage:
+          - id: 2
+            codeGarage: "GR-59"
+            taller: false
+            surface: 1680
+            rrhh: true
+            paintService: true
+    LineTrain1:
+      summary: Datos tren ejemplo 1
+      value:
+        id: 34
+        codeTrain: "KG"
+        model: "quan"
+        numWagons: 23
+        numSeats: 125
+        numStandUp: 20
+        dateBuy: "01-04-1998"
+    LineTrain2:
+      summary: Datos tren ejemplo 2
+      value:
+        id: 36
+        codeTrain: "KGR"
+        model: "Snow Breaker"
+        numWagons: 19
+        numSeats: 134
+        numStandUp: 10
+        dateBuy: "21-10-1989"
+    LineAccess1:
+      summary: Ejemplo datos acceso 1
+      value:
+        id: 4
+        street: "Camino del Medio"
+        num: 8
+        latitude: 41.0345
+        longitude: 1.4567
+        elevator: false
+    LineAccess2:
+      summary: Ejemplo datos acceso 2
+      value:
+        id: 2
+        street: "Mayor"
+        num: 12
+        latitude: 41.0345
+        longitude: 2.8900
+        elevator: true
+    LineGarage1:
+      summary: Ejemplo garage 1
+      value:
+        id: 1
+        codeGarage: "GR-55"
+        taller: true
+        surface: 1630
+        rrhh: true
+        paintService: true
+    LineGarage2:
+      summary: Ejemplo garage 2
+      value:
+        id: 2
+        codeGarage: "GR-59"
+        taller: false
+        surface: 1680
+        rrhh: true
+        paintService: true
+    OutAccess1:
+      summary: Ejemplo salida api datos acceso 1
+      value:
+        id: 4
+        street: "Camino del Medio"
+    OutAccess2:
+      summary: Ejemplo salida api datos acceso 2
+      value:
+        id: 2
+        street: "Mayor"
+    OutStation1:
+      summary: Ejemplo salida api datos estacion 1
+      value:
+        id: 54
+        name: "Sant Estacion"
+        hopen: "03:30"
+        hclose: "00:30"
+    OutStation2:
+      summary: Ejemplo salida api datos estacion 2
+      value:
+        id: 57
+        name: "Atocha"
+        hopen: "03:30"
+        hclose: "00:30"
+    GarageCode1:
+      summary: Ejemplo modificacion código garage 1
+      value:
+        codeGarage: "GST-123"
+    GarageCode2:
+      summary: Ejemplo modificacion código garage 2
+      value:
+        codeGarage: "GST-234"
+    GarageDTO1:
+      summary: Ejemplo salida garage 1
+      value:
+        id: 2
+        codeGarage: "GST-123"
+    GarageDTO2:
+      summary: Ejemplo salida garage 2
+      value:
+        id: 3
+        codeGarage: "GST-234"
+    PatchLine1:
+      summary: Ejemplo 1 valor a modificar en linea
+      value:
+        codeLine: "Sant Petersburgo"
+    PatchLine2:
+      summary: Ejemplo 2 valor a modificar en linea
+      value:
+        codeLine: "Nueva terminal"
+    PatchStation1:
+      summary: Ejemplo 1 valor a modificar estación
+      value:
+        hopen: "04:30"
+        hclose: "23:30"
+    PatchStation2:
+      summary: Ejemplo 2 valor a modificar estación
+      value:
+        hopen: "06:30"
+        hclose: "20:30"
+    PatchGarage1:
+      summary: Ejemplo 1 valor a modificar garage
+      value:
+        rrhh: true
+        taller: true
+        paintservice: true
+    PatchGarage2:
+      summary: Ejemplo 2 valor a modificar garage
+      value:
+        rrhh: true
+        taller: true
+        paintservice: true
+
+
+
+  #Esquemas
   schemas:
     LineIn:
       type: object
@@ -1051,27 +1530,27 @@ components:
           type: string
           format: string
           description: Código de la linea
-          example: "L-111"
+          example: "L-123"
         color:
           type: string
           format: string
           description: Color de la linea
-          example: Red
+          example: "red"
         firstTime:
           type: string
           format: 'date-time'
           description: Horario de apertura de la linea
-          example: "06:45"
+          example: "05:00"
         LastTime:
           type: string
           format: 'date-time'
           description: Horario de cierre de la linea
-          example: "23:00"
+          example: "23:30"
         stopTime:
           type: integer
           format: int32
           description: Tiempo de parada en las estaciones
-          example: 5
+          example: 15
     Line:
       type: object
       properties:
@@ -1079,32 +1558,26 @@ components:
           type: number
           format: int32
           description: Código Id de la estación
-          example: 12
         codeLine:
           type: string
           format: string
           description: Código de la linea
-          example: "L-321"
         color:
           type: string
           format: string
           description: Color de la linea
-          example: Red
         firstTime:
           type: string
           format: 'date-time'
           description: Horario de apertura de la linea
-          example: "06:45"
         LastTime:
           type: string
           format: 'date-time'
           description: Horario de cierre de la linea
-          example: "23:00"
         stopTime:
           type: integer
           format: int32
           description: Tiempo de parada en las estaciones
-          example: 5
         Station:
           $ref: '#/components/schemas/LineStation'
 
@@ -1622,6 +2095,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineIn'
+          examples:
+            ejemplo1:
+              $ref: '#/components/examples/LineIn1'
+            ejemplo2:
+              $ref: '#/components/examples/LineIn2'
     postTrainByIdLine:
       description: Datos de un nuevo tren
       required: true
@@ -1643,6 +2121,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PutStationIn'
+    patchStationId:
+      description: Modificacion de los horarios de una estacion localizada por su Id
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PatchStation'
+          examples:
+            PatchStationById1:
+              $ref: '#/components/examples/PatchStation1'
+            PatchStationById2:
+              $ref: '#/components/examples/PatchStation2'
     postStationByIdLine:
       description: Datos de la nueva estación en la línea
       required: true
@@ -1679,6 +2169,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NewUser'
+          examples:
+            UserTokenGet1:
+              $ref: '#/components/examples/UserRegisterBody1'
+            UserTokenGet2:
+              $ref: '#/components/examples/UserRegisterBody2'
 
 
 
