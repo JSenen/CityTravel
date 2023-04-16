@@ -336,13 +336,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/lines/37",
+							"raw": "{{API_CityTravel}}/lines/{{idLine}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"lines",
-								"37"
+								"{{idLine}}"
 							]
 						}
 					},
@@ -393,6 +393,22 @@
 								"exec": [
 									"",
 									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idStation\", randomId);"
 								],
 								"type": "text/javascript"
 							}
@@ -465,13 +481,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/station/54",
+							"raw": "{{API_CityTravel}}/station/{{idStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"54"
+								"{{idStation}}"
 							]
 						}
 					},
@@ -588,13 +604,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/station/54/station",
+							"raw": "{{API_CityTravel}}/station/{{idStation}}/station",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"54",
+								"{{idStation}}",
 								"station"
 							]
 						}
@@ -639,13 +655,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/stations/80",
+							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"stations",
-								"80"
+								"{{idStation}}"
 							]
 						}
 					},
@@ -663,13 +679,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/stations/57",
+							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"stations",
-								"57"
+								"{{idStation}}"
 							]
 						}
 					},
@@ -688,6 +704,22 @@
 							"script": {
 								"exec": [
 									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idTrain\", randomId);"
 								],
 								"type": "text/javascript"
 							}
@@ -743,13 +775,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/train/8",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"8"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -888,13 +920,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/train/8",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"8"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -935,13 +967,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/train/8",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"8"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -959,13 +991,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/train/10",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"10"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -978,6 +1010,24 @@
 			"item": [
 				{
 					"name": "/accesses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idAccess\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -988,7 +1038,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/accesses?elevator={{$randomBoolean}}",
+							"raw": "{{API_CityTravel}}/accesses",
 							"host": [
 								"{{API_CityTravel}}"
 							],
@@ -998,7 +1048,8 @@
 							"query": [
 								{
 									"key": "elevator",
-									"value": "{{$randomBoolean}}"
+									"value": "{{$randomBoolean}}",
+									"disabled": true
 								}
 							]
 						}
@@ -1028,13 +1079,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/4",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"4"
+								"{{idAccess}}"
 							]
 						}
 					},
@@ -1075,13 +1126,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{randomStation}}/access",
+							"raw": "{{API_CityTravel}}/access/{{idStation}}/access",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{randomStation}}",
+								"{{idStation}}",
 								"access"
 							]
 						}
@@ -1120,13 +1171,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{randomAccessId}}",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{randomAccessId}}"
+								"{{idAccess}}"
 							]
 						}
 					},
@@ -1167,13 +1218,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/access/8/access",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}/access",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"8",
+								"{{idAccess}}",
 								"access"
 							]
 						}
@@ -1192,13 +1243,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/2",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"2"
+								"{{idAccess}}"
 							]
 						}
 					},
@@ -1211,6 +1262,24 @@
 			"item": [
 				{
 					"name": "/garages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idGarage\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1273,13 +1342,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{randomGarageId}}",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{randomGarageId}}"
+								"{{idGarage}}"
 							]
 						}
 					},
@@ -1318,13 +1387,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/54/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idStation}}/garage",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"54",
+								"{{idStation}}",
 								"garage"
 							]
 						}
@@ -1365,13 +1434,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{randomGarageId}}/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}/garage",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{randomGarageId}}",
+								"{{idGarage}}",
 								"garage"
 							]
 						}
@@ -1410,13 +1479,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{randomGarageId}}",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{randomGarageId}}"
+								"{{idGarage}}"
 							]
 						}
 					},
@@ -1434,13 +1503,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/6",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"6"
+								"{{idGarage}}"
 							]
 						}
 					},
@@ -1511,6 +1580,288 @@
 							],
 							"path": [
 								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{lineId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTStation\", response.id);",
+									"",
+									"",
+									"pm.test(\"New Station by Line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"latitude\":\"{{$randomLatitude}}\",\n        \"longitude\":\"{{$randomLongitude}}\",        \n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": true,\n        \"wifi\": true,\n        \"busStation\":true,\n        \"taxiStation\": true\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/station/{{id}}/station",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"station",
+								"{{id}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{stationId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTGarage\", response.id);",
+									"",
+									"pm.test(\"New Garage by Station Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/garage/{{idTESTStation}}/garage",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"garage",
+								"{{idTESTStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTAccess\", response.id);",
+									"",
+									"pm.test(\"Add new access\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/access/{{idTESTStation}}/access",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"access",
+								"{{idTESTStation}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{lineid}/train",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTrain\", response.id);",
+									"",
+									"",
+									"pm.test(\"New train by line id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/train/{{id}}/train",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"train",
+								"{{id}}",
+								"train"
 							]
 						}
 					},
@@ -1722,78 +2073,6 @@
 					"response": []
 				},
 				{
-					"name": "/station/{lineId}/station",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
-									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
-									"",
-									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
-									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
-									"",
-									"pm.environment.set(\"randomLine\", _.random(1, 12));",
-									"",
-									"",
-									"",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idStation\", response.id);",
-									"",
-									"",
-									"pm.test(\"New Station by Line Id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"latitude\":\"{{$randomLatitude}}\",\n        \"longitude\":\"{{$randomLongitude}}\",        \n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": true,\n        \"wifi\": true,\n        \"busStation\":true,\n        \"taxiStation\": true\n\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_CityTravel}}/station/{{id}}/station",
-							"host": [
-								"{{API_CityTravel}}"
-							],
-							"path": [
-								"station",
-								"{{id}}",
-								"station"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "/station/{stationId}/station",
 					"event": [
 						{
@@ -1852,13 +2131,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/station/{{idStation}}/station",
+							"raw": "{{API_CityTravel}}/station/{{idTESTStation}}/station",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"{{idStation}}",
+								"{{idTESTStation}}",
 								"station"
 							]
 						}
@@ -1940,13 +2219,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/station/{{idStation}}",
+							"raw": "{{API_CityTravel}}/station/{{idTESTStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"{{idStation}}"
+								"{{idTESTStation}}"
 							]
 						}
 					},
@@ -2002,73 +2281,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
+							"raw": "{{API_CityTravel}}/stations/{{idTESTStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"stations",
-								"{{idStation}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage/{stationId}/garage",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idGarage\", response.id);",
-									"",
-									"pm.test(\"New Garage by Station Id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idStation}}/garage",
-							"host": [
-								"{{API_CityTravel}}"
-							],
-							"path": [
-								"garage",
-								"{{idStation}}",
-								"garage"
+								"{{idTESTStation}}"
 							]
 						}
 					},
@@ -2122,13 +2341,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idGarage}}/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}/garage",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}",
+								"{{idTESTGarage}}",
 								"garage"
 							]
 						}
@@ -2206,13 +2425,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}"
+								"{{idTESTGarage}}"
 							]
 						}
 					},
@@ -2261,75 +2480,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access/{stationId}/access",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
-									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idAccess\", response.id);",
-									"",
-									"pm.test(\"Add new access\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idStation}}/access",
-							"host": [
-								"{{API_CityTravel}}"
-							],
-							"path": [
-								"access",
-								"{{idStation}}",
-								"access"
+								"{{idTESTGarage}}"
 							]
 						}
 					},
@@ -2384,13 +2541,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idAccess}}/access",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}/access",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}",
+								"{{idTESTAccess}}",
 								"access"
 							]
 						}
@@ -2467,13 +2624,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}"
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -2522,101 +2679,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/train/{lineid}/train",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"",
-									"//Años aleatorios entre 2 fechas",
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"",
-									"// Numeros aleatorios entre 2",
-									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
-									"",
-									"// Numero de vagones aleatorio",
-									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
-									"",
-									"//Numero de garage aleatorio",
-									"pm.environment.set(\"randomGarage\",_.random(1,10));",
-									"",
-									"",
-									"//Formato fecha actual en dd-mm-YYYY",
-									"const dateNow = new Date();",
-									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
-									"var moment = require('moment');",
-									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
-									"",
-									"",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idTrain\", response.id);",
-									"",
-									"",
-									"pm.test(\"New train by line id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "id",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{randomSeats}},\n        \"numStandUp\": {{randomStandUp}},\n        \"numWagons\": {{randomWagons}},\n        \"datebuy\": \"{{todayDate}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_CityTravel}}/train/{{id}}/train",
-							"host": [
-								"{{API_CityTravel}}"
-							],
-							"path": [
-								"train",
-								"{{id}}",
-								"train"
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -2697,13 +2766,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
@@ -2758,13 +2827,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
@@ -2879,13 +2948,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}"
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -2916,13 +2985,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}"
+								"{{idTESTGarage}}"
 							]
 						}
 					},
@@ -2953,13 +3022,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
+							"raw": "{{API_CityTravel}}/stations/{{idTESTStation}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"stations",
-								"{{idStation}}"
+								"{{idTESTStation}}"
 							]
 						}
 					},
@@ -2991,13 +3060,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
@@ -3222,6 +3291,22 @@
 		},
 		{
 			"key": "idStation",
+			"value": ""
+		},
+		{
+			"key": "idTESTStation",
+			"value": ""
+		},
+		{
+			"key": "idTESTGarage",
+			"value": ""
+		},
+		{
+			"key": "idTESTAccess",
+			"value": ""
+		},
+		{
+			"key": "idTESTTrain",
 			"value": ""
 		}
 	]
