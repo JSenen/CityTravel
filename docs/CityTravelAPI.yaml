@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: City Travel API
-  version: "1.0"
+  version: "1.0.0"
   description: API diseñada para el control y consulta sobre lineas de transporte
     ferroviariao urbano. Pueden realizarse distintas operaciones sonre las
     lineas, las estaciones, los trenes y los accesos. Para el acceso a
@@ -9,17 +9,18 @@ info:
     encontrarse logueado como usuario para para poder realizarlas; debido a que
     la API se encuentra securizada por medio de un Json Web Token (JWT).
 
+
 servers:
-  - url: /CityTravel
+  - url: http://localhost:8081
 tags:
   - name: User
     description: Operaciones de seguridad. Registro y logeo de usuarios por medio de un token JWT.
   - name: Line
-    description: Operaciones para realizar con las lineas de transporte
+    description: Operaciones para realizar sobre las lineas de transporte
   - name: Train
-    description: Operaciones para realizar con los trenes en las lineas de transporte
+    description: Operaciones para realizar sobre los trenes. Y sobre aquellos que se encuentran relacionados a una linea
   - name: Station
-    description: Operaciones para realizar con las estaciones de la linea de transporte
+    description: Operaciones para realizar sobre las estaciones que pertenecen a una o varias lineas de transporte
   - name: Garage
     description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
   - name: Access
@@ -103,8 +104,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
-        '400':
-          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -112,7 +111,7 @@ paths:
     patch:
       tags:
         - Line
-      summary: Modificación de un campo especifico de la linea seleccionada por su id
+      summary: Modificación parcial de una linea. Un campo especifico de la linea seleccionada por el id identificador de esta.
       security:
         - JWT: [ ]
       operationId: patchLineById
@@ -138,16 +137,13 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /lines{id}:
-    parameters:
-      - $ref: '#/components/parameters/Id'
     put:
       tags:
         - Line
       summary: Modifica una linea
       security:
         - JWT: [ ]
-      description: Modifica atributos de la linea, buscandola por su Id de identificación.
+      description: Modifica atributos de la linea, buscandola por el número Id identificador de esta.
       operationId: putLineById
       requestBody:
         $ref: '#/components/requestBodies/postLine'
@@ -163,10 +159,10 @@ paths:
     delete:
       tags:
         - Line
-      summary: Eliminar una Line por su numero de Id identificativa
+      summary: Eliminar una linea por el número Id identifiación de la misma
       security:
         - JWT: [ ]
-      description: Eliminamos una linea por su ID
+      description: Eliminamos una linea por el número Id de esta
       operationId: deleteLineById
       responses:
         '204':
@@ -182,8 +178,9 @@ paths:
       tags:
         - Line
         - Train
-      summary: Listado de trenes correspondientes a una linea por el identificador de esta
-      description: Devuelve un listado completo de trenes que circulan por una linea identificada con su Id
+      summary: Listado de trenes que circulan por una linea
+      description: Devuelve un listado completo de trenes que circulan por una linea, habiendola identificado por el número Id
+                  identificación de esta.
       operationId: getTrainsByLineId
       parameters:
         - name: lineId
@@ -193,6 +190,7 @@ paths:
           schema:
             type: integer
             format: int64
+            example: 4
       responses:
         '200':
           description: Se devuelve el listado de los trenes que corresponden a la linea indicada
@@ -211,8 +209,8 @@ paths:
        tags:
          - Line
          - Station
-       summary: Listado todas las estaciones en una linea de tren
-       description: Devuelve un listado completo de estaciones por las que circula una linea
+       summary: Listado todas las estaciones que se encuentran en una linea.
+       description: Devuelve un listado completo de estaciones por las que circula una linea. Habiendo identificado la linea por el número Id de esta.
        operationId: getStationsByLineId
        parameters:
          - name: lineId
@@ -222,7 +220,7 @@ paths:
            schema:
              type: integer
              format: int64
-             default: ""
+             example: 4
          - name: wifi
            in: query
            description: Filtro para buscar estaciones que dispongan de servicio wifi
@@ -1259,6 +1257,11 @@ components:
     OutLineDTO:
       type: object
       properties:
+        id:
+          type: number
+          format: int32
+          description: Código Id de la linea
+          example: 37
         codeLine:
           type: string
           format: string
@@ -1279,6 +1282,22 @@ components:
           format: 'date-time'
           description: Horario de último servicio
           example: "23:30"
+        stopTime:
+          type: integer
+          format: int32
+          description: Tiempo de parada en estaciones
+          example: 10
+        trains:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineTrain'
+          description: Trenes que circulan por la linea
+        stations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineStation'
+          description: Estaciones que se hayan dentro de la linea seleccioanda
+
 
     GarageCode:
       type: object
@@ -1302,13 +1321,13 @@ components:
           description: Código de la cochera o garage
           example: 'GST-238'
     PatchLine:
+      type: object
       properties:
-        field:
+        codeLine:
           type: string
-          example: "CodeLine"
-        value:
-          type: string
-          example: 'C-245'
+          format: string
+          description: Valor a modificar en el codigo de la linea
+          example: "San Petersburgo"
     PatchStation:
       type: object
       properties:
@@ -1540,7 +1559,7 @@ components:
       schema:
         type: number
         format: int32
-        example: 32
+        example: 12
 
   requestBodies:
     postGarageByStationId:
@@ -1623,7 +1642,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Line'
+            $ref: '#/components/schemas/OutLineDTO'
     AcceptedStation:
       description: Modificacion aceptada correctamente
       content:
