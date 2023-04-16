@@ -17,14 +17,15 @@ tags:
     description: Operaciones de seguridad. Registro y logeo de usuarios por medio de un token JWT.
   - name: Line
     description: Operaciones para realizar sobre las lineas de transporte
-  - name: Train
-    description: Operaciones para realizar sobre los trenes. Y sobre aquellos que se encuentran relacionados a una linea
   - name: Station
     description: Operaciones para realizar sobre las estaciones que pertenecen a una o varias lineas de transporte
-  - name: Garage
-    description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
+  - name: Train
+    description: Operaciones para realizar sobre los trenes. Y sobre aquellos que se encuentran relacionados a una linea
   - name: Access
     description: Operaciones para realizar con los accesos y servicios que poseé cada estación.
+  - name: Garage
+    description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
+
 paths:
   /Lines:
     get:
@@ -59,31 +60,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Line'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-
-  /line:
-    post:
-      tags:
-        - Line
-      summary: Añadir lineas de transporte
-      description: Podemos añadir las lineas de transporte.
-      operationId: postLine
-      security:
-        - JWT: [ ]
-      requestBody:
-        $ref: '#/components/requestBodies/postLine'
-      responses:
-        '201':
-          description: El producto se registra correctamente. Devolviendo los datos de la linea creada
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LineIn'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
@@ -180,7 +156,7 @@ paths:
         - Train
       summary: Listado de trenes que circulan por una linea
       description: Devuelve un listado completo de trenes que circulan por una linea, habiendola identificado por el número Id
-                  identificación de esta.
+        identificación de esta.
       operationId: getTrainsByLineId
       parameters:
         - name: lineId
@@ -205,202 +181,13 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{lineId}/stations:
-     get:
-       tags:
-         - Line
-         - Station
-       summary: Listado todas las estaciones que se encuentran en una linea.
-       description: Devuelve un listado completo de estaciones por las que circula una linea. Habiendo identificado la linea por el número Id de esta.
-       operationId: getStationsByLineId
-       parameters:
-         - name: lineId
-           in: path
-           description: ID de la Linea
-           required: true
-           schema:
-             type: integer
-             format: int64
-             example: 4
-         - name: wifi
-           in: query
-           description: Filtro para buscar estaciones que dispongan de servicio wifi
-           required: false
-           schema:
-             type: boolean
-         - name: busStation
-           in: query
-           description: para buscar estaciones que dispongan de estación de autobuses
-           required: false
-           schema:
-             type: boolean
-         - name: taxiStation
-           in: query
-           description: para buscar estaciones que dispongan de estación de taxis
-           required: false
-           schema:
-             type: boolean
-         - name: ptoInfo
-           in: query
-           description: para buscar estaciones que dispongan de centros de Información
-           required: false
-           schema:
-             type: boolean
-       responses:
-         '200':
-           description: Se devuelve el listado de las estaciones que corresponden a la linea indicada
-           content:
-             application/json:
-               schema:
-                 type: array
-                 items:
-                   $ref: '#/components/schemas/LineStation'
-         '404':
-           $ref: '#/components/responses/NotFoundException'
-         '500':
-           $ref: '#/components/responses/InternalServerError'
-
-  /trains:
     get:
       tags:
-        - Train
-      summary: Recibimos el listado total de trenes
-      description: Recibimos el listado total de trenes, pudiendo filtrar por número de vagones, asientos o de pie.
-      operationId: getTrains
-      parameters:
-        - name: numwagons
-          in: query
-          description: Indicación del numero de vagones por el que se queire filtrar
-          required: false
-          schema:
-            type: number
-            format: int32
-            default: 0
-        - name: numSeats
-          in: query
-          description: Indicación del numero de asientos por el que se quiere filtrar
-          required: false
-          schema:
-            type: number
-            format: int32
-            default: 0
-        - name: numStandUp
-          in: query
-          description: Indicación del numero de plazas de pie  por el que se quiere filtrar
-          required: false
-          schema:
-            type: number
-            format: int32
-            default: 0
-      responses:
-        '200':
-          description: Se devuelve el listado completo de trenes si no se introduce filtros.
-            En caso contrario el listado completo dependiendo de los filtros
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/LineTrain'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-  /train/{id}:
-    parameters:
-      - $ref: '#/components/parameters/Id'
-    get:
-      tags:
-        - Train
-      summary: Atributos correspondientes a un tren por el identificador del mismo
-      description: Devuelve los atributos de un tren al buscarlo por medio del Identificador (id) de este
-      operationId: getTrainById
-      responses:
-        '200':
-          description: Se devuelvem los campos completos del tren solicitado
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/LineTrain'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    put:
-      tags:
-        - Train
-      summary: Modificar un tren por su Identificador
-      security:
-        - JWT: [ ]
-      operationId: putTrainById
-      requestBody:
-        $ref: '#/components/requestBodies/putTrainId'
-      responses:
-        '202':
-          $ref: '#/components/responses/AcceptedTrain'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    patch:
-      tags:
-        - Train
-      summary: Modificación de 3 campos especifico del tren seleccionado por su id
-      security:
-        - JWT: [ ]
-      operationId: patchTrainById
-      requestBody:
-        description: Se puede modificar asientos, vagones y plazas de pie
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchTrain'
-      responses:
-        '202':
-          description: Se devuelve el tren
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/LineTrain'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    delete:
-      tags:
-        - Train
-      summary: Eliminar un tren por el identificador del mismo
-      security:
-        - JWT: [ ]
-      description: Eliminamos una linea por su número de Id
-      operationId: deleteTrainById
-      responses:
-        '204':
-          $ref: '#/components/responses/NoContent'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-
-  /train/{lineId}/train:
-    post:
-      tags:
-        - Train
-      summary: Añadir tren en una linea por el Id de la Linea
-      security:
-        - JWT: [ ]
-      description: Podemos añadir un tren a una linea esecificando el ide de la linea
-      operationId: postTrainByIdLine
+        - Line
+        - Station
+      summary: Listado todas las estaciones que se encuentran en una linea.
+      description: Devuelve un listado completo de estaciones por las que circula una linea. Habiendo identificado la linea por el número Id de esta.
+      operationId: getStationsByLineId
       parameters:
         - name: lineId
           in: path
@@ -409,19 +196,71 @@ paths:
           schema:
             type: integer
             format: int64
-      requestBody:
-        $ref: '#/components/requestBodies/postTrainByIdLine'
+            example: 4
+        - name: wifi
+          in: query
+          description: Filtro para buscar estaciones que dispongan de servicio wifi
+          required: false
+          schema:
+            type: boolean
+        - name: busStation
+          in: query
+          description: para buscar estaciones que dispongan de estación de autobuses
+          required: false
+          schema:
+            type: boolean
+        - name: taxiStation
+          in: query
+          description: para buscar estaciones que dispongan de estación de taxis
+          required: false
+          schema:
+            type: boolean
+        - name: ptoInfo
+          in: query
+          description: para buscar estaciones que dispongan de centros de Información
+          required: false
+          schema:
+            type: boolean
       responses:
-        '201':
-          description: El producto se registra correctamente
+        '200':
+          description: Se devuelve el listado de las estaciones que corresponden a la linea indicada
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LineTrain'
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineStation'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /line:
+    post:
+      tags:
+        - Line
+      summary: Añadir lineas de transporte
+      description: Podemos añadir las lineas de transporte.
+      operationId: postLine
+      security:
+        - JWT: [ ]
+      requestBody:
+        $ref: '#/components/requestBodies/postLine'
+      responses:
+        '201':
+          description: El producto se registra correctamente. Devolviendo los datos de la linea creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineIn'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
+
+
   /stations:
     get:
       tags:
@@ -447,16 +286,16 @@ paths:
             type: boolean
         - name: ptoInfo
           in: query
-          description: para buscar estaciones que dispongan de puntos de información
+          description: Filtro buscar estaciones que dispongan de puntos de información
           required: false
           schema:
             type: boolean
-      summary: Atributos correspondientes a una estacion
-      description: Devuelve los atributos de una estacion
+      summary: Se obtiene un listado completo de estaciones.
+      description: Se obtiene un listado completo de estaciones. Pudiendo filtrar por varios parámetros (wifi, Estacion Autobuses, Estación Taxis y Punto de Información)
       operationId: getStation
       responses:
         '200':
-          description: Se devuelve el listado de estaciones
+          description: Se devuelve el listado de las estaciones
           content:
             application/json:
               schema:
@@ -474,6 +313,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 12
     get:
       tags:
         - Station
@@ -483,7 +323,7 @@ paths:
       operationId: getStationById
       responses:
         '200':
-          description: Se devuelve la estacion
+          description: Se devuelve los datos completos de la estación
           content:
             application/json:
               schema:
@@ -492,6 +332,8 @@ paths:
                   $ref: '#/components/schemas/LineStation'
         '404':
           $ref: '#/components/responses/NotFoundException'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /stations/{id}:
@@ -503,10 +345,11 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 12
     put:
       tags:
         - Station
-      summary: Modificar una estación por su Identificador
+      summary: Modificación completa d una estación, identificada por su número Id
       security:
         - JWT: [ ]
       operationId: putStationById
@@ -524,7 +367,7 @@ paths:
     delete:
       tags:
         - Station
-      summary: Eliminar una estación por su Identificador
+      summary: Eliminar una estación por el número de su identificador
       security:
         - JWT: [ ]
       operationId: deleteStationId
@@ -536,6 +379,7 @@ paths:
           schema:
             type: integer
             format: int64
+            example: 12
       responses:
         '500':
           $ref: '#/components/responses/InternalServerError'
@@ -554,10 +398,11 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 12
     patch:
       tags:
         - Station
-      summary: Modificación de los campor de horario de la estacion por el id de esta
+      summary: Modificación de los campos de horario de la estación seleccionada por el id de esta
       security:
         - JWT: [ ]
       operationId: patchStationId
@@ -577,10 +422,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineStation'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
 
@@ -596,8 +443,8 @@ paths:
     post:
       tags:
         - Station
-      summary: Añadir datos parciales de una estación por el Id de una linea
-      description: Podemos añadir una eestación a una linea esecificando el ide de la linea
+      summary: Añadir una nueva estación asociada a una linea, por el número identificador de esta
+      description: Podemos añadir una estación a una linea, especificando el número identificador de la linea
       operationId: postStationByIdLine
       security:
         - JWT: [ ]
@@ -610,12 +457,191 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineStation'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+
+  /trains:
+    get:
+      tags:
+        - Train
+      summary: Se obtiene el listado total de trenes almacenados en la API
+      description: Recibimos el listado total de trenes, pudiendo filtrar por número de vagones, asientos o plazas de pie.
+      operationId: getTrains
+      parameters:
+        - name: numwagons
+          in: query
+          description: Indicación del numero de vagones por el que se queire filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+            example: 14
+        - name: numSeats
+          in: query
+          description: Indicación del numero de asientos por el que se quiere filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+            example: 450
+        - name: numStandUp
+          in: query
+          description: Indicación del numero de plazas de pie  por el que se quiere filtrar
+          required: false
+          schema:
+            type: number
+            format: int32
+            default: 0
+            example: 25
+      responses:
+        '200':
+          description: Se devuelve el listado completo de trenes si no se introduce filtros.
+            En caso contrario el listado completo dependiendo de los filtros
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /train/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+        - Train
+      summary: Atributos correspondientes a un tren obtenido por el número Id del mismo.
+      description: Devuelve los atributos de un tren al buscarlo por medio del Identificador (id) de este
+      operationId: getTrainById
+      responses:
+        '200':
+          description: Se devuelven los campos completos del tren solicitado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Train
+      summary: Modificar total de un tren obtenido por su número de Id.
+      security:
+        - JWT: [ ]
+      operationId: putTrainById
+      requestBody:
+        $ref: '#/components/requestBodies/putTrainId'
+      responses:
+        '202':
+          $ref: '#/components/responses/AcceptedTrain'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+        - Train
+      summary: Modificación parcial de un tren. Tres campos especifico del tren seleccionado por el id de este
+      security:
+        - JWT: [ ]
+      operationId: patchTrainById
+      requestBody:
+        description: Posibilidad de modificación parcial de un tren, en los campos asientos, vagones y plazas de pie
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchTrain'
+      responses:
+        '202':
+          description: Se devuelve el tren
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Train
+      summary: Eliminar un tren seleccionado por el número identificador (id) del mismo
+      security:
+        - JWT: [ ]
+      description: Eliminamos una linea seleccionada por el número id de esta.
+      operationId: deleteTrainById
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /train/{lineId}/train:
+    post:
+      tags:
+        - Train
+      summary: Añadir tren en una linea especifica, por el Id de la Linea
+      security:
+        - JWT: [ ]
+      description: Podemos añadir un tren a una linea especificando el número id de la linea
+      operationId: postTrainByIdLine
+      parameters:
+        - name: lineId
+          in: path
+          description: ID de la Linea
+          required: true
+          example: 4
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/postTrainByIdLine'
+      responses:
+        '201':
+          description: El producto se registra correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LineTrain'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
   /garages:
     get:
       tags:
@@ -651,8 +677,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GaraageDTO'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
+
         '500':
           $ref: '#/components/responses/InternalServerError'
 
@@ -663,7 +688,7 @@ paths:
       tags:
         - Garage
       summary: Atributos correspondientes a garage por su identificador
-      description: Devuelve los atributos de garade por medio del identificador de este
+      description: Devuelve los atributos de garage por medio del identificador de este
       operationId: getGarageById
       responses:
         '200':
@@ -674,6 +699,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineGarage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -695,6 +722,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineGarage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -709,12 +738,14 @@ paths:
         - JWT: [ ]
       operationId: deleteGarageById
       responses:
-        '500':
-          $ref: '#/components/responses/InternalServerError'
         '204':
           $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
   /garage/{stationId}/garage:
     parameters:
       - name: stationId
@@ -724,6 +755,7 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 54
     post:
       tags:
         - Garage
@@ -758,15 +790,16 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 8
     patch:
       tags:
         - Garage
       security:
         - JWT: [ ]
-      summary: Modificación dparcial de un garage por el Id del garage
+      summary: Modificación parcial de un garage por el Id del garage
       operationId: patchGarageById
       requestBody:
-        description: Se puede modificar recursos humanos, servicio de pintura y taller
+        description: Se puede modificar la disponibilidad de recursos humanos, servicio de pintura y taller
         required: true
         content:
           application/json:
@@ -796,16 +829,16 @@ paths:
       parameters:
         - name: elevator
           in: query
-          description: Filtro disponibilidad de ascensor
+          description: Filtro disponibilidad de ascensor en el acceso a la estación
           required: false
           schema:
             type: boolean
-      summary: Atributos correspondientes a un acceso a una estación
-      description: Devuelve filtrado o no por si dispone de ascensor , la id y la dirección del acceso a una estación
+      summary: Atributos correspondientes a un acceso de estación
+      description: Devuelve filtrado o no de forma opcional si dispone de ascensor , la id y la dirección del acceso a una estación
       operationId: getAccess
       responses:
         '200':
-          description: Se devuelve el listado de Accesos
+          description: Se devuelve el listado de Accesos con su número identificador y la calle donde se encuentran
           content:
             application/json:
               schema:
@@ -832,6 +865,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineAccess'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -839,10 +874,10 @@ paths:
     put:
       tags:
         - Access
-      summary: Modificacion acceso a estaciónpor el id de este
+      summary: Modificacion completa de los datos de acceso a la  estación por el id de este
       security:
         - JWT: [ ]
-      description: Modificacion de un acceso a estación por el número de Id
+      description: Modificacion completa de los datos de acceso a la  estación por el id de este
       operationId: putAccessId
       requestBody:
         $ref: '#/components/requestBodies/PutAccessById'
@@ -855,6 +890,8 @@ paths:
                 $ref: '#/components/schemas/LineAccess'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
@@ -862,11 +899,13 @@ paths:
     delete:
       tags:
         - Access
-      summary: Eliminar una acceso a una estación por identificador del acceso
+      summary: Eliminar un acceso a una estación, seleccionandolo por el identificador de este.
       security:
         - JWT: [ ]
       operationId: deleteAccessById
       responses:
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -884,11 +923,12 @@ paths:
         schema:
           type: integer
           format: int64
+          example: 13
     post:
       tags:
         - Access
-      summary: Añade un acceso a una estacion por el Id de la estación
-      description: Podemos añadir un acceso a una estacion por el Id de esta
+      summary: Añade un acceso a una estacion localizada por su número de identificación.
+      description: Añade un acceso a una estacion localizada por su número de identificación.
       operationId: postAccessByStationId
       security:
         - JWT: [ ]
@@ -926,7 +966,7 @@ paths:
       summary: Modificación parcial de un acceso por el Id del mismo
       operationId: patchGarageById
       requestBody:
-        description: Se puede modificar la disponibilidad de ascensor en un acceso
+        description: Posibilidad de realizar una modificación parcial de un acceso al dispoer la disponibilidad de cambiar la disponibilidad de ascensor
         required: true
         content:
           application/json:
@@ -954,8 +994,8 @@ paths:
     post:
       tags:
         - User
-      summary: Añade un usuario a la base de datos con una clave asociada
-      description: Nos permite añadir un registro de un usuario.
+      summary: Añade un usuario a la base de datos de la API con una clave asociada
+      description: Nos permite añadir un registro de un usuario a la base de datos de la api, con una contraseña encriptada
       operationId: registerUser
 
       requestBody:
@@ -967,6 +1007,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NewUserOut'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /token:
@@ -974,7 +1016,7 @@ paths:
       tags:
         - User
       summary: Ofrece el token asociado al usuario
-      description: Ofrece el token de asociado al usuario para poder autorizarle las peticiones
+      description: Ofrece el token asociado al usuario para poder autorizar las peticiones
       operationId: tokenPost
       requestBody:
         $ref: '#/components/requestBodies/tokenRegisterUser'
@@ -985,6 +1027,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserToken'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
 

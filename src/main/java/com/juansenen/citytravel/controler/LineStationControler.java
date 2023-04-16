@@ -3,6 +3,8 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
+import com.juansenen.citytravel.exception.ErrorResponse;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
 import com.juansenen.citytravel.service.LineStationService;
@@ -31,24 +33,32 @@ public class LineStationControler {
                                                       @RequestParam(name="taxiStation", defaultValue = "", required = false) String taxiStation,
                                                     @RequestParam(name="pto_info", defaultValue = "", required = false) String ptoInfo){
         logger.info("Begin get station with or without @RequestParam");
-        if (wifi.equals("") && busStation.equals("") && taxiStation.equals("") && ptoInfo.equals("")){
-            logger.info("Finish get station without @RequestParam");
-            return ResponseEntity.ok(lineStationService.findAll());
+        try{
+            if (wifi.equals("") && busStation.equals("") && taxiStation.equals("") && ptoInfo.equals("")){
+                logger.info("Finish get station without @RequestParam");
+                return ResponseEntity.ok(lineStationService.findAll());
+            }
+            boolean hasBus = Boolean.parseBoolean(busStation);
+            boolean haswifi = Boolean.parseBoolean(wifi);
+            boolean hasTaxi = Boolean.parseBoolean(taxiStation);
+            boolean hasPtoInfo = Boolean.parseBoolean(ptoInfo);
+            logger.info("Finish get station with @RequestParam");
+            return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi,hasPtoInfo));
+        }catch (Exception excp){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
-        boolean hasBus = Boolean.parseBoolean(busStation);
-        boolean haswifi = Boolean.parseBoolean(wifi);
-        boolean hasTaxi = Boolean.parseBoolean(taxiStation);
-        boolean hasPtoInfo = Boolean.parseBoolean(ptoInfo);
-        logger.info("Finish get station with @RequestParam");
-        return ResponseEntity.ok(lineStationService.findAllStationWithWifiBusAndTaxi(haswifi, hasBus, hasTaxi,hasPtoInfo));
+
     }
     @GetMapping("/station/{id}")
-    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws StationNoFoundException {
+    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws NotFoundException {
         logger.info("Begin get station by Id");
         Optional<LineStation> stationId = lineStationService.findById(id);
         logger.info("Finish get station by Id");
-        return new ResponseEntity<>(stationId, HttpStatus.OK);
-
+        if (stationId.isPresent()) {
+            return new ResponseEntity<>(stationId, HttpStatus.OK);
+        } else {
+            throw new NotFoundException("Station not found with id " + id);
+        }
     }
 
     @PostMapping("/station/{lineId}/station")
