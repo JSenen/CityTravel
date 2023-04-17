@@ -47,7 +47,7 @@ public class LineTrainControler {
         return ResponseEntity.ok(lineTrainService.searchByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp));
     }
 
-    @GetMapping("/train/{id}")
+    @GetMapping("/trains/{id}")
     public ResponseEntity<Optional<LineTrain>> getById(@PathVariable long id) throws LineNoFoundException {
 
         logger.info("Begin get train by Id");

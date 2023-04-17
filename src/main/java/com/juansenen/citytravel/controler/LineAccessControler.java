@@ -38,7 +38,7 @@ public class LineAccessControler {
         return ResponseEntity.ok(lineAccessService.searchAccessWithElevator(elevator));
     }
 
-    @GetMapping("/access/{id}")
+    @GetMapping("/accesses/{id}")
     public ResponseEntity<Optional<LineAccess>> getById(@PathVariable long id){
         logger.info("Begin get access by Id");
         Optional<LineAccess> accessId = lineAccessService.findById(id);

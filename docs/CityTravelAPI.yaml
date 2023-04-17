@@ -27,12 +27,12 @@ tags:
     description: Operaciones para realizar con las cocheras y talleres en las diferentes estaciones que dispongan de ellas.
 
 paths:
-  /Lines:
+  /lines:
     get:
       tags:
         - Line
       summary: Listado de lineas de transporte
-      description: Devuelve el listado completo de todas las lineas de transporte. Si se proporcionan los parametros "firstTime" ( hora inicio ) o "lastTime" ( hora final), se buscara en el rango especificado
+      description: Devuelve el listado completo de todas las lineas de transporte. Pueden proporcionarase los parametros "firstTime" ( hora inicio ) o "lastTime" ( hora final), para filtrar por el rango especificado
       operationId: getLines
       parameters:
         - name: fisrtHour
@@ -53,7 +53,7 @@ paths:
             default: '00:00'
       responses:
         '200':
-          description: Se devuelve el listado completo de las lineas, o en su caso por los parametros de inicio y fin indicados
+          description: Se devuelve el listado completo de las lineas, o en su caso por los parametros de inicio y fin seleccionados
           content:
             application/json:
               schema:
@@ -94,90 +94,8 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-    patch:
-      tags:
-        - Line
-      summary: Modificación parcial de una linea. Un campo especifico de la linea seleccionada por el id identificador de esta.
-      security:
-        - JWT: [ ]
-      operationId: patchLineById
-      requestBody:
-        description: Nombre y valor del campo que se modifica
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchLine'
-            examples:
-              BodyPatchLine1:
-                $ref: '#/components/examples/PatchLine1'
-              BodyPatchLine2:
-                $ref: '#/components/examples/PatchLine2'
-      responses:
-        '202':
-          description: Se acepta la modificacion y devuelve el cuerpo con la linea y el detalle de la modificacion del campo codigo
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Line'
-              examples:
-                LinePatch1:
-                  $ref: '#/components/examples/LineId1'
-                LinePatch2:
-                  $ref: '#/components/examples/LineId2'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    put:
-      tags:
-        - Line
-      summary: Modifica una linea
-      security:
-        - JWT: [ ]
-      description: Modifica atributos de la linea, buscandola por el número Id identificador de esta.
-      operationId: putLineById
-      requestBody:
-        $ref: '#/components/requestBodies/postLine'
-      responses:
-        '202':
-          description: Se acepta la modificacion completa y devuelve el cuerpo de la linea completo
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/Accepted'
-              examples:
-                PutResponseLineID1:
-                  $ref: '#/components/examples/LineId1'
-                PutResponseLineID2:
-                  $ref: '#/components/examples/LineId2'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    delete:
-      tags:
-        - Line
-      summary: Eliminar una linea por el número Id identifiación de la misma
-      security:
-        - JWT: [ ]
-      description: Eliminamos una linea por el número Id de esta
-      operationId: deleteLineById
-      responses:
-        '204':
-          $ref: '#/components/responses/NoContent'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-        '404':
-          $ref: '#/components/responses/NotFoundException'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+
+
   /line/{lineId}/trains:
     get:
       tags:
@@ -266,14 +184,98 @@ paths:
                   $ref: '#/components/schemas/LineStation'
               examples:
                 geStationsByLineId1:
-                  $ref: '#/components/examples/OutStation1'
+                  $ref: '#/components/examples/OutGetLineStations1'
                 getStationsByLineId2:
-                  $ref: '#/components/examples/OutStation2'
+                  $ref: '#/components/examples/OutGetLineStations2'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
-
+  /lines/{id}:
+    patch:
+      tags:
+        - Line
+      summary: Modificación parcial de una linea. Un campo especifico de la linea seleccionada por el id identificador de esta.
+      security:
+        - JWT: [ ]
+      operationId: patchLineById
+      requestBody:
+        description: Nombre y valor del campo que se modifica
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchLine'
+            examples:
+              BodyPatchLine1:
+                $ref: '#/components/examples/PatchLine1'
+              BodyPatchLine2:
+                $ref: '#/components/examples/PatchLine2'
+      responses:
+        '202':
+          description: Se acepta la modificacion y devuelve el cuerpo con la linea y el detalle de la modificacion del campo codigo
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Line'
+              examples:
+                LinePatch1:
+                  $ref: '#/components/examples/LineId1'
+                LinePatch2:
+                  $ref: '#/components/examples/LineId2'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+        - Line
+      summary: Modifica una linea
+      security:
+        - JWT: [ ]
+      description: Modifica atributos de la linea, buscandola por el número Id identificador de esta.
+      operationId: putLineById
+      requestBody:
+        $ref: '#/components/requestBodies/postLine'
+      responses:
+        '202':
+          description: Se acepta la modificacion completa y devuelve el cuerpo de la linea completo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Accepted'
+              examples:
+                PutResponseLineID1:
+                  $ref: '#/components/examples/LineId1'
+                PutResponseLineID2:
+                  $ref: '#/components/examples/LineId2'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+        - Line
+      summary: Eliminar una linea por el número Id identifiación de la misma
+      security:
+        - JWT: [ ]
+      description: Eliminamos una linea por el número Id de esta
+      operationId: deleteLineById
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
   /line:
     post:
       tags:
@@ -303,8 +305,6 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
         '500':
           $ref: '#/components/responses/InternalServerError'
-
-
   /stations:
     get:
       tags:
@@ -411,7 +411,17 @@ paths:
         $ref: '#/components/requestBodies/putStationId'
       responses:
         '202':
-          $ref: '#/components/responses/AcceptedStation'
+          description: Se acepta la modificacion completa y devuelve el cuerpo de la linea completo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/AcceptedStation'
+              examples:
+                Station1:
+                  $ref: '#/components/examples/PutStationId1'
+                Station2:
+                  $ref: '#/components/examples/PutStationId1'
+
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -512,6 +522,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineStation'
+              examples:
+                PostStation1:
+                  $ref: '#/components/examples/LineStation1'
+                PostStation2:
+                  $ref: '#/components/examples/LineStation2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -566,9 +581,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+              examples:
+                TrainExample1:
+                  $ref: '#/components/examples/LineTrain1'
+                TrainExample2:
+                  $ref: '#/components/examples/LineTrain2'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /train/{id}:
+  /trains/{id}:
     parameters:
       - $ref: '#/components/parameters/Id'
     get:
@@ -586,12 +606,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+              examples:
+                TrainExample1:
+                  $ref: '#/components/examples/LineTrain1'
+                TrainExample2:
+                  $ref: '#/components/examples/LineTrain2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /train/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
     put:
       tags:
         - Train
@@ -603,7 +631,19 @@ paths:
         $ref: '#/components/requestBodies/putTrainId'
       responses:
         '202':
-          $ref: '#/components/responses/AcceptedTrain'
+          description: Se devuelven los campos completos del tren solicitado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/responses/AcceptedTrain'
+              examples:
+                PutTrain1:
+                  $ref: '#/components/examples/LineTrain1'
+                PutTrain2:
+                  $ref: '#/components/examples/LineTrain2'
+
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -625,7 +665,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchTrain'
+              items:
+                $ref: '#/components/schemas/PatchTrain'
+            examples:
+              PatchTrain1:
+                $ref: '#/components/examples/PatchTrain1'
+              PatchTrain2:
+                $ref: '#/components/examples/PatchTrain2'
       responses:
         '202':
           description: Se devuelve el tren
@@ -635,6 +681,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineTrain'
+              examples:
+                PatchTrain1:
+                  $ref: '#/components/examples/LineTrain1'
+                PatchTrain2:
+                  $ref: '#/components/examples/LineTrain2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -685,11 +736,17 @@ paths:
         $ref: '#/components/requestBodies/postTrainByIdLine'
       responses:
         '201':
-          description: El producto se registra correctamente
+          description: El tren se registra correctamente
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LineTrain'
+                items:
+                  $ref: '#/components/schemas/LineTrain'
+              examples:
+                PostTrain1:
+                  $ref: '#/components/examples/LineTrain1'
+                PostTrain2:
+                  $ref: '#/components/examples/LineTrain2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -900,9 +957,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OutAccess'
+              examples:
+                OutAccess1:
+                  $ref: '#/components/examples/OutAccess1'
+                OutAccess2:
+                  $ref: '#/components/examples/OutAccess2'
         '500':
           $ref: '#/components/responses/InternalServerError'
-  /access/{id}:
+  /accesses/{id}:
     parameters:
       - $ref: '#/components/parameters/Id'
     get:
@@ -920,12 +982,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineAccess'
+              examples:
+                OutAccessComplete1:
+                  $ref: '#/components/examples/OutAccessComplete1'
+                OutAccessComplete2:
+                  $ref: '#/components/examples/OutAccessComplete2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /access/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
     put:
       tags:
         - Access
@@ -943,6 +1013,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineAccess'
+              examples:
+                PutAccess1:
+                  $ref: '#/components/examples/LineAccess1'
+                PutAccess2:
+                  $ref: '#/components/examples/LineAccess2'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '400':
@@ -988,7 +1063,17 @@ paths:
       security:
         - JWT: [ ]
       requestBody:
-        $ref: '#/components/requestBodies/PutAccessById'
+        description: Introduccion de los detalles del acceso a la estacion especifica
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/PostAccessById'
+            examples:
+              PostAccessStation1:
+                $ref: '#/components/examples/PostAccessByStation1'
+              PostAccessSation2:
+                $ref: '#/components/examples/PostAccessByStation2'
       responses:
         '201':
           description: El producto se registra correctamente
@@ -996,6 +1081,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineAccess'
+              examples:
+                PostAccessStation1:
+                  $ref: '#/components/examples/OutAccessComplete1'
+                PostAccessSation2:
+                  $ref: '#/components/examples/OutAccessComplete2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -1173,6 +1263,8 @@ components:
         firstTime: "05:30"
         lastTime: "23:30"
         stopTime: 6
+        trains:
+        Stations:
     LineIn2:
       summary: Ejemplo 2 de linea
       value:
@@ -1181,8 +1273,10 @@ components:
         firstTime: "04:30"
         lastTime: "22:30"
         stopTime: 6
+        train:
+        Stations:
     LineId1:
-      summary: Ejemplo 1 de obtencion linea por Id
+      summary: Ejemplo 1 de linea
       value:
         codeLine: "Sant Petersburgo"
         color: "red"
@@ -1224,7 +1318,7 @@ components:
                 paintService: true
 
     LineId2:
-      summary: Ejemplo 2 de obtención de linea por id
+      summary: Ejemplo 2 de linea
       value:
         codeLine: "Nueva Terminal"
         color: "blue"
@@ -1267,7 +1361,7 @@ components:
 
 
     Line1:
-      summary: Ejemplo 1 de linea completa
+      summary: Ejemplo 1 de linea
       value:
         id: 12
         codeLine: "Sant Petersburgo"
@@ -1301,7 +1395,7 @@ components:
                 rrhh: true
                 paintService: true
     Line2:
-      summary: Ejemplo 2 de linea completa
+      summary: Ejemplo 2 de linea
       value:
         id: 13
         codeLine: "L-654"
@@ -1334,8 +1428,17 @@ components:
                 surface: 1680
                 rrhh: true
                 paintService: true
-
-
+    Line3:
+      summary: Ejemplo 3 de linea
+      value:
+        id: 59
+        codeLine: "L-100"
+        color: "yellow"
+        firstTime: "06:30"
+        lastTime: "23:00"
+        stopTime: 12
+        Station:
+          -
     LineStation1:
       summary: Ejemplo 1 estación
       value:
@@ -1366,8 +1469,8 @@ components:
     LineStation2:
       summary: Ejemplo 2 estacion
       value:
-        id: 85
-        name: "Atocha"
+        id: 58
+        name: "Atocha Estación"
         hopen: "06:30"
         latitude: 41.0345
         longitude: 1.4567
@@ -1456,6 +1559,87 @@ components:
       value:
         id: 2
         street: "Mayor"
+    OutAccessComplete1:
+      summary: Ejemplo acceso 1
+      value:
+        id: 4
+        street: "Camino del Medio"
+        num: 8
+        latitude: 23.6667
+        logitude: -2.9876
+        elevator: true
+    OutAccessComplete2:
+      summary: Ejemplo acceso 2
+      value:
+        id: 2
+        street: "Mayor"
+        num: 19
+        latitude: 33.6667
+        logitude: -3.9876
+        elevator: false
+    PutAccess1:
+      summary: Ejemplo acceso 1
+      value:
+        street: "Camino del Medio"
+        num: 8
+        latitude: 23.6667
+        logitude: -2.9876
+        elevator: true
+    PutAccess2:
+      summary: Ejemplo acceso 2
+      value:
+        street: "Mayor"
+        num: 19
+        latitude: 33.6667
+        logitude: -3.9876
+        elevator: false
+
+    OutGetLineStations1:
+      summary: Ejemplo salida api datos estacion 1
+      value:
+        id: 54
+        name: "Sant Estacion"
+        hopen: "03:30"
+        latitude: 38.23752,
+        longitude: 1.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: true,
+        busStation: true,
+        taxiStation: true,
+        lineAccessList:
+        lineGarageList:
+    OutGetLineStations2:
+      summary: Ejemplo salida api datos estacion 1
+      value:
+        id: 58
+        name: "Atocha Estacion"
+        hopen: "01:30"
+        latitude: 41.4567
+        longitude: 2.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: false,
+        busStation: true,
+        taxiStation: true,
+        lineAccessList:
+        lineGarageList:
+    PostAccessByStation2:
+      summary: Ejemplo acceso 1
+      value:
+        id: 2
+        street: "Mayor"
+        num: 19
+        latitude: 33.6667
+        logitude: -3.9876
+    PostAccessByStation1:
+      summary: Ejemplo acceso 1
+      value:
+        id: 4
+        street: "Camino del Medio"
+        num: 8
+        latitude: 23.6667
+        logitude: -2.9876
     OutStation1:
       summary: Ejemplo salida api datos estacion 1
       value:
@@ -1470,6 +1654,32 @@ components:
         name: "Atocha"
         hopen: "03:30"
         hclose: "00:30"
+    PutStationId2:
+      summary: Ejemplo  estacion 2
+      value:
+        id: 58
+        name: "Atocha Estacion"
+        hopen: "01:30"
+        latitude: 41.4567
+        longitude: 2.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: false,
+        busStation: true,
+        taxiStation: true
+    PutStationId1:
+      summary: Ejemplo estacion 1
+      value:
+        id: 54
+        name: "Sant Estacion"
+        hopen: "03:30"
+        latitude: 38.23752,
+        longitude: 1.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: true,
+        busStation: true,
+        taxiStation: true,
     GarageCode1:
       summary: Ejemplo modificacion código garage 1
       value:
@@ -1518,6 +1728,18 @@ components:
         rrhh: true
         taller: true
         paintservice: true
+    PatchTrain1:
+      summary: Ejemplo 1 valores a modificar
+      value:
+        numSeats: 125
+        numWagons: 23
+        numStandUp: 20
+    PatchTrain2:
+      summary: Ejemplo 2 valores a modificar
+      value:
+        numSeats: 134
+        numWagons: 19
+        numStandUp: 10
 
 
 
@@ -1918,6 +2140,30 @@ components:
           type: boolean
           format: boolean
           description: Indicación si el acceso dispone de ascensores
+    PostAccessByStationId:
+      type: object
+      properties:
+        street:
+          type: string
+          format: string
+          description: Dirección de la calle donde se situa el acceso a la estación
+          example: '56094 Hills Mission'
+        num:
+          type: number
+          format: int32
+          description: Número de la calle donde se situa el acceso
+          example: 671
+        latitude:
+          type: number
+          format: int32
+          description: Punto latitud del acceso
+          example: -12.8238
+        longitude:
+          type: number
+          format: int32
+          description: Punto longitud del acceso
+          example: 8.1505
+
     PutStationIn:
       type: object
       properties:
@@ -2107,6 +2353,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineTrain'
+          examples:
+            PostTrain1:
+              $ref: '#/components/examples/LineTrain1'
+            PostTrain2:
+              $ref: '#/components/examples/LineTrain2'
     putTrainId:
       description: Datos de un tren
       required: true
@@ -2114,6 +2365,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineTrain'
+          examples:
+            PutTrainId1:
+              $ref: '#/components/examples/LineTrain1'
+            PutTrainId2:
+              $ref: '#/components/examples/LineTrain2'
     putStationId:
       description: Datos de una estación
       required: true
@@ -2121,6 +2377,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PutStationIn'
+          examples:
+            Station1:
+              $ref: '#/components/examples/PutStationId1'
+            Station2:
+              $ref: '#/components/examples/PutStationId2'
     patchStationId:
       description: Modificacion de los horarios de una estacion localizada por su Id
       required: true
@@ -2140,6 +2401,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PostStationByIdLine'
+          examples:
+            PostStation1:
+              $ref: '#/components/examples/PutStationId1'
+            PostStation2:
+              $ref: '#/components/examples/PutStationId2'
     PutGarageById:
       description: Datos de el garage
       required: true
@@ -2154,6 +2420,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PutAccessById'
+          examples:
+            PutAccessById1:
+              $ref: '#/components/examples/PutAccess1'
+            PutAccessById:
+              $ref: '#/components/examples/PutAccess2'
+    PostAccessById:
+      description: Datos del acceso a la estación
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PostAccessByStationId'
     NewUserRegister:
       description: Datos de registro de nuevo usuario
       required: true

@@ -113,7 +113,7 @@ public class LineControler {
     }
     //Actualizacion parcial
 
-    @PatchMapping("/line/{id}")
+    @PatchMapping("/lines/{id}")
     public ResponseEntity<Line> updateLine(@PathVariable long id, @RequestBody Line line) throws LineNoFoundException {
         try{
             logger.info("Begin update partialy line by Id");

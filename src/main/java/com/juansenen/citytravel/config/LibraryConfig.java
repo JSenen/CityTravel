@@ -54,8 +54,8 @@ public class LibraryConfig extends WebSecurityConfigurerAdapter {
                 /** Rutas ABIERTAS */
                 .authorizeRequests().antMatchers("/register", "/token", "/lines",
                         "/line/{id}","/line/{lineId}/trains","/line/{lineId}/stations",
-                        "/stations","/station/{id}","/garages","/garage/{id}","/trains",
-                        "/accesses","/access/{id}","/h2-console/**").permitAll()
+                        "/stations","/station/{id}","/garages","/garage/{id}","/trains","trains/{id}",
+                        "/accesses","/accesses/{id}","/h2-console/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
