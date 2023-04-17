@@ -789,11 +789,16 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/GaraageDTO'
+              examples:
+                OutGarageDto1:
+                  $ref: '#/components/examples/GarageDTO1'
+                OutGarageDto2:
+                  $ref: '#/components/examples/GarageDTO2'
 
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /garage/{id}:
+  /garages/{id}:
     parameters:
       - $ref: '#/components/parameters/Id'
     get:
@@ -811,12 +816,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineGarage'
+              examples:
+                GetGarageId1:
+                  $ref: '#/components/examples/LineGarage1'
+                GetGarageId2:
+                  $ref: '#/components/examples/LineGarage2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+
+  /garage/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
     put:
       tags:
         - Garage
@@ -834,6 +848,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineGarage'
+              examples:
+                Putgarage1:
+                  $ref: '#/components/examples/LineGarage1'
+                Putgarage2:
+                  $ref: '#/components/examples/LineGarage2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -885,6 +904,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LineGarage'
+              examples:
+                PostGarExampl1:
+                  $ref: '#/components/examples/LineGarage1'
+                PostGarExampl2:
+                  $ref: '#/components/examples/LineGarage2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -909,14 +933,10 @@ paths:
       security:
         - JWT: [ ]
       summary: Modificación parcial de un garage por el Id del garage
-      operationId: patchGarageById
+      description: Datos para la modificacion parcial del garage
       requestBody:
-        description: Se puede modificar la disponibilidad de recursos humanos, servicio de pintura y taller
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchGarage'
+        $ref: '#/components/requestBodies/patchGarageById'
+
       responses:
         '202':
           description: Se devuelve el garage completo
@@ -926,6 +946,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineGarage'
+              examples:
+                PatchG1:
+                  $ref: '#/components/examples/LineGarage1'
+                PatchG2:
+                  $ref: '#/components/examples/LineGarage2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -1540,10 +1565,28 @@ components:
         surface: 1630
         rrhh: true
         paintService: true
+        LineTrainsList:
     LineGarage2:
       summary: Ejemplo garage 2
       value:
         id: 2
+        codeGarage: "GR-59"
+        taller: false
+        surface: 1680
+        rrhh: true
+        paintService: true
+        LineTrainsList:
+    PutGarage1:
+      summary: Ejemplo garage 1
+      value:
+        codeGarage: "GR-55"
+        taller: true
+        surface: 1630
+        rrhh: true
+        paintService: true
+    PutGarage2:
+      summary: Ejemplo garage 2
+      value:
         codeGarage: "GR-59"
         taller: false
         surface: 1680
@@ -1725,7 +1768,7 @@ components:
     PatchGarage2:
       summary: Ejemplo 2 valor a modificar garage
       value:
-        rrhh: true
+        rrhh: false
         taller: true
         paintservice: true
     PatchTrain1:
@@ -1865,6 +1908,8 @@ components:
           type: boolean
           format: boolean
           description: Indicación si el garage dispone de taller de pintura
+        Trains:
+          $ref: '#/components/schemas/LineTrain'
     LineStation:
       type: object
       properties:
@@ -2334,6 +2379,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/GarageCode'
+          examples:
+            PostGarStationId1:
+              $ref: '#/components/examples/PutGarage1'
+            PostGarStationId2:
+              $ref: '#/components/examples/PutGarage2'
     postLine:
       description: Datos de una linea nueva
       required: true
@@ -2394,6 +2444,18 @@ components:
               $ref: '#/components/examples/PatchStation1'
             PatchStationById2:
               $ref: '#/components/examples/PatchStation2'
+    patchGarageById:
+      description: Modificar elementos parciales del garage
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PatchGarage'
+          examples:
+            PatchGar1:
+              $ref: '#/components/examples/PatchGarage1'
+            PatchGar2:
+              $ref: '#/components/examples/PatchGarage2'
     postStationByIdLine:
       description: Datos de la nueva estación en la línea
       required: true
@@ -2413,6 +2475,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/LineGarage'
+          examples:
+            PutGarage1:
+              $ref: '#/components/examples/PutGarage1'
+            PutGarage2:
+              $ref: '#/components/examples/PutGarage2'
     PutAccessById:
       description: Datos del acceso a la estación
       required: true

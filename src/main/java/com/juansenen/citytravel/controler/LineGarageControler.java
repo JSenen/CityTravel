@@ -41,7 +41,7 @@ public class LineGarageControler {
         return ResponseEntity.ok(lineGarageService.searchByTallerOrRecHumOrPaintService(mechanic, rrhh, pService));
     }
 
-    @GetMapping("/garage/{id}")
+    @GetMapping("/garages/{id}")
     public ResponseEntity<Optional<LineGarage>> getById(@PathVariable long id){
         logger.info("Begin get garage by Id");
         Optional<LineGarage> garageId = lineGarageService.findById(id);

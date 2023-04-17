@@ -1,0 +1,1238 @@
+2023-04-12 00:30:39,487 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 00:30:39,510 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 00:30:41,797 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 00:30:41,804 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 00:30:47,495 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 00:30:47,495 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 00:31:52,059 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 00:31:52,061 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 00:31:54,695 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 00:31:54,700 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 00:34:45,652 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 00:34:45,653 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 00:34:47,445 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 00:34:47,446 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 00:34:49,535 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 00:34:49,535 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 00:34:50,618 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 00:34:50,619 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 00:34:53,980 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 00:34:53,980 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 00:46:35,719 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 00:46:35,720 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 00:46:37,326 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 00:46:37,329 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 01:05:47,330 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 01:05:47,331 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 01:05:49,412 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 01:05:49,417 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 01:06:03,196 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 01:06:03,196 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 01:06:04,517 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 01:06:04,519 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 01:06:14,840 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 01:06:14,841 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 01:06:29,071 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-3] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-11T22:02:43Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-12 01:06:29,286 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 01:06:29,286 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 01:06:36,165 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-4] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-11T22:02:43Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-12 01:06:36,191 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-4] Unauthorized error: Full authentication is required to access this resource
+2023-04-12 01:06:36,977 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-2] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-11T22:02:43Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-12 01:06:37,041 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-2] Unauthorized error: Full authentication is required to access this resource
+2023-04-12 01:06:37,745 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-7] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-11T22:02:43Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-12 01:06:37,793 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-7] Unauthorized error: Full authentication is required to access this resource
+2023-04-12 01:06:47,325 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin add station by Line Id
+2023-04-12 01:06:47,332 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish add station by Line Id
+2023-04-12 01:06:48,158 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin add station by Line Id
+2023-04-12 01:06:48,160 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Finish add station by Line Id
+2023-04-12 01:06:49,176 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin add station by Line Id
+2023-04-12 01:06:49,178 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Finish add station by Line Id
+2023-04-12 01:06:49,985 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Begin add station by Line Id
+2023-04-12 01:06:49,986 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Finish add station by Line Id
+2023-04-12 01:06:50,705 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Begin add station by Line Id
+2023-04-12 01:06:50,707 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Finish add station by Line Id
+2023-04-12 01:06:51,373 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin add station by Line Id
+2023-04-12 01:06:51,375 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Finish add station by Line Id
+2023-04-12 01:06:51,959 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Begin add station by Line Id
+2023-04-12 01:06:51,961 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Finish add station by Line Id
+2023-04-12 01:06:52,498 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Begin add station by Line Id
+2023-04-12 01:06:52,500 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Finish add station by Line Id
+2023-04-12 01:06:53,031 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin add station by Line Id
+2023-04-12 01:06:53,033 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish add station by Line Id
+2023-04-12 01:06:53,521 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin add station by Line Id
+2023-04-12 01:06:53,522 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish add station by Line Id
+2023-04-12 01:06:59,017 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 01:06:59,017 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 01:07:01,053 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 01:07:01,055 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 01:07:10,177 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 01:07:10,177 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 01:07:26,152 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 01:07:26,153 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 01:07:27,574 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 01:07:27,576 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 01:08:18,837 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 01:08:18,838 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 01:08:20,221 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 01:08:20,223 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 01:08:44,395 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 01:08:44,396 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 01:08:45,679 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 01:08:45,680 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 01:09:25,105 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 01:09:25,106 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 01:09:27,055 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 01:09:27,056 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 01:14:46,447 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 01:14:46,454 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 01:14:46,459 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 08:29:45,304 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 08:29:45,316 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 987 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 08:29:45,318 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 08:29:46,231 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 08:29:46,287 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 50 ms. Found 7 JPA repository interfaces.
+2023-04-12 08:29:46,906 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 08:29:46,917 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 08:29:46,918 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 08:29:46,918 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 08:29:47,003 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 08:29:47,004 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1602 ms
+2023-04-12 08:29:47,037 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 08:29:47,402 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 08:29:47,416 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 08:29:47,543 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 08:29:47,672 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 08:29:47,750 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 08:29:47,893 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 08:29:47,998 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 08:29:48,799 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 08:29:48,810 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 08:29:50,273 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ae435a3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f69c4c0, org.springframework.security.web.context.SecurityContextPersistenceFilter@46df794e, org.springframework.security.web.header.HeaderWriterFilter@574413bd, org.springframework.web.filter.CorsFilter@6a9a6a0c, org.springframework.security.web.authentication.logout.LogoutFilter@79080255, com.juansenen.citytravel.security.AuthTokenFilter@528c4353, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7674f9d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1690929, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1cdb290c, org.springframework.security.web.session.SessionManagementFilter@2003edf, org.springframework.security.web.access.ExceptionTranslationFilter@55a07f97, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@562ec518]
+2023-04-12 08:29:50,682 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 08:29:50,713 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 08:29:50,720 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 6.067 seconds (JVM running for 6.528)
+2023-04-12 09:05:49,430 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 09:05:49,435 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 09:05:49,456 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 21 ms
+2023-04-12 09:05:49,612 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 09:05:49,613 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 09:05:52,475 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 09:05:52,538 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 09:06:06,148 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 09:06:06,148 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 09:08:15,892 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 09:08:15,894 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 09:08:20,434 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 09:08:20,435 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 09:08:22,208 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 09:08:22,214 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 09:27:51,775 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 09:27:51,776 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 09:27:55,006 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 09:27:55,014 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 09:29:27,180 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 09:29:27,181 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 09:29:28,840 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 09:29:28,849 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 09:32:14,644 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 09:32:14,645 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 09:32:16,164 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 09:32:16,172 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 09:32:34,453 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 09:32:34,454 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 09:32:35,827 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 09:32:35,831 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 09:32:52,742 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 09:32:52,742 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 09:32:54,310 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 09:32:54,313 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 09:39:19,228 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 09:39:19,229 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 09:39:21,715 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 09:39:21,718 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 09:40:24,746 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 09:40:24,754 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 09:40:26,632 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 09:40:26,639 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 09:40:58,334 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 09:40:58,336 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 09:40:59,727 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 09:40:59,731 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 09:47:06,420 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 09:47:06,421 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 09:47:07,805 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 09:47:07,807 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 09:47:38,754 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 09:47:38,755 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 09:47:40,809 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 09:47:40,812 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 09:47:58,853 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 09:47:58,855 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 09:48:00,531 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 09:48:00,534 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 09:48:47,855 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 09:48:47,855 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 09:48:49,113 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 09:48:49,116 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 09:49:10,443 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 09:49:10,445 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 09:49:11,939 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 09:49:11,942 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 09:49:42,442 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 09:49:42,443 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 09:49:43,635 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 09:49:43,636 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 09:50:56,908 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 09:50:56,910 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 09:50:58,342 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 09:50:58,346 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 10:09:10,687 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 10:09:10,688 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 10:09:12,559 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 10:09:12,562 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 10:09:18,772 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 10:09:18,773 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 12:52:41,912 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 12:52:41,917 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 12:52:44,068 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 12:52:44,080 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 12:52:57,776 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 12:52:57,777 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 12:54:43,470 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 12:54:43,470 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 12:54:45,033 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 12:54:45,035 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 12:59:47,577 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 12:59:47,580 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 12:59:49,060 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 12:59:49,068 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 12:59:53,510 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 12:59:53,513 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 12:59:55,233 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 12:59:55,234 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 13:03:57,358 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 13:03:57,361 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 13:03:59,284 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 13:03:59,286 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 13:04:03,413 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 13:04:03,414 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 13:11:04,959 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 13:11:04,960 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 13:11:07,664 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 13:11:07,666 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 13:11:11,468 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 13:11:11,472 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 13:14:33,240 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 13:14:33,251 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 13:14:33,259 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 14:03:35,501 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 14:03:35,505 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 946 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 14:03:35,505 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 14:03:36,138 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 14:03:36,212 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 64 ms. Found 7 JPA repository interfaces.
+2023-04-12 14:03:36,934 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 14:03:36,944 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 14:03:36,944 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 14:03:36,944 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 14:03:37,024 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 14:03:37,025 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1480 ms
+2023-04-12 14:03:37,077 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 14:03:37,387 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 14:03:37,396 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 14:03:37,512 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 14:03:37,630 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 14:03:37,696 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 14:03:37,822 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 14:03:37,928 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 14:03:38,643 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 14:03:38,651 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 14:03:40,169 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70fcd3e5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@701bd6e8, org.springframework.security.web.context.SecurityContextPersistenceFilter@733e3c19, org.springframework.security.web.header.HeaderWriterFilter@1d0fc0bc, org.springframework.web.filter.CorsFilter@9da386c, org.springframework.security.web.authentication.logout.LogoutFilter@7be86438, com.juansenen.citytravel.security.AuthTokenFilter@6b529d42, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22bca04e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20276412, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@492a220e, org.springframework.security.web.session.SessionManagementFilter@2dc319cf, org.springframework.security.web.access.ExceptionTranslationFilter@70ab1ce0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@206de1f]
+2023-04-12 14:03:40,606 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 14:03:40,644 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 14:03:40,654 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 5.567 seconds (JVM running for 5.895)
+2023-04-12 14:06:15,524 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 14:06:15,527 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 14:06:15,549 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 22 ms
+2023-04-12 14:06:15,811 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 14:06:15,812 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 14:06:19,264 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 14:06:19,334 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 14:06:31,105 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 14:06:31,114 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 14:08:28,003 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 14:08:28,005 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 14:08:30,004 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 14:08:30,017 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 14:08:35,999 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 14:08:36,006 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 14:08:39,062 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 14:08:39,063 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 14:08:40,647 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 14:08:40,656 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 14:08:44,877 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 14:08:44,877 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 14:08:47,074 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 14:08:47,079 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 14:08:52,002 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 14:08:52,002 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 14:54:01,061 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 14:54:01,066 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 14:54:03,489 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 14:54:03,503 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 14:54:06,546 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 14:54:06,550 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 14:57:09,075 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 14:57:09,077 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 14:57:11,475 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 14:57:11,482 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 14:57:14,449 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 14:57:14,452 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 14:59:34,411 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 14:59:34,414 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 14:59:36,119 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 14:59:36,122 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 14:59:40,870 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 14:59:40,874 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 15:00:01,581 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 15:00:01,582 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 15:00:03,682 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 15:00:03,685 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 15:00:19,195 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 15:00:19,197 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 15:00:22,437 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 15:00:22,438 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 15:00:23,705 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 15:00:23,707 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 15:00:25,357 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 15:00:25,359 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 15:00:28,080 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 15:00:28,080 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 15:00:46,551 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 15:00:46,553 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 15:00:50,399 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 15:00:50,402 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 15:07:10,657 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 15:07:10,659 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 15:07:12,343 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 15:07:12,346 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 15:07:15,549 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 15:07:15,551 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 15:07:17,230 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 15:07:17,230 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 15:07:19,382 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 15:07:19,387 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 15:07:22,705 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 15:07:22,708 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 15:07:33,684 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 15:07:33,685 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 15:07:35,747 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 15:07:35,750 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 15:07:39,535 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 15:07:39,537 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 15:07:40,820 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 15:07:40,821 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 15:08:27,969 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 15:08:27,970 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 15:08:29,649 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 15:08:29,651 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 15:08:31,860 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 15:08:31,863 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 15:08:33,272 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 15:08:33,273 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 15:10:34,152 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 15:10:34,153 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 15:10:35,827 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 15:10:35,829 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 15:10:39,893 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 15:10:39,898 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 15:10:41,685 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 15:10:41,685 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 15:12:16,165 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 15:12:16,167 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 15:12:17,858 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 15:12:17,861 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 15:12:20,529 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 15:12:20,536 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 15:14:03,283 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 15:14:03,283 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 15:14:04,793 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 15:14:04,796 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 15:14:08,903 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 15:14:08,907 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 15:14:26,527 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 15:14:26,527 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 16:05:33,606 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 16:05:33,607 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 16:05:36,157 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 16:05:36,159 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 16:05:39,549 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 16:05:39,551 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 16:05:49,595 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 16:05:49,595 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 16:05:53,881 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 16:05:53,881 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 16:10:09,767 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 16:10:09,767 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 16:23:12,190 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 16:23:12,191 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 16:23:13,851 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 16:23:13,855 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 16:23:16,987 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 16:23:16,989 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 16:23:21,048 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 16:23:21,049 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 16:24:48,834 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 16:24:48,839 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 16:24:48,843 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 17:33:15,907 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 17:33:15,920 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 1497 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 17:33:15,922 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 17:33:17,049 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 17:33:17,156 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 92 ms. Found 7 JPA repository interfaces.
+2023-04-12 17:33:18,867 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 17:33:18,900 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 17:33:18,901 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 17:33:18,902 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 17:33:19,223 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 17:33:19,224 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3223 ms
+2023-04-12 17:33:19,395 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 17:33:20,298 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 17:33:20,334 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 17:33:20,575 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 17:33:20,795 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 17:33:20,923 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 17:33:21,126 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 17:33:21,275 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 17:33:22,581 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 17:33:22,596 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 17:33:25,749 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20040c6e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cbea0df, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ec09a68, org.springframework.security.web.header.HeaderWriterFilter@78e59b04, org.springframework.web.filter.CorsFilter@396f3bf2, org.springframework.security.web.authentication.logout.LogoutFilter@7945986a, com.juansenen.citytravel.security.AuthTokenFilter@4f5bfbca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46df794e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22a2e581, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70fcd3e5, org.springframework.security.web.session.SessionManagementFilter@7bdddfa4, org.springframework.security.web.access.ExceptionTranslationFilter@31daf094, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25630ede]
+2023-04-12 17:33:26,519 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 17:33:26,578 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 17:33:26,597 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 11.375 seconds (JVM running for 11.911)
+2023-04-12 17:52:35,056 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 17:52:35,063 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 17:52:35,080 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 17 ms
+2023-04-12 17:52:35,364 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 17:52:35,366 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 17:53:19,539 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 17:53:19,540 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 17:53:41,106 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 17:53:41,107 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 17:53:41,120 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 17:53:41,121 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 17:53:49,032 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 17:53:49,061 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 17:53:52,964 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 17:53:52,966 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 17:53:53,047 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 17:53:53,048 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 17:53:54,226 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 17:53:54,231 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 17:54:02,094 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Begin delete station by Id
+2023-04-12 17:54:02,152 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Finish delete station by Id
+2023-04-12 17:54:04,744 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin delete station by Id
+2023-04-12 17:54:04,747 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Finish delete station by Id
+2023-04-12 17:54:07,585 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Begin delete station by Id
+2023-04-12 17:54:07,588 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Finish delete station by Id
+2023-04-12 17:54:09,663 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Begin delete station by Id
+2023-04-12 17:54:09,667 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Finish delete station by Id
+2023-04-12 17:54:13,290 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin delete station by Id
+2023-04-12 17:54:13,295 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Finish delete station by Id
+2023-04-12 17:54:16,914 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin delete station by Id
+2023-04-12 17:54:16,919 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Finish delete station by Id
+2023-04-12 17:54:20,358 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin delete station by Id
+2023-04-12 17:54:20,361 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish delete station by Id
+2023-04-12 17:54:26,123 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Begin delete station by Id
+2023-04-12 17:54:26,127 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Finish delete station by Id
+2023-04-12 17:54:33,192 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 17:54:33,197 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 17:54:38,089 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 17:54:38,097 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 17:54:40,757 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 17:54:40,758 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 17:54:40,777 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 17:54:40,778 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 17:54:47,062 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 17:54:47,064 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 17:54:49,171 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 17:54:49,174 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 17:54:55,655 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 17:54:55,659 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 17:55:01,314 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 17:55:01,319 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 17:55:06,741 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 17:55:06,742 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 17:55:21,637 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 17:55:21,638 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 17:55:23,440 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 17:55:23,443 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 17:55:26,410 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 17:55:26,414 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 17:55:33,706 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 17:55:33,706 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 18:06:38,390 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 18:06:38,391 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 18:06:40,711 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 18:06:40,719 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 18:06:45,374 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 18:06:45,381 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 18:06:56,529 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 18:06:56,529 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 18:07:09,640 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 18:07:09,640 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 18:07:09,640 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 18:07:09,640 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 18:07:12,636 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 18:07:12,639 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 18:07:18,193 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 18:07:18,196 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 18:07:19,864 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 18:07:19,865 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 18:07:19,869 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 18:07:19,869 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 18:07:24,940 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 18:07:24,940 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 18:07:24,955 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 18:07:24,955 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 18:20:44,848 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 18:20:44,862 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 18:20:44,879 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 18:31:57,767 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 18:31:57,773 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 3457 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 18:31:57,773 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 18:31:58,430 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 18:31:58,516 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 75 ms. Found 7 JPA repository interfaces.
+2023-04-12 18:31:59,216 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 18:31:59,226 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 18:31:59,226 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 18:31:59,226 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 18:31:59,304 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 18:31:59,304 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1497 ms
+2023-04-12 18:31:59,340 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 18:31:59,742 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 18:31:59,753 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 18:31:59,834 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 18:31:59,947 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 18:32:00,072 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 18:32:00,517 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 18:32:00,779 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 18:32:01,863 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 18:32:01,872 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 18:32:03,871 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4cff38ff, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7adde776, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b5ceb5d, org.springframework.security.web.header.HeaderWriterFilter@38f3dbbf, org.springframework.web.filter.CorsFilter@3feb93a, org.springframework.security.web.authentication.logout.LogoutFilter@d863bb, com.juansenen.citytravel.security.AuthTokenFilter@3cd6d147, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2dc319cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@733e3c19, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ae435a3, org.springframework.security.web.session.SessionManagementFilter@7e5c8c80, org.springframework.security.web.access.ExceptionTranslationFilter@2e6f1f48, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4199761d]
+2023-04-12 18:32:04,539 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 18:32:04,572 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 18:32:04,582 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 7.387 seconds (JVM running for 7.703)
+2023-04-12 18:32:10,122 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 18:32:10,123 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 18:32:10,125 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2023-04-12 18:32:10,325 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 18:32:10,326 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 18:32:13,096 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 18:32:13,148 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 18:32:18,345 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 18:32:18,351 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 18:32:21,175 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 18:32:21,175 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 18:32:34,141 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 18:32:34,142 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 18:32:34,143 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 18:32:34,144 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 18:32:37,231 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 18:32:37,234 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 18:32:57,236 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-9] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "8:32": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '8:32' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "8:32": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '8:32' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 30] (through reference chain: com.juansenen.citytravel.domain.LineStation["hclose"])]
+2023-04-12 18:32:59,070 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 18:32:59,072 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 18:33:20,384 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-4] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "6:32": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '6:32' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "6:32": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '6:32' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 46] (through reference chain: com.juansenen.citytravel.domain.LineStation["hopen"])]
+2023-04-12 18:33:23,656 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 18:33:23,659 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 18:33:24,877 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 18:33:24,878 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 18:33:24,896 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 18:33:24,898 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 18:33:26,253 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 18:33:26,255 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 18:33:54,755 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Begin add station by Line Id
+2023-04-12 18:33:54,811 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Finish add station by Line Id
+2023-04-12 18:34:00,475 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 18:34:00,478 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 18:34:03,861 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 18:34:03,861 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 18:34:03,862 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 18:34:03,862 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 18:34:40,683 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 18:34:40,685 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 18:34:40,686 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 19:37:05,030 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 19:37:05,034 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 1012 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 19:37:05,035 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 19:37:05,595 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 19:37:05,663 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 58 ms. Found 7 JPA repository interfaces.
+2023-04-12 19:37:06,373 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 19:37:06,381 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 19:37:06,382 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 19:37:06,382 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 19:37:06,466 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 19:37:06,467 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1392 ms
+2023-04-12 19:37:06,508 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 19:37:06,875 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 19:37:06,885 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 19:37:06,991 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 19:37:07,115 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 19:37:07,195 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 19:37:07,338 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 19:37:07,439 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 19:37:08,148 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 19:37:08,156 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 19:37:09,521 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39ee07a9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cff38ff, org.springframework.security.web.context.SecurityContextPersistenceFilter@6cd65042, org.springframework.security.web.header.HeaderWriterFilter@556e4588, org.springframework.web.filter.CorsFilter@7adde776, org.springframework.security.web.authentication.logout.LogoutFilter@62ba3045, com.juansenen.citytravel.security.AuthTokenFilter@53c9541c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22a2e581, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fef2768, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3feb93a, org.springframework.security.web.session.SessionManagementFilter@1ec09a68, org.springframework.security.web.access.ExceptionTranslationFilter@748fa354, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3b1a3125]
+2023-04-12 19:37:09,891 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 19:37:09,925 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 19:37:09,934 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 5.484 seconds (JVM running for 5.798)
+2023-04-12 20:05:07,307 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 20:05:07,310 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 20:05:07,346 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 36 ms
+2023-04-12 20:05:07,573 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:05:07,574 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:05:19,647 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 20:05:19,649 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 20:05:19,667 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 20:05:19,668 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 20:05:21,729 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:05:21,754 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:05:33,220 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 20:05:33,227 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 20:05:45,473 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:05:45,476 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:05:46,982 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 20:05:46,983 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 20:05:46,986 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:05:46,988 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:05:48,475 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:05:48,481 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:17:18,650 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 20:17:18,651 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 20:17:18,665 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 20:17:18,666 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 20:17:20,836 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:17:20,840 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:17:25,454 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:17:25,456 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:19:51,137 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:19:51,138 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:19:55,302 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:19:55,306 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:19:57,946 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 20:19:57,951 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 20:20:01,160 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 20:20:01,161 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 20:23:02,833 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:23:02,834 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:23:05,677 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:23:05,686 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:23:09,661 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:23:09,662 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:23:15,256 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:23:15,259 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:23:20,429 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 20:23:20,429 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 20:23:29,566 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:23:29,569 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:23:32,580 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:23:32,586 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:24:59,525 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 20:24:59,528 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 20:25:01,558 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:25:01,562 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:25:05,635 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:25:05,639 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:25:17,472 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 20:25:17,474 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 20:25:19,895 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:25:19,900 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:25:22,087 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:25:22,091 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:25:31,573 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:25:31,574 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:25:35,977 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 20:25:35,978 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 20:25:38,542 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:25:38,545 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:25:42,476 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:25:42,481 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:26:22,539 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 20:26:22,540 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 20:26:23,994 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:26:23,997 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:26:29,096 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:26:29,105 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:26:39,218 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 20:26:39,218 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 20:29:38,984 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:29:38,985 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:29:40,366 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:29:40,368 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:29:41,814 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 20:29:41,818 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 20:29:49,531 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:29:49,533 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:29:53,243 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 20:29:53,244 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 20:29:55,090 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 20:29:55,091 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 20:29:57,462 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:29:57,466 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:31:35,522 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 20:31:35,523 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 20:31:37,114 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:31:37,119 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:31:39,833 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:31:39,835 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:31:49,348 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 20:31:49,348 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 20:32:00,299 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 20:32:00,301 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 20:32:05,269 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:32:05,272 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:32:59,865 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 20:32:59,866 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 20:33:02,266 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:33:02,270 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:33:03,951 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 20:33:03,953 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 20:33:03,955 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:33:03,957 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:33:10,577 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:33:10,577 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 20:33:10,578 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:33:10,578 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 20:33:43,821 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:33:43,822 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:33:45,264 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:33:45,266 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:33:47,630 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:33:47,632 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:33:53,779 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 20:33:53,782 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 20:34:11,882 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:34:11,884 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:34:22,752 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 20:34:22,756 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 20:34:24,533 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 20:34:24,534 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 20:34:26,569 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:34:26,573 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:34:31,688 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:34:31,690 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:34:36,908 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:34:36,910 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:34:39,663 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 20:34:39,664 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 20:35:18,030 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:35:18,031 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:35:19,557 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:35:19,558 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:35:21,578 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 20:35:21,579 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 20:35:30,604 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 20:35:30,604 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 20:35:53,520 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:35:53,522 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:35:56,129 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:35:56,131 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:35:58,550 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:35:58,553 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:38:24,945 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 20:38:24,948 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 20:38:27,081 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:38:27,084 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:38:30,922 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:38:30,925 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:38:37,465 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:38:37,468 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:40:16,464 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 20:40:16,465 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 20:40:18,054 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:40:18,056 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:40:22,718 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 20:40:22,721 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 20:40:34,964 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-12 20:40:34,964 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-12 20:42:08,202 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:42:08,203 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:42:10,286 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:42:10,290 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:42:10,313 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 20:42:10,316 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 20:42:12,842 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:42:12,846 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:42:18,250 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 20:42:18,251 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 20:49:53,506 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 20:49:53,507 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 20:49:54,987 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:49:54,991 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 20:49:57,199 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 20:49:57,202 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 20:50:01,403 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 20:50:01,404 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 20:50:08,416 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 20:50:08,417 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 20:50:12,154 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 20:50:12,156 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 20:50:15,810 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 20:50:15,815 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 20:50:22,206 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 20:50:22,208 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 20:50:23,252 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 20:50:23,253 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 20:50:25,385 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 20:50:25,388 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 20:50:27,483 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 20:50:27,489 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 20:50:30,419 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 20:50:30,421 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 21:58:52,889 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 21:58:52,897 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-12 21:58:52,901 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-12 22:37:04,458 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-12 22:37:04,461 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 2884 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-12 22:37:04,461 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-12 22:37:05,011 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-12 22:37:05,066 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 48 ms. Found 7 JPA repository interfaces.
+2023-04-12 22:37:05,665 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-12 22:37:05,674 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-12 22:37:05,674 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-12 22:37:05,674 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-12 22:37:05,748 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-12 22:37:05,748 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1251 ms
+2023-04-12 22:37:05,781 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-12 22:37:06,102 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-12 22:37:06,114 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-12 22:37:06,208 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-12 22:37:06,320 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-12 22:37:06,387 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-12 22:37:06,501 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-12 22:37:06,583 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-12 22:37:07,222 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-12 22:37:07,228 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-12 22:37:08,569 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5f5fb335, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@715d82a0, org.springframework.security.web.context.SecurityContextPersistenceFilter@22bca04e, org.springframework.security.web.header.HeaderWriterFilter@1ec09a68, org.springframework.web.filter.CorsFilter@299cddbf, org.springframework.security.web.authentication.logout.LogoutFilter@fd5c7f6, com.juansenen.citytravel.security.AuthTokenFilter@3d1c8f35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@436d2bb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11ec2b2f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31beb0d0, org.springframework.security.web.session.SessionManagementFilter@fef2768, org.springframework.security.web.access.ExceptionTranslationFilter@53b9952f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d94c50e]
+2023-04-12 22:37:08,949 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-12 22:37:08,984 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-12 22:37:08,993 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 4.928 seconds (JVM running for 5.22)
+2023-04-12 22:37:19,115 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-12 22:37:19,115 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-12 22:37:19,117 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-04-12 22:37:19,202 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-12 22:37:19,203 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-12 22:37:22,309 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 22:37:22,351 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 22:37:27,573 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 22:37:27,578 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 22:37:31,940 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 22:37:31,945 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 22:37:57,347 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 22:37:57,347 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 22:38:01,677 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 22:38:01,681 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 22:38:09,559 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 22:38:09,560 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 22:38:22,764 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 22:38:22,764 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 22:38:22,766 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 22:38:22,767 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 22:38:25,846 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 22:38:25,854 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 22:38:36,621 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 22:38:36,625 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 22:40:31,003 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-12 22:40:31,004 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 22:40:31,004 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-12 22:40:31,004 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 22:40:38,059 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 22:40:38,062 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 22:41:59,804 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "9:55": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '9:55' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "9:55": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '9:55' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 29] (through reference chain: com.juansenen.citytravel.domain.LineStation["hclose"])]
+2023-04-12 22:42:02,543 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 22:42:02,549 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 22:42:46,270 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Begin add station by Line Id
+2023-04-12 22:42:46,326 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Finish add station by Line Id
+2023-04-12 22:42:49,441 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 22:42:49,445 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 22:43:00,805 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 22:43:00,810 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 22:43:02,444 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 22:43:02,444 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 22:43:02,444 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 22:43:02,444 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 22:43:07,031 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 22:43:07,031 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 22:43:10,149 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 22:43:10,152 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 22:43:20,160 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 22:43:20,164 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 22:43:30,005 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 22:43:30,007 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 22:52:42,653 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 22:52:42,654 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 22:52:44,778 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 22:52:44,782 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 22:52:55,031 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 22:52:55,034 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 22:53:17,048 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 22:53:17,051 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 22:53:20,988 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 22:53:20,989 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 22:53:39,315 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-8] Unauthorized error: Bad credentials
+2023-04-12 22:53:41,538 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-9] Unauthorized error: Bad credentials
+2023-04-12 22:53:50,552 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 22:53:50,552 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 22:53:50,553 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 22:53:50,553 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 22:53:55,832 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 22:53:55,835 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 22:54:15,418 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 22:54:15,423 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 22:54:20,131 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 22:54:20,133 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 22:54:33,270 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 22:54:33,273 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 23:14:56,972 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-12 23:14:56,973 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-12 23:14:59,203 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 23:14:59,208 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 23:15:05,551 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 23:15:05,553 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 23:15:12,122 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 23:15:12,124 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 23:17:53,080 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 23:17:53,080 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 23:17:54,833 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 23:17:54,834 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 23:17:57,881 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 23:17:57,883 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 23:18:08,035 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 23:18:08,037 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 23:19:58,214 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 23:19:58,215 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 23:20:00,250 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 23:20:00,252 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 23:20:01,785 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:20:01,789 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:24:22,023 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 23:24:22,025 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 23:24:27,412 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 23:24:27,414 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 23:24:30,345 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 23:24:30,347 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 23:24:39,819 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:24:39,821 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:24:50,962 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-12 23:24:50,963 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-12 23:27:00,469 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-12 23:27:00,470 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-12 23:27:06,235 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 23:27:06,238 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 23:27:09,973 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 23:27:09,977 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 23:27:18,578 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:27:18,584 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:37:41,322 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 23:37:41,326 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 23:37:42,627 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 23:37:42,637 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 23:37:46,175 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 23:37:46,176 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 23:37:57,765 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 23:37:57,770 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 23:38:56,894 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 23:38:56,895 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 23:38:59,846 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 23:38:59,850 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 23:39:06,489 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 23:39:06,491 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 23:39:30,768 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 23:39:30,770 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 23:40:39,583 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 23:40:39,584 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 23:40:41,630 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 23:40:41,632 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 23:40:48,289 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:40:48,291 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:40:55,679 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 23:40:55,681 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 23:41:13,785 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 23:41:13,786 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 23:41:16,241 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 23:41:16,243 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 23:41:18,801 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-12 23:41:18,803 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-12 23:45:56,414 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-12 23:45:56,415 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-12 23:45:58,140 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-12 23:45:58,142 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-12 23:46:00,394 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 23:46:00,396 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 23:46:08,705 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:46:08,706 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:51:08,037 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-12 23:51:08,038 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-12 23:51:10,177 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 23:51:10,179 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-12 23:51:12,336 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-12 23:51:12,338 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-12 23:51:16,384 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-12 23:51:16,386 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-12 23:53:25,152 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-12 23:53:25,153 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-12 23:53:27,004 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-12 23:53:27,006 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-12 23:53:38,597 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-12 23:53:38,600 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-12 23:53:46,321 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-12 23:53:46,324 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-12 23:56:07,475 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-12 23:56:07,477 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-12 23:56:09,275 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-12 23:56:09,277 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-12 23:56:12,064 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-12 23:56:12,070 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-12 23:56:16,490 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-12 23:56:16,496 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line

@@ -1,0 +1,74 @@
+2023-03-19 00:55:18,481 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-03-19 00:55:18,491 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 23819 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-03-19 00:55:18,492 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-03-19 00:55:19,142 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-19 00:55:19,222 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 69 ms. Found 7 JPA repository interfaces.
+2023-03-19 00:55:19,995 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-03-19 00:55:20,006 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-19 00:55:20,006 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-03-19 00:55:20,006 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-03-19 00:55:20,098 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-03-19 00:55:20,099 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1567 ms
+2023-03-19 00:55:20,136 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-03-19 00:55:20,543 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-03-19 00:55:20,555 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-03-19 00:55:20,784 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-19 00:55:20,860 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-03-19 00:55:21,011 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-19 00:55:21,142 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-19 00:55:21,891 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-19 00:55:21,898 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-19 00:55:22,370 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenController': Unsatisfied dependency expressed through field 'authenticationManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-03-19 00:55:22,372 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-19 00:55:22,374 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2023-03-19 00:55:22,551 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2023-03-19 00:55:22,555 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2023-03-19 00:55:22,566 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-03-19 00:55:22,594 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field authenticationManager in com.juansenen.citytravel.controler.TokenController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2023-03-19 00:57:21,323 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-03-19 00:57:21,325 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 23940 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-03-19 00:57:21,326 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-03-19 00:57:22,017 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-19 00:57:22,085 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 57 ms. Found 7 JPA repository interfaces.
+2023-03-19 00:57:22,835 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-03-19 00:57:22,847 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-19 00:57:22,848 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-03-19 00:57:22,848 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-03-19 00:57:22,937 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-03-19 00:57:22,938 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1569 ms
+2023-03-19 00:57:22,979 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-03-19 00:57:23,268 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-03-19 00:57:23,282 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-03-19 00:57:23,392 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-19 00:57:23,513 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-19 00:57:23,589 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-03-19 00:57:23,744 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-19 00:57:23,859 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-03-19 00:57:24,646 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-19 00:57:24,654 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-19 00:57:26,208 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b3d3e57, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15251cc2, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e096ac0, org.springframework.security.web.header.HeaderWriterFilter@3e984100, org.springframework.web.filter.CorsFilter@7bdaf563, org.springframework.security.web.authentication.logout.LogoutFilter@c555e1e, com.juansenen.citytravel.security.AuthTokenFilter@160cf225, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b49b1df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@571903ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53813f01, org.springframework.security.web.session.SessionManagementFilter@7dc963be, org.springframework.security.web.access.ExceptionTranslationFilter@32eb38e5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@55c78556]
+2023-03-19 00:57:26,663 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-03-19 00:57:26,702 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-19 00:57:26,713 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 5.992 seconds (JVM running for 6.296)
+2023-03-19 00:57:34,733 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-19 00:57:34,736 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-03-19 00:57:34,738 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
