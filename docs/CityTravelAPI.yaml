@@ -192,6 +192,8 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
   /lines/{id}:
+    parameters:
+      - $ref: '#/components/parameters/Id'
     patch:
       tags:
         - Line
@@ -1088,17 +1090,7 @@ paths:
       security:
         - JWT: [ ]
       requestBody:
-        description: Introduccion de los detalles del acceso a la estacion especifica
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/requestBodies/PostAccessById'
-            examples:
-              PostAccessStation1:
-                $ref: '#/components/examples/PostAccessByStation1'
-              PostAccessSation2:
-                $ref: '#/components/examples/PostAccessByStation2'
+        $ref: '#/components/requestBodies/PostAccessById'
       responses:
         '201':
           description: El producto se registra correctamente
@@ -2499,6 +2491,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PostAccessByStationId'
+          examples:
+            PostAccessStation1:
+              $ref: '#/components/examples/PostAccessByStation1'
+            PostAccessSation2:
+              $ref: '#/components/examples/PostAccessByStation2'
     NewUserRegister:
       description: Datos de registro de nuevo usuario
       required: true

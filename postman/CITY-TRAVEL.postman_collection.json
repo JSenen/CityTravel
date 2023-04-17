@@ -169,7 +169,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/line/{{idLine}}/stations?wifi={{$randomBoolean}}",
+							"raw": "{{API_CityTravel}}/line/{{idLine}}/stations",
 							"host": [
 								"{{API_CityTravel}}"
 							],
@@ -181,7 +181,8 @@
 							"query": [
 								{
 									"key": "wifi",
-									"value": "{{$randomBoolean}}"
+									"value": "{{$randomBoolean}}",
+									"disabled": true
 								},
 								{
 									"key": "busStaion",
@@ -255,7 +256,7 @@
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -292,12 +293,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/line/{{idLine}}",
+							"raw": "{{API_CityTravel}}/lines/{{idLine}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
+								"lines",
 								"{{idLine}}"
 							]
 						}
@@ -764,7 +765,7 @@
 					"response": []
 				},
 				{
-					"name": "/train/{id}",
+					"name": "/trains/{id}",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -775,12 +776,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/trains/{{idTrain}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"train",
+								"trains",
 								"{{idTrain}}"
 							]
 						}
@@ -1057,7 +1058,7 @@
 					"response": []
 				},
 				{
-					"name": "/access/{id}",
+					"name": "/accesses/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1079,12 +1080,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/accesses/{{idAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"access",
+								"accesses",
 								"{{idAccess}}"
 							]
 						}
@@ -1286,7 +1287,8 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{token}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -1319,7 +1321,7 @@
 					"response": []
 				},
 				{
-					"name": "/garage/{id}",
+					"name": "/garages/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1342,12 +1344,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garages/{{idGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"garage",
+								"garages",
 								"{{idGarage}}"
 							]
 						}
@@ -1783,6 +1785,21 @@
 					"name": "/train/{lineid}/train",
 					"event": [
 						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTTrain\", response.id);",
+									"",
+									"",
+									"pm.test(\"New train by line id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
 							"listen": "prerequest",
 							"script": {
 								"exec": [
@@ -1809,21 +1826,6 @@
 									"",
 									"",
 									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idTrain\", response.id);",
-									"",
-									"",
-									"pm.test(\"New train by line id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
 								],
 								"type": "text/javascript"
 							}
@@ -2017,7 +2019,7 @@
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2060,12 +2062,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_CityTravel}}/line/{{id}}",
+							"raw": "{{API_CityTravel}}/lines/{{id}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
+								"lines",
 								"{{id}}"
 							]
 						}
@@ -2391,7 +2393,7 @@
 					"response": []
 				},
 				{
-					"name": "/garage/{id}",
+					"name": "/garages/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2425,12 +2427,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
+							"raw": "{{API_CityTravel}}/garages/{{idTESTGarage}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"garage",
+								"garages",
 								"{{idTESTGarage}}"
 							]
 						}
@@ -2624,12 +2626,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
+							"raw": "{{API_CityTravel}}/accesses/{{idTESTAccess}}",
 							"host": [
 								"{{API_CityTravel}}"
 							],
 							"path": [
-								"access",
+								"accesses",
 								"{{idTESTAccess}}"
 							]
 						}
@@ -3126,7 +3128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
