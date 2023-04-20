@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.dto.UserDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.security.JwtResponse;
 import com.juansenen.citytravel.security.JwtUtils;
 import com.juansenen.citytravel.service.UserService;
@@ -56,7 +57,8 @@ public class TokenController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
         if (!isValidUser(user)){
-            return ResponseEntity.badRequest().body("El objeto no es valido");
+            ErrorMessage errorMessage = new ErrorMessage(400,"Bad request");
+            return ResponseEntity.badRequest().body(errorMessage);
         }
         return ResponseEntity.ok(userService.addUser(user));
     }
