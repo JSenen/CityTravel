@@ -61,9 +61,9 @@ public class LineServiceImpl implements LineService {
     }
 
     @Override
-    public Line modyLine(long id, Line line) throws NotFoundException {
+    public Line modyLine(long id, Line line) throws LineNoFoundException {
         Line modyfLine = lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException("Line not found exception"));
         modyfLine.setCodeLine(line.getCodeLine());
         modyfLine.setColor(line.getColor());
         modyfLine.setStopTime(line.getStopTime());

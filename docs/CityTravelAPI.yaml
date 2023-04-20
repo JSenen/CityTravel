@@ -59,12 +59,12 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Line'
+                  $ref: '#/components/schemas/ArrayLinesResponse'
               examples:
                 Line1:
-                  $ref: '#/components/examples/Line1'
+                  $ref: '#/components/examples/ArrayLinesResponseExample1'
                 Line2:
-                  $ref: '#/components/examples/Line2'
+                  $ref: '#/components/examples/ArrayLinesResponseExample2'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /line/{id}:
@@ -74,11 +74,11 @@ paths:
       tags:
         - Line
       summary: Datos de una linea localizada por su número de id
-      description: Devuelve los datos relativos a la linea seleccionada por su id.
+      description: Devuelve los datos correspondientes a una de las lineas identificada por su número de Id.
       operationId: getLinesById
       responses:
         '200':
-          description: Se devuelve los datos de la linea seleccionada
+          description: Se devuelve los datos de la linea seleccionada por el cliente.
           content:
             application/json:
               schema:
@@ -197,12 +197,12 @@ paths:
     patch:
       tags:
         - Line
-      summary: Modificación parcial de una linea. Un campo especifico de la linea seleccionada por el id identificador de esta.
+      summary: Actualización parcial de una linea. Un campo especifico de la linea seleccionada por el id identificador de esta.
       security:
         - JWT: [ ]
       operationId: patchLineById
       requestBody:
-        description: Nombre y valor del campo que se modifica
+        description: Se permite modificar el "codeLine" de la linea seleccionada por su identificador
         required: true
         content:
           application/json:
@@ -1157,11 +1157,14 @@ paths:
       tags:
         - User
       summary: Añade un usuario a la base de datos de la API con una clave asociada
-      description: Nos permite añadir un registro de un usuario a la base de datos de la api, con una contraseña encriptada
+      description: > 
+        Nos permite añadir un registro de un usuario a la base de datos de la api. 
+        La contraseña será encriptada y nos asiganará un Token JWT de 1 hora de duración
       operationId: registerUser
 
       requestBody:
-        description: Se solicita nombre de usuario y contraseña
+        required: true
+        description: Se solicita nombre de usuario y contraseña para proceder a un nuevo registro en la base
         content:
           application/json:
             schema:
@@ -1175,7 +1178,7 @@ paths:
                 $ref: '#/components/examples/UserRegisterBody2'
       responses:
         '200':
-          description: El usuario se registra correctamente
+          description: El usuario se registra correctamente. Se cifra la clave proporcionada y se devuelven los datos de la petición
           content:
             application/json:
               schema:
@@ -1201,7 +1204,7 @@ paths:
 
       responses:
         '200':
-          description: El usuario se activa correctamente
+          description: Datos de usuario correctos . Se encuentra en la base de datos y se le asigna un token JWT de 1 hora de duración
           content:
             application/json:
               schema:
@@ -1228,6 +1231,110 @@ components:
       bearerFormat: JWT
   #Ejemplos para mostrar tanto en el cuerpo como en la respuesta
   examples:
+    ArrayLinesResponseExample1:
+      summary: Ejemplo lineas 1
+      value:
+        - id: 12
+          codeLine: "Sant Petersburgo"
+          color: "purple"
+          firstTime: "07:30"
+          lastTime: "23:30"
+          stopTime: 12
+          Station:
+            - id: 54
+              name: "Sant Estacion"
+              hopen: "03:30"
+              latitude: 41.0345
+              longitude: 2.4567
+              hclose: "00:30"
+              ptoInfo: true
+              wifi: true
+              bus_station: true
+              taxi_station: true
+          lineAccess:
+            - id: 2
+              street: "Mayor"
+              num: 12
+              latitude: 41.0345
+              longitude: 2.8900
+              elevator: true
+          lineGarage:
+            - id: 1
+              codeGarage: "GR-55"
+              taller: true
+              surface: 1630
+              rrhh: true
+              paintService: true
+        - id: 59
+          codeLine: "L-100"
+          color: "yellow"
+          firstTime: "06:30"
+          lastTime: "23:00"
+          stopTime: 12
+          Station:
+            -
+        - id: 36
+          codeLine: "Sant Petersburgo"
+          color: "red"
+          firstTime: "05:30"
+          lastTime: "23:30"
+          stopTime: 6
+          trains:
+          Stations:
+            -
+
+    ArrayLinesResponseExample2:
+      summary: Ejemplo lineas 2
+      value:
+        - id: 60
+          codeLine: "Suiza-Berlin"
+          color: "yellow"
+          firstTime: "06:30"
+          lastTime: "23:00"
+          stopTime: 12
+          Station:
+            -
+        - id: 12
+          codeLine: "Sant Petersburgo"
+          color: "purple"
+          firstTime: "07:30"
+          lastTime: "23:30"
+          stopTime: 12
+          Station:
+            - id: 54
+              name: "Sant Estacion"
+              hopen: "03:30"
+              latitude: 41.0345
+              longitude: 2.4567
+              hclose: "00:30"
+              ptoInfo: true
+              wifi: true
+              bus_station: true
+              taxi_station: true
+              lineAccess:
+                - id: 2
+                  street: "Mayor"
+                  num: 12
+                  latitude: 41.0345
+                  longitude: 2.8900
+                  elevator: true
+              lineGarage:
+                - id: 1
+                  codeGarage: "GR-55"
+                  taller: true
+                  surface: 1630
+                  rrhh: true
+                  paintService: true
+
+        - id: 36
+          codeLine: "Sant Petersburgo"
+          color: "red"
+          firstTime: "05:30"
+          lastTime: "23:30"
+          stopTime: 6
+          trains:
+          Stations:
+
     UserRegisterBody1:
       summary: Ejemplo de usuario 1
       value:
@@ -1257,20 +1364,22 @@ components:
     UserTokenResponse1:
       summary: Ejemplo respuesta token usuario 1
       value:
-        token: 'eJasasiJSUzI1Ni56666JzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
-                    TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
-                    kPhQcszk4XU9asasX72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
-                    WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
-                    Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ'
+        token: > 
+          eJasasiJSUzI1Ni56666JzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
+          TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
+          kPhQcszk4XU9asasX72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
+          WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
+          Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ
         username: "JSenen"
     UserTokenResponse2:
       summary: Ejemplo respuesta token usuario 2
       value:
-        token: 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
-                    TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
-                    kPhQcszk4XU9J1Qu5iTpr7X72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
-                    WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
-                    Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ'
+        token: > 
+          eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoianMiLCJleHAiOjE2ODAzODI3MDYsImlhdCI6MTY4MDM3O
+          TEwNiwic2NvcGUiOiIifQ.JKDVUXmq3w4nKdqmwI7a2DjcsJdENhoQs6pQzSCFA7AozkNwNck8Fc_VEQHXAxiZetClxCiU
+          kPhQcszk4XU9J1Qu5iTpr7X72NazgLwCvCPV5Ulvp3b6qjFIm270VfhkAeciJbdTN-1WC3-wNbJUEDvXnw64nRBFCJjWK1
+          WNFa7xV5Vubck17kVWLI9LHEMstE1O30URnsj9gtJa-8esixupo1YBz8h4UNMAlO0e5SGn5vCOUbtrK0VSZkhUzMVtnVuoI
+          Y4nT2M0gB8VDUZxIx4u55CBg0lx0j6aJR4EHGler0QLNoM2m9Aojc0RECxqYD_PG6loPYk9_63WQViLeQ
         username: "Senen"
     LineIn1:
       summary: Ejemplo 1 de linea
@@ -1295,6 +1404,7 @@ components:
     LineId1:
       summary: Ejemplo 1 de linea
       value:
+        id: 12
         codeLine: "Sant Petersburgo"
         color: "red"
         firstTime: "05:30"
@@ -1337,6 +1447,7 @@ components:
     LineId2:
       summary: Ejemplo 2 de linea
       value:
+        id: 13
         codeLine: "Nueva Terminal"
         color: "blue"
         firstTime: "04:30"
@@ -1376,7 +1487,40 @@ components:
                 rrhh: true
                 paintService: true
 
-
+    Line1Array:
+      summary: Ejemplo 1 de linea
+      value:
+        id: 12
+        codeLine: "Sant Petersburgo"
+        color: "purple"
+        firstTime: "07:30"
+        lastTime: "23:30"
+        stopTime: 12
+        Station:
+          - id: 54
+            name: "Sant Estacion"
+            hopen: "03:30"
+            latitude: 41.0345
+            longitude: 2.4567
+            hclose: "00:30"
+            ptoInfo: true
+            wifi: true
+            bus_station: true
+            taxi_station: true
+            lineAccess:
+              - id: 2
+                street: "Mayor"
+                num: 12
+                latitude: 41.0345
+                longitude: 2.8900
+                elevator: true
+            lineGarage:
+              - id: 1
+                codeGarage: "GR-55"
+                taller: true
+                surface: 1630
+                rrhh: true
+                paintService: true
     Line1:
       summary: Ejemplo 1 de linea
       value:
@@ -1780,6 +1924,42 @@ components:
 
   #Esquemas
   schemas:
+    ArrayLinesResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+            format: int32
+            description: Código Id de la estación
+          codeLine:
+            type: string
+            format: string
+            description: Código de la linea
+          color:
+            type: string
+            format: string
+            description: Color de la linea
+          firstTime:
+            type: string
+            format: 'date-time'
+            description: Horario de apertura de la linea
+          LastTime:
+            type: string
+            format: 'date-time'
+            description: Horario de cierre de la linea
+          stopTime:
+            type: integer
+            format: int32
+            description: Tiempo de parada en las estaciones
+          Station:
+            $ref: '#/components/schemas/LineStation'
+      example:
+          - $ref: '#/components/examples/Line1'
+          - $ref: '#/components/examples/Line2'
+          - $ref: '#/components/examples/Line3'
+
     LineIn:
       type: object
       properties:
@@ -2497,7 +2677,7 @@ components:
             PostAccessSation2:
               $ref: '#/components/examples/PostAccessByStation2'
     NewUserRegister:
-      description: Datos de registro de nuevo usuario
+      description: Datos de registro de un nuevo usuario
       required: true
       content:
         application/json:
@@ -2541,16 +2721,16 @@ components:
     NoContent:
       description: No content
     InternalServerError:
-      description: Internal Server Error
+      description: se ha producido un error interno en el servidor al procesar la solicitud del cliente
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
           example:
             errorCode: 500
-            message: "Se ha producido un error en el servidor"
+            message: "Internal server error"
     NotFoundException:
-      description: Objeto no encontrado
+      description: El servidor no pudo encontrar el recurso solicitado. Es decir, el servidor no puede encontrar la linea  que se está buscando.
       content:
         application/json:
           schema:
@@ -2559,7 +2739,7 @@ components:
             errorCode: 404
             message: 'Line not found'
     BadRequest:
-      description: Campos no cumplen los requisitos
+      description: Solicitud realizada por el cliente no pudo ser procesada debido a un error en la solicitud. Esto podría deberse a una solicitud malformada, a la ausencia de información requerida en la solicitud o a una solicitud que no cumple con los requisitos del servidor.
       content:
         application/json:
           schema:
@@ -2568,4 +2748,4 @@ components:
             errorCode: 400
             message: 'Bad Request'
     UnauthorizedError:
-      description: Access token is missing or invalid
+      description: solicitud del cliente no se pudo procesar porque el cliente no está autorizado para acceder al recurso solicitado. Esto puede deberse a una falta de credenciales de autenticación o a credenciales de autenticación incorrectas proporcionadas por el cliente.

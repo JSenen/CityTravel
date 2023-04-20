@@ -1,7 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import  com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -32,7 +32,7 @@ public class Line {
     @Min(value = 0, message = "Identifier must be integer") //Valor de entrada debe ser entero
     private long id;
     @Column(name="code_line")
-    @NotBlank(message = "Must be filled")
+    @NotNull(message = "Must be filled")
     private String codeLine;
     @Column
     private String color;

@@ -18,6 +18,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.lang.NumberFormatException;
 import java.time.LocalTime;
@@ -137,7 +139,7 @@ public class LineControler {
     }
     //Modificar 1 por id
     @PutMapping("/lines/{id}")
-    public  ResponseEntity<Line> modLine (@PathVariable long id , @RequestBody Line line) throws NotFoundException {
+    public  ResponseEntity<Line> modLine (@PathVariable long id ,@Valid @RequestBody Line line) throws LineNoFoundException {
         logger.info("Begin modify a Line by Id");
         Line lineModif = lineService.modyLine(id, line);
         logger.info("Finish modify a Line by Id");
