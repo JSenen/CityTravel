@@ -131,11 +131,17 @@ public class LineControler {
     //Borrar uno
 
     @DeleteMapping("/lines/{id}")
-    public ResponseEntity<Void> delLine(@PathVariable long id) throws NotFoundException {
-        logger.info("Begin delete a Line");
-        lineService.deleteLine(id);
-        logger.info("Finish delete a Line");
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> delLine(@PathVariable long id) throws LineNoFoundException {
+        try {
+            logger.info("Begin delete a Line");
+            lineService.deleteLine(id);
+            logger.info("Finish delete a Line");
+            return ResponseEntity.noContent().build();
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid ID format", e);
+        } catch (LineNoFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Line not found", e);
+        }
     }
     //Modificar 1 por id
     @PutMapping("/lines/{id}")

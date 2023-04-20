@@ -50,7 +50,7 @@ public class LineStationControler {
 
     }
     @GetMapping("/station/{id}")
-    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws NotFoundException {
+    public ResponseEntity<Optional<LineStation>> getStation(@PathVariable long id)  throws NotFoundException, StationNoFoundException {
         logger.info("Begin get station by Id");
         Optional<LineStation> stationId = lineStationService.findById(id);
         logger.info("Finish get station by Id");

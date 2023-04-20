@@ -14,7 +14,7 @@ public interface LineService {
     List<outLineDTO> findAll();
     Line findById(long id) throws LineNoFoundException;
     Line add(Line line);
-    void deleteLine (long id) throws  NotFoundException;
+    void deleteLine (long id) throws  LineNoFoundException;
     Line modyLine(long id, Line line) throws LineNoFoundException;
 
 

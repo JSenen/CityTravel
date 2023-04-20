@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface LineStationService {
 
     List<LineStation> findAll();
-    Optional<LineStation> findById(long id) throws NotFoundException;
+    Optional<LineStation> findById(long id) throws NotFoundException, StationNoFoundException;
     LineStation delStation (long id) throws NotFoundException;
     LineStation modStation (long id, LineStation lineStation) throws NotFoundException;
     LineStation addStation (long lineId, LineStation lineStation) throws NotFoundException;

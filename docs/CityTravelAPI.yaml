@@ -255,6 +255,8 @@ paths:
                   $ref: '#/components/examples/LineId1'
                 PutResponseLineID2:
                   $ref: '#/components/examples/LineId2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -298,9 +300,9 @@ paths:
                 $ref: '#/components/schemas/LineIn'
               examples:
                   example1:
-                    $ref: '#/components/examples/LineIn1'
+                    $ref: '#/components/examples/LineOut1'
                   example2:
-                    $ref: '#/components/examples/LineIn2'
+                    $ref: '#/components/examples/LineOut2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -350,9 +352,9 @@ paths:
                   $ref: '#/components/schemas/LineStation'
               examples:
                 getAllStations1:
-                  $ref: '#/components/examples/LineStation1'
+                  $ref: '#/components/examples/LineStationArray1'
                 getAllStations2:
-                  $ref: '#/components/examples/LineStation2'
+                  $ref: '#/components/examples/LineStationArray2'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /station/{id}:
@@ -1401,6 +1403,28 @@ components:
         stopTime: 6
         train:
         Stations:
+    LineOut1:
+      summary: Ejemplo 1 de linea
+      value:
+        id: 13
+        codeLine: "Sant Petersburgo"
+        color: "red"
+        firstTime: "05:30"
+        lastTime: "23:30"
+        stopTime: 6
+        trains:
+        Stations:
+    LineOut2:
+      summary: Ejemplo 2 de linea
+      value:
+        id: 14
+        codeLine: "Nueva Terminal"
+        color: "blue"
+        firstTime: "04:30"
+        lastTime: "22:30"
+        stopTime: 6
+        train:
+        Stations:
     LineId1:
       summary: Ejemplo 1 de linea
       value:
@@ -1600,6 +1624,73 @@ components:
         stopTime: 12
         Station:
           -
+    LineStationArray1:
+      summary: Ejemmplo estaciones 1
+      value:
+        -
+          id: 52
+          name: "Cornella"
+          hopen: "05:30"
+          latitude: 41.0345
+          longitude: 2.4567
+          hclose: "23:30"
+          ptoInfo: false
+          wifi: false
+          bus_station: true
+          taxi_station: false
+          lineAccess:
+
+        -
+          id: 54
+          name: "Sant Estacion"
+          hopen: "04:30"
+          latitude: 41.0345
+          longitude: 2.4567
+          hclose: "23:30"
+          ptoInfo: true
+          wifi: true
+          bus_station: true
+          taxi_station: true
+          lineAccess:
+            - id: 2
+              street: "Mayor"
+              num: 12
+              latitude: 41.0345
+              longitude: 2.8900
+              elevator: true
+          lineGarage:
+            - id: 1
+              codeGarage: "GR-55"
+              taller: true
+              surface: 1630
+              rrhh: true
+              paintService: true
+    LineStationArray2:
+      summary: Ejemplo estaciones 2
+      value:
+        - id: 33
+          name: "Santo alguno"
+          hopen: "04:30"
+          latitude: 41.0345
+          longitude: 2.4567
+          hclose: "23:30"
+          ptoInfo: true
+          wifi: true
+          bus_station: true
+          taxi_station: true
+          lineAccess:
+        - id: 35
+          name: "Cuakquiera"
+          hopen: "00:30"
+          latitude: 41.0345
+          longitude: 2.4567
+          hclose: "23:30"
+          ptoInfo: true
+          wifi: true
+          bus_station: true
+          taxi_station: true
+          lineAccess:
+
     LineStation1:
       summary: Ejemplo 1 estación
       value:

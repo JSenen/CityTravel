@@ -54,9 +54,9 @@ public class LineServiceImpl implements LineService {
         return newLine;
     }
     @Override
-    public void deleteLine(long id) throws NotFoundException {
+    public void deleteLine(long id) throws LineNoFoundException {
         Line delLine = lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException("Line not found"));
         lineRepository.delete(delLine);
     }
 

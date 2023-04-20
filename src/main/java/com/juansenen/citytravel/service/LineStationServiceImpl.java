@@ -40,10 +40,10 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public Optional<LineStation> findById(long id) throws NotFoundException {
+    public Optional<LineStation> findById(long id) throws StationNoFoundException {
         Optional<LineStation> station = lineStationRepository.findById(id);
         if (!station.isPresent()) {
-            throw new NotFoundException("Station not found with id " + id);
+            throw new StationNoFoundException("Station not found with id " + id);
         }
         return Optional.of(station.get());
     }
