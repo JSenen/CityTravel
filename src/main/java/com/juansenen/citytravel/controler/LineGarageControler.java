@@ -29,9 +29,15 @@ public class LineGarageControler {
                                                      @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
                                                      @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
         logger.info("Begin get garage with or without @RequestParam");
-        if (taller.equals("") && rechum.equals("") && paint.equals("")){
+        if (taller.isEmpty() && rechum.isEmpty() && paint.isEmpty()){
             logger.info("Finish get garage without @RequesParam");
             return ResponseEntity.ok(lineGarageService.findAll());
+        } else if ((taller.isEmpty() || !taller.matches("(?i)^(true|false)$")) ||
+                (rechum.isEmpty() || !rechum.matches("(?i)^(true|false)$")) ||
+                (paint.isEmpty() || !paint.matches("(?i)^(true|false)$"))) {
+            logger.info("Invalid parameter values for get garage.");
+            return ResponseEntity.badRequest().build();
+            
         }
         boolean mechanic = Boolean.parseBoolean(taller);
         boolean rrhh = Boolean.parseBoolean(rechum);
