@@ -85,7 +85,7 @@ public class LineStationControler {
         }
     }
     @PatchMapping("/station/{stationId}/station")
-    public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody @Validated LineStation lineStation) throws NotFoundException {
+    public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody @Validated inStationDTO lineStation) throws NotFoundException {
         logger.info("Begin update partialy station by station id");
         try{
             LineStation updateStation = lineStationService.updateOneStation(stationId, lineStation);

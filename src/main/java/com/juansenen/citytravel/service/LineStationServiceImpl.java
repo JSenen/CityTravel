@@ -2,6 +2,7 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.LineStation;
+import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.exception.StationNoFoundException;
@@ -87,7 +88,7 @@ public class LineStationServiceImpl implements LineStationService{
     }
 
     @Override
-    public LineStation updateOneStation(long lineId, LineStation lineStation) throws NotFoundException {
+    public LineStation updateOneStation(long lineId, inStationDTO lineStation) throws NotFoundException {
         LineStation updStation = lineStationRepository.findById(lineId)
                 .orElseThrow(()-> new NotFoundException(new LineStation()));
         updStation.setHopen(lineStation.getHopen());

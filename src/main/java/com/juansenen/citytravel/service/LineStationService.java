@@ -20,7 +20,7 @@ public interface LineStationService {
     List<LineStation> findAllStationWithWifiBusAndTaxi(boolean wifi, boolean busStation, boolean taxiStation, boolean ptoInfo);
 
 
-    LineStation updateOneStation(long lineId, LineStation lineStation) throws NotFoundException;
+    LineStation updateOneStation(long lineId, inStationDTO lineStation) throws NotFoundException;
 
 
     List<LineStation> findByLineId(long lineId);
