@@ -587,9 +587,11 @@ paths:
                   $ref: '#/components/schemas/LineTrain'
               examples:
                 TrainExample1:
-                  $ref: '#/components/examples/LineTrain1'
+                  $ref: '#/components/examples/ArrayTrain1'
                 TrainExample2:
-                  $ref: '#/components/examples/LineTrain2'
+                  $ref: '#/components/examples/ArrayTrain2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /trains/{id}:
@@ -627,7 +629,7 @@ paths:
     put:
       tags:
         - Train
-      summary: Modificar total de un tren obtenido por su número de Id.
+      summary: Modificación total de los datos de un un tren, obtenido por su número de Id.
       security:
         - JWT: [ ]
       operationId: putTrainById
@@ -709,8 +711,6 @@ paths:
       responses:
         '204':
           $ref: '#/components/responses/NoContent'
-        '400':
-          $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -795,9 +795,11 @@ paths:
                   $ref: '#/components/schemas/GaraageDTO'
               examples:
                 OutGarageDto1:
-                  $ref: '#/components/examples/GarageDTO1'
+                  $ref: '#/components/examples/ArrayGarage1'
                 OutGarageDto2:
-                  $ref: '#/components/examples/GarageDTO2'
+                  $ref: '#/components/examples/ArrayGarage2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
 
         '500':
           $ref: '#/components/responses/InternalServerError'
@@ -822,9 +824,9 @@ paths:
                   $ref: '#/components/schemas/LineGarage'
               examples:
                 GetGarageId1:
-                  $ref: '#/components/examples/LineGarage1'
+                  $ref: '#/components/examples/Garage1'
                 GetGarageId2:
-                  $ref: '#/components/examples/LineGarage2'
+                  $ref: '#/components/examples/Garage2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -975,7 +977,7 @@ paths:
           schema:
             type: boolean
       summary: Atributos correspondientes a un acceso de estación
-      description: Devuelve filtrado o no de forma opcional si dispone de ascensor , la id y la dirección del acceso a una estación
+      description: Devuelve filtrado o no, de forma opcional, si dispone de ascensor , la id y la dirección del acceso a una estación
       operationId: getAccess
       responses:
         '200':
@@ -988,9 +990,11 @@ paths:
                   $ref: '#/components/schemas/OutAccess'
               examples:
                 OutAccess1:
-                  $ref: '#/components/examples/OutAccess1'
+                  $ref: '#/components/examples/ArrayAccess1'
                 OutAccess2:
-                  $ref: '#/components/examples/OutAccess2'
+                  $ref: '#/components/examples/ArrayAccess2'
+        '400':
+          $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/InternalServerError'
   /accesses/{id}:
@@ -999,7 +1003,7 @@ paths:
     get:
       tags:
         - Access
-      summary: Atributos correspondientes a un acceso de estación por su Id identificador
+      summary: Atributos correspondientes a un acceso específico de una estación por el número identificador de este.
       description: Devuelve los atributos de un acceso buscado por su identifcador
       operationId: getAccessById
       responses:
@@ -1127,10 +1131,10 @@ paths:
         - Access
       security:
         - JWT: [ ]
-      summary: Modificación parcial de un acceso por el Id del mismo
+      summary: Modificación parcial de un acceso por el número identificador de este
       operationId: patchGarageById
       requestBody:
-        description: Posibilidad de realizar una modificación parcial de un acceso al dispoer la disponibilidad de cambiar la disponibilidad de ascensor
+        description: Posibilidad de realizar una modificación parcial de un acceso, con la disponibilidad de cambiar la existencia de ascensor
         required: true
         content:
           application/json:
@@ -1148,6 +1152,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/LineAccess'
+              examples:
+                OutAccess1:
+                  $ref: '#/components/examples/OutAccess1'
+                OutAccess2:
+                  $ref: '#/components/examples/OutAccess2'
         '400':
           $ref: '#/components/responses/BadRequest'
         '404':
@@ -1745,6 +1754,73 @@ components:
             surface: 1680
             rrhh: true
             paintService: true
+    ArrayTrain1:
+      summary: Listado trenes 1
+      value:
+        - id: 34
+          codeTrain: "KG"
+          model: "quan"
+          numWagons: 23
+          numSeats: 125
+          numStandUp: 20
+          dateBuy: "01-04-1998"
+        - id: 37
+          codeTrain: "KGR"
+          model: "Snow Breaker"
+          numWagons: 19
+          numSeats: 134
+          numStandUp: 10
+          dateBuy: "21-10-1989"
+        - id: 56
+          codeTrain: "PQR"
+          model: "Orient Express"
+          numWagons: 12
+          numSeats: 150
+          numStandUp: 0
+          dateBuy: "21-10-1926"
+    ArrayTrain2:
+      summary: Listado trenes 2
+      value:
+        - id: 58
+          codeTrain: "KGB"
+          model: "LeeMartin"
+          numWagons: 34
+          numSeats: 90
+          numStandUp: 0
+          dateBuy: "01-04-1975"
+        - id: 59
+          codeTrain: "PP"
+          model: "Pepe Breaker"
+          numWagons: 19
+          numSeats: 134
+          numStandUp: 10
+          dateBuy: "21-10-2004"
+        - id: 61
+          codeTrain: "MAC"
+          model: "Book Pro"
+          numWagons: 12
+          numSeats: 150
+          numStandUp: 0
+          dateBuy: "21-10-2021"
+
+    OutTrain1:
+      summary: Datos tren ejemplo 1
+      value:
+        codeTrain: "KG"
+        model: "quan"
+        numWagons: 23
+        numSeats: 125
+        numStandUp: 20
+        dateBuy: "01-04-1998"
+    OutTrain2:
+      summary: Datos tren ejemplo 2
+      value:
+        codeTrain: "KGR"
+        model: "Snow Breaker"
+        numWagons: 19
+        numSeats: 134
+        numStandUp: 10
+        dateBuy: "21-10-1989"
     LineTrain1:
       summary: Datos tren ejemplo 1
       value:
@@ -1783,6 +1859,26 @@ components:
         latitude: 41.0345
         longitude: 2.8900
         elevator: true
+    Garage1:
+      summary: Ejemplo garage 1
+      value:
+        codeGarage: "GR-55"
+        taller: true
+        surface: 1630
+        rrhh: true
+        paintService: true
+        LineTrainsList:
+          -
+    Garage2:
+      summary: Ejemplo garage 2
+      value:
+        codeGarage: "GR-59"
+        taller: false
+        surface: 1680
+        rrhh: true
+        paintService: true
+        LineTrainsList:
+          -
     LineGarage1:
       summary: Ejemplo garage 1
       value:
@@ -1829,6 +1925,25 @@ components:
       value:
         id: 2
         street: "Mayor"
+    ArrayAccess1:
+      summary: Ejemplo de accesos 1
+      value:
+        - id: 2
+          street: "Mayor"
+        - id: 4
+          street: "Camino del Medio"
+        - id: 6
+          street: "Avda del martirio"
+    ArrayAccess2:
+      summary: Ejemplo de accesos 2
+      value:
+        value:
+          - id: 1
+            street: "Solo"
+          - id: 3
+            street: "De la esperanza"
+          - id: 6
+            street: "Montepinar 28"
     OutAccessComplete1:
       summary: Ejemplo acceso 1
       value:
@@ -1897,7 +2012,6 @@ components:
     PostAccessByStation2:
       summary: Ejemplo acceso 1
       value:
-        id: 2
         street: "Mayor"
         num: 19
         latitude: 33.6667
@@ -1905,7 +2019,6 @@ components:
     PostAccessByStation1:
       summary: Ejemplo acceso 1
       value:
-        id: 4
         street: "Camino del Medio"
         num: 8
         latitude: 23.6667
@@ -1987,6 +2100,26 @@ components:
       summary: Ejemplo modificacion código garage 2
       value:
         codeGarage: "GST-234"
+    ArrayGarage1:
+      summary: Ejemplo datos garages 1
+      value:
+        - id: 2
+          codeGarage: "GST-123"
+        - id: 4
+          codeGarage: "GST-321"
+        - id: 6
+          codeGarage: "GST-675"
+    ArrayGarage2:
+      summary: Ejemplo datos garages 2
+      value:
+        - id: 12
+          codeGarage: "GST-122"
+        - id: 14
+          codeGarage: "GST-144"
+        - id: 15
+          codeGarage: "GST-155"
+
+
     GarageDTO1:
       summary: Ejemplo salida garage 1
       value:
@@ -2550,7 +2683,38 @@ components:
           format: int32
           description: Punto longitud de la estacion (Orientacion E-O)
           example: 8.1505
-
+    PutTrain:
+      type: object
+      properties:
+        code:
+          type: string
+          format: string
+          description: Codigo del Tren
+          example: KGB
+        model:
+          type: string
+          format: string
+          description: Modelo de locomotora
+          example: Snow Breaker
+        numWagons:
+          type: number
+          format: int32
+          description: Número de vagones del que dispone el tren
+          example: 10
+        numSeats:
+          type: number
+          format: int32
+          description: Número de asientos totales que dispone el tren
+          example: 234
+        numStandUp:
+          type: number
+          format: int32
+          description: Número de plazas de pie disponibles
+        dateBuy:
+          type: string
+          format: 'date-time'
+          description: Fecha de compra del tren
+          example: 21-01-2023
     PatchTrain:
       type: object
       properties:
@@ -2694,24 +2858,24 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LineTrain'
+            $ref: '#/components/schemas/PutTrain'
           examples:
             PostTrain1:
-              $ref: '#/components/examples/LineTrain1'
+              $ref: '#/components/examples/OutTrain1'
             PostTrain2:
-              $ref: '#/components/examples/LineTrain2'
+              $ref: '#/components/examples/OutTrain2'
     putTrainId:
       description: Datos de un tren
       required: true
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/LineTrain'
+            $ref: '#/components/schemas/PutTrain'
           examples:
             PutTrainId1:
-              $ref: '#/components/examples/LineTrain1'
+              $ref: '#/components/examples/OutTrain1'
             PutTrainId2:
-              $ref: '#/components/examples/LineTrain2'
+              $ref: '#/components/examples/OutTrain2'
     putStationId:
       description: Datos de una estación
       required: true
