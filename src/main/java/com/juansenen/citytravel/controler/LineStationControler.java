@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.validation.executable.ValidateOnExecution;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,11 +85,14 @@ public class LineStationControler {
         }
     }
     @PatchMapping("/station/{stationId}/station")
-    public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody LineStation lineStation) throws NotFoundException {
+    public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody @Validated LineStation lineStation) throws NotFoundException {
         logger.info("Begin update partialy station by station id");
-        LineStation updateStation = lineStationService.updateOneStation(stationId, lineStation);
-        logger.info("End update partialy station by station id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateStation);
+        try{
+            LineStation updateStation = lineStationService.updateOneStation(stationId, lineStation);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(updateStation);
+        } catch (NotFoundException e){
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/stations/{id}")
@@ -97,7 +102,7 @@ public class LineStationControler {
             lineStationService.delStation(id);
             logger.info("Finish delete station by Id");
             return ResponseEntity.noContent().build();
-        } catch (NotFoundException e) {
+        } catch (LineNoFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
