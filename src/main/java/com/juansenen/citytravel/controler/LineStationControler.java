@@ -3,10 +3,7 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.inStationDTO;
 import com.juansenen.citytravel.domain.dto.outStationDTO;
-import com.juansenen.citytravel.exception.ErrorMessage;
-import com.juansenen.citytravel.exception.ErrorResponse;
-import com.juansenen.citytravel.exception.NotFoundException;
-import com.juansenen.citytravel.exception.StationNoFoundException;
+import com.juansenen.citytravel.exception.*;
 import com.juansenen.citytravel.service.LineStationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,9 +74,13 @@ public class LineStationControler {
     @PutMapping("/stations/{id}")
     public ResponseEntity<LineStation> modStation(@PathVariable long id, @RequestBody LineStation lineStation) throws NotFoundException {
         logger.info("Begin modify station by Id");
-        LineStation changeStation = lineStationService.modStation(id, lineStation);
-        logger.info("Finish modify station by Id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeStation);
+        try {
+            LineStation changeStation = lineStationService.modStation(id, lineStation);
+            logger.info("Finish modify station by Id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeStation);
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
     @PatchMapping("/station/{stationId}/station")
     public ResponseEntity<LineStation> updateStation(@PathVariable long stationId, @RequestBody LineStation lineStation) throws NotFoundException {
@@ -90,10 +91,14 @@ public class LineStationControler {
     }
 
     @DeleteMapping("/stations/{id}")
-    public ResponseEntity<Void> delOneStation(@PathVariable long id) throws NotFoundException {
+    public ResponseEntity<Void> delOneStation(@PathVariable long id) throws LineNoFoundException {
         logger.info("Begin delete station by Id");
-        lineStationService.delStation(id);
-        logger.info("Finish delete station by Id");
-        return ResponseEntity.noContent().build();
+        try {
+            lineStationService.delStation(id);
+            logger.info("Finish delete station by Id");
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -370,9 +370,9 @@ paths:
     get:
       tags:
         - Station
-      summary: Atributos correspondientes a una estación por su identificador
+      summary: Atributos correspondientes a una estación por su número identificador
 
-      description: Devuelve los atributos de una estacón por medio del identificador de este
+      description: Devuelve los atributos de una estación localizada por el número identificador
       operationId: getStationById
       responses:
         '200':
@@ -407,7 +407,7 @@ paths:
     put:
       tags:
         - Station
-      summary: Modificación completa d una estación, identificada por su número Id
+      summary: Modificación completa de una estación, identificada por su número Id
       security:
         - JWT: [ ]
       operationId: putStationById
@@ -422,9 +422,9 @@ paths:
                 $ref: '#/components/responses/AcceptedStation'
               examples:
                 Station1:
-                  $ref: '#/components/examples/PutStationId1'
+                  $ref: '#/components/examples/OutPutStation1'
                 Station2:
-                  $ref: '#/components/examples/PutStationId1'
+                  $ref: '#/components/examples/OutPutStation2'
 
         '401':
           $ref: '#/components/responses/UnauthorizedError'
@@ -1927,7 +1927,6 @@ components:
     PutStationId2:
       summary: Ejemplo  estacion 2
       value:
-        id: 58
         name: "Atocha Estacion"
         hopen: "01:30"
         latitude: 41.4567
@@ -1940,7 +1939,6 @@ components:
     PutStationId1:
       summary: Ejemplo estacion 1
       value:
-        id: 54
         name: "Sant Estacion"
         hopen: "03:30"
         latitude: 38.23752,
@@ -1950,6 +1948,37 @@ components:
         wifi: true,
         busStation: true,
         taxiStation: true,
+    OutPutStation2:
+      summary: Ejemplo estación 2
+      value:
+        id: 36
+        name: "Atocha Estacion"
+        hopen: "01:30"
+        latitude: 41.4567
+        longitude: 2.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: false,
+        busStation: true,
+        taxiStation: true
+        lineAccess:
+          -
+
+    OutPutStation1:
+      summary: Ejemplo estación 1
+      value:
+        id: 53
+        name: "Sant Estacion"
+        hopen: "03:30"
+        latitude: 38.23752,
+        longitude: 1.084319,
+        hclose: "00:30"
+        ptoInfo: true,
+        wifi: true,
+        busStation: true,
+        taxiStation: true,
+        lineAccess:
+          -
     GarageCode1:
       summary: Ejemplo modificacion código garage 1
       value:
@@ -2810,7 +2839,7 @@ components:
           schema:
             $ref: '#/components/schemas/LineTrain'
     NoContent:
-      description: No content
+      description: Solicitud de eliminación se ha procesado correctamente, pero no hay contenido que devolver en la respuesta.
     InternalServerError:
       description: se ha producido un error interno en el servidor al procesar la solicitud del cliente
       content:
