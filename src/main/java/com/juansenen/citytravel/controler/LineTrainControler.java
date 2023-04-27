@@ -3,6 +3,8 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineTrain;
 import com.juansenen.citytravel.domain.dto.inTrainDTO;
 import com.juansenen.citytravel.domain.dto.outTrainDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
+import com.juansenen.citytravel.exception.ErrorResponse;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.service.LineService;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,8 +28,8 @@ public class LineTrainControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineTrainControler.class);
 
-    @GetMapping("/train")
-    public ResponseEntity<List<outTrainDTO>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
+    @GetMapping("/trains")
+    public ResponseEntity<List<LineTrain>> getAll(@RequestParam (name = "numWagons",defaultValue = "0",required = false) String wagons,
                                                     @RequestParam (name = "numSeats",defaultValue = "0", required = false) String seats,
                                                     @RequestParam (name = "numStandUp",defaultValue = "0",required = false) String standup){
         logger.info("Begin get trains with or without @ReuestParam");
@@ -44,11 +47,16 @@ public class LineTrainControler {
         return ResponseEntity.ok(lineTrainService.searchByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp));
     }
 
-    @GetMapping("/train/{id}")
+    @GetMapping("/trains/{id}")
     public ResponseEntity<Optional<LineTrain>> getById(@PathVariable long id) throws LineNoFoundException {
+
         logger.info("Begin get train by Id");
         Optional<LineTrain> trainId = lineTrainService.findById(id);
         logger.info("Finish get train by Id");
+        if (trainId.isEmpty()) {
+            ErrorResponse error = new ErrorResponse(404, "Train not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(trainId);
+        }
         return new ResponseEntity<>(trainId, HttpStatus.OK);
     }
     @GetMapping("/train/{lineId}/trains")
@@ -60,32 +68,51 @@ public class LineTrainControler {
     }
 
     @PostMapping("/train/{lineId}/train")
-    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody inTrainDTO inTrainDTO) throws NotFoundException {
-        logger.info("Begin add train by Line Id");
-        LineTrain newTrain = lineTrainService.addNewTrain(lineId, inTrainDTO);
-        logger.info("Finish add train by Id");
-        return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
+    public ResponseEntity<LineTrain> addOneTrainWithGarage(@PathVariable long lineId, @RequestBody LineTrain lineTrain) throws LineNoFoundException{
+        try {
+            LineTrain newTrain = lineTrainService.addNewTrain(lineId, lineTrain);
+            logger.info("Finish add train by Id");
+            return ResponseEntity.status(HttpStatus.CREATED).body(newTrain);
+        } catch (LineNoFoundException e) {
+            ErrorResponse error = new ErrorResponse(404,"Line ID not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
     @PutMapping("/train/{id}")
     public ResponseEntity<LineTrain> modTrain(@PathVariable long id, @RequestBody LineTrain lineTrain) throws  NotFoundException {
-        logger.info("Begin modify train by Id");
-        LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
-        logger.info("Finsih modify train by Id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
+        try{
+            logger.info("Begin modify train by Id");
+            LineTrain changeTrain = lineTrainService.modTrain(id, lineTrain);
+            logger.info("Finsih modify train by Id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(changeTrain);
+        }catch (NotFoundException nfe){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
     @PatchMapping("/train/{trainId}")
     public ResponseEntity<LineTrain> updateTrain(@PathVariable long trainId, @RequestBody LineTrain lineTrain) throws NotFoundException {
-        logger.info("Begin update partialy train by train id");
-        LineTrain updtrain = lineTrainService.updateOneTrain(trainId, lineTrain);
-        logger.info("End update partialy train by train id");
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updtrain);
+        try{
+            logger.info("Begin update partialy train by train id");
+            LineTrain updtrain = lineTrainService.updateOneTrain(trainId, lineTrain);
+            logger.info("End update partialy train by train id");
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(updtrain);
+        }catch (NotFoundException nfe) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+
     }
 
     @DeleteMapping("/train/{id}")
     public ResponseEntity<Void> delOneTrain(@PathVariable long id) throws NotFoundException {
-        logger.info("Begin delete train by Id");
-        lineTrainService.delTrain(id);
-        logger.info("Finish get train by Id");
-        return ResponseEntity.noContent().build();
+        try{
+            logger.info("Begin delete train by Id");
+            lineTrainService.delTrain(id);
+            logger.info("Finish get train by Id");
+            return ResponseEntity.noContent().build();
+        }catch (NotFoundException nfe){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
     }
 }

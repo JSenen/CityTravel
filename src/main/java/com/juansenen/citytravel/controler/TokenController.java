@@ -2,6 +2,7 @@ package com.juansenen.citytravel.controler;
 
 
 import com.juansenen.citytravel.domain.dto.UserDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
 import com.juansenen.citytravel.security.JwtResponse;
 import com.juansenen.citytravel.security.JwtUtils;
 import com.juansenen.citytravel.service.UserService;
@@ -33,6 +34,11 @@ public class TokenController {
 
     @PostMapping("/token")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserDTO userDTO) {
+
+        if (!isValidUser(userDTO)) {
+            return ResponseEntity.badRequest().build(); // Devuelve un código 400 Bad Request si el objeto UserDTO no es válido
+        }
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userDTO.getUsername(), userDTO.getPassword()));
 
@@ -50,7 +56,21 @@ public class TokenController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+        if (!isValidUser(user)){
+            ErrorMessage errorMessage = new ErrorMessage(400,"Bad request");
+            return ResponseEntity.badRequest().body(errorMessage);
+        }
         return ResponseEntity.ok(userService.addUser(user));
+    }
+    /** Validaciones del body /register */
+    private boolean isValidUser(UserDTO user) {
+        if (user.getUsername() == null || user.getUsername().isEmpty()) {
+            return false; // El campo de nombre de usuario está vacío
+        }
+        if (user.getPassword() == null || user.getPassword().isEmpty()){
+            return false; //Campo password está vacio
+        }
+        return true;
     }
 
 }

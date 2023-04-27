@@ -2,6 +2,7 @@ package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
+import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
@@ -35,9 +36,9 @@ public class LineServiceImpl implements LineService {
 
     //Buscar por id
     @Override
-    public Line findById(long id) throws NotFoundException {
+    public Line findById(long id) throws LineNoFoundException {
         return lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException());
     }
 
     @Override
@@ -53,16 +54,16 @@ public class LineServiceImpl implements LineService {
         return newLine;
     }
     @Override
-    public void deleteLine(long id) throws NotFoundException {
+    public void deleteLine(long id) throws LineNoFoundException {
         Line delLine = lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException("Line not found"));
         lineRepository.delete(delLine);
     }
 
     @Override
-    public Line modyLine(long id, Line line) throws NotFoundException {
+    public Line modyLine(long id, Line line) throws LineNoFoundException {
         Line modyfLine = lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException("Line not found exception"));
         modyfLine.setCodeLine(line.getCodeLine());
         modyfLine.setColor(line.getColor());
         modyfLine.setStopTime(line.getStopTime());
@@ -75,9 +76,9 @@ public class LineServiceImpl implements LineService {
     }
     //Metodo actualización aprcial Patch
     @Override
-    public Line updateLine(long id, Line line) throws NotFoundException {
+    public Line updateLine(long id, Line line) throws LineNoFoundException {
         Line updateLine = lineRepository.findById(id)
-                .orElseThrow(()-> new NotFoundException(new Line()));
+                .orElseThrow(()-> new LineNoFoundException());
         updateLine.setCodeLine((line.getCodeLine()));
         return lineRepository.save(updateLine);
     }

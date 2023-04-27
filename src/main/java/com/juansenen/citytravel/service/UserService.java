@@ -12,9 +12,9 @@ public interface UserService {
 
     Set<User> findAll();
     User findByUsername(String username);
-    Set<User> findByCity(String city);
+//    Set<User> findByCity(String city);
 
     User addUser(UserDTO user);
-    void remove(User user);
+//    void remove(User user);
 
 }

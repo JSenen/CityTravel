@@ -31,6 +31,10 @@ public class LineStation {
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hopen;
     @Column
+    private float latitude;
+    @Column
+    private float longitude;
+    @Column
     @NotNull
     @JsonFormat(pattern = "HH:mm")
     private LocalTime hclose;
@@ -50,9 +54,9 @@ public class LineStation {
     private List<LineGarage> lineGarageList;
 
     @ManyToOne
-    @JoinColumn(name = "station_id")
+    @JoinColumn(name = "line_id")
     @JsonIgnore
-    private Line linestation;
+    private Line line;
 
 
 }

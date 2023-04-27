@@ -3,6 +3,8 @@ package com.juansenen.citytravel.controler;
 import com.juansenen.citytravel.domain.LineAccess;
 import com.juansenen.citytravel.domain.dto.inAccessDTO;
 import com.juansenen.citytravel.domain.dto.outAccessDTO;
+import com.juansenen.citytravel.exception.ErrorMessage;
+import com.juansenen.citytravel.exception.ErrorResponse;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.service.LineAccessService;
 
@@ -24,7 +26,7 @@ public class LineAccessControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineAccessControler.class);
 
-    @GetMapping("/access")
+    @GetMapping("/accesses")
     public ResponseEntity<List<outAccessDTO>> getAll(@RequestParam(name = "elevator",defaultValue = "",required = false) String elev){
         logger.info("Begin get Access with or without @RequestParam");
         if (elev.equals("")){
@@ -36,7 +38,7 @@ public class LineAccessControler {
         return ResponseEntity.ok(lineAccessService.searchAccessWithElevator(elevator));
     }
 
-    @GetMapping("/access/{id}")
+    @GetMapping("/accesses/{id}")
     public ResponseEntity<Optional<LineAccess>> getById(@PathVariable long id){
         logger.info("Begin get access by Id");
         Optional<LineAccess> accessId = lineAccessService.findById(id);
@@ -45,9 +47,9 @@ public class LineAccessControler {
     }
 
     @PostMapping("/access/{stationid}/access")
-    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody inAccessDTO inAccessDTO) throws NotFoundException {
+    public ResponseEntity<LineAccess> addOneAccess(@PathVariable long stationid, @RequestBody LineAccess lineAccess) throws NotFoundException {
         logger.info("Begin add access by station Id");
-        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(inAccessDTO, stationid);
+        LineAccess newOneAccess = lineAccessService.addNewAccessByStation(lineAccess, stationid);
         logger.info("Finish add access by station Id");
         return ResponseEntity.status(HttpStatus.CREATED).body(newOneAccess);
     }
@@ -70,8 +72,12 @@ public class LineAccessControler {
     @DeleteMapping("/access/{id}")
     public ResponseEntity<Void> delOneAccess(@PathVariable long id) throws NotFoundException {
         logger.info("Begin delete access by Id");
-        lineAccessService.delAccess(id);
-        logger.info("Fininsh delete access by Id");
-        return ResponseEntity.noContent().build();
+        try {
+            lineAccessService.delAccess(id);
+            logger.info("Finish delete access by Id");
+            return ResponseEntity.noContent().build();
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "276601f9-a465-4712-88e8-9570dd9070ef",
+		"_postman_id": "d5e8bec1-fd09-4509-a556-a650ea977045",
 		"name": "CITY-TRAVEL",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17632514"
@@ -9,6 +9,201 @@
 		{
 			"name": "Line",
 			"item": [
+				{
+					"name": "/lines",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idLine\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/lines",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"lines"
+							],
+							"query": [
+								{
+									"key": "firstTime",
+									"value": "05:30",
+									"description": "Hora de inicio",
+									"disabled": true
+								},
+								{
+									"key": "lastTime",
+									"value": "22:00",
+									"description": "Hora de fin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/line/{{idLine}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"line",
+								"{{idLine}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{lineId}/trains",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/line/{{idLine}}/trains",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"line",
+								"{{idLine}}",
+								"trains"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{lineId}/stations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/line/{{idLine}}/stations",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"line",
+								"{{idLine}}",
+								"stations"
+							],
+							"query": [
+								{
+									"key": "wifi",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "busStaion",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "taxiStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "ptoInfo",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "/line",
 					"event": [
@@ -22,7 +217,9 @@
 									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
 									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
 									"",
-									"pm.globals.set(\"randomTimeStop\", _.random(1,15));"
+									"pm.globals.set(\"randomTimeStop\", _.random(1,15));",
+									"",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -39,7 +236,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}},\n        \"period\": {{$randomInt}}\n}",
+							"raw": "{\n        \"codeLine\":\"{{$randomCity}}-{{$randomCity}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"firstTime\": \"{{randomhstart}}\",\n        \"lastTime\": \"{{randomhclose}}\",\n        \"stopTime\":{{randomTimeStop}}\n        \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,9 +244,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line",
+							"raw": "{{API_CityTravel}}/line",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"line"
@@ -59,7 +256,7 @@
 					"response": []
 				},
 				{
-					"name": "/line /{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -88,7 +285,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\"\n        \n}",
+							"raw": "{\n        \"codeLine\":\"{{$randomCity}}-{{$randomCity}}\"\n        \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,90 +293,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/33",
+							"raw": "{{API_CityTravel}}/lines/{{idLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"33"
+								"lines",
+								"{{idLine}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/line/33",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"line",
-								"33"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/line?firstTime=04:30",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/line?firstTime=04:30&lastTime=22:00",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"line"
-							],
-							"query": [
-								{
-									"key": "firstTime",
-									"value": "04:30",
-									"description": "Hora de inicio"
-								},
-								{
-									"key": "lastTime",
-									"value": "22:00",
-									"description": "Hora de fin"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -202,7 +329,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"codeLine\":\"L-{{$randomInt}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:30\"\n}",
+							"raw": "{\n        \"codeLine\":\"{{$randomCity}}-{{$randomCity}}\",\n        \"color\": \"{{$randomColor}}\",\n        \"stopTime\":6,\n        \"firstTime\": \"07:00\",\n        \"lastTime\": \"22:35\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -210,20 +337,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/33",
+							"raw": "{{API_CityTravel}}/lines/{{idLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"33"
+								"lines",
+								"{{idLine}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -234,13 +361,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/line/13",
+							"raw": "{{API_CityTravel}}/lines/{{idLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"13"
+								"lines",
+								"{{idLine}}"
 							],
 							"query": [
 								{
@@ -259,6 +386,115 @@
 			"name": "Station",
 			"item": [
 				{
+					"name": "/stations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idStation\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/stations",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"stations"
+							],
+							"query": [
+								{
+									"key": "wifi",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "busStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "taxiStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "ptoInfo",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/station/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/station/{{idStation}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"station",
+								"{{idStation}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/station/{lineId}/station",
 					"event": [
 						{
@@ -268,10 +504,28 @@
 									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
 									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
 									"",
+									"var latMin = 36.00; // Latitud mínima para España",
+									"var latMax = 43.00; // Latitud máxima para España",
+									"var lonMin = -10.00; // Longitud mínima para España",
+									"var lonMax = 4.00; // Longitud máxima para España",
+									"",
+									"// Generar un número aleatorio para latitud y longitud utilizando las funciones de JavaScript",
+									"var randomLat = Math.random() * (latMax - latMin) + latMin;",
+									"var randomLon = Math.random() * (lonMax - lonMin) + lonMin;",
+									"",
+									"// Redondear los valores a 6 decimales",
+									"var latitude = randomLat.toFixed(6);",
+									"var longitude = randomLon.toFixed(6);",
+									"",
+									"// Asignar los valores de latitud y longitud a las variables de entorno para su uso en la solicitud",
+									"pm.environment.set(\"latitude\", latitude);",
+									"pm.environment.set(\"longitude\", longitude);",
+									"",
 									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
 									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
 									"",
 									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
 									"",
 									""
 								],
@@ -290,7 +544,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"raw": "{\n        \"name\": \"{{$randomCity}}\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"latitude\":{{latitude}},\n        \"longitude\":{{longitude}},    \n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": true,\n        \"wifi\": true,\n        \"busStation\":true,\n        \"taxiStation\": true\n\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -298,13 +552,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/25/station",
+							"raw": "{{API_CityTravel}}/station/{{idLine}}/station",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"25",
+								"{{idLine}}",
 								"station"
 							]
 						}
@@ -351,13 +605,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/{{randomStation}}/station",
+							"raw": "{{API_CityTravel}}/station/{{idStation}}/station",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"{{randomStation}}",
+								"{{idStation}}",
 								"station"
 							]
 						}
@@ -365,106 +619,7 @@
 					"response": []
 				},
 				{
-					"name": "/station",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/station",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"station"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/station/{id}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"randomStation\",_.random(1,20));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/station/{{randomStation}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"station",
-								"{{randomStation}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/station?wifi=true&busStation=false&taxiStation=true",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/station/",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"station",
-								""
-							],
-							"query": [
-								{
-									"key": "wifi",
-									"value": "{{$randomBoolean}}",
-									"disabled": true
-								},
-								{
-									"key": "busStation",
-									"value": "{{$randomBoolean}}",
-									"disabled": true
-								},
-								{
-									"key": "taxiStation",
-									"value": "{{$randomBoolean}}",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/station/{id}",
+					"name": "/stations/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -493,7 +648,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
+							"raw": "{\n       \"name\": \"{{$randomCity}}\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}},\n        \"latitude\":\"{{$randomLatitude}}\",\n        \"longitude\":\"{{$randomLongitude}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -501,20 +656,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/{{randomStation}}",
+							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"station",
-								"{{randomStation}}"
+								"stations",
+								"{{idStation}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/station/{id}",
+					"name": "/stations/{id}",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -525,13 +680,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/station/56",
+							"raw": "{{API_CityTravel}}/stations/{{idStation}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"station",
-								"56"
+								"stations",
+								"{{idStation}}"
 							]
 						}
 					},
@@ -542,6 +697,144 @@
 		{
 			"name": "Train",
 			"item": [
+				{
+					"name": "/trains",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idTrain\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/trains",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"trains"
+							],
+							"query": [
+								{
+									"key": "numWagons",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "numSeats",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "numStandUp",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/trains/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/trains/{{idTrain}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"trains",
+								"{{idTrain}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/line/{lineId}/trains",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get trains by line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(200);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/line/{{idLine}}}/trains",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"line",
+								"{{idLine}}}",
+								"trains"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "/train/{lineid}/train",
 					"event": [
@@ -594,7 +887,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"code\": \"{{$randomCountryCode}}\",\n        \"model\": \"{{$randomLoremWord}}\"\n    \n}",
+							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{$randomInt}},\n        \"numStandUp\": {{$randomInt}},\n        \"numWagons\": {{$randomInt}},\n        \"datebuy\": \"{{todayDate}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -602,13 +895,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/train/{{randomLine}}/train",
+							"raw": "{{API_CityTravel}}/train/{{idLine}}/train",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{randomLine}}",
+								"{{idLine}}",
 								"train"
 							]
 						}
@@ -667,7 +960,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"numSeats\": {{randomSeats}},\n        \"numWagons\": {{randomWagons}},\n        \"numStandUp\": {{randomStandUp}}\n    \n}",
+							"raw": "{\n        \"numWagons\":{{$randomInt}},\n        \"numSeats\": {{$randomInt}},\n        \"numStandUp\": {{$randomInt}}\n    \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -675,124 +968,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/train/6",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/train",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/train",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"train"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/line/{lineId}/trains",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/line/{{randomLine}}/trains",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"line",
-								"{{randomLine}}",
-								"trains"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/train?numWagons={{$randomInt}}&numSeats={{$randomInt}}&numStandUp={{$randomInt}}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
-									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
-									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/train?numWagons={{randomWagons}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"train"
-							],
-							"query": [
-								{
-									"key": "numWagons",
-									"value": "{{randomWagons}}"
-								},
-								{
-									"key": "numSeats",
-									"value": "{{randomSeats}}",
-									"disabled": true
-								},
-								{
-									"key": "numStandUp",
-									"value": "{{randomStandUp}}",
-									"disabled": true
-								}
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -833,15 +1015,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/train/12",
-							"protocol": "http",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
-								"localhost"
+								"{{API_CityTravel}}"
 							],
-							"port": "8080",
 							"path": [
 								"train",
-								"12"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -859,13 +1039,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/train/25",
+							"raw": "{{API_CityTravel}}/train/{{idTrain}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"25"
+								"{{idTrain}}"
 							]
 						}
 					},
@@ -877,6 +1057,89 @@
 			"name": "Access",
 			"item": [
 				{
+					"name": "/accesses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idAccess\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/accesses",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"accesses"
+							],
+							"query": [
+								{
+									"key": "elevator",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/accesses/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/accesses/{{idAccess}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"accesses",
+								"{{idAccess}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/access/{stationId}/access",
 					"event": [
 						{
@@ -885,7 +1148,7 @@
 								"exec": [
 									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
 									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
-									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(54,64));",
 									""
 								],
 								"type": "text/javascript"
@@ -903,7 +1166,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
+							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}}\n        \n    \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -911,13 +1174,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/access/{{randomStation}}/access",
+							"raw": "{{API_CityTravel}}/access/{{idStation}}/access",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{randomStation}}",
+								"{{idStation}}",
 								"access"
 							]
 						}
@@ -925,7 +1188,51 @@
 					"response": []
 				},
 				{
-					"name": "/access/{stationId}/access",
+					"name": "/access/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(4,12));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"access",
+								"{{idAccess}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{accessId}/access",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -959,150 +1266,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/access/{{randomStation}}/access",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}/access",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{randomStation}}",
+								"{{idAccess}}",
 								"access"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/access",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access/{id}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/access/{{randomAccessId}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access",
-								"{{randomAccessId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access?elevator=true",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/access?elevator=true",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access"
-							],
-							"query": [
-								{
-									"key": "elevator",
-									"value": "true"
-								},
-								{
-									"key": "elevator",
-									"value": "false",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access/{id}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n       \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\",\n        \"latitude\": {{$randomLatitude}},\n        \"longitude\": {{$randomLongitude}},\n        \"elevator\": {{$randomBoolean}}\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/access/{{randomAccessId}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access",
-								"{{randomAccessId}}"
 							]
 						}
 					},
@@ -1120,13 +1291,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/access/1",
+							"raw": "{{API_CityTravel}}/access/{{idAccess}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"1"
+								"{{idAccess}}"
 							]
 						}
 					},
@@ -1137,6 +1308,101 @@
 		{
 			"name": "Garage",
 			"item": [
+				{
+					"name": "/garages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Obtener todas las id disponibles",
+									"const ids = pm.response.json().map(item => item.id);",
+									"",
+									"// Seleccionar una id aleatoria",
+									"const randomId = ids[Math.floor(Math.random() * ids.length)];",
+									"",
+									"// Almacenar la id aleatoria en una variable de colección",
+									"pm.collectionVariables.set(\"idGarage\", randomId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/garages",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"garages"
+							],
+							"query": [
+								{
+									"key": "taller",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "rrhh",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "paintService",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garages/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,10));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/garages/{{idGarage}}",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"garages",
+								"{{idGarage}}"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "/garage/{stationId}/garage",
 					"event": [
@@ -1162,7 +1428,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n}\n        \n        \n    \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1170,13 +1436,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/garage/{{randomStation}}/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idStation}}/garage",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{randomStation}}",
+								"{{idStation}}",
 								"garage"
 							]
 						}
@@ -1191,7 +1457,8 @@
 							"script": {
 								"exec": [
 									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));",
+									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,10));"
 								],
 								"type": "text/javascript"
 							}
@@ -1216,125 +1483,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/garage/2/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}/garage",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"2",
+								"{{idGarage}}",
 								"garage"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/garage",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage/{id}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"randomGarageId\",_.random(1,20));",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/garage/{{randomGarageId}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage",
-								"{{randomGarageId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage?taller=true&paintService=true&rrhh=false",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage"
-							],
-							"query": [
-								{
-									"key": "taller",
-									"value": "true"
-								},
-								{
-									"key": "rrhh",
-									"value": "true",
-									"disabled": true
-								},
-								{
-									"key": "paintService",
-									"value": "true",
-									"disabled": true
-								},
-								{
-									"key": "taller",
-									"value": "false"
-								},
-								{
-									"key": "rrhh",
-									"value": "false"
-								},
-								{
-									"key": "paintService",
-									"value": "false",
-									"disabled": true
-								}
 							]
 						}
 					},
@@ -1372,13 +1528,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/garage/{{randomGarageId}}",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{randomGarageId}}"
+								"{{idGarage}}"
 							]
 						}
 					},
@@ -1396,13 +1552,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/garage/83",
+							"raw": "{{API_CityTravel}}/garage/{{idGarage}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"83"
+								"{{idGarage}}"
 							]
 						}
 					},
@@ -1436,7 +1592,7 @@
 							"script": {
 								"exec": [
 									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"id\", response.id);",
+									"pm.collectionVariables.set(\"idTESTLine\", response.id);",
 									"pm.collectionVariables.set(\"firstTime\", response.firstTime);",
 									"",
 									"pm.test(\"New Line\", () => {",
@@ -1467,9 +1623,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line",
+							"raw": "{{API_CityTravel}}/line",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"line"
@@ -1479,7 +1635,289 @@
 					"response": []
 				},
 				{
-					"name": "/line",
+					"name": "/station/{lineId}/station",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
+									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
+									"",
+									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
+									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
+									"",
+									"pm.environment.set(\"randomLine\", _.random(1, 12));",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTStation\", response.id);",
+									"",
+									"",
+									"pm.test(\"New Station by Line Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"latitude\":\"{{$randomLatitude}}\",\n        \"longitude\":\"{{$randomLongitude}}\",        \n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": true,\n        \"wifi\": true,\n        \"busStation\":true,\n        \"taxiStation\": true\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/station/{{idTESTLine}}/station",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"station",
+								"{{idTESTLine}}",
+								"station"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/garage/{stationId}/garage",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTGarage\", response.id);",
+									"",
+									"pm.test(\"New Garage by Station Id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\",\n        \"taller\": {{$randomBoolean}},\n        \"surface\": {{randomSur}},\n        \"rrhh\": {{$randomBoolean}},\n        \"paintService\": {{$randomBoolean}}\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/garage/{{idTESTStation}}/garage",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"garage",
+								"{{idTESTStation}}",
+								"garage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/access/{stationId}/access",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
+									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTAccess\", response.id);",
+									"",
+									"pm.test(\"Add new access\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/access/{{idTESTStation}}/access",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"access",
+								"{{idTESTStation}}",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/train/{lineid}/train",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.collectionVariables.set(\"idTESTTrain\", response.id);",
+									"",
+									"",
+									"pm.test(\"New train by line id\", () => {",
+									"    pm.expect(pm.response.code).to.eq(201);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"//Años aleatorios entre 2 fechas",
+									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
+									"",
+									"// Numeros aleatorios entre 2",
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
+									"",
+									"// Numero de vagones aleatorio",
+									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
+									"",
+									"//Numero de garage aleatorio",
+									"pm.environment.set(\"randomGarage\",_.random(1,10));",
+									"",
+									"",
+									"//Formato fecha actual en dd-mm-YYYY",
+									"const dateNow = new Date();",
+									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
+									"var moment = require('moment');",
+									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"code\": \"{{$randomNameSuffix}}\",\n        \"model\": \"{{$randomLoremWord}}\",\n        \"numSeats\": {{$randomInt}},\n        \"numStandUp\": {{$randomInt}},\n        \"numWagons\": {{$randomInt}},\n        \"datebuy\": \"{{todayDate}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_CityTravel}}/train/{{idTESTLine}}/train",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"train",
+								"{{idTESTLine}}",
+								"train"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/lines",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1513,12 +1951,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/line",
+							"raw": "{{API_CityTravel}}/lines",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line"
+								"lines"
 							]
 						}
 					},
@@ -1559,69 +1997,20 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/line/{{id}}",
+							"raw": "{{API_CityTravel}}/line/{{idTESTLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"line",
-								"{{id}}"
+								"{{idTESTLine}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/line?firstTime=04:30",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Get Line by params\", () => {",
-									"    pm.expect(pm.response.code).to.eq(200);",
-									"})",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/line?firstTime={{firstTime}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"line"
-							],
-							"query": [
-								{
-									"key": "lastTime",
-									"value": "22:00",
-									"description": "Hora de fin",
-									"disabled": true
-								},
-								{
-									"key": "firstTime",
-									"value": "{{firstTime}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1664,20 +2053,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/{{id}}",
+							"raw": "{{API_CityTravel}}/lines/{{idTESTLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"{{id}}"
+								"lines",
+								"{{idTESTLine}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1720,85 +2109,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/line/{{id}}",
+							"raw": "{{API_CityTravel}}/lines/{{idTESTLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"{{id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/station/{lineId}/station",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"var hourstart = [\"04:00\",\"04:30\",\"05:00\",\"05:30\",\"06:00\",\"06:30\",\"07:00\",\"07:30\"]",
-									"var hourclose = [\"21:00\",\"21:30\",\"22:00\",\"22:30\",\"23:00\",\"23:30\",\"23:45\"]",
-									"",
-									"pm.variables.set(\"randomhstart\", hourstart[_.random(hourstart.length -1)]);",
-									"pm.variables.set(\"randomhclose\", hourclose[_.random(hourclose.length -1)]);",
-									"",
-									"pm.environment.set(\"randomLine\", _.random(1, 12));",
-									"",
-									"",
-									"",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idStation\", response.id);",
-									"",
-									"",
-									"pm.test(\"New Station by Line Id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/station/{{id}}/station",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"station",
-								"{{id}}",
-								"station"
+								"lines",
+								"{{idTESTLine}}"
 							]
 						}
 					},
@@ -1855,7 +2172,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n",
+							"raw": "{\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\" \n}\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1863,13 +2180,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/{{idStation}}/station",
+							"raw": "{{API_CityTravel}}/station/{{idTESTStation}}/station",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"{{idStation}}",
+								"{{idTESTStation}}",
 								"station"
 							]
 						}
@@ -1877,7 +2194,7 @@
 					"response": []
 				},
 				{
-					"name": "/station",
+					"name": "/stations",
 					"event": [
 						{
 							"listen": "test",
@@ -1902,12 +2219,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/station",
+							"raw": "{{API_CityTravel}}/stations",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"station"
+								"stations"
 							]
 						}
 					},
@@ -1951,79 +2268,20 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/station/{{idStation}}",
+							"raw": "{{API_CityTravel}}/station/{{idTESTStation}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"station",
-								"{{idStation}}"
+								"{{idTESTStation}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/station?wifi=true&busStation=false&taxiStation=true",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"GetStation by Params\", () => {",
-									"    pm.expect(pm.response.code).to.eq(200);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "wifi",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/station/?wifi={{$randomBoolean}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"station",
-								""
-							],
-							"query": [
-								{
-									"key": "wifi",
-									"value": "{{$randomBoolean}}"
-								},
-								{
-									"key": "busStation",
-									"value": "{{$randomBoolean}}",
-									"disabled": true
-								},
-								{
-									"key": "taxiStation",
-									"value": "{{$randomBoolean}}",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/station/{id}",
+					"name": "/stations/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2064,7 +2322,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}}\n}",
+							"raw": "{\n       \"name\": \"{{$randomCity}}-STATION\",\n        \"hopen\": \"{{randomhstart}}\",\n        \"hclose\": \"{{randomhclose}}\",\n        \"ptoInfo\": {{$randomBoolean}},\n        \"wifi\": {{$randomBoolean}},\n        \"busStation\":{{$randomBoolean}},\n        \"taxiStation\":{{$randomBoolean}},\n        \"latitude\":\"{{$randomLatitude}}\",\n        \"longitude\":\"{{$randomLongitude}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2072,73 +2330,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/station/{{idStation}}",
+							"raw": "{{API_CityTravel}}/stations/{{idTESTStation}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"station",
-								"{{idStation}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage/{stationId}/garage",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomSur\", _.random (1400,5000));"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idGarage\", response.id);",
-									"",
-									"pm.test(\"New Garage by Station Id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codeGarage\": \"GST-{{$randomInt}}\"\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/garage/{{idStation}}/garage",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage",
-								"{{idStation}}",
-								"garage"
+								"stations",
+								"{{idTESTStation}}"
 							]
 						}
 					},
@@ -2192,13 +2390,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/garage/{{idGarage}}/garage",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}/garage",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}",
+								"{{idTESTGarage}}",
 								"garage"
 							]
 						}
@@ -2206,7 +2404,7 @@
 					"response": []
 				},
 				{
-					"name": "/garage",
+					"name": "/garages",
 					"event": [
 						{
 							"listen": "test",
@@ -2230,19 +2428,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/garage",
+							"raw": "{{API_CityTravel}}/garages",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"garage"
+								"garages"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/garage/{id}",
+					"name": "/garages/{id}",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2276,78 +2474,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garages/{{idTESTGarage}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"garage",
-								"{{idGarage}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/garage?taller=true&paintService=true&rrhh=false",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Get garages by Params\", () => {",
-									"    pm.expect(pm.response.code).to.eq(200);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/garage?taller=true&taller=false&rrhh=false",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"garage"
-							],
-							"query": [
-								{
-									"key": "taller",
-									"value": "true"
-								},
-								{
-									"key": "rrhh",
-									"value": "true",
-									"disabled": true
-								},
-								{
-									"key": "paintService",
-									"value": "true",
-									"disabled": true
-								},
-								{
-									"key": "taller",
-									"value": "false"
-								},
-								{
-									"key": "rrhh",
-									"value": "false"
-								},
-								{
-									"key": "paintService",
-									"value": "false",
-									"disabled": true
-								}
+								"garages",
+								"{{idTESTGarage}}"
 							]
 						}
 					},
@@ -2396,75 +2529,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access/{stationId}/access",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"pm.collectionVariables.set (\"randomAccessId\",_.random(1,12));",
-									"pm.collectionVariables.set (\"randomStation\",_.random(1,20));",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idAccess\", response.id);",
-									"",
-									"pm.test(\"Add new access\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"street\": \"{{$randomStreetAddress}}\",\n        \"num\": \"{{$randomInt}}\"\n        \n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/access/{{idStation}}/access",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access",
-								"{{idStation}}",
-								"access"
+								"{{idTESTGarage}}"
 							]
 						}
 					},
@@ -2519,13 +2590,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/access/{{idAccess}}/access",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}/access",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}",
+								"{{idTESTAccess}}",
 								"access"
 							]
 						}
@@ -2533,7 +2604,7 @@
 					"response": []
 				},
 				{
-					"name": "/access",
+					"name": "/accesses",
 					"event": [
 						{
 							"listen": "test",
@@ -2557,12 +2628,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/access",
+							"raw": "{{API_CityTravel}}/accesses",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"access"
+								"accesses"
 							]
 						}
 					},
@@ -2602,60 +2673,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/accesses/{{idTESTAccess}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"access",
-								"{{idAccess}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/access?elevator=true Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Get access with Params\", () => {",
-									"    pm.expect(pm.response.code).to.eq(200);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/access?elevator=true",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"access"
-							],
-							"query": [
-								{
-									"key": "elevator",
-									"value": "true"
-								},
-								{
-									"key": "elevator",
-									"value": "false",
-									"disabled": true
-								}
+								"accesses",
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -2704,101 +2728,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/train/{lineid}/train",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"",
-									"//Años aleatorios entre 2 fechas",
-									"pm.collectionVariables.set (\"randomYear\", _.random (1980,2022));",
-									"",
-									"// Numeros aleatorios entre 2",
-									"pm.collectionVariables.set(\"randomLine\",_.random(1,12));",
-									"",
-									"// Numero de vagones aleatorio",
-									"pm.collectionVariables.set(\"randomwagons\",_.random(1,20));",
-									"",
-									"//Numero de garage aleatorio",
-									"pm.environment.set(\"randomGarage\",_.random(1,10));",
-									"",
-									"",
-									"//Formato fecha actual en dd-mm-YYYY",
-									"const dateNow = new Date();",
-									"postman.setGlobalVariable(\"todayDate\", dateNow.toLocaleDateString());",
-									"var moment = require('moment');",
-									"pm.environment.set('currentdate', moment().format((\"DD-MM-YYYY\")));",
-									"",
-									"",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json();",
-									"pm.collectionVariables.set(\"idTrain\", response.id);",
-									"",
-									"",
-									"pm.test(\"New train by line id\", () => {",
-									"    pm.expect(pm.response.code).to.eq(201);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "id",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"code\": \"{{$randomCountryCode}}\",\n        \"model\": \"{{$randomLoremWord}}\"\n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{API_URL}}/train/{{id}}/train",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"train",
-								"{{id}}",
-								"train"
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -2871,7 +2807,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"numSeats\": {{randomSeats}},\n        \"numWagons\": {{randomWagons}},\n        \"numStandUp\": {{randomStandUp}}\n    \n}",
+							"raw": "{\n        \"numWagons\":{{$randomInt}},\n        \"numSeats\": {{$randomInt}},\n        \"numStandUp\": {{$randomInt}}\n    \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2879,13 +2815,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
@@ -2940,22 +2876,20 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/train/{{idTrain}}",
-							"protocol": "http",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
-								"localhost"
+								"{{API_CityTravel}}"
 							],
-							"port": "8080",
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/train",
+					"name": "/trains",
 					"event": [
 						{
 							"listen": "test",
@@ -2980,12 +2914,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/train",
+							"raw": "{{API_CityTravel}}/trains",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"train"
+								"trains"
 							]
 						}
 					},
@@ -3025,77 +2959,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/line/{{id}}/trains",
+							"raw": "{{API_CityTravel}}/line/{{idTESTLine}}/trains",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"line",
-								"{{id}}",
+								"{{idTESTLine}}",
 								"trains"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/train?numWagons={{$randomInt}}&numSeats={{$randomInt}}&numStandUp={{$randomInt}}",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set (\"randomWagons\", _.random (10,20));",
-									"pm.collectionVariables.set (\"randomSeats\", _.random (150,300));",
-									"pm.collectionVariables.set (\"randomStandUp\", _.random (50,100));"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Get trains with params\", () => {",
-									"    pm.expect(pm.response.code).to.eq(200);",
-									"})"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{API_URL}}/train?numWagons={{numberWagons}}",
-							"host": [
-								"{{API_URL}}"
-							],
-							"path": [
-								"train"
-							],
-							"query": [
-								{
-									"key": "numSeats",
-									"value": "{{randomSeats}}",
-									"disabled": true
-								},
-								{
-									"key": "numStandUp",
-									"value": "{{randomStandUp}}",
-									"disabled": true
-								},
-								{
-									"key": "numWagons",
-									"value": "{{numberWagons}}"
-								}
 							]
 						}
 					},
@@ -3126,13 +2997,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/access/{{idAccess}}",
+							"raw": "{{API_CityTravel}}/access/{{idTESTAccess}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"access",
-								"{{idAccess}}"
+								"{{idTESTAccess}}"
 							]
 						}
 					},
@@ -3163,20 +3034,20 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/garage/{{idGarage}}",
+							"raw": "{{API_CityTravel}}/garage/{{idTESTGarage}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"garage",
-								"{{idGarage}}"
+								"{{idTESTGarage}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/station/{id}",
+					"name": "/stations/{id}",
 					"event": [
 						{
 							"listen": "test",
@@ -3200,13 +3071,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/station/{{idStation}}",
+							"raw": "{{API_CityTravel}}/stations/{{idTESTStation}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"station",
-								"{{idStation}}"
+								"stations",
+								"{{idTESTStation}}"
 							]
 						}
 					},
@@ -3238,20 +3109,20 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/train/{{idTrain}}",
+							"raw": "{{API_CityTravel}}/train/{{idTESTTrain}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
 								"train",
-								"{{idTrain}}"
+								"{{idTESTTrain}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/line/{id}",
+					"name": "/lines/{id}",
 					"event": [
 						{
 							"listen": "test",
@@ -3276,13 +3147,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{API_URL}}/line/{{id}}",
+							"raw": "{{API_CityTravel}}/lines/{{idTESTLine}}",
 							"host": [
-								"{{API_URL}}"
+								"{{API_CityTravel}}"
 							],
 							"path": [
-								"line",
-								"{{id}}"
+								"lines",
+								"{{idTESTLine}}"
 							],
 							"query": [
 								{
@@ -3296,6 +3167,32 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin2\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_CityTravel}}/register",
+					"host": [
+						"{{API_CityTravel}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
 		},
 		{
 			"name": "token",
@@ -3315,7 +3212,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"juansenen\",\n    \"password\": \"abc123\"\n}",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -3323,42 +3220,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/token",
-					"protocol": "http",
+					"raw": "{{API_CityTravel}}/token",
 					"host": [
-						"localhost"
+						"{{API_CityTravel}}"
 					],
-					"port": "8080",
 					"path": [
 						"token"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"juansenen\",\n    \"password\": \"abc123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"register"
 					]
 				}
 			},
@@ -3439,10 +3306,6 @@
 			"value": ""
 		},
 		{
-			"key": "idStation",
-			"value": ""
-		},
-		{
 			"key": "idGarage",
 			"value": ""
 		},
@@ -3464,6 +3327,39 @@
 		},
 		{
 			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "idLine",
+			"value": ""
+		},
+		{
+			"key": "cities",
+			"value": "Barcelona\nMadrid\nZaragoza\nSevilla\nLeón\nGuipuzkoa\nLerida\nTarragona\nValladolid\nOurense\nPontevedra\nAlicante\nParís\nFrankfurt\nZurich\nBudapest\nLisboa\nToulousse\nPau\nRoma\nNapoles\nBerlín\nBruselas\nCracovia\n",
+			"type": "string"
+		},
+		{
+			"key": "idStation",
+			"value": ""
+		},
+		{
+			"key": "idTESTStation",
+			"value": ""
+		},
+		{
+			"key": "idTESTGarage",
+			"value": ""
+		},
+		{
+			"key": "idTESTAccess",
+			"value": ""
+		},
+		{
+			"key": "idTESTTrain",
+			"value": ""
+		},
+		{
+			"key": "idTESTLine",
 			"value": ""
 		}
 	]

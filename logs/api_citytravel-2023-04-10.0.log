@@ -1,0 +1,1389 @@
+2023-04-10 00:28:33,233 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 00:28:33,247 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 00:28:34,587 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 00:28:34,592 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 00:28:40,554 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-4] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:28:47,503 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-5] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:07,895 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-6] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:11,227 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 00:29:11,227 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 00:29:12,291 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 00:29:12,294 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 00:29:22,217 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-9] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:40,207 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-3] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:42,337 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-5] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:44,807 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-6] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:29:49,522 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-10 00:29:49,522 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-10 00:29:52,552 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-10 00:29:52,552 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-10 00:29:53,809 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-10 00:29:53,811 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-10 00:29:57,317 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 00:29:57,318 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 00:31:16,288 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 00:31:16,289 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 00:31:29,384 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-10 00:31:29,385 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-10 00:31:30,765 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-10 00:31:30,767 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-10 00:31:33,840 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Begin delete station by Id
+2023-04-10 00:31:33,846 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Finish delete station by Id
+2023-04-10 00:31:35,375 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-10 00:31:35,376 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-10 00:31:37,052 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-10 00:31:37,057 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-10 00:31:40,325 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin delete station by Id
+2023-04-10 00:31:40,329 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish delete station by Id
+2023-04-10 00:31:41,808 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 00:31:41,809 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 00:31:43,019 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine stations by Id Line
+2023-04-10 00:31:43,021 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-10 00:31:44,648 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 00:31:44,649 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 00:42:51,276 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 00:42:51,287 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-10 00:42:51,291 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-10 00:45:53,823 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-10 00:45:53,826 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 2696 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-10 00:45:53,827 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-10 00:45:54,418 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 00:45:54,481 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 55 ms. Found 7 JPA repository interfaces.
+2023-04-10 00:45:55,159 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-10 00:45:55,168 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-10 00:45:55,168 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-10 00:45:55,168 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-10 00:45:55,252 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-10 00:45:55,253 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1392 ms
+2023-04-10 00:45:55,290 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-10 00:45:55,577 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-10 00:45:55,590 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-10 00:45:55,681 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-10 00:45:55,799 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 00:45:55,873 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-10 00:45:56,000 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-10 00:45:56,083 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-10 00:45:56,807 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 00:45:56,815 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 00:45:58,218 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@230e163b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a41f4a7, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e5c8c80, org.springframework.security.web.header.HeaderWriterFilter@5ed88e31, org.springframework.web.filter.CorsFilter@186e254, org.springframework.security.web.authentication.logout.LogoutFilter@aca2a0b, com.juansenen.citytravel.security.AuthTokenFilter@3c04ddda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cd65042, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2dc319cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a827b0c, org.springframework.security.web.session.SessionManagementFilter@1d0fc0bc, org.springframework.security.web.access.ExceptionTranslationFilter@3e265811, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@47b71556]
+2023-04-10 00:45:58,684 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-10 00:45:58,721 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-10 00:45:58,732 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 5.468 seconds (JVM running for 5.784)
+2023-04-10 00:46:01,494 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-10 00:46:01,495 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-10 00:46:01,496 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-04-10 00:46:01,546 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-1] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-09T22:28:53Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 00:46:01,574 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-1] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:46:03,416 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-3] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-09T22:28:53Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 00:46:03,422 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-3] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 00:46:13,401 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin modify station by Id
+2023-04-10 00:46:13,417 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-5] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineStationServiceImpl.lambda$modStation$2(LineStationServiceImpl.java:71)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineStationServiceImpl.modStation(LineStationServiceImpl.java:71)
+	at com.juansenen.citytravel.controler.LineStationControler.modStation(LineStationControler.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 00:46:16,129 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin modify station by Id
+2023-04-10 00:46:16,131 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineStationServiceImpl.lambda$modStation$2(LineStationServiceImpl.java:71)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineStationServiceImpl.modStation(LineStationServiceImpl.java:71)
+	at com.juansenen.citytravel.controler.LineStationControler.modStation(LineStationControler.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 00:46:22,080 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin modify station by Id
+2023-04-10 00:46:22,081 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineStationServiceImpl.lambda$modStation$2(LineStationServiceImpl.java:71)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineStationServiceImpl.modStation(LineStationServiceImpl.java:71)
+	at com.juansenen.citytravel.controler.LineStationControler.modStation(LineStationControler.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:699)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 00:46:28,263 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin get station with or without @RequestParam
+2023-04-10 00:46:28,263 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Finish get station without @RequestParam
+2023-04-10 00:46:33,479 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Begin modify station by Id
+2023-04-10 00:46:33,514 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Finish modify station by Id
+2023-04-10 00:46:42,000 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Begin modify station by Id
+2023-04-10 00:46:42,003 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Finish modify station by Id
+2023-04-10 00:46:43,171 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Begin modify station by Id
+2023-04-10 00:46:43,175 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-4] Finish modify station by Id
+2023-04-10 01:23:17,464 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin modify station by Id
+2023-04-10 01:23:17,468 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Finish modify station by Id
+2023-04-10 01:25:12,335 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 01:25:12,339 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-10 01:25:12,342 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-10 09:15:58,778 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-10 09:15:58,784 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 1068 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-10 09:15:58,785 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-10 09:15:59,447 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 09:15:59,517 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 62 ms. Found 7 JPA repository interfaces.
+2023-04-10 09:16:00,289 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-10 09:16:00,303 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-10 09:16:00,303 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-10 09:16:00,304 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-10 09:16:00,396 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-10 09:16:00,396 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1571 ms
+2023-04-10 09:16:00,438 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-10 09:16:00,817 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-10 09:16:00,829 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-10 09:16:00,926 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-10 09:16:01,051 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 09:16:01,136 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-10 09:16:01,280 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-10 09:16:01,389 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-10 09:16:02,146 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 09:16:02,154 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 09:16:03,666 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7adde776, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3feb93a, org.springframework.security.web.context.SecurityContextPersistenceFilter@6cd65042, org.springframework.security.web.header.HeaderWriterFilter@556e4588, org.springframework.web.filter.CorsFilter@4ae435a3, org.springframework.security.web.authentication.logout.LogoutFilter@62ba3045, com.juansenen.citytravel.security.AuthTokenFilter@53c9541c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22a2e581, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fef2768, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f69c4c0, org.springframework.security.web.session.SessionManagementFilter@1ec09a68, org.springframework.security.web.access.ExceptionTranslationFilter@748fa354, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ca564aa]
+2023-04-10 09:16:04,090 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-10 09:16:04,123 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-10 09:16:04,133 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 6.038 seconds (JVM running for 6.452)
+2023-04-10 09:16:33,217 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-10 09:16:33,217 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-10 09:16:33,218 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2023-04-10 09:16:51,277 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin add new Line
+2023-04-10 09:16:51,306 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish add new Line
+2023-04-10 09:16:51,373 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 09:16:51,373 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 09:16:51,488 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine By Id
+2023-04-10 09:16:51,492 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine By Id
+2023-04-10 09:16:51,540 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin modify a Line by Id
+2023-04-10 09:16:51,556 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish modify a Line by Id
+2023-04-10 09:16:51,605 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin update partialy line by Id
+2023-04-10 09:16:51,610 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] End update partialy line by Id
+2023-04-10 09:16:51,658 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin add station by Line Id
+2023-04-10 09:16:51,679 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish add station by Line Id
+2023-04-10 09:16:51,726 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Begin update partialy station by station id
+2023-04-10 09:16:51,730 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] End update partialy station by station id
+2023-04-10 09:16:51,774 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin get station with or without @RequestParam
+2023-04-10 09:16:51,775 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish get station without @RequestParam
+2023-04-10 09:16:51,830 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin get station by Id
+2023-04-10 09:16:51,834 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Finish get station by Id
+2023-04-10 09:16:51,882 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Begin modify station by Id
+2023-04-10 09:16:51,888 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Finish modify station by Id
+2023-04-10 09:16:51,935 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Begin add garage by station Id
+2023-04-10 09:16:51,946 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Finish add garage by station Id
+2023-04-10 09:16:52,003 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] Begin update partialy garage by garage id
+2023-04-10 09:16:52,026 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] End update partialy garage by garage id
+2023-04-10 09:16:52,068 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-5] Begin get garage with or without @RequestParam
+2023-04-10 09:16:52,068 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-5] Finish get garage without @RequesParam
+2023-04-10 09:16:52,122 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-6] Begin get garage by Id
+2023-04-10 09:16:52,125 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-6] Finish get garage by Id
+2023-04-10 09:16:52,166 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-7] Begin modify garage by Id
+2023-04-10 09:16:52,170 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-7] Finish modify garage by Id
+2023-04-10 09:16:52,214 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-8] Begin add access by station Id
+2023-04-10 09:16:52,228 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineAccessServiceImpl.lambda$addNewAccessByStation$0(LineAccessServiceImpl.java:51)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineAccessServiceImpl.addNewAccessByStation(LineAccessServiceImpl.java:51)
+	at com.juansenen.citytravel.controler.LineAccessControler.addOneAccess(LineAccessControler.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 09:16:52,438 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:16:52,479 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-1] Begin get Access with or without @RequestParam
+2023-04-10 09:16:52,480 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-1] Finish get Access
+2023-04-10 09:16:52,522 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:16:52,566 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-5] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:16:52,652 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-6] Finish add train by Id
+2023-04-10 09:16:52,698 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-8] Begin update partialy train by train id
+2023-04-10 09:16:52,707 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-8] End update partialy train by train id
+2023-04-10 09:16:52,757 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-9] Begin modify train by Id
+2023-04-10 09:16:52,761 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-9] Finsih modify train by Id
+2023-04-10 09:16:52,816 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-10] Begin get trains with or without @ReuestParam
+2023-04-10 09:16:52,817 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-10] Finish get trains withput @RequestParam
+2023-04-10 09:16:52,868 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine trains by Id Line
+2023-04-10 09:16:52,886 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finsh getLine trains by Id Line
+2023-04-10 09:16:52,928 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:16:52,963 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Begin delete garage by garage Id
+2023-04-10 09:16:52,976 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Finish delete garage by garageId
+2023-04-10 09:16:53,013 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin delete station by Id
+2023-04-10 09:16:53,017 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-5] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineStationServiceImpl.lambda$delStation$0(LineStationServiceImpl.java:52)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineStationServiceImpl.delStation(LineStationServiceImpl.java:52)
+	at com.juansenen.citytravel.controler.LineStationControler.delOneStation(LineStationControler.java:82)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 09:16:53,072 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-6] Begin delete train by Id
+2023-04-10 09:16:53,077 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-6] Finish get train by Id
+2023-04-10 09:16:53,110 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin delete a Line
+2023-04-10 09:16:53,117 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish delete a Line
+2023-04-10 09:17:07,924 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin add new Line
+2023-04-10 09:17:07,925 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish add new Line
+2023-04-10 09:17:07,972 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-10 09:17:07,973 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-10 09:17:08,028 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine By Id
+2023-04-10 09:17:08,030 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine By Id
+2023-04-10 09:17:08,079 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin modify a Line by Id
+2023-04-10 09:17:08,082 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish modify a Line by Id
+2023-04-10 09:17:08,126 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin update partialy line by Id
+2023-04-10 09:17:08,128 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] End update partialy line by Id
+2023-04-10 09:17:08,179 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Begin add station by Line Id
+2023-04-10 09:17:08,186 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Finish add station by Line Id
+2023-04-10 09:17:08,230 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin update partialy station by station id
+2023-04-10 09:17:08,234 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] End update partialy station by station id
+2023-04-10 09:17:08,274 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Begin get station with or without @RequestParam
+2023-04-10 09:17:08,274 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Finish get station without @RequestParam
+2023-04-10 09:17:08,316 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin get station by Id
+2023-04-10 09:17:08,318 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Finish get station by Id
+2023-04-10 09:17:08,356 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin modify station by Id
+2023-04-10 09:17:08,359 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish modify station by Id
+2023-04-10 09:17:08,398 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-9] Begin add garage by station Id
+2023-04-10 09:17:08,402 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-9] Finish add garage by station Id
+2023-04-10 09:17:08,443 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-10] Begin update partialy garage by garage id
+2023-04-10 09:17:08,446 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-10] End update partialy garage by garage id
+2023-04-10 09:17:08,482 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-2] Begin get garage with or without @RequestParam
+2023-04-10 09:17:08,500 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-2] Finish get garage without @RequesParam
+2023-04-10 09:17:08,550 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-1] Begin get garage by Id
+2023-04-10 09:17:08,567 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-1] Finish get garage by Id
+2023-04-10 09:17:08,630 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] Begin modify garage by Id
+2023-04-10 09:17:08,646 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] Finish modify garage by Id
+2023-04-10 09:17:08,684 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-3] Begin add access by station Id
+2023-04-10 09:17:08,686 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineAccessServiceImpl.lambda$addNewAccessByStation$0(LineAccessServiceImpl.java:51)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineAccessServiceImpl.addNewAccessByStation(LineAccessServiceImpl.java:51)
+	at com.juansenen.citytravel.controler.LineAccessControler.addOneAccess(LineAccessControler.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 09:17:08,742 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-5] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:17:08,776 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-8] Begin get Access with or without @RequestParam
+2023-04-10 09:17:08,776 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-8] Finish get Access
+2023-04-10 09:17:08,816 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-9] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:17:08,853 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-2] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:17:08,902 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-4] Finish add train by Id
+2023-04-10 09:17:08,941 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-3] Begin update partialy train by train id
+2023-04-10 09:17:08,945 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-3] End update partialy train by train id
+2023-04-10 09:17:08,982 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-7] Begin modify train by Id
+2023-04-10 09:17:08,985 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-7] Finsih modify train by Id
+2023-04-10 09:17:09,021 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-5] Begin get trains with or without @ReuestParam
+2023-04-10 09:17:09,021 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-5] Finish get trains withput @RequestParam
+2023-04-10 09:17:09,062 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine trains by Id Line
+2023-04-10 09:17:09,065 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-10 09:17:09,099 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; nested exception is java.lang.NumberFormatException: For input string: "null"]
+2023-04-10 09:17:09,137 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-10] Begin delete garage by garage Id
+2023-04-10 09:17:09,142 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-10] Finish delete garage by garageId
+2023-04-10 09:17:09,176 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin delete station by Id
+2023-04-10 09:17:09,178 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND] with root cause
+com.juansenen.citytravel.exception.NotFoundException: LineStation NOT FOUND
+	at com.juansenen.citytravel.service.LineStationServiceImpl.lambda$delStation$0(LineStationServiceImpl.java:52)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.juansenen.citytravel.service.LineStationServiceImpl.delStation(LineStationServiceImpl.java:52)
+	at com.juansenen.citytravel.controler.LineStationControler.delOneStation(LineStationControler.java:82)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:702)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:49)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 09:17:09,227 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-4] Begin delete train by Id
+2023-04-10 09:17:09,230 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-4] Finish get train by Id
+2023-04-10 09:17:09,262 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin delete a Line
+2023-04-10 09:17:09,268 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish delete a Line
+2023-04-10 09:18:17,045 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin add new Line
+2023-04-10 09:18:17,046 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish add new Line
+2023-04-10 09:18:36,591 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin add station by Line Id
+2023-04-10 09:18:36,594 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish add station by Line Id
+2023-04-10 09:18:44,178 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-9] Begin add garage by station Id
+2023-04-10 09:18:44,180 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-9] Finish add garage by station Id
+2023-04-10 09:18:51,038 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin modify station by Id
+2023-04-10 09:18:51,040 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish modify station by Id
+2023-04-10 09:19:12,544 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin add new Line
+2023-04-10 09:19:12,545 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish add new Line
+2023-04-10 09:19:12,586 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 09:19:12,586 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 09:19:12,636 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine By Id
+2023-04-10 09:19:12,637 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine By Id
+2023-04-10 09:19:12,677 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin modify a Line by Id
+2023-04-10 09:19:12,680 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish modify a Line by Id
+2023-04-10 09:19:12,720 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin update partialy line by Id
+2023-04-10 09:19:12,724 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] End update partialy line by Id
+2023-04-10 09:19:12,765 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Begin add station by Line Id
+2023-04-10 09:19:12,767 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-5] Finish add station by Line Id
+2023-04-10 09:19:12,806 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] Begin update partialy station by station id
+2023-04-10 09:19:12,809 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-6] End update partialy station by station id
+2023-04-10 09:19:12,842 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin get station with or without @RequestParam
+2023-04-10 09:19:12,842 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish get station without @RequestParam
+2023-04-10 09:19:12,880 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Begin get station by Id
+2023-04-10 09:19:12,882 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-9] Finish get station by Id
+2023-04-10 09:19:12,918 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin modify station by Id
+2023-04-10 09:19:12,922 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish modify station by Id
+2023-04-10 09:19:12,960 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-2] Begin add garage by station Id
+2023-04-10 09:19:12,964 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-2] Finish add garage by station Id
+2023-04-10 09:19:12,999 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-1] Begin update partialy garage by garage id
+2023-04-10 09:19:13,001 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-1] End update partialy garage by garage id
+2023-04-10 09:19:13,033 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] Begin get garage with or without @RequestParam
+2023-04-10 09:19:13,033 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-4] Finish get garage without @RequesParam
+2023-04-10 09:19:13,070 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Begin get garage by Id
+2023-04-10 09:19:13,071 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-3] Finish get garage by Id
+2023-04-10 09:19:13,107 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-7] Begin modify garage by Id
+2023-04-10 09:19:13,109 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-7] Finish modify garage by Id
+2023-04-10 09:19:13,146 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-5] Begin add access by station Id
+2023-04-10 09:19:13,152 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-5] Finish add access by station Id
+2023-04-10 09:19:13,189 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-6] Begin update partialy access by access Id
+2023-04-10 09:19:13,193 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-6] End update partialy access by access Id
+2023-04-10 09:19:13,224 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-8] Begin get Access with or without @RequestParam
+2023-04-10 09:19:13,224 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-8] Finish get Access
+2023-04-10 09:19:13,264 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-9] Begin get access by Id
+2023-04-10 09:19:13,266 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-9] Finish get access by Id
+2023-04-10 09:19:13,303 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-10] Begin modify access by Id
+2023-04-10 09:19:13,318 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-10] Finish modify access by Id
+2023-04-10 09:19:13,380 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-2] Finish add train by Id
+2023-04-10 09:19:13,418 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-1] Begin update partialy train by train id
+2023-04-10 09:19:13,420 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-1] End update partialy train by train id
+2023-04-10 09:19:13,455 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-4] Begin modify train by Id
+2023-04-10 09:19:13,458 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-4] Finsih modify train by Id
+2023-04-10 09:19:13,490 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-3] Begin get trains with or without @ReuestParam
+2023-04-10 09:19:13,490 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-3] Finish get trains withput @RequestParam
+2023-04-10 09:19:13,526 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine trains by Id Line
+2023-04-10 09:19:13,529 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-10 09:19:13,559 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-5] Begin delete access by Id
+2023-04-10 09:19:13,563 INFO com.juansenen.citytravel.controler.LineAccessControler [http-nio-8080-exec-5] Fininsh delete access by Id
+2023-04-10 09:19:13,597 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-6] Begin delete garage by garage Id
+2023-04-10 09:19:13,600 INFO com.juansenen.citytravel.controler.LineGarageControler [http-nio-8080-exec-6] Finish delete garage by garageId
+2023-04-10 09:19:13,629 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Begin delete station by Id
+2023-04-10 09:19:13,633 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-8] Finish delete station by Id
+2023-04-10 09:19:13,664 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-9] Begin delete train by Id
+2023-04-10 09:19:13,667 INFO com.juansenen.citytravel.controler.LineTrainControler [http-nio-8080-exec-9] Finish get train by Id
+2023-04-10 09:19:13,699 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin delete a Line
+2023-04-10 09:19:13,706 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish delete a Line
+2023-04-10 09:36:50,051 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 09:36:50,055 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 09:36:51,784 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 09:36:51,804 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 09:37:09,119 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 09:37:09,120 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 09:37:11,612 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-10 09:37:11,612 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-10 09:37:13,091 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-10 09:37:13,093 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-10 09:37:52,086 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 09:37:52,087 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 09:37:53,794 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-10 09:37:53,796 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-10 09:38:00,636 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine stations by Id Line
+2023-04-10 09:38:00,637 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finsh getLine trains by Id Line
+2023-04-10 09:44:22,779 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 09:44:22,779 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 09:44:24,102 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 09:44:24,106 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 09:44:44,455 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 09:44:44,456 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 09:57:50,881 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 09:57:50,882 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 09:57:52,141 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-10 09:57:52,146 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-10 09:57:56,589 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 09:57:56,589 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 09:57:58,481 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 09:57:58,485 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 09:58:04,018 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 09:58:04,019 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 10:11:58,513 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 10:11:58,514 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 10:12:00,296 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-10 10:12:00,298 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-10 10:12:31,334 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-10 10:12:31,335 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-10 10:21:24,084 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 10:21:24,085 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 10:21:25,180 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 10:21:25,184 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 10:21:46,896 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 10:21:46,896 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 11:15:55,406 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 11:15:55,408 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 11:15:56,738 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-10 11:15:56,742 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-10 11:15:58,672 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.juansenen.citytravel.domain.LineStation> com.juansenen.citytravel.controler.LineStationControler.modStation(long,com.juansenen.citytravel.domain.LineStation) throws com.juansenen.citytravel.exception.NotFoundException]
+2023-04-10 11:16:27,822 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 11:16:27,823 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 11:16:29,750 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-10 11:16:29,755 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-10 11:18:46,640 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 11:18:46,642 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 11:18:47,828 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-10 11:18:47,829 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-10 11:18:59,556 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.juansenen.citytravel.domain.LineStation> com.juansenen.citytravel.controler.LineStationControler.modStation(long,com.juansenen.citytravel.domain.LineStation) throws com.juansenen.citytravel.exception.NotFoundException]
+2023-04-10 11:19:04,818 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 11:19:04,819 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 11:19:07,634 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine stations by Id Line
+2023-04-10 11:19:07,637 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finsh getLine trains by Id Line
+2023-04-10 11:19:21,667 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine
+2023-04-10 11:19:21,667 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finish getLine
+2023-04-10 11:19:23,598 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 11:19:23,600 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 11:19:46,882 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.juansenen.citytravel.domain.LineStation> com.juansenen.citytravel.controler.LineStationControler.modStation(long,com.juansenen.citytravel.domain.LineStation) throws com.juansenen.citytravel.exception.NotFoundException]
+2023-04-10 11:19:51,454 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 11:19:51,454 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 11:19:53,509 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 11:19:53,513 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 11:19:55,483 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 11:19:55,483 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 11:22:30,985 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 11:22:30,985 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 11:22:32,649 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine stations by Id Line
+2023-04-10 11:22:32,651 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finsh getLine trains by Id Line
+2023-04-10 11:22:43,432 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-6] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.juansenen.citytravel.domain.LineStation> com.juansenen.citytravel.controler.LineStationControler.modStation(long,com.juansenen.citytravel.domain.LineStation) throws com.juansenen.citytravel.exception.NotFoundException]
+2023-04-10 11:23:33,668 ERROR com.juansenen.citytravel.security.AuthTokenFilter [http-nio-8080-exec-4] Cannot set user authentication: {}
+org.springframework.security.oauth2.jwt.JwtValidationException: An error occurred while attempting to decode the Jwt: Jwt expired at 2023-04-10T08:16:33Z
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.validateJwt(NimbusJwtDecoder.java:189)
+	at org.springframework.security.oauth2.jwt.NimbusJwtDecoder.decode(NimbusJwtDecoder.java:138)
+	at com.juansenen.citytravel.security.JwtUtils.validateJwtToken(JwtUtils.java:54)
+	at com.juansenen.citytravel.security.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:35)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-04-10 11:23:33,760 ERROR com.juansenen.citytravel.security.AuthEntryPointJwt [http-nio-8080-exec-4] Unauthorized error: Full authentication is required to access this resource
+2023-04-10 11:23:43,248 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Begin modify station by Id
+2023-04-10 11:23:43,261 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-1] Finish modify station by Id
+2023-04-10 11:23:45,904 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Begin modify station by Id
+2023-04-10 11:23:45,906 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-3] Finish modify station by Id
+2023-04-10 11:23:48,426 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Begin modify station by Id
+2023-04-10 11:23:48,428 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Finish modify station by Id
+2023-04-10 11:24:12,603 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-10 11:24:12,604 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-10 11:38:27,064 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Begin getLine
+2023-04-10 11:38:27,065 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-10] Finish getLine
+2023-04-10 11:38:28,278 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-10 11:38:28,280 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-10 11:38:43,832 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Begin modify station by Id
+2023-04-10 11:38:43,835 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-2] Finish modify station by Id
+2023-04-10 11:38:47,604 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine
+2023-04-10 11:38:47,604 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finish getLine
+2023-04-10 11:38:49,083 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 11:38:49,085 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 11:38:56,715 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Begin modify station by Id
+2023-04-10 11:38:56,717 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-7] Finish modify station by Id
+2023-04-10 11:39:00,506 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-10 11:39:00,507 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-10 11:39:02,300 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-10 11:39:02,301 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-10 11:39:04,362 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-10 11:39:04,363 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-10 12:34:54,750 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine
+2023-04-10 12:34:54,757 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finish getLine
+2023-04-10 12:34:56,047 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine stations by Id Line
+2023-04-10 12:34:56,050 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finsh getLine trains by Id Line
+2023-04-10 12:37:07,829 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-10 12:37:07,830 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-10 12:37:08,888 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-10 12:37:08,889 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-10 12:40:41,111 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 12:40:41,112 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 12:40:42,159 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Begin getLine stations by Id Line
+2023-04-10 12:40:42,161 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-1] Finsh getLine trains by Id Line
+2023-04-10 12:44:58,596 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 12:44:58,604 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-10 12:44:58,608 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-04-10 21:04:45,151 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.2.5.Final
+2023-04-10 21:04:45,155 INFO org.springframework.boot.StartupInfoLogger [main] Starting CitytravelApplication using Java 17.0.2 on MacBook-Pro-de-Juansenen.local with PID 2190 (/Users/JSenen/Desktop/CityTravel/target/classes started by JSenen in /Users/JSenen/Desktop/CityTravel)
+2023-04-10 21:04:45,156 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-04-10 21:04:45,731 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-10 21:04:45,787 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 49 ms. Found 7 JPA repository interfaces.
+2023-04-10 21:04:46,514 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2023-04-10 21:04:46,524 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-10 21:04:46,524 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2023-04-10 21:04:46,524 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-04-10 21:04:46,599 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-04-10 21:04:46,600 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1403 ms
+2023-04-10 21:04:46,646 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2023-04-10 21:04:46,980 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-04-10 21:04:47,012 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:/Users/JSenen/Documents/Proyectos/AD/citytravel/citytravel.db'
+2023-04-10 21:04:47,172 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-10 21:04:47,292 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-10 21:04:47,364 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-04-10 21:04:47,505 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-10 21:04:47,608 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-04-10 21:04:48,479 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-10 21:04:48,503 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 21:04:49,982 INFO org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7adde776, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3feb93a, org.springframework.security.web.context.SecurityContextPersistenceFilter@46df794e, org.springframework.security.web.header.HeaderWriterFilter@574413bd, org.springframework.web.filter.CorsFilter@4ae435a3, org.springframework.security.web.authentication.logout.LogoutFilter@79080255, com.juansenen.citytravel.security.AuthTokenFilter@528c4353, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7674f9d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1690929, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f69c4c0, org.springframework.security.web.session.SessionManagementFilter@2003edf, org.springframework.security.web.access.ExceptionTranslationFilter@55a07f97, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ca564aa]
+2023-04-10 21:04:50,408 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-04-10 21:04:50,451 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-10 21:04:50,464 INFO org.springframework.boot.StartupInfoLogger [main] Started CitytravelApplication in 5.858 seconds (JVM running for 6.214)
+2023-04-10 21:19:45,552 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-10 21:19:45,555 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2023-04-10 21:19:45,573 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 17 ms
+2023-04-10 21:19:49,453 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 21:19:49,455 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 21:19:51,837 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 21:19:51,856 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 22:36:22,193 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine
+2023-04-10 22:36:22,196 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finish getLine
+2023-04-10 22:36:23,586 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Begin getLine stations by Id Line
+2023-04-10 22:36:23,591 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-9] Finsh getLine trains by Id Line
+2023-04-10 22:36:26,519 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine
+2023-04-10 22:36:26,520 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finish getLine
+2023-04-10 22:43:59,107 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 22:43:59,108 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 22:44:00,602 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 22:44:00,606 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 22:48:40,636 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 22:48:40,639 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 22:48:43,100 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-10 22:48:43,108 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-10 22:49:33,294 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Begin getLine
+2023-04-10 22:49:33,295 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-7] Finish getLine
+2023-04-10 22:49:34,816 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 22:49:34,822 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 22:49:48,756 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Begin modify station by Id
+2023-04-10 22:49:48,885 INFO com.juansenen.citytravel.controler.LineStationControler [http-nio-8080-exec-10] Finish modify station by Id
+2023-04-10 22:49:52,353 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Begin getLine
+2023-04-10 22:49:52,354 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-2] Finish getLine
+2023-04-10 22:49:53,952 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Begin getLine stations by Id Line
+2023-04-10 22:49:53,961 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-3] Finsh getLine trains by Id Line
+2023-04-10 22:49:56,802 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 22:49:56,802 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 22:50:01,820 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-10 22:50:01,825 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-10 23:51:31,497 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Begin getLine
+2023-04-10 23:51:31,504 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-4] Finish getLine
+2023-04-10 23:51:33,248 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Begin getLine stations by Id Line
+2023-04-10 23:51:33,255 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-5] Finsh getLine trains by Id Line
+2023-04-10 23:51:53,476 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-7] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "com.google.android.material.textfield.TextInputLayout{7ca01ef V.ED..... ........ 457,14-878,182 #7f090048 app:id/addstation_hclose_layout aid=1073741840}": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text 'com.google.android.material.textfield.TextInputLayout{7ca01ef V....' could not be parsed at index 0; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.time.LocalTime` from String "com.google.android.material.textfield.TextInputLayout{7ca01ef V.ED..... ........ 457,14-878,182 #7f090048 app:id/addstation_hclose_layout aid=1073741840}": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text 'com.google.android.material.textfield.TextInputLayout{7ca01ef V....' could not be parsed at index 0<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 29] (through reference chain: com.juansenen.citytravel.domain.LineStation["hclose"])]
+2023-04-10 23:52:13,849 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Begin getLine
+2023-04-10 23:52:13,850 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-6] Finish getLine
+2023-04-10 23:52:15,267 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Begin getLine stations by Id Line
+2023-04-10 23:52:15,270 INFO com.juansenen.citytravel.controler.LineControler [http-nio-8080-exec-8] Finsh getLine trains by Id Line
+2023-04-10 23:52:47,607 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-10 23:52:47,611 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-04-10 23:52:47,613 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
