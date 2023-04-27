@@ -47,11 +47,11 @@ public class LineGarageServiceImpl implements LineGarageService{
     }
 
     @Override
-    public LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws NotFoundException {
+    public LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws NotFoundException {
 
         LineGarage newGarage = new LineGarage();
 
-        modelMapper.map(inGarageDTO, newGarage);
+        modelMapper.map(lineGarage, newGarage);
 
         LineStation lineStation = lineStationRepository.findById(stationId)
                 .orElseThrow(()-> new NotFoundException(new LineStation()));
@@ -77,7 +77,7 @@ public class LineGarageServiceImpl implements LineGarageService{
     @Override
     public LineGarage deleteGarage(long garageId) throws NotFoundException {
         LineGarage garage = lineGarageRepository.findById(garageId)
-                .orElseThrow(()-> new NotFoundException(new LineStation()));
+                .orElseThrow(()-> new NotFoundException("Garage Not found exception"));
         lineGarageRepository.deleteById(garageId);
         return garage;
     }

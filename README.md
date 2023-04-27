@@ -1,15 +1,48 @@
 # CITYTRAVEL
-## Actividad Aprendizaje 1EVA - 2ºDAM - ACCESO A DATOS
+## Actividad Aprendizaje (1EVA - 2EVA ) - 2ºDAM - ACCESO A DATOS
 
 ![Java](https://img.shields.io/badge/Java-red?style=for-the-badge&logo=Java&logoColor=white)
 ![Spring](https://img.shields.io/badge/SpringBoot-green?style=for-the-badge&logo=spring&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-orange?style=for-the-badge&logo=postman&logoColor=white)
 ![Github](https://img.shields.io/badge/github-black?style=for-the-badge&logo=github&logoColor=white)
+![Swagger](https://img.shields.io/badge/swagger-green?style=for-the-badge&logo=swagger&logoColor=black)
 
+***
+![Swagger](https://img.shields.io/badge/swagger-green?style=for-the-badge&logo=swagger&logoColor=black)
+## DOCUMENTACION API https://jsenen.github.io/CityTravel/#/
 
+***
 Se ha creado una API para la gestión y consulta de lineas de tren.
 
-### Requisitos (1 pto cada uno, obligatorios)
+### Requisitos  2EVA
+1. escribe el fichero OpenAPI 3.0 de la API. Incluye, al menos, los casos de éxito (20X), 400, 404 y los 500.
+   https://jsenen.github.io/CityTravel/#/ ✅
+
+2. Diseña una API Virtual de forma que existan, al menos, 3 Casos de Uso para cada operación (tanto de OK como para KO).
+   https://github.com/JSenen/APIMock-CityTravel ✅
+
+3. Prepara una colección Postman de prueba para la API diseñada y otra que permita probar todos los Casos de Uso de la API virtual
+   Se encuentran dentro de cada repositorio ✅
+
+4. Diseña, al menos, 3 operaciones para que funcionen de forma reactiva con WebFlux.
+   https://github.com/JSenen/CityTravel_REACTIVE ✅
+
+5. Ajusta el desarrollo de tu proyecto para que cumpla todas las decisiones de diseño adoptadas en los puntos anteriores ✅
+
+
+6. Si tu API está securizada, añade la información necesaria al fichero OpenAPI 3.0 ✅
+
+7. Añade alguna operación en la que se envien o reciban ficheros
+8. Parametriza ambas colecciones Postman de forma que sea fácil cambiar el host, puerto o basePath de la API ✅
+
+   Dentro del fichero POSTMAN, se encuentra los ENVIOREMENT y se ha incluido los host en una variable global
+9. Añade al fichero de especificación de la API (OpenAPI 3.0) un par de ejemplos para cada operación ✅
+
+10. Utiliza las herramientas Git y GitHub durante todo el desarrollo de la aplicación. Utiliza el gestor de Issues para los problemas/fallos que vayan surgiendo.
+✅
+
+
+### Requisitos (1 pto cada uno, obligatorios) 1EVA
 1. El modelo de datos estará compuesto de, al menos, 5 clases y tendrán que existir relaciones entre ellas. Cada clase tendrá, al menos, 6 atributos (String, int, float, boolean y algún tipo para almacenar fechas). Cada clase tendrá, al menos, 2 atributos obligatorios y algún otro con algún tipo de restricción de formato/validación. ✅
    El modelo relacional entre las diferentes clases es el siguiente.
 

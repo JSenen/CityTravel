@@ -16,7 +16,7 @@ public interface LineGarageService {
     Optional<LineGarage> findById(long id);
     LineGarage modGarage (long id, LineGarage lineGarage) throws NotFoundException;
 
-    LineGarage addNewGarByLine(inGarageDTO inGarageDTO, long stationId) throws NotFoundException;
+    LineGarage addNewGarByLine(LineGarage lineGarage, long stationId) throws NotFoundException;
 
     List<outGarageDTO> searchByTallerOrRecHumOrPaintService(boolean mechanic, boolean rrhh, boolean pService);
 

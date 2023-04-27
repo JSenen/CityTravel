@@ -2,8 +2,6 @@
 
 
     import com.juansenen.citytravel.domain.Line;
-    import com.juansenen.citytravel.domain.LineGarage;
-    import com.juansenen.citytravel.domain.LineStation;
     import com.juansenen.citytravel.domain.LineTrain;
     import com.juansenen.citytravel.domain.dto.inTrainDTO;
     import com.juansenen.citytravel.domain.dto.outTrainDTO;
@@ -34,19 +32,19 @@
 
 
         @Override
-        public List<outTrainDTO> findAll() {
+        public List<LineTrain> findAll() {
             List<LineTrain> trains = lineTrainRepository.findAll();
-            List<outTrainDTO> trainDTOS = modelMapper.map(trains, new TypeToken<List<outTrainDTO>>(){}.getType());
-            return trainDTOS;
+            List<LineTrain> listrains = modelMapper.map(trains, new TypeToken<List<LineTrain>>(){}.getType());
+            return listrains;
         }
         @Override
         public Optional<LineTrain> findById(long id) throws LineNoFoundException {
             return lineTrainRepository.findById(id);
         }
         @Override
-        public List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp) {
+        public List<LineTrain> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp) {
             List<LineTrain> trains = lineTrainRepository.findAllByWagonsOrSeatsOrStandUp(numWagons, numSeats, numStandUp);
-            List<outTrainDTO> trainDTOS = modelMapper.map(trains, new TypeToken<List<outTrainDTO>>(){}.getType());
+            List<LineTrain> trainDTOS = modelMapper.map(trains, new TypeToken<List<LineTrain>>(){}.getType());
             return trainDTOS;
         }
         @Override
@@ -58,13 +56,13 @@
         }
 
         @Override
-        public LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws NotFoundException {
+        public LineTrain addNewTrain(long lineId, LineTrain lineTrain) throws LineNoFoundException{
             LineTrain newTrain = new LineTrain();
 
-            modelMapper.map(inTrainDTO, newTrain);
+            modelMapper.map(lineTrain, newTrain);
 
             Line line = lineRepository.findById(lineId)
-                    .orElseThrow(()-> new NotFoundException(new Line()));
+                    .orElseThrow(LineNoFoundException::new);
             newTrain.setLine(line);
             return lineTrainRepository.save(newTrain);
         }

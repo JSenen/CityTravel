@@ -11,14 +11,14 @@
 
     public interface LineTrainService {
 
-        List<outTrainDTO> findAll();
+        List<LineTrain> findAll();
         Optional<LineTrain> findById(long id) throws LineNoFoundException;
 
         LineTrain delTrain(long id) throws NotFoundException;
-        LineTrain addNewTrain(long lineId, inTrainDTO inTrainDTO) throws  NotFoundException;
+        LineTrain addNewTrain(long lineId, LineTrain lineTrain) throws LineNoFoundException;
         LineTrain modTrain(long id, LineTrain lineTrain) throws NotFoundException;
         List<LineTrain> findByLineId(long lineId);
-        List<outTrainDTO> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp);
+        List<LineTrain> searchByWagonsOrSeatsOrStandUp(int numWagons, int numSeats, int numStandUp);
 
 
         LineTrain updateOneTrain(long trainId, LineTrain lineTrain) throws NotFoundException;

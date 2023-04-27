@@ -14,7 +14,7 @@ public interface LineAccessService {
     Optional<LineAccess> findById(long id);
     LineAccess delAccess(long id) throws NotFoundException;
     LineAccess modyAccess(long id, LineAccess lineAccess) throws NotFoundException;
-    LineAccess addNewAccessByStation(inAccessDTO inAccessDTO, long stationid) throws NotFoundException;
+    LineAccess addNewAccessByStation(LineAccess lineAccess, long stationid) throws NotFoundException;
 
     List<outAccessDTO> searchAccessWithElevator(boolean elevator);
 

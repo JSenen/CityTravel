@@ -24,14 +24,20 @@ public class LineGarageControler {
 
     private final Logger logger = LoggerFactory.getLogger(LineGarageControler.class);
 
-    @GetMapping("/garage")
+    @GetMapping("/garages")
     public ResponseEntity<List<outGarageDTO>> getAll(@RequestParam(name = "taller",defaultValue = "",required = false) String taller,
                                                      @RequestParam(name ="rrhh",defaultValue = "",required = false) String rechum,
                                                      @RequestParam(name = "paintservice",defaultValue = "",required = false) String paint){
         logger.info("Begin get garage with or without @RequestParam");
-        if (taller.equals("") && rechum.equals("") && paint.equals("")){
+        if (taller.isEmpty() && rechum.isEmpty() && paint.isEmpty()){
             logger.info("Finish get garage without @RequesParam");
             return ResponseEntity.ok(lineGarageService.findAll());
+        } else if ((taller.isEmpty() || !taller.matches("(?i)^(true|false)$")) ||
+                (rechum.isEmpty() || !rechum.matches("(?i)^(true|false)$")) ||
+                (paint.isEmpty() || !paint.matches("(?i)^(true|false)$"))) {
+            logger.info("Invalid parameter values for get garage.");
+            return ResponseEntity.badRequest().build();
+            
         }
         boolean mechanic = Boolean.parseBoolean(taller);
         boolean rrhh = Boolean.parseBoolean(rechum);
@@ -41,7 +47,7 @@ public class LineGarageControler {
         return ResponseEntity.ok(lineGarageService.searchByTallerOrRecHumOrPaintService(mechanic, rrhh, pService));
     }
 
-    @GetMapping("/garage/{id}")
+    @GetMapping("/garages/{id}")
     public ResponseEntity<Optional<LineGarage>> getById(@PathVariable long id){
         logger.info("Begin get garage by Id");
         Optional<LineGarage> garageId = lineGarageService.findById(id);
@@ -50,9 +56,9 @@ public class LineGarageControler {
     }
 
     @PostMapping("/garage/{stationId}/garage")
-    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody inGarageDTO inGarageDTO) throws NotFoundException {
+    public ResponseEntity<LineGarage> addOneStation(@PathVariable long stationId, @RequestBody LineGarage lineGarage) throws NotFoundException {
         logger.info("Begin add garage by station Id");
-        LineGarage newGarage = lineGarageService.addNewGarByLine(inGarageDTO, stationId);
+        LineGarage newGarage = lineGarageService.addNewGarByLine(lineGarage, stationId);
         logger.info("Finish add garage by station Id");
         return ResponseEntity.status(HttpStatus.CREATED).body(newGarage);
     }

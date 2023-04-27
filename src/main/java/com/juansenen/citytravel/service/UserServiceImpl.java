@@ -19,11 +19,11 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private RoleRepository roleRepository;
 
-    @Override
-    public void remove(User user) {
-        userRepository.delete(user);
-    }
-
+//    @Override
+//    public void remove(User user) {
+//        userRepository.delete(user);
+//    }
+//
     @Override
     public Set<User> findAll() {
         return null;
@@ -34,10 +34,10 @@ public class UserServiceImpl implements UserService{
         return userRepository.findByUsername(username);
     }
 
-    @Override
-    public Set<User> findByCity(String city) {
-        return null;
-    }
+//    @Override
+//    public Set<User> findByCity(String city) {
+//        return null;
+//    }
 
     @Override
     public User addUser(UserDTO userDTO) {
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService{
         User user = new User();
         user.setUsername(userDTO.getUsername());
         user.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
-        user.setEmail("default@email.com");
+//        user.setEmail("default@email.com");
 
         return userRepository.save(user);
     }

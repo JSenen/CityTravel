@@ -1,7 +1,7 @@
 package com.juansenen.citytravel.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import  com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -28,9 +29,10 @@ public class Line {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Min(value = 0, message = "Identifier must be integer") //Valor de entrada debe ser entero
     private long id;
     @Column(name="code_line")
-    @NotBlank(message = "Must be filled")
+    @NotNull(message = "Must be filled")
     private String codeLine;
     @Column
     private String color;
@@ -49,7 +51,7 @@ public class Line {
     @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true) //Para borrar en cascada
     private List<LineTrain> trains;
 
-    @OneToMany(mappedBy = "linestation",cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "line",cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LineStation> stations;
 
 
