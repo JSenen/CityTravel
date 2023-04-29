@@ -55,7 +55,7 @@ public class LibraryConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/register", "/token", "/lines",
                         "/line/{id}","/line/{lineId}/trains","/line/{lineId}/stations",
                         "/stations","/station/{id}","/garages","/garages/{id}","/trains","trains/{id}",
-                        "/accesses","/accesses/{id}","/h2-console/**").permitAll()
+                        "/accesses","/accesses/{id}","/h2-console/**","/line/{lineId}/stationscsv").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }

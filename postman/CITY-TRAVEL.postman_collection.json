@@ -205,6 +205,65 @@
 					"response": []
 				},
 				{
+					"name": "/line/{lineId}/stationscsv",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomLine\",_.random(1,20));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_CityTravel}}/line/{{idLine}}/stationscsv",
+							"host": [
+								"{{API_CityTravel}}"
+							],
+							"path": [
+								"line",
+								"{{idLine}}",
+								"stationscsv"
+							],
+							"query": [
+								{
+									"key": "wifi",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "busStaion",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "taxiStation",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								},
+								{
+									"key": "ptoInfo",
+									"value": "{{$randomBoolean}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "/line",
 					"event": [
 						{

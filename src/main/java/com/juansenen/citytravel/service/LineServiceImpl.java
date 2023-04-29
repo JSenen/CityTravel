@@ -1,17 +1,21 @@
 package com.juansenen.citytravel.service;
 
 import com.juansenen.citytravel.domain.Line;
+import com.juansenen.citytravel.domain.LineStation;
 import com.juansenen.citytravel.domain.dto.outLineDTO;
 import com.juansenen.citytravel.exception.LineNoFoundException;
 import com.juansenen.citytravel.exception.NotFoundException;
 import com.juansenen.citytravel.repository.LineRepository;
 import com.juansenen.citytravel.repository.LineStationRepository;
 import com.juansenen.citytravel.repository.LineTrainRepository;
+import com.opencsv.CSVWriter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -82,4 +86,36 @@ public class LineServiceImpl implements LineService {
         updateLine.setCodeLine((line.getCodeLine()));
         return lineRepository.save(updateLine);
     }
+    /** Generamos archivo CSV en la raiz del proyecto  con las estaciones por id de la linea
+     * Utilizamos libreria opencsv */
+    @Override
+    public void generatecsv(long lineId, boolean haswifi, boolean hasBus, boolean hasTaxi, boolean hasPtoInfo) throws LineNoFoundException {
+        Line line = lineRepository.findById(lineId)
+                .orElseThrow(()-> new LineNoFoundException());
+        List<LineStation> stations = null;
+        if (haswifi || hasBus || hasTaxi || hasPtoInfo) {
+            stations = lineStationRepository.findStationsByParams(lineId, haswifi, hasBus, hasTaxi, hasPtoInfo);
+        } else {
+            stations = lineStationRepository.findAllStationsByLineId(lineId);
+        }
+        try {
+            FileWriter fileWriter = new FileWriter("file.csv");
+            CSVWriter writer = new CSVWriter(fileWriter);
+            String[] headers = {"Station ID", "Name", "Latitude", "Longitude", "Has Wifi", "Has Bus Station",
+                    "Has Taxi Station", "Has Pto Info"};
+            writer.writeNext(headers);
+            for (LineStation station : stations) {
+                String[] data = {String.valueOf(station.getId()), station.getName(), String.valueOf(station.getLatitude()),
+                        String.valueOf(station.getLongitude()), String.valueOf(station.isWifi()),
+                        String.valueOf(station.isBusStation()), String.valueOf(station.isTaxiStation()),
+                        String.valueOf(station.isPtoInfo())};
+                writer.writeNext(data);
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

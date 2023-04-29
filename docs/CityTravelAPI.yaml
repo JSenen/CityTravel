@@ -191,6 +191,73 @@ paths:
           $ref: '#/components/responses/NotFoundException'
         '500':
           $ref: '#/components/responses/InternalServerError'
+  /line/{lineid}/stationscsv:
+    get:
+      tags:
+        - Line
+        - Stations
+      summary: Permite descarga fichero csv con las estaciones por linea identificada con su número Id
+      operationId: getcsvstations
+      description: Genera un archivo en formato csv, con un listado de las estaciones que engloban la linea consultada por su número Id. Las estaciones pueden filtrarse por distintos parametros.
+      parameters:
+        - name: lineId
+          in: path
+          description: ID de la Linea
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 4
+        - name: wifi
+          in: query
+          description: Filtro para buscar estaciones que dispongan de servicio wifi
+          required: false
+          schema:
+            type: boolean
+        - name: busStation
+          in: query
+          description: para buscar estaciones que dispongan de estación de autobuses
+          required: false
+          schema:
+            type: boolean
+        - name: taxiStation
+          in: query
+          description: para buscar estaciones que dispongan de estación de taxis
+          required: false
+          schema:
+            type: boolean
+        - name: ptoInfo
+          in: query
+          description: para buscar estaciones que dispongan de centros de Información
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Se devuelve el fichero en formato csv de las estaciones que corresponden a la linea solicitada
+          content:
+            text/csv:
+              examples:
+                example1:
+                  summary: Example 1
+                  value: |
+                    "id","name","latitude","longitude","has_wifi","has_bus_station","has_taxi_station","has_pto_info"
+                    10","Sants","41.38003","2.1412578","true","true","true","true"
+                    11","Lerida","41.61591","0.6349489","true","true","false","false"
+                    12","Zaragoza","41.679737","-0.8898172","true","false","true","true"
+                    13","Madrid","40.43904","-3.686481","true","false","true","true"
+                example2:
+                  summary: Example 2
+                  value: |
+                    "id","name","latitude","longitude","has_wifi","has_bus_station","has_taxi_station","has_pto_info"
+                    3,"Station 3",40.4170,-3.7040,true,true,true,true
+                    4,"Station 4",40.4171,-3.7041,false,false,false,false
+        '404':
+          $ref: '#/components/responses/NotFoundException'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+
   /lines/{id}:
     parameters:
       - $ref: '#/components/parameters/Id'
