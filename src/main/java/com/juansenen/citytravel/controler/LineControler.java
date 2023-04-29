@@ -8,10 +8,14 @@ import com.juansenen.citytravel.exception.*;
 import com.juansenen.citytravel.service.LineService;
 import com.juansenen.citytravel.service.LineStationService;
 import com.juansenen.citytravel.service.LineTrainService;
+import com.opencsv.CSVWriter;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -19,8 +23,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import java.io.*;
 import java.lang.NumberFormatException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -105,6 +111,19 @@ public class LineControler {
         logger.info("Finsh getLine trains by Id Line");
         return ResponseEntity.ok(stationsParams);
     }
+    /** Peticion descarga fichero CSV, estaciones por linea */
+    @GetMapping("/line/{lineId}/stationscsv")
+    public void downloadCSVByLineID(HttpServletResponse response, @PathVariable long lineId, @RequestParam(name = "wifi", defaultValue = "", required = false) String wifi, @RequestParam(name = "busStation", defaultValue = "", required = false) String busStation, @RequestParam(name = "taxiStation", defaultValue = "", required = false) String taxiStation, @RequestParam(name = "ptoInfo", defaultValue = "", required = false) String ptoInfo) throws NotFoundException, LineNoFoundException, IOException {
+        lineService.generatecsv(lineId, Boolean.parseBoolean(wifi), Boolean.parseBoolean(busStation), Boolean.parseBoolean(taxiStation), Boolean.parseBoolean(ptoInfo));
+        File file = new File("file.csv");
+        InputStream inputStream = new FileInputStream(file);
+        response.setContentType("text/csv");
+        response.setHeader("Content-Disposition", "attachment; filename=\"file.csv\"");
+        IOUtils.copy(inputStream, response.getOutputStream());
+        response.flushBuffer();
+        inputStream.close();
+    }
+
     //Grabar linea
     @PostMapping("/line") /** @Validated y MethodArgumentNotValidException para validar entradas error 400 BadRequest */
     public ResponseEntity<Line> addLine(@RequestBody @Validated Line line) throws MethodArgumentNotValidException{
