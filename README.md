@@ -32,7 +32,66 @@ Se ha creado una API para la gestión y consulta de lineas de tren.
 
 6. Si tu API está securizada, añade la información necesaria al fichero OpenAPI 3.0 ✅
 
-7. Añade alguna operación en la que se envien o reciban ficheros
+7. Añade alguna operación en la que se envien o reciban ficheros ✅
+    Se ha añadido la libreria opencsv para poder generar un archivo csv on un listado de todas las estaciones de una linea
+```
+<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.7.1</version>
+		</dependency>
+```
+También se ha añadido un nuevo endpoint para la solicitud de esa linea
+```
+/** Peticion descarga fichero CSV, estaciones por linea */
+    @GetMapping("/line/{lineId}/stationscsv")
+    public void downloadCSVByLineID(HttpServletResponse response, @PathVariable long lineId, @RequestParam(name = "wifi", defaultValue = "", required = false) String wifi, @RequestParam(name = "busStation", defaultValue = "", required = false) String busStation, @RequestParam(name = "taxiStation", defaultValue = "", required = false) String taxiStation, @RequestParam(name = "ptoInfo", defaultValue = "", required = false) String ptoInfo) throws NotFoundException, LineNoFoundException, IOException {
+        lineService.generatecsv(lineId, Boolean.parseBoolean(wifi), Boolean.parseBoolean(busStation), Boolean.parseBoolean(taxiStation), Boolean.parseBoolean(ptoInfo));
+        File file = new File("file.csv");
+        InputStream inputStream = new FileInputStream(file);
+        response.setContentType("text/csv");
+        response.setHeader("Content-Disposition", "attachment; filename=\"file.csv\"");
+        IOUtils.copy(inputStream, response.getOutputStream());
+        response.flushBuffer();
+        inputStream.close();
+    }
+```
+
+Añadiendo al Service el proceso de generar el archivo CSV
+
+```
+/** Generamos archivo CSV en la raiz del proyecto  con las estaciones por id de la linea
+     * Utilizamos libreria opencsv */
+    @Override
+    public void generatecsv(long lineId, boolean haswifi, boolean hasBus, boolean hasTaxi, boolean hasPtoInfo) throws LineNoFoundException {
+        Line line = lineRepository.findById(lineId)
+                .orElseThrow(()-> new LineNoFoundException());
+        List<LineStation> stations = null;
+        if (haswifi || hasBus || hasTaxi || hasPtoInfo) {
+            stations = lineStationRepository.findStationsByParams(lineId, haswifi, hasBus, hasTaxi, hasPtoInfo);
+        } else {
+            stations = lineStationRepository.findAllStationsByLineId(lineId);
+        }
+        try {
+            FileWriter fileWriter = new FileWriter("file.csv");
+            CSVWriter writer = new CSVWriter(fileWriter);
+            String[] headers = {"Station ID", "Name", "Latitude", "Longitude", "Has Wifi", "Has Bus Station",
+                    "Has Taxi Station", "Has Pto Info"};
+            writer.writeNext(headers);
+            for (LineStation station : stations) {
+                String[] data = {String.valueOf(station.getId()), station.getName(), String.valueOf(station.getLatitude()),
+                        String.valueOf(station.getLongitude()), String.valueOf(station.isWifi()),
+                        String.valueOf(station.isBusStation()), String.valueOf(station.isTaxiStation()),
+                        String.valueOf(station.isPtoInfo())};
+                writer.writeNext(data);
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+```
+
 8. Parametriza ambas colecciones Postman de forma que sea fácil cambiar el host, puerto o basePath de la API ✅
 
    Dentro del fichero POSTMAN, se encuentra los ENVIOREMENT y se ha incluido los host en una variable global
